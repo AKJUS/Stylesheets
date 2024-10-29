@@ -2452,8 +2452,13 @@ tei_desc =
     tei_att.cmc.attributes,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    ## Suggested values include: 1] deprecationInfo (deprecation information)
     attribute type {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      
+      ## (deprecation
+      ##           information) This element describes why or how its parent element is being deprecated, typically including recommendations for alternate encoding.
+      "deprecationInfo"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -2866,8 +2871,21 @@ tei_num =
     tei_att.cmc.attributes,
     
     ## indicates the type of numeric value.
+    ## Suggested values include: 1] cardinal; 2] ordinal; 3] fraction; 4] percentage
     attribute type {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      
+      ## absolute number, e.g. 21, 21.5
+      "cardinal"
+      | 
+        ## ordinal number, e.g. 21st
+        "ordinal"
+      | 
+        ## fraction, e.g. one half or three-quarters
+        "fraction"
+      | 
+        ## a percentage
+        "percentage"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     
     ## supplies the value of the number in standard form.
@@ -2959,6 +2977,7 @@ tei_abbr =
     tei_att.cmc.attributes,
     
     ## (type) allows the encoder to classify the abbreviation according to some convenient typology.
+    ## Sample values include: 1] suspension (suspension); 2] contraction (contraction); 3] brevigraph; 4] superscription (superscription); 5] acronym (acronym); 6] title (title); 7] organization (organization); 8] geographic (geographic)
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
@@ -3077,8 +3096,29 @@ tei_list =
     tei_att.cmc.attributes,
     
     ## (type) describes the nature of the items in the list.
+    ## Suggested values include: 1] gloss (gloss); 2] index (index); 3] instructions (instructions); 4] litany (litany); 5] syllogism (syllogism)
     attribute type {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      [
+        a:documentation [
+          "(gloss) each list item glosses some term or concept, which is given by a "
+          ns1:code [ "<label>" ]
+          " element preceding the list item."
+        ]
+      ]
+      "gloss"
+      | 
+        ## (index) each list item is an entry in an index such as the alphabetical topical index at the back of a print volume.
+        "index"
+      | 
+        ## (instructions) each list item is a step in a sequence of instructions, as in a recipe.
+        "instructions"
+      | 
+        ## (litany) each list item is one of a sequence of petitions, supplications or invocations, typically in a religious ritual.
+        "litany"
+      | 
+        ## (syllogism) each list item is part of an argument consisting of two or more propositions and a final conclusion derived from them.
+        "syllogism"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -3514,6 +3554,7 @@ tei_title =
     tei_att.cmc.attributes,
     
     ## classifies the title according to some convenient typology.
+    ## Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] short; 5] desc (descriptive)
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
@@ -3945,6 +3986,7 @@ tei_divGen =
     tei_att.typed.attribute.subtype,
     
     ## specifies what type of generated text division (e.g. index, table of contents, etc.) is to appear.
+    ## Sample values include: 1] index; 2] toc; 3] figlist; 4] tablist
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
@@ -4211,8 +4253,47 @@ tei_idno =
     tei_att.cmc.attributes,
     
     ## categorizes the identifier, for example as an ISBN, Social Security number, etc.
+    ## Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7] OCLC
     attribute type {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      [
+        a:documentation [
+          "International Standard Book Number: a 13- or (if assigned prior to 2007) 10-digit identifying number assigned by the publishing industry to a published book or similar item, registered with the "
+          ns1:a [
+            href = "https://www.isbn-international.org"
+            " International ISBN Agency."
+          ]
+          "\x{a}" ~
+          "                  "
+        ]
+      ]
+      "ISBN"
+      | 
+        ## International Standard Serial Number: an eight-digit number to uniquely identify a serial publication.
+        "ISSN"
+      | 
+        ## Digital Object Identifier: a unique string of letters and numbers assigned to an electronic document.
+        "DOI"
+      | [
+          a:documentation [
+            "Uniform Resource Identifier: a string of characters to uniquely identify a resource, following the syntax of "
+            ns1:a [
+              href = "https://datatracker.ietf.org/doc/html/rfc3986"
+              "RFC 3986"
+            ]
+            "."
+          ]
+        ]
+        "URI"
+      | 
+        ## A data number in the Virtual Internet Authority File assigned to link different names in catalogs around the world for the same entity.
+        "VIAF"
+      | 
+        ## English Short-Title Catalogue number: an identifying number assigned to a document in English printed in the British Isles or North America before 1801.
+        "ESTC"
+      | 
+        ## OCLC control number (record number) for the union catalog record in WorldCat, a union catalog for member libraries in the Online Computer Library Center global cooperative.
+        "OCLC"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
@@ -5302,8 +5383,24 @@ tei_correspAction =
     tei_att.sortable.attributes,
     
     ## describes the nature of the action.
+    ## Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5] forwarded
     attribute type {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      
+      ## information concerning the sending or dispatch of a message.
+      "sent"
+      | 
+        ## information concerning the receipt of a message.
+        "received"
+      | 
+        ## information concerning the transmission of a message, i.e. between the dispatch and the next receipt, redirect or forwarding.
+        "transmitted"
+      | 
+        ## information concerning the redirection of an unread message.
+        "redirected"
+      | 
+        ## information concerning the forwarding of a message.
+        "forwarded"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -5841,9 +5938,25 @@ tei_titlePart =
     tei_att.typed.attribute.subtype,
     
     ## (type) specifies the role of this subdivision of the title.
+    ## Suggested values include: 1] main (main); 2] sub (subordinate); 3] alt (alternate); 4] short (short); 5] desc (descriptive)
     [ a:defaultValue = "main" ]
     attribute type {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      
+      ## (main) main title of the work
+      "main"
+      | 
+        ## (subordinate) subtitle of the work
+        "sub"
+      | 
+        ## (alternate) alternative title of the work
+        "alt"
+      | 
+        ## (short) abbreviated form of title
+        "short"
+      | 
+        ## (descriptive) descriptive paraphrase of the work
+        "desc"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }

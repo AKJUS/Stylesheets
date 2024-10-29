@@ -2833,13 +2833,13 @@ desc =
     att.cmc.attributes,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Suggested values include: 1] deprecationInfo (deprecation information)
     attribute type {
       
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      ## (deprecation
+      ##           information) This element describes why or how its parent element is being deprecated, typically including recommendations for alternate encoding.
+      "deprecationInfo"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -3237,13 +3237,21 @@ num =
     att.cmc.attributes,
     
     ## indique le type de valeur numérique
+    ## Suggested values include: 1] cardinal; 2] ordinal; 3] fraction; 4] percentage
     attribute type {
       
-      ## first type
-      "A"
+      ## nombre entier ou décimal, par exemple 21, 21.5
+      "cardinal"
       | 
-        ## second type
-        "B"
+        ## nombre ordinal, par exemple 21ème
+        "ordinal"
+      | 
+        ## fraction, par exemple une moitié ou trois-quarts
+        "fraction"
+      | 
+        ## un pourcentage
+        "percentage"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     
     ## fournit la valeur d'un nombre sous une forme normalisée.
@@ -3474,13 +3482,29 @@ ref =
     att.cmc.attributes,
     
     ## (type) describes the nature of the items in the list.
+    ## Suggested values include: 1] gloss (gloss); 2] index (index); 3] instructions (instructions); 4] litany (litany); 5] syllogism (syllogism)
     attribute type {
-      
-      ## first type
-      "A"
+      [
+        a:documentation [
+          "(gloss) chaque item de la liste commente un terme ou un concept qui est donné par un élément "
+          ns1:code [ "<label>" ]
+          " précédant l'item de la liste."
+        ]
+      ]
+      "gloss"
       | 
-        ## second type
-        "B"
+        ## (index) each list item is an entry in an index such as the alphabetical topical index at the back of a print volume.
+        "index"
+      | 
+        ## (instructions) each list item is a step in a sequence of instructions, as in a recipe.
+        "instructions"
+      | 
+        ## (litany) each list item is one of a sequence of petitions, supplications or invocations, typically in a religious ritual.
+        "litany"
+      | 
+        ## (syllogism) each list item is part of an argument consisting of two or more propositions and a final conclusion derived from them.
+        "syllogism"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -5222,13 +5246,9 @@ affiliation =
     att.cmc.attributes,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] sponsor; 2] recommend; 3] discredit; 4] pledged
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -5274,13 +5294,9 @@ age =
     att.dimensions.attributes,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] western; 2] sui; 3] subjective; 4] objective; 5] inWorld (in world); 6] chronological; 7] biological; 8] psychological; 9] functional
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -5330,13 +5346,9 @@ birth =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] caesarean (caesarean section); 2] vaginal (vaginal delivery); 3] exNihilo (ex nihilo); 4] incorporated; 5] founded; 6] established
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -5429,13 +5441,9 @@ death =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] brain; 6] natural; 7] unnatural; 8] fragmentation; 9] dissolution
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -5481,13 +5489,9 @@ education =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] primary; 2] secondary; 3] undergraduate; 4] graduate; 5] residency; 6] apprenticeship
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -5585,13 +5589,9 @@ faith =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] practicing; 2] clandestine; 3] patrilineal; 4] matrilineal; 5] convert
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -5740,13 +5740,9 @@ langKnowledge =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -5976,13 +5972,9 @@ nationality =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] birth; 2] naturalised; 3] self-assigned
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -6028,13 +6020,9 @@ occupation =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] primary; 2] other; 3] paid; 4] unpaid
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -6495,13 +6483,9 @@ residence =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] primary; 2] secondary; 3] temporary; 4] permanent
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -6595,13 +6579,9 @@ socecStatus =
     att.typed.attribute.subtype,
     
     ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+    ## Sample values include: 1] atBirth; 2] atDeath; 3] dependent; 4] inherited; 5] independent
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -7140,13 +7120,47 @@ idno =
     att.cmc.attributes,
     
     ## classe un numéro dans une catégorie, par exemple comme étant un numéro ISBN ou comme appartenant une autre série normalisée.
+    ## Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7] OCLC
     attribute type {
-      
-      ## first type
-      "A"
+      [
+        a:documentation [
+          "International Standard Book Number: a 13- or (if assigned prior to 2007) 10-digit identifying number assigned by the publishing industry to a published book or similar item, registered with the "
+          ns1:a [
+            href = "https://www.isbn-international.org"
+            " International ISBN Agency."
+          ]
+          "\x{a}" ~
+          "                  "
+        ]
+      ]
+      "ISBN"
       | 
-        ## second type
-        "B"
+        ## International Standard Serial Number: an eight-digit number to uniquely identify a serial publication.
+        "ISSN"
+      | 
+        ## Digital Object Identifier: a unique string of letters and numbers assigned to an electronic document.
+        "DOI"
+      | [
+          a:documentation [
+            "Uniform Resource Identifier: a string of characters to uniquely identify a resource, following the syntax of "
+            ns1:a [
+              href = "https://datatracker.ietf.org/doc/html/rfc3986"
+              "RFC 3986"
+            ]
+            "."
+          ]
+        ]
+        "URI"
+      | 
+        ## A data number in the Virtual Internet Authority File assigned to link different names in catalogs around the world for the same entity.
+        "VIAF"
+      | 
+        ## English Short-Title Catalogue number: an identifying number assigned to a document in English printed in the British Isles or North America before 1801.
+        "ESTC"
+      | 
+        ## OCLC control number (record number) for the union catalog record in WorldCat, a union catalog for member libraries in the Online Computer Library Center global cooperative.
+        "OCLC"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     (
      ## indique le système ou le calendrier auquel appartient la date exprimée dans le contenu de l'élément.
@@ -8210,13 +8224,24 @@ correspAction =
     att.sortable.attributes,
     
     ## describes the nature of the action.
+    ## Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5] forwarded
     attribute type {
       
-      ## first type
-      "A"
+      ## information concerning the sending or dispatch of a message.
+      "sent"
       | 
-        ## second type
-        "B"
+        ## information concerning the receipt of a message.
+        "received"
+      | 
+        ## information concerning the transmission of a message, i.e. between the dispatch and the next receipt, redirect or forwarding.
+        "transmitted"
+      | 
+        ## information concerning the redirection of an unread message.
+        "redirected"
+      | 
+        ## information concerning the forwarding of a message.
+        "forwarded"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -9099,13 +9124,9 @@ dimensions =
     att.typed.attribute.subtype,
     
     ## indique quel aspect de l'objet est mesuré.
+    ## Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniatures; 6] binding; 7] box
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -10648,13 +10669,9 @@ fw =
     att.written.attributes,
     
     ## caractérise l'information encodée conformément à une typologie appropriée.
+    ## Sample values include: 1] header; 2] footer; 3] pageNum (page number); 4] lineNum (line number); 5] sig (signature); 6] catch (catchword)
     attribute type {
-      
-      ## first type
-      "A"
-      | 
-        ## second type
-        "B"
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
@@ -11350,14 +11367,27 @@ titlePart =
     att.typed.attribute.subtype,
     
     ## (type) précise le rôle de cette subdivision du titre.
+    ## Suggested values include: 1] main (main); 2] sub (subordinate); 3] alt (alternate); 4] short (short); 5] desc (descriptive)
     [ a:defaultValue = "main" ]
     attribute type {
       
-      ## first type
-      "A"
+      ## (main) titre principal de l'oeuvre.
+      "main"
       | 
-        ## second type
-        "B"
+        ## (sous-titre de l’ouvrage.) sous-titre de l'oeuvre.
+        "sub"
+      | 
+        ## (titre alternatif de
+        ##                         l’ouvrage.) autre titre de l'oeuvre.
+        "alt"
+      | 
+        ## (short) forme abrégée du titre.
+        "short"
+      | 
+        ## (description paraphrastique de
+        ##                             l’ouvrage.) texte qui paraphrase l'oeuvre.
+        "desc"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
   }
