@@ -289,7 +289,7 @@
       </xsl:choose>
       <xsl:choose>
         <xsl:when test="$New/valList[@mode = 'delete']"/>
-        <xsl:when test="$New/valList[@mode = 'add' or @mode = 'replace']">
+        <xsl:when test="$New/valList[ not( @mode )  or  @mode eq 'add'  or  @mode eq 'replace']">
           <xsl:for-each select="$New/valList[1]">
             <xsl:copy>
               <xsl:copy-of select="@type"/>
@@ -298,10 +298,7 @@
             </xsl:copy>
           </xsl:for-each>
         </xsl:when>
-        <xsl:when
-          test="
-            $New/valList[@mode = 'change'] and
-            not($Old/valList)">
+        <xsl:when test="$New/valList[@mode = 'change'] and not($Old/valList)">
           <xsl:for-each select="$New/valList[1]">
             <xsl:copy>
               <xsl:copy-of select="@type"/>
