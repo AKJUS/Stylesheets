@@ -2470,7 +2470,7 @@ of this software, even if advised of the possibility of such damage.
   </xsl:template>
 
   <xsl:template match="tei:gloss" mode="inLanguage">
-    <xsl:value-of select="."/>
+    <xsl:value-of select="normalize-space(.)"/>
   </xsl:template>
   <xsl:template match="tei:desc" mode="inLanguage">
     <xsl:apply-templates/>
