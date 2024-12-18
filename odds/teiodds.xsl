@@ -2482,10 +2482,14 @@ of this software, even if advised of the possibility of such damage.
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template match="tei:constrainSpec|tei:constraint">
+  <xsl:template match="tei:constraintSpec|tei:constraint">
     <xsl:apply-templates/>
   </xsl:template>
 
+  <xsl:template match="tei:constraintDecl[ @scheme eq 'schematron']">
+    <xsl:apply-templates select="sch:*" mode="justcopy"/>
+  </xsl:template>
+  
   <xsl:template match="sch:*">
     <xsl:call-template name="processSchematron"/>
   </xsl:template>
