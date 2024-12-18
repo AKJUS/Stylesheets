@@ -128,7 +128,10 @@ of this software, even if advised of the possibility of such damage.
           <xsl:call-template name="schemaSpecBody"/>
         </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="tei:constraintSpec"/>
+      <xsl:apply-templates
+	  select=" tei:constraintSpec
+		  |tei:constraintDecl[ @scheme eq 'schematron']
+		  |ancestor::tei:TEI/tei:teiHeader//tei:constraintDecl[ @scheme eq 'schematron']"/>
     </xsl:variable>
     <xsl:call-template name="generateOutput">
       <xsl:with-param name="method">xml</xsl:with-param>
