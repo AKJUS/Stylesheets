@@ -7,7 +7,7 @@
       </titleStmt>
       <editionStmt>
         <edition>P5 <ref target="#ABTEI4">Version</ref> <ref target="../../readme-4.9.0.html">4.9.0a</ref>. Last updated on
-        <date when="2024-11-09">9th November 2024</date>, revision <ref target="https://github.com/TEIC/TEI/commit/28371d145">28371d145</ref></edition>
+        <date when="2025-01-11">11th January 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/4d88ca4f0">4d88ca4f0</ref></edition>
       </editionStmt>
       <publicationStmt>
         <distributor>TEI Consortium</distributor>
@@ -16,7 +16,7 @@
             Distributed under a Creative Commons Attribution 3.0 Unported License.
           </licence>
           <licence target="http://www.opensource.org/licenses/BSD-2-Clause">
-            <p>Copyright 2024 TEI Consortium.</p>
+            <p>Copyright 2025 TEI Consortium.</p>
             <p>All rights reserved.</p>     
             <p>Redistribution and use in source and binary forms, with
             or without modification, are permitted provided that the
@@ -931,7 +931,7 @@ of any adjacent whitespace</desc>
       <datatype minOccurs="1" maxOccurs="1">
         <dataRef key="teidata.enumerated"/>
       </datatype>
-      <constraintSpec scheme="schematron" ident="CMC_generatedBy_within_post">
+      <constraintSpec scheme="schematron" ident="CMC_generatedBy_within_post" xml:lang="en">
         <constraint>
           <sch:rule context="tei:*[@generatedBy]">
             <sch:assert test="ancestor-or-self::tei:post">The @generatedBy attribute is for use within a &lt;post&gt; element.</sch:assert>
@@ -1215,21 +1215,21 @@ of any adjacent whitespace</desc>
   d'événements datés ou susceptibles de l'être.</desc>
   <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi per la normalizzazione di elementi che contengono eventi databili utilizzando i tipi di dati del W3C</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos para la normalización de elementos que contienen eventos datables.</desc>
-  <constraintSpec ident="att-datable-w3c-when" scheme="schematron">
+  <constraintSpec ident="att-datable-w3c-when" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:*[@when]">
         <sch:report test="@notBefore|@notAfter|@from|@to" role="nonfatal">The @when attribute cannot be used with any other att.datable.w3c attributes.</sch:report>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="att-datable-w3c-from" scheme="schematron">
+  <constraintSpec ident="att-datable-w3c-from" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:*[@from]">
         <sch:report test="@notBefore" role="nonfatal">The @from and @notBefore attributes cannot be used together.</sch:report>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="att-datable-w3c-to" scheme="schematron">
+  <constraintSpec ident="att-datable-w3c-to" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:*[@to]">
         <sch:report test="@notAfter" role="nonfatal">The @to and @notAfter attributes cannot be used together.</sch:report>
@@ -1543,7 +1543,7 @@ of any adjacent whitespace</desc>
     <p>The <att>datcat</att> attribute relates the feature <hi rend="italic">name</hi> (i.e., the key) to the data
       category <q>part of speech</q>, while the attribute <att>valueDatcat</att> relates the feature <hi rend="italic">value</hi> to the data category <term>common noun</term>. Both these data categories
       should be defined in an external and preferably open reference taxonomy or ontology.</p>
-    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="DATCAT-egXML-lh"> xmlns="http://www.tei-c.org/ns/Examples" xml:id="DATCAT-egXML-xk"&gt;
+    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="DATCAT-egXML-lh">
       <fs>
         <f name="POS" datcat="http://hdl.handle.net/11459/CCR_C-396_5a972b93-2294-ab5c-a541-7c344c5f26c3">
           <symbol valueDatcat="http://hdl.handle.net/11459/CCR_C-1256_7ec6083c-23d4-224d-6f94-eecbe6861545" value="NN"/>
@@ -2689,22 +2689,20 @@ the TEI header.</p>
   </listRef>
 </classSpec>
 <classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" predeclare="true" xml:id="GBLSRC" module="tei" type="atts" ident="att.global.source">
-  <desc versionDate="2021-08-22" xml:lang="en">provides attributes used by elements to point to an
-    external source.</desc>
+  <desc versionDate="2021-08-22" xml:lang="en">provides attributes used by elements to point to an external source.</desc>
   <desc versionDate="2019-09-18" xml:lang="ja">外部ソースを参照する要素によって用いられる属性を示す。</desc>
   <attList>
     <attDef ident="source" usage="opt">
-      <desc versionDate="2010-05-09" xml:lang="en">specifies the source from which some aspect of
-        this element is drawn.</desc>
+      <desc versionDate="2010-05-09" xml:lang="en">specifies the source from which some aspect of this element is drawn.</desc>
       <desc versionDate="2019-09-18" xml:lang="ja">この要素の何らかの側面を示すソースを指定する。</desc>
       <datatype maxOccurs="unbounded">
         <dataRef key="teidata.pointer"/>
       </datatype>
-      <constraintSpec scheme="schematron" ident="only_1_ODD_source">
+      <constraintSpec scheme="schematron" ident="only_1_ODD_source" xml:lang="en">
         <constraint>
           <sch:rule context="tei:*[@source]">
             <sch:let name="srcs" value="tokenize( normalize-space(@source),' ')"/>
-            <sch:report test="( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]">
+            <sch:report test="(   self::tei:classRef                                 | self::tei:dataRef                                 | self::tei:elementRef                                 | self::tei:macroRef                                 | self::tei:moduleRef                                 | self::tei:schemaSpec )                                   and                                   $srcs[2]">
               When used on a schema description element (like
               <sch:value-of select="name(.)"/>), the @source attribute
               should have only 1 value. (This one has <sch:value-of select="count($srcs)"/>.)
@@ -3069,15 +3067,55 @@ the TEI header.</p>
     <ptr target="#STGA"/>
   </listRef>
 </classSpec>
+<classSpec module="tei" type="atts" xml:id="class-attr-scope" ident="att.scope">
+  <desc versionDate="2024-12-04" xml:lang="en">provides attributes to describe, in general terms, the scope of an element’s application.</desc>
+  <attList>
+    <attDef ident="scope" usage="opt">
+      <desc versionDate="2024-12-04" xml:lang="en">indicates the scope of application of the element</desc>
+      <datatype><dataRef key="teidata.enumerated"/></datatype>
+      <valList type="semi">
+        <valItem ident="sole">
+          <desc versionDate="2024-12-04" xml:lang="en">only this particular feature is used throughout the document</desc>
+        </valItem>
+        <valItem ident="major">
+          <desc versionDate="2024-12-04" xml:lang="en">this feature is used through most of the document</desc>
+        </valItem>
+        <valItem ident="minor">
+          <desc versionDate="2024-12-04" xml:lang="en">this feature is used occasionally through the document</desc>
+        </valItem>
+      </valList>
+      <exemplum xml:lang="en">
+        <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="class-attr-scope-egXML-ls">
+          <langUsage>
+            <language ident="en" scope="major"/>
+            <language ident="es" scope="minor"/>
+            <language ident="x-ww" scope="minor">An invented language the children call <name>Wikwah</name>.</language>
+          </langUsage>
+        </egXML>
+      </exemplum>
+      <exemplum xml:lang="en">
+        <!-- This example used to be "HANDNOTE-egXML-ey" -->
+        <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="class-attr-scope-egXML-ey">
+          <handNote scope="sole">
+            <p>Written in insular phase II half-uncial with
+            interlinear Old English gloss in an Anglo-Saxon
+            pointed minuscule.</p>
+          </handNote>
+        </egXML>
+      </exemplum>
+    </attDef>
+  </attList>
+</classSpec>
 <classSpec module="tei" type="atts" ident="att.handFeatures">
-  <desc versionDate="2007-09-27" xml:lang="en">provides attributes describing aspects of the hand in which a
-  manuscript is written.</desc>
+  <desc versionDate="2007-09-27" xml:lang="en">provides attributes describing aspects of the hand in which a manuscript is written.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">원고가 쓰여진 필적의 측면을 기술하는 속성을 제공한다.</desc>
   <desc versionDate="2008-04-06" xml:lang="es">proporciona atributos que describen los aspectos de la mano que ha escrito un manuscrito.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">手書き資料の筆致に関する情報を表す情報を示す。</desc>
-  <desc versionDate="2008-03-30" xml:lang="fr">fournit des attributs décrivant les caractéristiques
-de la main par laquelle un manuscrit est écrit.</desc>
+  <desc versionDate="2008-03-30" xml:lang="fr">fournit des attributs décrivant les caractéristiques de la main par laquelle un manuscrit est écrit.</desc>
   <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi che descrivono aspetti delle mano utilizzata per la scrittura del manoscritto</desc>
+  <classes>
+    <memberOf key="att.scope"/>
+  </classes>
   <attList>
     <attDef ident="scribe">
       <desc versionDate="2010-09-28" xml:lang="en">gives a name or other identifier for the scribe
@@ -3134,50 +3172,11 @@ writing medium, e.g. <mentioned>pencil</mentioned>.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">describe la tinta o el tipo de tinta, p.ej. <mentioned>marrón</mentioned>, u otros instrumentos de escritura, p.ej. <mentioned>lápiz</mentioned>.</desc>
        <datatype minOccurs="1" maxOccurs="unbounded"><dataRef key="teidata.enumerated"/></datatype>
     </attDef>
-    <attDef ident="scope">
-      <desc versionDate="2007-09-27" xml:lang="en">specifies how widely this  hand is used in the manuscript.</desc>
-      <desc versionDate="2007-12-20" xml:lang="ko">이 필적이 원고에서 사용된 범위를 명시한다.</desc>
-      <desc versionDate="2008-04-05" xml:lang="ja">当該筆致が、当該手書き資料中で、どの程度出現しているかを示す。</desc>
-      <desc versionDate="2008-03-30" xml:lang="fr">spécifie la fréquence d'apparition de cette
-main dans le manuscrit.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica in quale misura è utilizzata la mano in questione nel manoscritto</desc>
-      <desc versionDate="2007-05-04" xml:lang="es">especifica en qué medida es utilizada la mano en el manuscrito.</desc>
-      <datatype><dataRef key="teidata.enumerated"/></datatype>
-      <valList type="closed">
-        <valItem ident="sole">
-          <desc versionDate="2007-09-27" xml:lang="en">only this hand is used throughout the manuscript</desc>
-          <desc versionDate="2007-12-20" xml:lang="ko">이 필적만이 원고 전체에 사용되었다.</desc>
-          <desc versionDate="2008-04-05" xml:lang="ja">当該筆致だけで全てが書かれている。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">il n'y a que cette main dans le
-manuscrit.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">unica mano utilizzata nel manoscritto</desc>
-          <desc versionDate="2007-05-04" xml:lang="es">al interno del manuscrito se utiliza sólo esta mano.</desc>
-        </valItem>
-        <valItem ident="major">
-          <desc versionDate="2007-09-27" xml:lang="en">this hand is used through most of the manuscript</desc>
-          <desc versionDate="2007-12-20" xml:lang="ko">이 필적이 원고 대부분에서 사용되었다.</desc>
-          <desc versionDate="2008-04-05" xml:lang="ja">当該筆致で、殆どが書かれている。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">cette main est utilisée dans la
-majeure partie du manuscrit.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">mano utilizzata nella maggior parte del manoscritto</desc>
-          <desc versionDate="2007-05-04" xml:lang="es">esta es la mano que se utiliza en la mayor parte del manuscrito.</desc>
-        </valItem>
-        <valItem ident="minor">
-          <desc versionDate="2007-09-27" xml:lang="en">this hand is used occasionally in the manuscript</desc>
-          <desc versionDate="2007-12-20" xml:lang="ko">이 필적이 원고에서 가끔 사용되었다.</desc>
-          <desc versionDate="2008-04-05" xml:lang="ja">当該筆致で、所々が書かれている。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">cette main est utilisée
-occasionnellement dans le manuscrit.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">mano utilizzata solo di rado nel manoscritto</desc>
-          <desc versionDate="2007-05-04" xml:lang="es">esta mano se usa sólo ocasionalmente en el manuscrito.</desc>
-        </valItem>
-      </valList>
-    </attDef>
   </attList>
   <remarks versionDate="2010-09-28" xml:lang="en">
-    <p>Usually either <att>script</att> or <att>scriptRef</att>,
-and similarly, either <att>scribe</att> or
-<att>scribeRef</att>, will be supplied. </p>
+    <p>Usually either <att>script</att> or <att>scriptRef</att>, and
+    similarly, either <att>scribe</att> or <att>scribeRef</att>, will
+    be supplied.</p>
   </remarks>
   <remarks versionDate="2019-09-16" xml:lang="ja">
     <p>通常は <att>script</att> または <att>scriptRef</att> そして同様に、 <att>scribe</att> あるいは <att>scribeRef</att> が用いられるだろう。</p>
@@ -3438,7 +3437,7 @@ by the current element.</desc>
       régularisée ou normalisée.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos que representen una medición regularizada o normalizada.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi che rappresentano una misurazione regolarizzata o normalizzata</desc>
-  <constraintSpec ident="att-measurement-unitRef" scheme="schematron">
+  <constraintSpec ident="att-measurement-unitRef" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:*[@unitRef]">
         <sch:report test="@unit" role="info">The @unit attribute may be unnecessary when @unitRef is present.</sch:report>
@@ -4362,7 +4361,7 @@ this name in the form of a set of whitespace-separated values, for example the o
       utilisés pour classer ou interclasser des éléments de n'importe quelle façon.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos genéricos utilizables para cualquier clasificación o subclasificación de elementos.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi generici utilizzabili per qualsiasi classificazione e sottoclassificazione di elementi</desc>
-  <constraintSpec scheme="schematron" ident="subtypeTyped">
+  <constraintSpec scheme="schematron" ident="subtypeTyped" xml:lang="en">
     <constraint>
       <sch:rule context="tei:*[@subtype]">
         <sch:assert test="@type">The <sch:name/> element should not be categorized in detail with @subtype unless also categorized in general with @type</sch:assert>
@@ -4482,7 +4481,7 @@ sub-classification for the element additional to that provided by its
         according to <ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref>.</desc>
       <desc versionDate="2023-09-27" xml:lang="ja"><ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref>に従って生成された<soCalled>言語タグ</soCalled>を使用することで、<att>target</att>の参照先にあるコンテンツの言語を特定する。</desc>
       <datatype><dataRef key="teidata.language"/></datatype>
-      <constraintSpec ident="targetLang" scheme="schematron">
+      <constraintSpec ident="targetLang" scheme="schematron" xml:lang="en">
         <constraint>
           <sch:rule context="tei:*[not(self::tei:schemaSpec)][@targetLang]">
             <sch:assert test="@target">@targetLang should only be used on <sch:name/> if @target is specified.</sch:assert>
@@ -4958,7 +4957,7 @@ subject, predicate etc. may be more appropriate. Such constraints will typically
       <desc versionDate="2007-05-04" xml:lang="es">indica el final de un fragmento de texto iniciado con el elemento al cual es asignaado el atributo.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">indica la fine della porzione di testo che ha inizio con l'elemento a cui è assegnato l'attributo</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
-      <constraintSpec ident="spanTo-points-to-following" scheme="schematron">
+      <constraintSpec ident="spanTo-points-to-following" scheme="schematron" xml:lang="en">
         <desc versionDate="2018-07-06" xml:lang="en">The @spanTo attribute must point to an element following the
         current element</desc>
         <constraint>
@@ -5063,7 +5062,7 @@ If no value for the @scheme attribute is provided, then the default assumption s
     <attDef ident="schemeVersion" usage="opt">
       <desc versionDate="2013-04-12" xml:lang="en">supplies a version number for the style language provided in <att>scheme</att>.</desc>
       <datatype><dataRef key="teidata.versionNumber"/></datatype>
-      <constraintSpec ident="schemeVersionRequiresScheme" scheme="schematron">
+      <constraintSpec ident="schemeVersionRequiresScheme" scheme="schematron" xml:lang="en">
         <constraint>
           <sch:rule context="tei:*[@schemeVersion]">
             <sch:assert test="@scheme and not(@scheme = 'free')">
@@ -10728,7 +10727,7 @@ source or sources from which it was derived.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">전자 텍스트와 그것의 원전 텍스트 혹은 텍스트들 사이의 관련성을 기록한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">記錄電子文件和其ㄧ個或多個文件來源之間的關係。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">電子テキストとその元資料との関係を示す。</desc>
-    <desc versionDate="2016-11-17" xml:lang="de">dokumentiert das Verhältnis zwischen dem elektronischen Text und seiner Quelle oder den Quellen, von denen er sich ableitet.</desc>
+  <desc versionDate="2016-11-17" xml:lang="de">dokumentiert das Verhältnis zwischen dem elektronischen Text und seiner Quelle oder den Quellen, von denen er sich ableitet.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">documenta la relación entre un texto electrónico y la fuente o fuentes de las que este deriva.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">documenta la relazione fra un documento elettronico e la o le fonti da cui è derivato.</desc>
   <classes>
@@ -10736,21 +10735,17 @@ source or sources from which it was derived.</desc>
     <memberOf key="model.teiHeaderPart"/>
   </classes>
   <content>
-    
-      
-        <alternate minOccurs="1" maxOccurs="unbounded">
-          <classRef key="model.encodingDescPart"/>
-          <classRef key="model.pLike"/>
-        </alternate>
-      
-    
+    <alternate minOccurs="1" maxOccurs="unbounded">
+      <classRef key="model.encodingDescPart"/>
+      <classRef key="model.pLike"/>
+    </alternate>
   </content>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-encodingDesc-egXML-vi">
       <encodingDesc>
         <p>Basic encoding, capturing lexical information only. All
-hyphenation, punctuation, and variant spellings normalized. No
-formatting or layout information preserved.</p>
+        hyphenation, punctuation, and variant spellings normalized. No
+        formatting or layout information preserved.</p>
       </encodingDesc>
     </egXML>
   </exemplum>
@@ -10758,14 +10753,12 @@ formatting or layout information preserved.</p>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-encodingDesc-egXML-rs">
       <encodingDesc>
         <projectDesc>
-          <p>Corpus de
-                      textes sélectionnés pour la formation MISAT, Frejus,
-		      juillet 2010.
-                    </p>
+          <p>Corpus de textes sélectionnés pour la formation MISAT,
+          Frejus, juillet 2010.</p>
         </projectDesc>
         <samplingDecl>
-          <p>Corpus
-                      d'échantillons de 2000 mots pris au début de chaque texte. </p>
+          <p>Corpus d'échantillons de 2000 mots pris au début de
+          chaque texte.</p>
         </samplingDecl>
       </encodingDesc>
     </egXML>
@@ -11384,7 +11377,7 @@ during the encoding of a text.</desc>
   <content>
     <classRef key="model.pLike" minOccurs="0" maxOccurs="unbounded"/>
   </content>
-  <constraintSpec ident="quotationContents" scheme="schematron">
+  <constraintSpec ident="quotationContents" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:quotation">
         <sch:report test="not( @marks )  and  not( tei:p )">
@@ -12389,14 +12382,14 @@ the target element</desc>
       <datatype>
         <dataRef key="teidata.xpath"/>
       </datatype>
-      <constraintSpec ident="citestructure-outer-match" scheme="schematron">
+      <constraintSpec ident="citestructure-outer-match" scheme="schematron" xml:lang="en">
         <constraint>
           <sch:rule context="tei:citeStructure[not(parent::tei:citeStructure)]">
             <sch:assert test="starts-with(@match,'/')">An XPath in @match on the outer <sch:name/> must start with '/'.</sch:assert>
           </sch:rule>
         </constraint>
       </constraintSpec>
-      <constraintSpec ident="citestructure-inner-match" scheme="schematron">
+      <constraintSpec ident="citestructure-inner-match" scheme="schematron" xml:lang="en">
         <constraint>
           <sch:rule context="tei:citeStructure[parent::tei:citeStructure]">
             <sch:assert test="not(starts-with(@match,'/'))">An XPath in @match must not start with '/' except on the outer <sch:name/>.</sch:assert>
@@ -13446,7 +13439,8 @@ codes used elsewhere in the text.</desc>
           <gloss versionDate="2008-03-30" xml:lang="fr">Système de Référence du Réseau Militaire,
             (MGRS).</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">sistema di riferimento delle coordinate MGRS</gloss>
-          <desc versionDate="2009-04-27" xml:lang="en">the values supplied are geospatial entity object codes, based on</desc>
+          <desc versionDate="2024-12-01" xml:lang="en">values supplied follow the Military Grid Reference System, 
+            which designates grid zones in a string of letters and numbers that distinctly indicate each square meter on the planet.</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">값은 만국 횡메르카토르 시스템 좌표에 기초하여 지리공간적 개체 부호를 제시한다.</desc>
           <desc versionDate="2008-10-02" xml:lang="fr">les valeurs fournies sont des codes objet
             d'entités geospatiales, fondées sur les coordonnées de la grille de projection
@@ -13460,7 +13454,7 @@ codes used elsewhere in the text.</desc>
         <valItem ident="OSGB36">
           <gloss versionDate="2007-07-04" xml:lang="en">ordnance survey great britain</gloss>
           <gloss versionDate="2007-12-20" xml:lang="ko">영국 육지 측량부</gloss>
-          <gloss versionDate="2008-03-30" xml:lang="fr">Système de coordonnées de Grande-Bretagne (OSGB) </gloss>
+          <gloss versionDate="2008-03-30" xml:lang="fr">Système de coordonnées de Grande-Bretagne (OSGB)</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">sistema di riferimento a reticolato OSGB36</gloss>
           <desc versionDate="2007-06-25" xml:lang="en">the value supplied is to be interpreted as a British National Grid Reference.</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">제시된 값은 영국 측량 참조로 해석된다.</desc>
@@ -13963,12 +13957,9 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
   <desc versionDate="2007-12-20" xml:lang="ko">원고 내에서 구분되는 특별한 문체 또는 기법을 기술한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">描述在手稿中可明顯辨識出的特殊風格或書寫手法。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">手書き資料中にある特定のスタイルまたは筆致を示す。</desc>
-  <desc versionDate="2007-06-12" xml:lang="fr">décrit un style d'écriture ou une main qui sont
-    reconnus dans un manuscrit.</desc>
-  <desc versionDate="2007-05-04" xml:lang="es">describe un determinado estilo o una determinada mano
-    al interno de un manuscrito.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">descrive un determinato stile o una determinata mano
-    all'interno di un manoscritto</desc>
+  <desc versionDate="2007-06-12" xml:lang="fr">décrit un style d'écriture ou une main qui sont reconnus dans un manuscrit.</desc>
+  <desc versionDate="2007-05-04" xml:lang="es">describe un determinado estilo o una determinada mano al interno de un manuscrito.</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">descrive un determinato stile o una determinata mano all'interno di un manoscritto</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.handFeatures"/>
@@ -13977,20 +13968,34 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
     <macroRef key="macro.specialPara"/>
   </content>
   <exemplum xml:lang="en">
-    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="HANDNOTE-egXML-ey">
-      <handNote scope="sole">
-        <p>Written in insular
-      phase II half-uncial with interlinear Old English gloss in an Anglo-Saxon pointed
-      minuscule.</p>
-      </handNote>
+    <!-- This is a translation of "HANDNOTE-egXML-yi" -->
+    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="HANDNOTE-egXML-yi_en" source="#bib4handnoteyi">
+      <handNotes>
+	<handNote xml:id="yien.major_hand" scope="major" medium="brown_ink" scribe="author" scribeRef="#KL">Handwriting of the copyist Karol Libelt, brown ink, in German cursive script.</handNote>
+	<handNote xml:id="yien.pencil" scope="minor" medium="pencil" scribe="annotator">A note, pencil, unknown author.</handNote>
+	<handNote xml:id="yien.pencil2" scope="minor" medium="pencil" scribe="archivist">Writer of the title page Józef Łepkowski, pencil.</handNote>
+	<handNote xml:id="yien.pencil3" scope="minor" medium="pencil" scribe="archivist2" scribeRef="#BJK">Note on the title page, pencil, by Józef Korzeniowski.</handNote>
+      </handNotes>
+    </egXML>
+  </exemplum>
+  <exemplum xml:lang="de">
+    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="HANDNOTE-egXML-yi" source="#bib4handnoteyi">
+      <handNotes>
+	<handNote xml:id="yide.major_hand" scope="major" medium="brown_ink" scribe="author" scribeRef="#KL">Hand des Nachschreibers Karol Libelt, braune Tinte, vorwiegend in Kurrentschrift.</handNote>
+	<handNote xml:id="yide.pencil" scope="minor" medium="pencil" scribe="annotator">Eine Anmerkung, Bleistift, unbekannter Verfasser.</handNote>
+	<handNote xml:id="yide.pencil2" scope="minor" medium="pencil" scribe="archivist">Schreiber des Titelblattes Józef Łepkowski, Bleistift.</handNote>
+	<handNote xml:id="yide.pencil3" scope="minor" medium="pencil" scribe="archivist2" scribeRef="#BJK">Anmerkung auf dem Titelblatt, Bleistift, von Józef Korzeniowski.</handNote>
+      </handNotes>
     </egXML>
   </exemplum>
   <exemplum versionDate="2008-04-06" xml:lang="fr">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="HANDNOTE-egXML-zj" source="#fr-ex-Lavrentev-TEI-BFM">
-      <handNote xml:id="fr_scribe1">Premier scribe : <name type="person">inconnu</name> 
-         </handNote>
-      <handNote xml:id="fr_rubricateur1">Premier rubricateur : <name type="person">inconnu</name> 
-         </handNote>
+      <handNote xml:id="fr_scribe1">
+	Premier scribe : <name type="person">inconnu</name> 
+      </handNote>
+      <handNote xml:id="fr_rubricateur1">
+	Premier rubricateur : <name type="person">inconnu</name> 
+      </handNote>
     </egXML>
   </exemplum>
   <exemplum xml:lang="zh-TW">
@@ -14228,18 +14233,17 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
   <gloss versionDate="2009-01-05" xml:lang="fr">langue</gloss>
   <gloss versionDate="2016-11-17" xml:lang="de">Sprache</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">characterizes a single language or sublanguage used within a text.</desc>
-  <desc versionDate="2009-01-05" xml:lang="fr">caractérise une langue ou une variété de langue utilisée
-    dans un texte.</desc>
+  <desc versionDate="2009-01-05" xml:lang="fr">caractérise une langue ou une variété de langue utilisée dans un texte.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">텍스트 내에서 사용되는 언어 또는 특수 언어의 특징을 기술한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">個別敘述文本中使用的語言或次要語言。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">テキスト中にあるひとつの言語または特殊言語を示す。</desc>
-    <desc versionDate="2016-11-17" xml:lang="de">beschreibt eine einzelne Sprache oder eine Subsprache, die innerhalb eines Textes verwendet wird.</desc>
+  <desc versionDate="2016-11-17" xml:lang="de">beschreibt eine einzelne Sprache oder eine Subsprache, die innerhalb eines Textes verwendet wird.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">caracteriza una lengua o jerga empleada en un texto.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">indica una lingua o un linguaggio secondario utilizzato
-    all'interno di un testo.</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">indica una lingua o un linguaggio secondario utilizzato all'interno di un testo.</desc>
   <classes>
     <memberOf key="att.global"/>
-    </classes>
+    <memberOf key="att.scope"/>
+  </classes>
   <content>
     <macroRef key="macro.phraseSeq.limited"/>
   </content>
@@ -15650,7 +15654,7 @@ supplied to printer.</change>
   <content>
     <macroRef key="macro.paraContent"/>
   </content>
-  <constraintSpec ident="abstractModel-structure-p-in-ab-or-p" scheme="schematron">
+  <constraintSpec ident="abstractModel-structure-p-in-ab-or-p" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:p">
         <sch:report test="(ancestor::tei:ab or ancestor::tei:p) and                        not( ancestor::tei:floatingText                           | parent::tei:exemplum                           | parent::tei:item                           | parent::tei:note                           | parent::tei:q                           | parent::tei:quote                           | parent::tei:remarks                           | parent::tei:said                           | parent::tei:sp                           | parent::tei:stage                           | parent::tei:cell                           | parent::tei:figure )">
@@ -15659,7 +15663,7 @@ supplied to printer.</change>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="abstractModel-structure-p-in-l-or-lg" scheme="schematron">
+  <constraintSpec ident="abstractModel-structure-p-in-l-or-lg" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:p">
         <sch:report test="( ancestor::tei:l  or  ancestor::tei:lg ) and                        not( ancestor::tei:floatingText                           | parent::tei:figure                           | parent::tei:note )">
@@ -16790,7 +16794,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
   <content>
     <macroRef key="macro.limitedContent"/>
   </content>
-  <constraintSpec ident="deprecationInfo-only-in-deprecated" scheme="schematron">
+  <constraintSpec ident="deprecationInfo-only-in-deprecated" scheme="schematron" xml:lang="en">
     <desc versionDate="2018-09-13" xml:lang="en">A <gi>desc</gi> with
     a <att>type</att> of <val>deprecationInfo</val> should only occur
     when its parent element is being deprecated. Furthermore, it
@@ -17222,7 +17226,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
         base being glossed by this ruby text.</desc>
       <desc versionDate="2021-01-31" xml:lang="ja">ルビテキストの対象へのポインタを示す。</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
-      <constraintSpec scheme="schematron" ident="rt-target-not-span">
+      <constraintSpec scheme="schematron" ident="rt-target-not-span" xml:lang="en">
         <!-- Note: this constraint should not be necessary, as the
              desired semantics should be something we could describe
              in PureODD using attList/@org. But I don’t think we
@@ -17252,7 +17256,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
       <datatype>
         <dataRef key="teidata.pointer"/>
       </datatype>
-      <constraintSpec scheme="schematron" ident="rt-from">
+      <constraintSpec scheme="schematron" ident="rt-from" xml:lang="en">
         <!-- Note: this constraint should not be necessary, as the
              desired semantics should be something we could describe
              in PureODD using attList/@org. But I don’t think we
@@ -17273,7 +17277,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
       <datatype>
         <dataRef key="teidata.pointer"/>
       </datatype>
-      <constraintSpec scheme="schematron" ident="rt-to">
+      <constraintSpec scheme="schematron" ident="rt-to" xml:lang="en">
         <!-- Note: this constraint should not be necessary, as the
              desired semantics should be something we could describe
              in PureODD using attList/@org. But I don’t think we
@@ -20263,7 +20267,7 @@ my <num type="ordinal" value="21">twenty-first</num> birthday</p>
     <memberOf key="model.ptrLike"/>
   </classes>
   <content><empty/></content>
-  <constraintSpec scheme="schematron" ident="ptrAtts">
+  <constraintSpec scheme="schematron" ident="ptrAtts" xml:lang="en">
     <constraint>
       <sch:rule context="tei:ptr">
         <sch:report test="@target and @cRef">Only one of the attributes @target and @cRef may be supplied on <sch:name/>.</sch:report>
@@ -20277,6 +20281,18 @@ my <num type="ordinal" value="21">twenty-first</num> birthday</p>
       <ptr cRef="1.3.4"/>
     </egXML>
   </exemplum>
+  <remarks versionDate="2005-10-13" xml:lang="en">
+    <p>The <att>target</att> and <att>cRef</att> attributes are mutually exclusive.</p>
+  </remarks>
+  <remarks versionDate="2007-06-12" xml:lang="fr">
+    <p>Les attributs <att>target</att> et <att>cRef</att> sont exclusifs l'un de l'autre.</p>
+  </remarks>
+  <remarks versionDate="2008-04-05" xml:lang="ja">
+    <p> 属性<att>target</att>と<att>cRef</att>は、排他的に使用される。 </p>
+  </remarks>
+  <remarks versionDate="2016-11-25" xml:lang="de">
+    <p>Die <att>target</att> und <att>cRef</att>-Attribute schließen sich gegenseitig aus.</p>
+  </remarks>
   <listRef>
     <ptr target="#COXR"/>
     <ptr target="#SAPT"/>
@@ -20312,10 +20328,10 @@ my <num type="ordinal" value="21">twenty-first</num> birthday</p>
   <content>
     <macroRef key="macro.paraContent"/>
   </content>
-  <constraintSpec scheme="schematron" ident="refAtts">
+  <constraintSpec scheme="schematron" ident="refAtts" xml:lang="en">
     <constraint>
       <sch:rule context="tei:ref">
-        <sch:report test="@target and @cRef">Only one of the attributes @target' and @cRef' may be supplied on <sch:name/></sch:report>
+        <sch:report test="@target and @cRef">Only one of the attributes @target and @cRef may be supplied on <sch:name/>.</sch:report>
       </sch:rule>
     </constraint>
   </constraintSpec>
@@ -20441,7 +20457,7 @@ my <num type="ordinal" value="21">twenty-first</num> birthday</p>
       
     </sequence>
   </content>
-  <constraintSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" ident="gloss-list-must-have-labels" scheme="schematron">
+  <constraintSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" ident="gloss-list-must-have-labels" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:list[@type='gloss']">
 	<sch:assert test="tei:label">The content of a "gloss" list should include a sequence of one or more pairs of a label element followed by an item element</sch:assert>
@@ -21469,7 +21485,7 @@ entre les Romains.</label>
   <gloss versionDate="2005-01-14" xml:lang="en">heading for list items</gloss>
   <gloss versionDate="2007-12-20" xml:lang="ko">목록의 항목에 대한 표제부</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">列表項目的標題</gloss>
-  <gloss versionDate="2009-01-06" xml:lang="fr">intitulé d'une liste d'items </gloss>
+  <gloss versionDate="2009-01-06" xml:lang="fr">intitulé d'une liste d'items</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">encabezamiento de los ítems de una lista.</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">titolo per le voci della lista</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains the heading for the item or gloss column in a glossary list or similar structured
@@ -24380,7 +24396,7 @@ epistemology, methodology and history of
       <classRef key="model.ptrLike"/>
     </alternate>
   </content>
-  <constraintSpec ident="targetorcontent1" scheme="schematron">
+  <constraintSpec ident="targetorcontent1" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:relatedItem">
         <sch:report test="@target and count( child::* ) &gt; 0">If the @target attribute on <sch:name/> is used, the relatedItem element must be empty</sch:report>
@@ -24483,7 +24499,7 @@ epistemology, methodology and history of
       <classRef key="model.global"/>
     </alternate>
   </content>
-  <constraintSpec ident="abstractModel-structure-l-in-l" scheme="schematron">
+  <constraintSpec ident="abstractModel-structure-l-in-l" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:l">
         <sch:report test="ancestor::tei:l[not(.//tei:note//tei:l[. = current()])]">Abstract model violation: Lines may not contain lines or lg elements.</sch:report>
@@ -24564,14 +24580,14 @@ epistemology, methodology and history of
       </sequence>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="atleast1oflggapl">
+  <constraintSpec scheme="schematron" ident="atleast1oflggapl" xml:lang="en">
     <constraint>
       <sch:rule context="tei:lg">
         <sch:assert test="count(descendant::tei:lg|descendant::tei:l|descendant::tei:gap) &gt; 0">An lg element must contain at least one child l, lg, or gap element.</sch:assert>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="abstractModel-structure-lg-in-l" scheme="schematron">
+  <constraintSpec ident="abstractModel-structure-lg-in-l" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:lg">
         <sch:report test="ancestor::tei:l[not(.//tei:note//tei:lg[. = current()])]">Abstract model violation: Lines may not contain line groups.</sch:report>
@@ -25147,19 +25163,19 @@ by the stage direction.</p>
       </alternate>
     </sequence>
   </content>
-  <constraintSpec ident="c1" scheme="schematron">
+  <constraintSpec ident="c1" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:ns prefix="tei" uri="http://www.tei-c.org/ns/1.0"/>
       <sch:ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="c2" scheme="schematron">
+  <constraintSpec ident="c2" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:ns prefix="rng" uri="http://relaxng.org/ns/structure/1.0"/>
       <sch:ns prefix="rna" uri="http://relaxng.org/ns/compatibility/annotations/1.0"/>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="c3" scheme="schematron">
+  <constraintSpec ident="c3" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:ns prefix="sch" uri="http://purl.oclc.org/dsdl/schematron"/>
       <sch:ns prefix="sch1x" uri="http://www.ascc.net/xml/schematron"/>
@@ -26140,7 +26156,7 @@ by the stage direction.</p>
       </sequence>
     </sequence>
   </content>
-  <constraintSpec ident="abstractModel-structure-div-in-l-or-lg" scheme="schematron">
+  <constraintSpec ident="abstractModel-structure-div-in-l-or-lg" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:div">
         <sch:report test="(ancestor::tei:l or ancestor::tei:lg) and not(ancestor::tei:floatingText)">
@@ -26149,7 +26165,7 @@ by the stage direction.</p>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="abstractModel-structure-div-in-ab-or-p" scheme="schematron">
+  <constraintSpec ident="abstractModel-structure-div-in-ab-or-p" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:div">
         <sch:report test="(ancestor::tei:p or ancestor::tei:ab) and not(ancestor::tei:floatingText)">
@@ -26241,7 +26257,7 @@ by the stage direction.</p>
   <gloss versionDate="2007-12-20" xml:lang="ko">1 층위 텍스트 구역</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">區段層次一</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">division du texte de niveau 1</gloss>
-  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -1 </gloss>
+  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -1</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">división textual de primer nivel</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">partizione testuale di livello 1</gloss>
   <desc versionDate="2007-02-11" xml:lang="en">contains a first-level subdivision of the front, body, or back of a text.</desc>
@@ -26373,7 +26389,7 @@ by the stage direction.</p>
   <gloss versionDate="2007-12-20" xml:lang="ko">2 층위 텍스트 구역</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">區段層次二</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">division du texte de niveau 2</gloss>
-  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -2 </gloss>
+  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -2</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">división textual de segundo nivel</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">partizione testuale di livello 2</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains a second-level subdivision of the front, body, or back of a
@@ -26548,7 +26564,7 @@ by the stage direction.</p>
   <gloss versionDate="2007-12-20" xml:lang="ko">3 층위 텍스트 구역</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">區段層次三</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">division du texte de niveau 3</gloss>
-  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -3 </gloss>
+  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -3</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">división textual de tercer nivel</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">partizione testuale di livello 3</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains a third-level subdivision of the front, body, or back of a text.</desc>
@@ -26685,7 +26701,7 @@ by the stage direction.</p>
   <gloss versionDate="2007-12-20" xml:lang="ko">4 층위 텍스트 구역</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">區段層次四</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">division du texte de niveau 4</gloss>
-  <gloss versionDate="2006-10-18" xml:lang="de">Textgliederungsebene -4 </gloss>
+  <gloss versionDate="2006-10-18" xml:lang="de">Textgliederungsebene -4</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">división textual de cuarto nivel</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">partizione testuale di livello 4</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains a fourth-level subdivision of the front, body, or back of a text.</desc>
@@ -26960,7 +26976,7 @@ by the stage direction.</p>
   <gloss versionDate="2007-12-20" xml:lang="ko">6 층위 텍스트 구역</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">區段層次六</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">division du texte de niveau 6</gloss>
-  <gloss versionDate="2006-10-18" xml:lang="de">Textgliederungsebene -6 </gloss>
+  <gloss versionDate="2006-10-18" xml:lang="de">Textgliederungsebene -6</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">división textual de sexto nivel</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">partizione testuale di livello 6</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains a sixth-level subdivision of the front, body, or back of a text.</desc>
@@ -27082,7 +27098,7 @@ by the stage direction.</p>
   <gloss versionDate="2007-12-20" xml:lang="ko">7 층위 텍스트 구역</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">區段層次七</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr"> division du texte de niveau 7</gloss>
-  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -7 </gloss>
+  <gloss versionDate="2006-10-18" xml:lang="de"> Textgliederungsebene -7</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">división textual de nivel séptimo</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">partizione testuale di livello 7</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains the smallest possible subdivision of the front, body or back of a text, larger than
@@ -30899,8 +30915,7 @@ and <val>simplified</val>  for simplified characters. The
 </elementSpec>
 <elementSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" ident="unicodeProp" module="gaiji" xml:id="UNICODEPROP">
     <gloss versionDate="2018-08-22" xml:lang="en">unicode property</gloss>
-    <desc versionDate="2020-01-28" xml:lang="en">provides a Unicode property for a character (or
-        glyph).</desc>
+    <desc versionDate="2020-01-28" xml:lang="en">provides a Unicode property for a character (or glyph).</desc>
     <classes>
         <memberOf key="att.global"/>
         <memberOf key="att.gaijiProp"/>
@@ -30911,8 +30926,7 @@ and <val>simplified</val>  for simplified characters. The
     <!-- TODO duncrum Phase 4 #1805 add and test value constraint checks see unihanProp-->
     <attList>
         <attDef ident="name" mode="replace" usage="req">
-            <desc versionDate="2020-01-28" xml:lang="en">specifies the normalized name of a Unicode
-                property.</desc>
+            <desc versionDate="2020-01-28" xml:lang="en">specifies the normalized name of a Unicode property.</desc>
             <datatype>
                 <dataRef key="teidata.xmlName"/>
             </datatype>
@@ -31140,8 +31154,7 @@ and <val>simplified</val>  for simplified characters. The
             </valList>
         </attDef>
         <attDef ident="value" mode="replace" usage="req">
-            <desc versionDate="2020-01-28" xml:lang="en">specifies the value of a named Unicode
-                property.</desc>
+            <desc versionDate="2020-01-28" xml:lang="en">specifies the value of a named Unicode property.</desc>
             <datatype>
                 <dataRef key="teidata.text"/>
             </datatype>
@@ -31363,13 +31376,10 @@ and <val>simplified</val>  for simplified characters. The
         <valItem ident="met">
           <gloss versionDate="2007-05-12" xml:lang="en"><att>met</att> attribute</gloss>
           <gloss versionDate="2007-12-20" xml:lang="ko"><att>met</att> 속성</gloss>
-          <gloss versionDate="2007-05-02" xml:lang="zh-TW">屬性<att>met</att>
-               </gloss>
-          <gloss versionDate="2007-06-12" xml:lang="fr">attribut <att>met</att>
-               </gloss>
+          <gloss versionDate="2007-05-02" xml:lang="zh-TW">屬性<att>met</att></gloss>
+          <gloss versionDate="2007-06-12" xml:lang="fr">attribut <att>met</att></gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">attributo met</gloss>
-          <gloss versionDate="2007-05-04" xml:lang="es">atributo <att>met</att>
-               </gloss>
+          <gloss versionDate="2007-05-04" xml:lang="es">atributo <att>met</att></gloss>
           <desc versionDate="2007-05-12" xml:lang="en">declaration applies to the abstract metrical form recorded on the <att>met</att>
             attribute</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">선언은 <att>met</att> 속성에 기록된 추상적 운율 형식에 적용한다.</desc>
@@ -31385,13 +31395,10 @@ and <val>simplified</val>  for simplified characters. The
         <valItem ident="real">
           <gloss versionDate="2007-05-12" xml:lang="en"><att>real</att> attribute</gloss>
           <gloss versionDate="2007-12-20" xml:lang="ko"><att>real</att> 속성</gloss>
-          <gloss versionDate="2007-05-02" xml:lang="zh-TW">屬性<att>real</att>
-               </gloss>
-          <gloss versionDate="2007-06-12" xml:lang="fr">attribut <att>real</att>
-               </gloss>
+          <gloss versionDate="2007-05-02" xml:lang="zh-TW">屬性<att>real</att></gloss>
+          <gloss versionDate="2007-06-12" xml:lang="fr">attribut <att>real</att></gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">attributo real</gloss>
-          <gloss versionDate="2007-05-04" xml:lang="es">atributo <att>real</att>
-               </gloss>
+          <gloss versionDate="2007-05-04" xml:lang="es">atributo <att>real</att></gloss>
           <desc versionDate="2007-05-12" xml:lang="en">declaration applies to the actual realization of the conventional metrical structure
             recorded on the <att>real</att> attribute</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">선언은 <att>real</att> 속성에 기록된 관례적 운율 구조의 실제 실현에
@@ -32585,7 +32592,7 @@ enjambement is not of particular interest.</p>
   <gloss versionDate="2007-12-20" xml:lang="ko">배역 목록</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">角色清單</gloss>
   <gloss versionDate="2008-04-06" xml:lang="es">reparto</gloss>
-  <gloss versionDate="2007-06-12" xml:lang="fr">distribution </gloss>
+  <gloss versionDate="2007-06-12" xml:lang="fr">distribution</gloss>
   <gloss versionDate="2024-04-11" xml:lang="de">Besetzungsliste</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">elenco dei personaggi</gloss>
   <gloss versionDate="2023-10-02" xml:lang="ja">配役リスト</gloss>
@@ -32975,7 +32982,7 @@ Dr Bero, lately returned from the wars.</stage>
   <gloss versionDate="2007-12-20" xml:lang="ko">배역 목록 모아 놓기</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">角色群組</gloss>
   <gloss versionDate="2008-04-06" xml:lang="es">grupo de reparto</gloss>
-  <gloss versionDate="2007-06-12" xml:lang="fr">liste de personnages </gloss>
+  <gloss versionDate="2007-06-12" xml:lang="fr">liste de personnages</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">raggruppamento della lista dei personaggi</gloss>
   <gloss versionDate="2023-10-02" xml:lang="ja">配役リスト内グループ</gloss>
   <desc versionDate="2017-02-07" xml:lang="en">groups one or more individual <gi>castItem</gi>
@@ -33264,7 +33271,7 @@ either a single role or a list of non-speaking roles.</desc>
   <gloss versionDate="2007-12-20" xml:lang="ko">배역 기술</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">角色描述</gloss>
   <gloss versionDate="2008-04-06" xml:lang="es">descripción del rol</gloss>
-  <gloss versionDate="2007-06-12" xml:lang="fr">description du rôle </gloss>
+  <gloss versionDate="2007-06-12" xml:lang="fr">description du rôle</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">descrizione del ruolo</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">describes a character's role in a drama.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">드라마에서 등장인물의 배역을 기술한다.</desc>
@@ -33545,7 +33552,7 @@ young man would present to his lady love. It makes me blush!
           <gloss versionDate="2007-07-04" xml:lang="en">left</gloss>
           <gloss versionDate="2007-12-20" xml:lang="ko">왼쪽</gloss>
           <gloss versionDate="2008-04-06" xml:lang="es">izquierdo</gloss>
-          <gloss versionDate="2007-06-12" xml:lang="fr">à gauche </gloss>
+          <gloss versionDate="2007-06-12" xml:lang="fr">à gauche</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">sinistra</gloss>
           <desc versionDate="2007-06-27" xml:lang="en">stage left</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">무대 왼쪽</desc>
@@ -33573,7 +33580,7 @@ young man would present to his lady love. It makes me blush!
           <gloss versionDate="2007-07-04" xml:lang="en">center</gloss>
           <gloss versionDate="2007-12-20" xml:lang="ko">중앙</gloss>
           <gloss versionDate="2008-04-06" xml:lang="es">centro</gloss>
-          <gloss versionDate="2007-06-12" xml:lang="fr">au centre </gloss>
+          <gloss versionDate="2007-06-12" xml:lang="fr">au centre</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">centro</gloss>
           <desc versionDate="2007-06-27" xml:lang="en">centre stage</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">무대 중앙</desc>
@@ -34057,7 +34064,7 @@ laughing affectedly and drinking champagne.</view>
   <gloss versionDate="2007-12-20" xml:lang="ko">전문적 무대 지시</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">技術性舞台指示</gloss>
   <gloss versionDate="2008-04-06" xml:lang="es">dirección técnica de escena</gloss>
-  <gloss versionDate="2007-06-12" xml:lang="fr">indication technique de mise en scène </gloss>
+  <gloss versionDate="2007-06-12" xml:lang="fr">indication technique de mise en scène</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">Indicazioni i scena tecniche</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">describes a special-purpose stage direction that is not
 meant for the actors.</desc>
@@ -35240,7 +35247,7 @@ utterances by any one speaker changes.</desc>
     <memberOf key="model.global.spoken"/>
   </classes>
   <content><empty/></content>
-  <constraintSpec ident="shiftNew" scheme="schematron">
+  <constraintSpec ident="shiftNew" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:shift">
         <sch:assert test="@new" role="warning">              
@@ -35748,7 +35755,7 @@ very loudly.</p>
     timelines, as individual comments following a status update on Facebook pages, as posts
     in forum threads, as contributions on Wikipedia talk pages or in the comments section of
     a weblog. [Element adopted from the <ref target="#TEIcmc2012">DeRiK schema</ref>.
-    Aspects of the model adopted from the <ref target="#descmr">CoMeRe Schema</ref>]. The
+    Aspects of the model adopted from the <ref target="#BIB_CoMeRe">CoMeRe Schema</ref>]. The
     <gi>post</gi> element is a member of the model class model.common (via model.CMC).
     This allows for using (and combining) occurrences of <gi>post</gi>, <gi>u</gi>,
     <gi>incident</gi>, and <gi>kinesic</gi>in one and the same <gi>div</gi> in order to
@@ -37241,7 +37248,7 @@ list of values. Typical values might be <mentioned>IPA</mentioned>,
   <gloss versionDate="2005-01-14" xml:lang="en">grammatical information</gloss>
   <gloss versionDate="2007-12-20" xml:lang="ko">문법 정보</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">文法資訊</gloss>
-  <gloss versionDate="2007-06-12" xml:lang="fr">information grammaticale </gloss>
+  <gloss versionDate="2007-06-12" xml:lang="fr">information grammaticale</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">información gramatical</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">informazioni grammaticali</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">within an entry in a dictionary or a terminological data file, contains grammatical information relating to a term, word, or form.</desc>
@@ -37294,7 +37301,7 @@ list of values. Typical values might be <mentioned>IPA</mentioned>,
           <gloss versionDate="2007-06-12" xml:lang="fr">partie du discours (chacune des classes de
             mot auxquelles un mot peut appartenir dans une langue donnée, en fonction de la forme,
             du sens ou d'une combinaison de caractéristiques, par exemple nom, verbe, adjectif,
-            etc.) </gloss>
+            etc.)</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">parte del discorso</gloss>
           <gloss versionDate="2007-05-04" xml:lang="es">parte del discurso (cualquiera de las
             categorías de palabras que se puede encontrar en una lengua dada, basándose en la forma,
@@ -38918,7 +38925,7 @@ headword  such as noun, verb, or adjective.</desc>
         <valItem ident="gram">
           <gloss versionDate="2007-07-04" xml:lang="en">grammatical</gloss>
           <gloss versionDate="2007-12-20" xml:lang="ko">문법적</gloss>
-          <gloss versionDate="2007-06-12" xml:lang="fr">emploi grammatical </gloss>
+          <gloss versionDate="2007-06-12" xml:lang="fr">emploi grammatical</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">grammaticale</gloss>
           <gloss versionDate="2007-05-04" xml:lang="es">uso gramatical</gloss>
           <desc versionDate="2007-06-27" xml:lang="en">grammatical usage</desc>
@@ -40019,7 +40026,7 @@ headword  such as noun, verb, or adjective.</desc>
       </alternate>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="one_ms_singleton_max">
+  <constraintSpec scheme="schematron" ident="one_ms_singleton_max" xml:lang="en">
     <constraint>
       <sch:rule context="tei:msContents|tei:physDesc|tei:history|tei:additional">
         <!-- Note: This rule applies to <msContents>, <physDesc>,
@@ -40251,7 +40258,7 @@ headword  such as noun, verb, or adjective.</desc>
   <content>
     <macroRef key="macro.phraseSeq"/>
   </content>
-  <constraintSpec ident="catchword_in_msDesc" scheme="schematron">
+  <constraintSpec ident="catchword_in_msDesc" scheme="schematron" xml:lang="en">
     <!-- 
          The <egXML> referred to in the constraint below is, of
          course, in the teix: namespace, not the tei: namespace.
@@ -40298,7 +40305,7 @@ the inner bounding line, reading from top to bottom.</catchwords>
       <classRef key="model.dimLike"/>
     </alternate>
   </content>
-  <constraintSpec scheme="schematron" ident="duplicateDim">
+  <constraintSpec scheme="schematron" ident="duplicateDim" xml:lang="en">
     <!-- It would be simpler to use just
          "( count(tei:width), count(tei:height), count(tei:depth) ) > 1",
          but then we would not be able to tell the user which element
@@ -41169,7 +41176,7 @@ printing.</p>
   <content>
     <macroRef key="macro.phraseSeq"/>
   </content>
-  <constraintSpec ident="secFol_in_msDesc" scheme="schematron">
+  <constraintSpec ident="secFol_in_msDesc" scheme="schematron" xml:lang="en">
     <!-- 
          The <egXML> referred to in the constraint below is, of
          course, in the teix: namespace, not the tei: namespace.
@@ -41220,7 +41227,7 @@ printing.</p>
   <content>
     <macroRef key="macro.specialPara"/>
   </content>
-  <constraintSpec ident="signatures_in_msDesc" scheme="schematron">
+  <constraintSpec ident="signatures_in_msDesc" scheme="schematron" xml:lang="en">
     <!-- 
          The <egXML> referred to in the constraint below is, of
          course, in the teix: namespace, not the tei: namespace.
@@ -41389,7 +41396,7 @@ manii imperii <stamp>Bodleian stamp</stamp>
       </alternate>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="msId_minimal">
+  <constraintSpec scheme="schematron" ident="msId_minimal" xml:lang="en">
     <constraint>
       <sch:rule context="tei:msIdentifier">
         <sch:report test="not( parent::tei:msPart )                           and                           ( child::*[1]/self::idno  or  child::*[1]/self::altIdentifier  or  normalize-space(.) eq '')">An msIdentifier must contain either a repository or location.</sch:report>
@@ -45498,7 +45505,7 @@ ou encodé.</desc>
       <elementRef key="back" minOccurs="0"/>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="no_facsimile_text_nodes">
+  <constraintSpec scheme="schematron" ident="no_facsimile_text_nodes" xml:lang="en">
     <constraint>
       <sch:rule context="tei:facsimile//tei:line | tei:facsimile//tei:zone">
         <sch:report test="child::text()[ normalize-space(.) ne '']">
@@ -46000,7 +46007,7 @@ element.</desc>
     <empty/>
   </content>
   
-  <constraintSpec ident="pathmustnotbeclosed" scheme="schematron">
+  <constraintSpec ident="pathmustnotbeclosed" scheme="schematron" xml:lang="en">
     <desc versionDate="2023-04-11" xml:lang="en">
       Since a <gi>path</gi> represents a line with distinct start and
       end points, the last coordinate should not be the same as the
@@ -46152,7 +46159,7 @@ en-tête et un texte, constitue un document TEI.</desc>
     <memberOf key="model.global.edit"/>
   </classes>
   <content><empty/></content>
-  <constraintSpec ident="addSpan-requires-spanTo" scheme="schematron">
+  <constraintSpec ident="addSpan-requires-spanTo" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:addSpan">
         <sch:assert test="@spanTo">The @spanTo attribute of <sch:name/> is required.</sch:assert>
@@ -46306,7 +46313,7 @@ appropriate for which circumstance.</p>
     <memberOf key="model.global.edit"/>
   </classes>
   <content><empty/></content>
-  <constraintSpec ident="damageSpan-requires-spanTo" scheme="schematron">
+  <constraintSpec ident="damageSpan-requires-spanTo" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:damageSpan">
         <sch:assert test="@spanTo">The @spanTo attribute of <sch:name/> is required.</sch:assert>
@@ -46414,7 +46421,7 @@ the start of the  <anchor xml:id="a34"/> undamaged part of the text. ...</p>
     <memberOf key="model.global.edit"/>
   </classes>
   <content><empty/></content>
-  <constraintSpec ident="delSpan-requires-spanTo" scheme="schematron">
+  <constraintSpec ident="delSpan-requires-spanTo" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:delSpan">
         <sch:assert test="@spanTo">The @spanTo attribute of <sch:name/> is required.</sch:assert>
@@ -47070,7 +47077,7 @@ used to mark normal inter-word space or the like.</p>
       <classRef key="model.milestoneLike"/>
     </alternate>
   </content>
-  <constraintSpec ident="substContents1" scheme="schematron">
+  <constraintSpec ident="substContents1" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:subst">
         <sch:assert test="child::tei:add and (child::tei:del or child::tei:surplus)"><sch:name/> must have at least one child add and at least one child del or surplus</sch:assert>
@@ -48148,7 +48155,7 @@ reading groups, each associated with witness specifications.</p>
     </alternate>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="only1lem">
+  <constraintSpec scheme="schematron" ident="only1lem" xml:lang="en">
     <constraint xmlns:sch="http://purl.oclc.org/dsdl/schematron">
       <sch:rule context="tei:rdgGrp">
         <sch:assert test="count(tei:lem) lt 2">Only one &lt;lem&gt; element may appear within a &lt;rdgGrp&gt;</sch:assert>
@@ -48782,7 +48789,7 @@ or external to it.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica si el aparato aparece al interno o al externo del texto.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">indica se l'apparato compare all'interno del testo, o esternamente.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
-      <constraintSpec ident="variantEncodingLocation" scheme="schematron">
+      <constraintSpec ident="variantEncodingLocation" scheme="schematron" xml:lang="en">
         <constraint>
           <sch:rule context="tei:variantEncoding">
             <sch:report test="@location eq 'external' and @method eq 'parallel-segmentation'">
@@ -52829,14 +52836,14 @@ specification.</p></remarks>
   <content>
     <elementRef key="desc" minOccurs="0"/>
   </content>
-  <constraintSpec ident="ref-or-key-or-name" scheme="schematron">
+  <constraintSpec ident="ref-or-key-or-name" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:relation">
         <sch:assert test="@ref or @key or @name">One of the attributes @name, @ref or @key must be supplied</sch:assert>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="active-mutual" scheme="schematron">
+  <constraintSpec ident="active-mutual" scheme="schematron" xml:lang="en">
     <!-- Note: this constraint is pointless in RELAX NG land, where
          the org=choice works. It is useful in DTD land, where the
          attList/@org has no effect. It looks to me like it is useful
@@ -52850,7 +52857,7 @@ specification.</p></remarks>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="active-passive" scheme="schematron">
+  <constraintSpec ident="active-passive" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:relation">
         <sch:report test="@passive and not(@active)">the attribute @passive may be supplied only if the attribute @active is supplied</sch:report>
@@ -54315,7 +54322,7 @@ one initial.</desc>
       <datatype minOccurs="1" maxOccurs="unbounded">
         <dataRef key="teidata.pointer"/>
       </datatype>
-      <constraintSpec ident="calendar_attr_on_empty_element" scheme="schematron">
+      <constraintSpec ident="calendar_attr_on_empty_element" scheme="schematron" xml:lang="en">
         <constraint>
           <sch:rule context="tei:*[@calendar]">
             <sch:assert test="string-length( normalize-space(.) ) gt 0"> @calendar indicates one or more
@@ -56772,7 +56779,7 @@ Information with a Text</head>
     <memberOf key="model.global.meta"/>
   </classes>
   <content><empty/></content>
-  <constraintSpec ident="linkTargets3" scheme="schematron">
+  <constraintSpec ident="linkTargets3" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:link">
         <sch:assert test="contains(normalize-space(@target),' ')">You must supply at least two values for @target or  on <sch:name/></sch:assert>
@@ -56969,7 +56976,7 @@ Information with a Text</head>
   <content>
     <macroRef key="macro.abContent"/>
   </content>
-  <constraintSpec ident="abstractModel-structure-ab-in-l-or-lg" scheme="schematron">
+  <constraintSpec ident="abstractModel-structure-ab-in-l-or-lg" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:ab">
         <sch:report test="(ancestor::tei:l or ancestor::tei:lg) and not( ancestor::tei:floatingText |parent::tei:figure |parent::tei:note )">
@@ -57490,7 +57497,7 @@ Information with a Text</head>
       <classRef key="model.certLike"/>
     </alternate>
   </content>
-  <constraintSpec ident="joinTargets3" scheme="schematron">
+  <constraintSpec ident="joinTargets3" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:join">
         <sch:assert test="contains( normalize-space( @target ),' ')">
@@ -58056,7 +58063,7 @@ Information with a Text</head>
   <content>
     <classRef key="model.standOffPart" minOccurs="1" maxOccurs="unbounded"/>
   </content>
-  <constraintSpec ident="nested_standOff_should_be_typed" scheme="schematron">
+  <constraintSpec ident="nested_standOff_should_be_typed" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:standOff">
         <sch:assert test="@type or not(ancestor::tei:standOff)">This
@@ -58684,7 +58691,7 @@ Information with a Text</head>
          original macro.phraseSet content model. -->
     <macroRef key="macro.phraseSeq"/> 
   </content>
-  <constraintSpec ident="noNestedS" scheme="schematron">
+  <constraintSpec ident="noNestedS" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:s">
         <sch:report test="tei:s">You may not nest one s element within another: use seg instead</sch:report>
@@ -59599,7 +59606,7 @@ contexts.</p>
   <content>
     <macroRef key="macro.phraseSeq.limited"/>
   </content>
-  <constraintSpec ident="target-from" scheme="schematron">
+  <constraintSpec ident="target-from" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:span">
         <sch:report test="@from and @target">
@@ -59608,7 +59615,7 @@ contexts.</p>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="targetto" scheme="schematron">
+  <constraintSpec ident="targetto" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:span">
         <sch:report test="@to and @target">
@@ -59617,7 +59624,7 @@ contexts.</p>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="tonotfrom" scheme="schematron">
+  <constraintSpec ident="tonotfrom" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:span">
         <sch:report test="@to and not(@from)">
@@ -59626,7 +59633,7 @@ contexts.</p>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="tofrom" scheme="schematron">
+  <constraintSpec ident="tofrom" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:span">
         <sch:report test="contains(normalize-space(@to),' ') or contains(normalize-space(@from),' ')">
@@ -59928,7 +59935,7 @@ Feature Value</head></div>
   <gloss versionDate="2009-04-16" xml:lang="fr">Déclaration de système de traits (FSD)</gloss>
   <gloss versionDate="2007-12-20" xml:lang="ko">자질 체계 선언</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">功能系統宣告</gloss>
-  <gloss versionDate="2018-07-18" xml:lang="de">Deklaration des Merkmalsystems </gloss>
+  <gloss versionDate="2018-07-18" xml:lang="de">Deklaration des Merkmalsystems</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">declaración FSD (Declaración del Sistema de Rasgos)</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">dichiarazione su FSD (dichiarazione del sistema di tratti)</gloss>
   <desc versionDate="2007-09-26" xml:lang="en">provides a feature system declaration comprising one or more
@@ -60394,7 +60401,7 @@ range of allowed values, and optionally its default value.</desc>
 <elementSpec module="iso-fs" xml:id="gi-fDescr" ident="fDescr">
   <gloss versionDate="2005-01-14" xml:lang="en">feature description (in FSD)</gloss>
   <gloss versionDate="2007-12-20" xml:lang="ko">자질 기술(FSD에서)</gloss>
-  <gloss versionDate="2007-05-02" xml:lang="zh-TW">功能描述 (在功能結構宣告中) </gloss>
+  <gloss versionDate="2007-05-02" xml:lang="zh-TW">功能描述 (在功能結構宣告中)</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">description de trait (dans FSD)</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">descripción de rasgo (en FSD)</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">descrifine di tratto (in FSD)</gloss>
@@ -61931,7 +61938,7 @@ organisées en liste.</desc>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">合併的值集合</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">collection fusionnée de valeurs</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">conjunto fusionado de valores</gloss>
-  <gloss versionDate="2007-01-21" xml:lang="it">una raccolta unificata di valori </gloss>
+  <gloss versionDate="2007-01-21" xml:lang="it">una raccolta unificata di valori</gloss>
   <desc versionDate="2006-06-28" xml:lang="en">represents a feature value which is the result of merging
   together the feature values contained by its children, using the organization
   specified by the <att>org</att> attribute.</desc>
@@ -65655,7 +65662,7 @@ provided</item>
     <memberOf key="model.oddRef"/>
   </classes>
   <content><empty/></content>
-  <constraintSpec ident="only_sensible_attrs" scheme="schematron">
+  <constraintSpec ident="only_sensible_attrs" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:pattern>
         <sch:rule context="tei:elementRef[ parent::tei:schemaSpec | parent::tei:specGrp ]">
@@ -65752,7 +65759,7 @@ provided</item>
   <content>
     <elementRef key="content" minOccurs="0"/>
   </content>
-  <constraintSpec ident="modref" scheme="schematron">
+  <constraintSpec ident="modref" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:moduleRef">
         <sch:report test="* and @key">
@@ -65765,7 +65772,7 @@ provided</item>
     <attDef ident="prefix" usage="opt">
       <desc versionDate="2011-09-21" xml:lang="en">specifies a default prefix which will be prepended to all patterns from the imported module.</desc>
       <datatype minOccurs="0" maxOccurs="1"><dataRef key="teidata.xmlName"/></datatype>
-      <constraintSpec scheme="schematron" ident="not-same-prefix">
+      <constraintSpec scheme="schematron" ident="not-same-prefix" xml:lang="en">
         <constraint>
           <sch:rule context="tei:moduleRef">
             <sch:report test="//*[ not( generate-id(.) eq generate-id( current() ) ) ]/@prefix = @prefix">The prefix attribute
@@ -65774,7 +65781,7 @@ provided</item>
           </sch:rule>
         </constraint>
       </constraintSpec>
-      <constraintSpec scheme="schematron" ident="not-except-and-include">
+      <constraintSpec scheme="schematron" ident="not-except-and-include" xml:lang="en">
         <constraint>
           <sch:rule context="tei:moduleRef">
             <sch:report test="@except and @include">It is an error to supply both the @include and @except attributes</sch:report>
@@ -65949,8 +65956,7 @@ module, i.e. a named and externally visible group of declarations.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">TEI 구조 스키마 및 문서를 생성한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">建立一個符合TEI標準的模型以及該模型文件。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">TEI準拠のスキーマや文書を示す。</desc>
-  <desc versionDate="2007-06-12" xml:lang="fr">génère un schéma conforme à la TEI et la
-                        documentation qui l'accompagne.</desc>
+  <desc versionDate="2007-06-12" xml:lang="fr">génère un schéma conforme à la TEI et la documentation qui l'accompagne.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">genera un esquema TEI-conforme y la documentación relativa.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">genera uno schema TEI-conforme e la relativa documentazione</desc>
   <classes>
@@ -65969,39 +65975,32 @@ module, i.e. a named and externally visible group of declarations.</desc>
         <classRef key="model.descLike"/>
       </alternate>
       <alternate minOccurs="0" maxOccurs="unbounded">
+        <elementRef key="constraintDecl"/>
         <classRef key="model.oddRef"/>
         <classRef key="model.oddDecl"/>
-	<elementRef key="listRef"/>
+        <elementRef key="listRef"/>
       </alternate>      
     </sequence>
   </content>
   <attList>
     <attDef ident="start" usage="opt">
-      <desc versionDate="2010-05-14" xml:lang="en">specifies entry points to the schema, i.e. which patterns
-      may be used as the root of documents conforming to
-      it.</desc>
+      <desc versionDate="2010-05-14" xml:lang="en">specifies entry points to the schema, i.e. which patterns may be used as the root of documents conforming to it.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">스키마에서 표제 항목 지점을 명시한다. 즉, 어떤 요소가 해당 문서의 뿌리로 사용되는 것이 허용되었는지를 명시한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">指出該模型的初步條件，例如在符合該模型標準的文件中，那些元素可做為文件的根元素。</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該スキーマの開始点を示す。すなわち、TEI準拠文書の根要素となる
       要素を示す。</desc>
-      <desc versionDate="2007-06-12" xml:lang="fr">précise les points d'accès au schéma,
-                                        i.e. quels sont les éléments permis comme racine des documents XML qui se
-                                        conforment à ce schéma.</desc>
+      <desc versionDate="2007-06-12" xml:lang="fr">précise les points d'accès au schéma, i.e. quels sont les éléments permis comme racine des documents XML qui se conforment à ce schéma.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica los puntos de acceso al esquema, es decir, qué elementos son los permitidos para ser usados como raíz de los documentos conforme al esquema mismo.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">specifica i punti di accesso allo schema, cioè quali elementi sono consentiti come radice dei documenti conformi allo schema stesso</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.name"/></datatype>
       <defaultVal>TEI</defaultVal>
     </attDef>
     <attDef ident="prefix" usage="opt">
-      <desc versionDate="2013-01-11" xml:lang="en">specifies a default prefix which will be prepended to all
-      patterns relating to TEI elements, unless otherwise stated.</desc>
+      <desc versionDate="2013-01-11" xml:lang="en">specifies a default prefix which will be prepended to all patterns relating to TEI elements, unless otherwise stated.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">TEI 요소와 관련된 모든 유형에 첨가될 접두사를 명시한다. 이는 TEI로서 동일 이름의 요소를 갖는 외부 스키마가 혼용되는 것을 허용한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">指明一個附加在所有和TEI元素相關的模式中的前綴。這使得外部模型可以和TEI結合，這些外部模型具有和TEI元素名稱相同的元素。</desc>
-      <desc versionDate="2008-04-05" xml:lang="ja">TEI要素の全パタンに対応する接頭辞を示す。これにより、TEIと同じ名
-      前を持つ外部スキーマを混在させることができる。</desc>
-      <desc versionDate="2007-06-12" xml:lang="fr">précise un préfixe qui sera ajouté à tous
-                                        les modèles de définition des éléments de la TEI. Cela autorise l'introduction
-                                        des schémas externes ayant des éléments de même nom que ceux de la TEI</desc>
+      <desc versionDate="2008-04-05" xml:lang="ja">TEI要素の全パタンに対応する接頭辞を示す。これにより、TEIと同じ名 前を持つ外部スキーマを混在させることができる。</desc>
+      <desc versionDate="2007-06-12" xml:lang="fr">précise un préfixe qui sera ajouté à tous les modèles de définition des éléments de la TEI. Cela autorise l'introduction des schémas externes ayant des éléments de même nom que ceux de la TEI</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica un prefijo que será antepuesto a todos los patrones relativos a los elementos TEI.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">indica un prefisso che sarà anteposto a tutti i pattern relativi a elementi TEI; questo consente</desc>
       <datatype minOccurs="0">
@@ -66014,13 +66013,10 @@ module, i.e. a named and externally visible group of declarations.</desc>
       </remarks>
       <remarks versionDate="2007-06-12" xml:lang="fr">
         <p>Les deux-points, bien qu'ils soient permis à l'intérieur de
-        la valeur, provoqueront la génération d'un schéma invalide.
-        </p>
+        la valeur, provoqueront la génération d'un schéma invalide.</p>
       </remarks>
       <remarks versionDate="2008-04-05" xml:lang="ja">
-        <p>
-          コロンは、値としては認められるが、スキーマ中では使用できない。
-        </p>
+        <p>コロンは、値としては認められるが、スキーマ中では使用できない。</p>
       </remarks>
     </attDef>
     <attDef ident="targetLang" usage="opt">
@@ -66029,16 +66025,12 @@ module, i.e. a named and externally visible group of declarations.</desc>
       <gloss versionDate="2008-04-06" xml:lang="es">lengua meta</gloss>
       <gloss versionDate="2008-03-30" xml:lang="fr">langue cible</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">lingua di arrivo</gloss>
-      <desc versionDate="2012-04-25" xml:lang="en">specifies which language to use when creating
-      the objects in a schema if names for elements or attributes are available in more
-      than one language.</desc>
+      <desc versionDate="2012-04-25" xml:lang="en">specifies which language to use when creating the objects in a schema if names for elements or attributes are available in more than one language.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">요소 또는 속성의 이름을 만들기 위해 여러 언어에서 사용가능한 경우, 스키마에서 대상을 만들 때 사용하는 언어를 명시한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">若元素或屬性名稱所使用的語言有一種以上，說明建立文件模型時要使用那一種語言。</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">要素や属性の名前が複数言語である場合には、スキーマ中の対象を作成
       する際に使用される言語を特定する。</desc>
-      <desc versionDate="2007-06-12" xml:lang="fr">lorsque des noms pour un élément ou pour
-                                        un attribut sont disponibles en plusieurs langues, précise quelle langue
-                                        utiliser lors de la création d'objets dans un schéma .</desc>
+      <desc versionDate="2007-06-12" xml:lang="fr">lorsque des noms pour un élément ou pour un attribut sont disponibles en plusieurs langues, précise quelle langue utiliser lors de la création d'objets dans un schéma .</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica la lengua que se utiliza para la creación de objetos en el esquema en el caso en que los nombres de elementos o atributos esten disponibles en otras lenguas.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">indica la lingua da utilizzare per la creazione di oggetti nello schema nel caso in cui i nomi di elementi o attributi siano disponibili in più lingue</desc>
       <datatype><dataRef key="teidata.language"/></datatype>
@@ -66049,35 +66041,40 @@ module, i.e. a named and externally visible group of declarations.</desc>
       <gloss versionDate="2008-04-06" xml:lang="es">lengua de la documentación</gloss>
       <gloss versionDate="2008-03-30" xml:lang="fr">langue de documentation</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">lingua della documentazione</gloss>
-      <desc versionDate="2012-04-25" xml:lang="en">specifies which
-      languages to use when creating documentation if the description
-      for an element, attribute, class or macro is available in more
-      than one language.</desc>
+      <desc versionDate="2012-04-25" xml:lang="en">specifies which languages to use when creating documentation if the description for an element, attribute, class or macro is available in more than one language.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">요소, 속성, 부류 또는 매크로에 대한 기술이 여러 언어에서 사용 가능한 경우, 문서를 만들 때 사용하는 언어를 명시한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">若元素、屬性、元素集或巨集指令描述所使用的語言有一種以上，說明建立文件時要使用那一種語言。</desc>
-      <desc versionDate="2008-04-05" xml:lang="ja">要素、属性、クラス、マクロの解説が複数言語で可能な場合、解説の言
-      語を特定する。</desc>
-      <desc versionDate="2007-06-12" xml:lang="fr">lorsque la description pour un élément,
-                                        un attribut, une classe ou une macro est disponible en plusieurs langues,
-                                        précise quelle langue utiliser lors de la création de la documentation.</desc>
+      <desc versionDate="2008-04-05" xml:lang="ja">要素、属性、クラス、マクロの解説が複数言語で可能な場合、解説の言 語を特定する。</desc>
+      <desc versionDate="2007-06-12" xml:lang="fr">lorsque la description pour un élément, un attribut, une classe ou une macro est disponible en plusieurs langues, précise quelle langue utiliser lors de la création de la documentation.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica la lengua que se ha de utilizar para la creación de la documentación en el caso en que las descripciones de elementos, atributos, clases o macros esten disponibles en más lenguas.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">indica la lingua da utilizzare per la creazione della documentazione nel caso in cui le descrizioni di elementi, attributi, classi o macro siano disponibili in più lingue</desc>
-      <datatype minOccurs="1" maxOccurs="unbounded"><dataRef key="teidata.language"/></datatype>
+      <datatype minOccurs="1" maxOccurs="unbounded">
+        <dataRef key="teidata.language"/>
+      </datatype>
       <remarks versionDate="2022-04-04" xml:lang="en">
         <p>Although multiple languages may be specified, the current
         TEI ODD processor is only capable of handling one.</p>
       </remarks>
     </attDef>
     <attDef ident="defaultExceptions" usage="rec">
-      <gloss versionDate="2016-11-20" xml:lang="en">default namespace
-      exclusions</gloss>
+      <gloss versionDate="2016-11-20" xml:lang="en">default namespace exclusions</gloss>
       <desc versionDate="2016-11-20" xml:lang="en">provides a list of namespaces and/or prefixed element names to be excluded by default from anyName in RELAX NG schemas.</desc>
       <datatype minOccurs="1" maxOccurs="unbounded">
         <dataRef key="teidata.namespaceOrName"/>
       </datatype>
       <defaultVal>http://www.tei-c.org/ns/1.0 teix:egXML</defaultVal>
       <remarks versionDate="2017-05-11" xml:lang="en">
-        <p>Specifies defaults for the <att>except</att> attribute of <gi>anyElement</gi>. RELAX NG validation (unless DTD Compatibility Mode is turned off) requires that any elements which may take an <att>xml:id</att> be excluded from the content of <ident>anyName</ident> name classes. For normal TEI purposes, this includes anything in the TEI namespace and the <gi>egXML</gi> element. The <att>defaultExceptions</att> attribute sets the global defaults for these exclusions. Element prefixes must be declared using a namespace declaration on the parent or an ancestor element.</p>
+        <p>Specifies defaults for the <att>except</att> attribute of
+        <gi>anyElement</gi>. RELAX NG validation (unless DTD
+        Compatibility Mode is turned off) requires that any elements
+        which may take an <att>xml:id</att> be excluded from the
+        content of <ident>anyName</ident> name classes. For normal TEI
+        purposes, this includes anything in the TEI namespace and the
+        <gi>egXML</gi> element. The <att>defaultExceptions</att>
+        attribute sets the global defaults for these
+        exclusions. Element prefixes must be declared using a
+        namespace declaration on the parent or an ancestor
+        element.</p>
       </remarks>
     </attDef>
   </attList>
@@ -66437,7 +66434,7 @@ contains specifications for the elements
       <elementRef key="listRef" minOccurs="0" maxOccurs="unbounded"/>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="child-constraint-based-on-mode">
+  <constraintSpec scheme="schematron" ident="child-constraint-based-on-mode" xml:lang="en">
     <!-- 
          This constraint specification is much like the
          "empty-based-on-mode" for <constraintSpec> itself, which does
@@ -66763,7 +66760,7 @@ the associated TEI header.</p>
       <elementRef key="listRef" minOccurs="0" maxOccurs="unbounded"/>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="no_elements_in_data_content">
+  <constraintSpec scheme="schematron" ident="no_elements_in_data_content" xml:lang="en">
     <constraint>
       <sch:rule role="warn" context="tei:dataSpec/tei:content">
         <sch:report test=".//tei:anyElement | .//tei:classRef | .//tei:elementRef">
@@ -66979,14 +66976,14 @@ portion of an ODD document.</desc>
       <classRef key="model.ptrLike" minOccurs="1" maxOccurs="unbounded"/>
     </sequence>
   </content>
- <constraintSpec ident="TagDocsNestinglistRef" scheme="schematron">
+ <constraintSpec ident="TagDocsNestinglistRef" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="( tei:classSpec | tei:dataSpec | tei:elementSpec | tei:macroSpec | tei:moduleSpec | tei:schemaSpec | tei:specGrp )/tei:listRef">
         <sch:report test="tei:listRef">In the context of tagset documentation, the listRef element must not self-nest.</sch:report>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="TagDocslistRefChildren" scheme="schematron">
+  <constraintSpec ident="TagDocslistRefChildren" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="( tei:classSpec | tei:dataSpec | tei:elementSpec | tei:macroSpec | tei:moduleSpec | tei:schemaSpec | tei:specGrp )/tei:listRef/tei:ptr | ( tei:classSpec | tei:dataSpec | tei:elementSpec | tei:macroSpec | tei:moduleSpec | tei:schemaSpec | tei:specGrp )/tei:listRef/tei:ref">
         <sch:assert test="@target and not( matches( @target,'\s') )">In the context of tagset documentation, each ptr or ref element inside a listRef must have a target attribute with only 1 pointer as its value.</sch:assert>
@@ -67572,7 +67569,7 @@ déclaration de même nom dans la définition courante.</desc>
       <elementRef key="outputRendition" minOccurs="0" maxOccurs="unbounded"/>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="no_dup_default_models">
+  <constraintSpec scheme="schematron" ident="no_dup_default_models" xml:lang="en">
     <desc versionDate="2016-10-01" xml:lang="en">It is ambigous to have 2 <gi>model</gi>s
       that have both the same <att>output</att> and have no <att>predicate</att>
       (and thus select the same set of nodes).</desc>
@@ -67591,7 +67588,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec scheme="schematron" ident="no_dup_models">
+  <constraintSpec scheme="schematron" ident="no_dup_models" xml:lang="en">
     <desc versionDate="2016-10-01" xml:lang="en">It is ambigous to have 2 <gi>model</gi>s
       that have both the same <att>output</att> and the same <att>predicate</att>
       (and thus select the same set of nodes).</desc>
@@ -67994,7 +67991,7 @@ déclaration de même nom dans la définition courante.</desc>
       <elementRef key="model" minOccurs="2" maxOccurs="unbounded"/>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="no_outputs_nor_predicates_4_my_kids">
+  <constraintSpec scheme="schematron" ident="no_outputs_nor_predicates_4_my_kids" xml:lang="en">
     <constraint>
       <sch:rule context="tei:modelSequence">
         <sch:report test="tei:model[@output]" role="warning">The 'model' children
@@ -68635,7 +68632,7 @@ déclaration de même nom dans la définition courante.</desc>
   <!-- we know that @minOccurs is castable as an integer, and we know that -->
   <!-- @maxOccurs is either "unbounded" or castable as an integer, because -->
   <!-- they have passed standard grammar-based validation. -->
-  <constraintSpec ident="MINandMAXoccurs" scheme="schematron">
+  <constraintSpec ident="MINandMAXoccurs" scheme="schematron" xml:lang="en">
     <!-- <desc>The value of <att>minOccurs</att> should always be less than or
          equal to that of <att>maxOccurs</att>. Since the default value of
          <att>maxOccurs</att> is 1, when <att>maxOccurs</att> is not specified
@@ -68718,7 +68715,7 @@ déclaration de même nom dans la définition courante.</desc>
   <content>
     <classRef key="model.contentPart" maxOccurs="unbounded"/>
   </content>
-  <constraintSpec ident="sequencechilden" scheme="schematron">
+  <constraintSpec ident="sequencechilden" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:sequence">
         <sch:assert test="count(*) gt 1">The sequence element must have at least two child elements</sch:assert>
@@ -68766,7 +68763,7 @@ déclaration de même nom dans la définition courante.</desc>
       <classRef key="model.contentPart"/>
     </alternate>
   </content>
-  <constraintSpec ident="alternatechilden" scheme="schematron">
+  <constraintSpec ident="alternatechilden" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:alternate">
         <sch:assert test="count(*) gt 1">The alternate element must have at least two child elements</sch:assert>
@@ -68786,6 +68783,99 @@ déclaration de même nom dans la définition courante.</desc>
   </exemplum>
   <listRef>
     <ptr target="#DEFCON" type="div2"/>
+  </listRef>
+</elementSpec>
+<elementSpec module="tagdocs" ident="constraintDecl">
+  <gloss versionDate="2023-03-09" xml:lang="en">constraint declaration</gloss>
+  <desc versionDate="2023-03-09" xml:lang="en">contains declarations pertaining to formal constraints expressed elsewhere in <gi>constraintSpec</gi> elements</desc>
+  <classes>
+    <memberOf key="att.global"/>
+    <memberOf key="model.encodingDescPart"/>
+    <!-- <constraintDecl> is part of content of <schemaSpec> directly, not via a class -->
+  </classes>
+  <content>
+    <sequence>
+      <alternate minOccurs="0" maxOccurs="unbounded">
+        <classRef key="model.identEquiv"/>
+        <classRef key="model.descLike"/>
+      </alternate>
+      <anyElement minOccurs="0" maxOccurs="unbounded"/>             <!-- typically <sch:ns> elements -->
+    </sequence>
+  </content>
+  <constraintSpec scheme="schematron" ident="one-constraintDecl-per-scheme" xml:lang="en">
+    <!-- Note: the “not a descendant of <egXML>” predicate on the
+         XPath defining $schemes is required for the P5 build process,
+         not for normal users. (In P5 build validity of <egXML>s are
+         tested by changing their namespace to TEI, so the tei: prefix
+         is not sufficient.) —Syd, 2024-09-19 -->
+    <constraint>
+      <sch:rule context="/*[ count( //tei:constraintDecl ) gt 1 ]">
+        <sch:let name="schemes" value="//tei:constraintDecl[ not(ancestor::*[local-name(.) eq 'egXML'] ) ]/@scheme"/>
+        <sch:let name="disctinct_schemes" value="distinct-values( $schemes )"/>
+        <sch:assert test="count( $schemes ) eq count( $disctinct_schemes )">
+          Each &lt;constraintDecl&gt; element should have a @scheme attribute that is distinct from that of all the other &lt;constraintDecl&gt;s.
+        </sch:assert>
+      </sch:rule>
+    </constraint>
+  </constraintSpec>
+  <attList>
+    <attDef ident="scheme" usage="req">
+      <desc versionDate="2023-03-09" xml:lang="en">supplies the name of the language to which the declarations herein apply</desc>
+      <datatype><dataRef key="teidata.enumerated"/></datatype>
+      <valList type="semi">
+        <valItem ident="schematron">
+          <gloss versionDate="2016-09-27" xml:lang="en">ISO Schematron</gloss>
+        </valItem>
+      </valList>
+      <remarks versionDate="2023-03-09" xml:lang="en">
+        <p>The declarations contained in a particular
+        <gi>constraintDecl</gi> (including <att>queryBinding</att>, if
+        present) apply to the <gi>constraintSpec</gi> elements whose
+        <att>scheme</att> matches the <att>scheme</att> of the
+        <gi>constraintDecl</gi>.</p>
+      </remarks>
+    </attDef>
+    <attDef ident="queryBinding" usage="rec">
+      <gloss xml:lang="en" versionDate="2023-03-09">query language binding</gloss>
+      <desc xml:lang="en" versionDate="2023-03-09">specifies the query
+      language binding for rule-based schema expressions in
+      <gi>constraintSpec</gi> elements that have a matching
+      <att>scheme</att> attribute</desc>
+      <datatype><dataRef key="teidata.enumerated"/></datatype>
+      <valList type="semi">
+        <valItem ident="exslt"/>
+        <valItem ident="stx"/>
+        <valItem ident="xslt"/>
+        <valItem ident="xslt2"/>
+        <valItem ident="xslt3"/>
+        <valItem ident="xpath"/>
+        <valItem ident="xpath2"/>
+        <valItem ident="xpath3"/>
+        <valItem ident="xpath31"/>
+        <valItem ident="xquery"/>
+        <valItem ident="xquery3"/>
+        <valItem ident="xquery31"/>
+      </valList>
+      <remarks versionDate="2023-03-09" xml:lang="en">
+        <p>The suggested values above are the values reserved by the
+        Schematron specification. Only <val>exslt</val>,
+        <val>stx</val>, <val>xslt</val>, <val>xslt2</val>,
+        <val>xslt3</val>, <val>xpath2</val>, and <val>xpath3</val> are
+        defined by the specification. Most processors only support one
+        or more of <val>xslt</val>, <val>xslt2</val>, and
+        <val>xslt3</val>.</p>
+      </remarks>
+    </attDef>
+  </attList>
+  <exemplum xml:lang="en">
+    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <constraintDecl scheme="schematron" queryBinding="xslt3">
+        <sch:ns prefix="wwp" uri="http://www.wwp.northeastern.edu/ns/textbase"/>
+      </constraintDecl>
+    </egXML>
+  </exemplum>
+  <listRef>
+    <ptr target="#TDTAGCONS"/>
   </listRef>
 </elementSpec>
 <elementSpec module="tagdocs" xml:id="gi-constraint" ident="constraint">
@@ -68848,7 +68938,7 @@ déclaration de même nom dans la définition courante.</desc>
       <elementRef key="constraint" minOccurs="0" maxOccurs="1"/>
     </sequence>
   </content>
-  <constraintSpec scheme="schematron" ident="empty-based-on-mode">
+  <constraintSpec scheme="schematron" ident="empty-based-on-mode" xml:lang="en">
     <!-- 
          This constraint specification is much like the
          "child-constraint-based-on-mode" for <elementSpec>, which
@@ -68867,7 +68957,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="sch_no_more" scheme="schematron">
+  <constraintSpec ident="sch_no_more" scheme="schematron" xml:lang="en">
     <desc versionDate="2018-07-06" xml:lang="en">Relationship between scheme attribute and contents: Schematron 1.x</desc>
     <constraint>
       <sch:rule context="tei:constraintSpec">
@@ -68878,7 +68968,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="isosch" scheme="schematron">
+  <constraintSpec ident="isosch" scheme="schematron" xml:lang="en">
     <desc versionDate="2018-07-06" xml:lang="en">Relationship between scheme attribute and contents: ISO Schematron</desc>
     <constraint>
       <sch:rule context="tei:constraintSpec[ @mode = ('add','replace') or not( @mode ) ]">
@@ -68888,7 +68978,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="context-required" scheme="schematron" type="deprecationWarning" validUntil="2025-03-15">
+  <constraintSpec ident="context-required" scheme="schematron" type="deprecationWarning" validUntil="2025-03-15" xml:lang="en">
     <desc type="deprecationInfo" versionDate="2024-03-15" xml:lang="en">
       The use of ISO Schematron <gi>sch:assert</gi> and
       <gi>sch:report</gi> elements without a parent <gi>sch:rule</gi>
@@ -68909,7 +68999,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="unique-constraintSpec-ident" scheme="schematron">
+  <constraintSpec ident="unique-constraintSpec-ident" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:constraintSpec[ @mode eq 'add' or not( @mode ) ]">
         <sch:let name="myIdent" value="normalize-space(@ident)"/>
@@ -68931,10 +69021,10 @@ déclaration de même nom dans la définition courante.</desc>
       <desc versionDate="2009-06-10" xml:lang="en">supplies the name of the language in which the constraints are defined</desc>
       <desc versionDate="2024-02-28" xml:lang="ja">制約を定義する言語名を示す。</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
-      <constraintSpec scheme="schematron" ident="usage_based_on_mode">
+      <constraintSpec scheme="schematron" ident="usage_based_on_mode" xml:lang="en">
         <constraint>
           <sch:rule context="tei:constraintSpec[ @mode = ('add','replace')  or  not( @mode ) ]">
-            <sch:assert test="@scheme">The @scheme attribute of &lt;constraintSpec&gt; is required when the @mode is <sch:value-of select="if (@mode) then concat('&#34;',@mode,'&#34;') else 'not specified'"/>.</sch:assert>
+            <sch:assert test="@scheme">The @scheme attribute of &lt;constraintSpec&gt; is required when the @mode is <sch:value-of select="if (@mode) then concat('&#34;',@mode,'&#34;') else 'not specified'"/> (here on "<sch:value-of select="@ident"/>")</sch:assert>
           </sch:rule>
         </constraint>
       </constraintSpec>
@@ -69181,7 +69271,7 @@ déclaration de même nom dans la définition courante.</desc>
         <elementRef key="remarks" minOccurs="0" maxOccurs="unbounded"/>
     </sequence>
   </content>
-  <constraintSpec ident="attDefContents" scheme="schematron">
+  <constraintSpec ident="attDefContents" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:ns prefix="teix" uri="http://www.tei-c.org/ns/Examples"/>
       <sch:rule context="tei:attDef">
@@ -69195,7 +69285,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="noDefault4Required" scheme="schematron">
+  <constraintSpec ident="noDefault4Required" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:attDef[@usage eq 'req']">
         <sch:report test="tei:defaultVal">Since the @<sch:value-of select="@ident"/> attribute is required, it will always be specified. Thus the default value (of "<sch:value-of select="normalize-space(tei:defaultVal)"/>") will never be used. Either change the definition of the attribute so it is not required ("rec" or "opt"), or remove the defaultVal element.</sch:report>
@@ -69208,7 +69298,7 @@ déclaration de même nom dans la définition courante.</desc>
   <!-- made them separate for now to make debugging easier. After we're -->
   <!-- confident these work properly, could condense them to one. -->
   <!-- -Syd, 2015-03-29 -->
-  <constraintSpec ident="defaultIsInClosedList-twoOrMore" scheme="schematron">
+  <constraintSpec ident="defaultIsInClosedList-twoOrMore" scheme="schematron" xml:lang="en">
     <!-- The use of the '>' operator (expressed as "&gt;"), below, is
          not needed for comparison of a sequence, but seems to
          automatically handle a left hand operand that is an
@@ -69223,7 +69313,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="defaultIsInClosedList-one" scheme="schematron">
+  <constraintSpec ident="defaultIsInClosedList-one" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:attDef[     tei:defaultVal                                      and tei:valList[ @type eq 'closed']                                      and tei:datatype[                                             not(@maxOccurs)                                         or  ( if ( @maxOccurs castable as xs:integer ) then ( @maxOccurs cast as xs:integer eq 1 ) else false() )                                                      ]                                    ]">
         <sch:assert test="string(tei:defaultVal) = tei:valList/tei:valItem/@ident">In the <sch:value-of select="local-name(ancestor::*[@ident][1])"/> defining
@@ -69254,7 +69344,7 @@ déclaration de même nom dans la définition courante.</desc>
           <gloss xml:lang="zh-TW" versionDate="2007-05-02">必備的</gloss>
         </valItem>
         <valItem ident="rec">
-          <gloss versionDate="2005-01-14" xml:lang="en">recommended </gloss>
+          <gloss versionDate="2005-01-14" xml:lang="en">recommended</gloss>
           <gloss xml:lang="zh-TW" versionDate="2007-05-02">推薦的</gloss>
           <gloss versionDate="2008-04-05" xml:lang="ja">推奨。</gloss>
           <gloss versionDate="2007-06-12" xml:lang="fr">recommandé</gloss>
@@ -69262,7 +69352,7 @@ déclaration de même nom dans la définition courante.</desc>
           <gloss versionDate="2007-05-04" xml:lang="es">recomendado</gloss>
         </valItem>
         <valItem ident="opt">
-          <gloss versionDate="2005-01-14" xml:lang="en">optional </gloss>
+          <gloss versionDate="2005-01-14" xml:lang="en">optional</gloss>
           <gloss versionDate="2008-04-05" xml:lang="ja">選択的。</gloss>
           <gloss versionDate="2007-06-12" xml:lang="fr">facultatif</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">facoltativo</gloss>
@@ -69485,7 +69575,7 @@ déclaration de même nom dans la définition courante.</desc>
   <content>
     <elementRef minOccurs="0" maxOccurs="unbounded" key="dataFacet"/>
   </content>
-  <constraintSpec ident="restrictDataFacet" scheme="schematron">
+  <constraintSpec ident="restrictDataFacet" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:dataRef[tei:dataFacet]">
         <sch:assert test="@name" role="nonfatal">Data facets can only be specified for references to datatypes specified by
@@ -69494,7 +69584,7 @@ déclaration de même nom dans la définition courante.</desc>
       </sch:rule>
     </constraint>
   </constraintSpec>
-  <constraintSpec ident="restrictAttResctrictionName" scheme="schematron">
+  <constraintSpec ident="restrictAttResctrictionName" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:dataRef[@restriction]">
         <sch:assert test="@name" role="nonfatal">Restrictions can only be specified for references to datatypes specified by
@@ -69906,7 +69996,7 @@ an attribute may take, additional to the information carried by the
         <valItem ident="semi">
           <gloss versionDate="2007-07-04" xml:lang="en">semi-open</gloss>
           <gloss versionDate="2007-12-20" xml:lang="ko">반개방</gloss>
-          <gloss versionDate="2007-06-12" xml:lang="fr">semi-ouvert </gloss>
+          <gloss versionDate="2007-06-12" xml:lang="fr">semi-ouvert</gloss>
           <gloss versionDate="2007-11-06" xml:lang="it">semiaperto</gloss>
           <gloss versionDate="2007-05-04" xml:lang="es">todos los valores indicados deben ser
           soportados pero son consentidos otros valores para los que son necesarios sistemas de
@@ -70283,7 +70373,7 @@ an attribute may take, additional to the information carried by the
     
     <memberOf key="att.combinable"/>
   </classes>
-  <constraintSpec ident="spec-in-module" scheme="schematron">
+  <constraintSpec ident="spec-in-module" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:elementSpec[@module]|tei:classSpec[@module]|tei:macroSpec[@module]">
         <sch:assert test="(not(ancestor::tei:schemaSpec | ancestor::tei:TEI | ancestor::tei:teiCorpus)) or (not(@module) or (not(//tei:moduleSpec) and not(//tei:moduleRef)) or (//tei:moduleSpec[@ident = current()/@module]) or (//tei:moduleRef[@key = current()/@module]))">
@@ -70347,7 +70437,7 @@ should correspond to an existing module, via a moduleSpec or
         -->
         <dataRef name="date"/>
       </datatype>
-      <constraintSpec scheme="schematron" ident="deprecation-two-month-warning">
+      <constraintSpec scheme="schematron" ident="deprecation-two-month-warning" xml:lang="en">
         <constraint>
           <sch:rule context="tei:*[@validUntil]">
             <sch:let name="advance_warning_period" value="current-date() + xs:dayTimeDuration('P60D')"/>
@@ -70360,7 +70450,7 @@ should correspond to an existing module, via a moduleSpec or
           </sch:rule>
         </constraint>
       </constraintSpec>
-      <constraintSpec scheme="schematron" ident="deprecation-should-be-explained">
+      <constraintSpec scheme="schematron" ident="deprecation-should-be-explained" xml:lang="en">
         <constraint>
           <sch:rule context="tei:*[@validUntil][ not( self::tei:valDesc | self::tei:valList | self::tei:defaultVal | self::tei:remarks )]">
             <sch:assert test="child::tei:desc[ @type eq 'deprecationInfo']">
@@ -70767,6 +70857,7 @@ should correspond to an existing module, via a moduleSpec or
 <bibl xml:id="biblzh-tw_n23-24"/>
 <bibl xml:id="biblzh-tw_n29"/>
 <bibl xml:id="biblzh-tw_n41"/>
+<bibl xml:id="bib4handnoteyi"/>
 <bibl xml:id="DRPRO-eg-7"/>
 <bibl xml:id="biblzh-tw_n58"/>
 <bibl xml:id="STGA-eg-9"/>

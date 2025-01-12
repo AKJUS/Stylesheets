@@ -660,7 +660,7 @@ sch:pattern [
     "         "
     sch:report [
       test =
-        "( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]"
+        "(   self::tei:classRef                                 | self::tei:dataRef                                 | self::tei:elementRef                                 | self::tei:macroRef                                 | self::tei:moduleRef                                 | self::tei:schemaSpec )                                   and                                   $srcs[2]"
       "\x{a}" ~
       "              When used on a schema description element (like\x{a}" ~
       "              "
@@ -729,6 +729,23 @@ att.global.attribute.xmlspace =
       ## indicates the intent that applications preserve all white space
       "preserve"
   }?
+att.scope.attributes = att.scope.attribute.scope
+att.scope.attribute.scope =
+  
+  ## indicates the scope of application of the element
+  ## Suggested values include: 1] sole; 2] major; 3] minor
+  attribute scope {
+    
+    ## only this particular feature is used throughout the document
+    "sole"
+    | 
+      ## this feature is used through most of the document
+      "major"
+    | 
+      ## this feature is used occasionally through the document
+      "minor"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
 att.handFeatures.attribute.scribe =
   
   ## gives a name or other identifier for the scribe believed to be responsible for this hand.
@@ -772,20 +789,6 @@ att.handFeatures.attribute.medium =
     list {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
-  }?
-att.handFeatures.attribute.scope =
-  
-  ## specifies how widely this hand is used in the manuscript.
-  attribute scope {
-    
-    ## only this hand is used throughout the manuscript
-    "sole"
-    | 
-      ## this hand is used through most of the manuscript
-      "major"
-    | 
-      ## this hand is used occasionally in the manuscript
-      "minor"
   }?
 att.internetMedia.attributes = att.internetMedia.attribute.mimeType
 att.internetMedia.attribute.mimeType =
@@ -3015,10 +3018,9 @@ ref =
            "               "
            sch:report [
              test = "@target and @cRef"
-             "Only one of the attributes @target' and @cRef' may be supplied on "
+             "Only one of the attributes @target and @cRef may be supplied on "
              sch:name [ ]
-             "\x{a}" ~
-             "               "
+             "."
            ]
            "\x{a}" ~
            "            "
@@ -4607,7 +4609,7 @@ geoDecl =
       ## (World Geodetic System) a pair of numbers to be interpreted as latitude followed by longitude according to the World Geodetic System.
       "WGS84"
       | 
-        ## (Military Grid Reference System) the values supplied are geospatial entity object codes, based on
+        ## (Military Grid Reference System) values supplied follow the Military Grid Reference System, which designates grid zones in a string of letters and numbers that distinctly indicate each square meter on the planet.
         "MGRS"
       | 
         ## (ordnance survey great britain) the value supplied is to be interpreted as a British National Grid Reference.
@@ -4735,6 +4737,7 @@ language =
   element language {
     macro.phraseSeq.limited,
     att.global.attributes,
+    att.scope.attributes,
     [
       a:documentation [
         "(identifier) Supplies a language code constructed as defined in "

@@ -115,6 +115,15 @@
                   <attDef ident="sample" mode="delete"/>
                </attList>
             </classSpec>
+            <classSpec ident="att.handFeatures" type="atts" mode="change">
+               <attList>
+                  <attDef ident="scribe" mode="delete"/>
+                  <attDef ident="scribeRef" mode="delete"/>
+                  <attDef ident="script" mode="delete"/>
+                  <attDef ident="scriptRef" mode="delete"/>
+                  <attDef ident="medium" mode="delete"/>
+               </attList>
+            </classSpec>
             <classSpec ident="att.media" type="atts" mode="change">
                <attList>
                   <attDef ident="width" mode="delete"/>

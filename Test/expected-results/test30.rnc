@@ -723,7 +723,7 @@ sch:pattern [
     "         "
     sch:report [
       test =
-        "( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]"
+        "(   self::tei:classRef                                 | self::tei:dataRef                                 | self::tei:elementRef                                 | self::tei:macroRef                                 | self::tei:moduleRef                                 | self::tei:schemaSpec )                                   and                                   $srcs[2]"
       "\x{a}" ~
       "              When used on a schema description element (like\x{a}" ~
       "              "
@@ -740,13 +740,30 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
+Tatt.scope.attributes = Tatt.scope.attribute.scope
+Tatt.scope.attribute.scope =
+  
+  ## indicates the scope of application of the element
+  ## Suggested values include: 1] sole; 2] major; 3] minor
+  attribute scope {
+    
+    ## only this particular feature is used throughout the document
+    "sole"
+    | 
+      ## this feature is used through most of the document
+      "major"
+    | 
+      ## this feature is used occasionally through the document
+      "minor"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
 Tatt.handFeatures.attributes =
+  Tatt.scope.attributes,
   Tatt.handFeatures.attribute.scribe,
   Tatt.handFeatures.attribute.scribeRef,
   Tatt.handFeatures.attribute.script,
   Tatt.handFeatures.attribute.scriptRef,
-  Tatt.handFeatures.attribute.medium,
-  Tatt.handFeatures.attribute.scope
+  Tatt.handFeatures.attribute.medium
 Tatt.handFeatures.attribute.scribe =
   
   ## gives a name or other identifier for the scribe believed to be responsible for this hand.
@@ -790,20 +807,6 @@ Tatt.handFeatures.attribute.medium =
     list {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
-  }?
-Tatt.handFeatures.attribute.scope =
-  
-  ## specifies how widely this hand is used in the manuscript.
-  attribute scope {
-    
-    ## only this hand is used throughout the manuscript
-    "sole"
-    | 
-      ## this hand is used through most of the manuscript
-      "major"
-    | 
-      ## this hand is used occasionally in the manuscript
-      "minor"
   }?
 Tatt.internetMedia.attributes = Tatt.internetMedia.attribute.mimeType
 Tatt.internetMedia.attribute.mimeType =
@@ -3283,10 +3286,9 @@ Tref =
            "               "
            sch:report [
              test = "@target and @cRef"
-             "Only one of the attributes @target' and @cRef' may be supplied on "
+             "Only one of the attributes @target and @cRef may be supplied on "
              sch:name [ ]
-             "\x{a}" ~
-             "               "
+             "."
            ]
            "\x{a}" ~
            "            "
@@ -4906,7 +4908,7 @@ TgeoDecl =
       ## (World Geodetic System) a pair of numbers to be interpreted as latitude followed by longitude according to the World Geodetic System.
       "WGS84"
       | 
-        ## (Military Grid Reference System) the values supplied are geospatial entity object codes, based on
+        ## (Military Grid Reference System) values supplied follow the Military Grid Reference System, which designates grid zones in a string of letters and numbers that distinctly indicate each square meter on the planet.
         "MGRS"
       | 
         ## (ordnance survey great britain) the value supplied is to be interpreted as a British National Grid Reference.
@@ -5043,6 +5045,7 @@ Tlanguage =
   element language {
     Tmacro.phraseSeq.limited,
     Tatt.global.attributes,
+    Tatt.scope.attributes,
     [
       a:documentation [
         "(identifier) Supplies a language code constructed as defined in "

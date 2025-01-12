@@ -37,7 +37,7 @@
    <pattern id="schematron-constraint-test-att.global.source-source-only_1_ODD_source-5">
       <rule context="tei:*[@source]">
          <let name="srcs" value="tokenize( normalize-space(@source),' ')"/>
-         <report test="( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]"> When used on a schema description element (like <value-of select="name(.)"/>), the @source attribute should have only 1 value. (This one has <value-of select="count($srcs)"/>.)</report>
+         <report test="(   self::tei:classRef                                 | self::tei:dataRef                                 | self::tei:elementRef                                 | self::tei:macroRef                                 | self::tei:moduleRef                                 | self::tei:schemaSpec )                                   and                                   $srcs[2]"> When used on a schema description element (like <value-of select="name(.)"/>), the @source attribute should have only 1 value. (This one has <value-of select="count($srcs)"/>.)</report>
       </rule>
    </pattern>
    <pattern id="schematron-constraint-test-att.measurement-att-measurement-unitRef-6">
@@ -108,8 +108,7 @@
    </pattern>
    <pattern id="schematron-constraint-test-ref-refAtts-19">
       <rule context="tei:ref">
-         <report test="@target and @cRef">Only one of the attributes @target' and @cRef' may be supplied on <name/>
-         </report>
+         <report test="@target and @cRef">Only one of the attributes @target and @cRef may be supplied on <name/>.</report>
       </rule>
    </pattern>
    <pattern id="schematron-constraint-test-list-gloss-list-must-have-labels-20">

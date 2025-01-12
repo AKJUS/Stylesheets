@@ -405,6 +405,10 @@ rendition CDATA  #IMPLIED'>
 source CDATA  #IMPLIED'>
 <!ENTITY % Tatt.global.source.attributes '
  %Tatt.global.source.attribute.source;'> 
+<!ENTITY % Tatt.scope.attribute.scope '
+scope %teidata.enumerated;  #IMPLIED'>
+<!ENTITY % Tatt.scope.attributes '
+ %Tatt.scope.attribute.scope;'> 
 <!ENTITY % Tatt.handFeatures.attribute.scribe '
 scribe %teidata.name;  #IMPLIED'>
 
@@ -419,16 +423,12 @@ scriptRef CDATA  #IMPLIED'>
 
 <!ENTITY % Tatt.handFeatures.attribute.medium '
 medium NMTOKENS  #IMPLIED'>
-
-<!ENTITY % Tatt.handFeatures.attribute.scope '
-scope (sole|major|minor) #IMPLIED'>
-<!ENTITY % Tatt.handFeatures.attributes '
+<!ENTITY % Tatt.handFeatures.attributes '%Tatt.scope.attributes;
  %Tatt.handFeatures.attribute.scribe;
  %Tatt.handFeatures.attribute.scribeRef;
  %Tatt.handFeatures.attribute.script;
  %Tatt.handFeatures.attribute.scriptRef;
- %Tatt.handFeatures.attribute.medium;
- %Tatt.handFeatures.attribute.scope;'> 
+ %Tatt.handFeatures.attribute.medium;'> 
 <!ENTITY % Tatt.internetMedia.attribute.mimeType '
 mimeType CDATA  #IMPLIED'>
 <!ENTITY % Tatt.internetMedia.attributes '
@@ -2298,6 +2298,7 @@ level %teidata.word;  #IMPLIED >
 <!ATTLIST language xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST language
  %Tatt.global.attributes;
+ %Tatt.scope.attributes;
 ident %teidata.language;  #REQUIRED
 usage CDATA #IMPLIED >
 <!--doc:(line beginning) marks the beginning of a new (typographic) line in some edition or version of a text. [3.11.3. Milestone

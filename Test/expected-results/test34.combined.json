@@ -5469,8 +5469,8 @@
                 
                 { "ident" : "MGRS",
                   "desc" : 
-                  [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2009-04-27\" xml:lang=\"en\">the values supplied are geospatial entity object codes, based on<\/desc>" ],
-                  "shortDesc" : "(Military Grid Reference System) the values supplied are geospatial entity object codes, based on",
+                  [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2024-12-01\" xml:lang=\"en\">values supplied follow the Military Grid Reference System, \n            which designates grid zones in a string of letters and numbers that distinctly indicate each square meter on the planet.<\/desc>" ],
+                  "shortDesc" : "(Military Grid Reference System) values supplied follow the Military Grid Reference System, \n            which designates grid zones in a string of letters and numbers that distinctly indicate each square meter on the planet.",
                   "gloss" : 
                   [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-06-25\" xml:lang=\"en\">Military Grid Reference System<\/gloss>" ],
                   "altIdent" : 
@@ -6529,7 +6529,8 @@
         { "model" : 
           [  ],
           "atts" : 
-          [ "att.global" ],
+          [ "att.global",
+            "att.scope" ],
           "unknown" : 
           [  ] },
         "attributes" : 
@@ -15443,8 +15444,8 @@
           "type" : "classSpec",
           "module" : "tei",
           "desc" : 
-          [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2021-08-22\" xml:lang=\"en\">provides attributes used by elements to point to an\n    external source.<\/desc>" ],
-          "shortDesc" : "provides attributes used by elements to point to an\n    external source.",
+          [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2021-08-22\" xml:lang=\"en\">provides attributes used by elements to point to an external source.<\/desc>" ],
+          "shortDesc" : "provides attributes used by elements to point to an external source.",
           "gloss" : 
           [  ],
           "altIdent" : 
@@ -15457,8 +15458,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-05-09\" xml:lang=\"en\">specifies the source from which some aspect of\n        this element is drawn.<\/desc>" ],
-              "shortDesc" : "specifies the source from which some aspect of\n        this element is drawn.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-05-09\" xml:lang=\"en\">specifies the source from which some aspect of this element is drawn.<\/desc>" ],
+              "shortDesc" : "specifies the source from which some aspect of this element is drawn.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15476,12 +15477,19 @@
           "type" : "classSpec",
           "module" : "tei",
           "desc" : 
-          [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">provides attributes describing aspects of the hand in which a\n  manuscript is written.<\/desc>" ],
-          "shortDesc" : "provides attributes describing aspects of the hand in which a\n  manuscript is written.",
+          [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">provides attributes describing aspects of the hand in which a manuscript is written.<\/desc>" ],
+          "shortDesc" : "provides attributes describing aspects of the hand in which a manuscript is written.",
           "gloss" : 
           [  ],
           "altIdent" : 
           [  ],
+          "classes" : 
+          { "model" : 
+            [  ],
+            "atts" : 
+            [ "att.scope" ],
+            "unknown" : 
+            [  ] },
           "attributes" : 
           [ 
             { "onElement" : false,
@@ -15582,57 +15590,7 @@
               { "min" : "1",
                 "max" : "unbounded",
                 "dataRef" : 
-                { "key" : "teidata.enumerated" } } },
-            
-            { "onElement" : false,
-              "ident" : "scope",
-              "mode" : "add",
-              "ns" : "",
-              "usage" : "def",
-              "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">specifies how widely this  hand is used in the manuscript.<\/desc>" ],
-              "shortDesc" : "specifies how widely this  hand is used in the manuscript.",
-              "gloss" : 
-              [  ],
-              "altIdent" : 
-              [  ],
-              "valDesc" : 
-              [  ],
-              "datatype" : 
-              { "min" : "1",
-                "max" : "1",
-                "dataRef" : 
-                { "key" : "teidata.enumerated" } },
-              "valList" : 
-              { "type" : "closed",
-                "valItem" : 
-                [ 
-                  { "ident" : "sole",
-                    "desc" : 
-                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">only this hand is used throughout the manuscript<\/desc>" ],
-                    "shortDesc" : "only this hand is used throughout the manuscript",
-                    "gloss" : 
-                    [  ],
-                    "altIdent" : 
-                    [  ] },
-                  
-                  { "ident" : "major",
-                    "desc" : 
-                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">this hand is used through most of the manuscript<\/desc>" ],
-                    "shortDesc" : "this hand is used through most of the manuscript",
-                    "gloss" : 
-                    [  ],
-                    "altIdent" : 
-                    [  ] },
-                  
-                  { "ident" : "minor",
-                    "desc" : 
-                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">this hand is used occasionally in the manuscript<\/desc>" ],
-                    "shortDesc" : "this hand is used occasionally in the manuscript",
-                    "gloss" : 
-                    [  ],
-                    "altIdent" : 
-                    [  ] } ] } } ] },
+                { "key" : "teidata.enumerated" } } } ] },
         
         { "ident" : "att.internetMedia",
           "ns" : "http:\/\/foo.foo\/foo",
@@ -16889,6 +16847,69 @@
                 "max" : "1",
                 "dataRef" : 
                 { "key" : "teidata.pointer" } } } ] },
+        
+        { "ident" : "att.scope",
+          "ns" : "http:\/\/foo.foo\/foo",
+          "type" : "classSpec",
+          "module" : "tei",
+          "desc" : 
+          [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2024-12-04\" xml:lang=\"en\">provides attributes to describe, in general terms, the scope of an element’s application.<\/desc>" ],
+          "shortDesc" : "provides attributes to describe, in general terms, the scope of an element’s application.",
+          "gloss" : 
+          [  ],
+          "altIdent" : 
+          [  ],
+          "attributes" : 
+          [ 
+            { "onElement" : false,
+              "ident" : "scope",
+              "mode" : "add",
+              "ns" : "",
+              "usage" : "opt",
+              "desc" : 
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2024-12-04\" xml:lang=\"en\">indicates the scope of application of the element<\/desc>" ],
+              "shortDesc" : "indicates the scope of application of the element",
+              "gloss" : 
+              [  ],
+              "altIdent" : 
+              [  ],
+              "valDesc" : 
+              [  ],
+              "datatype" : 
+              { "min" : "1",
+                "max" : "1",
+                "dataRef" : 
+                { "key" : "teidata.enumerated" } },
+              "valList" : 
+              { "type" : "semi",
+                "valItem" : 
+                [ 
+                  { "ident" : "sole",
+                    "desc" : 
+                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2024-12-04\" xml:lang=\"en\">only this particular feature is used throughout the document<\/desc>" ],
+                    "shortDesc" : "only this particular feature is used throughout the document",
+                    "gloss" : 
+                    [  ],
+                    "altIdent" : 
+                    [  ] },
+                  
+                  { "ident" : "major",
+                    "desc" : 
+                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2024-12-04\" xml:lang=\"en\">this feature is used through most of the document<\/desc>" ],
+                    "shortDesc" : "this feature is used through most of the document",
+                    "gloss" : 
+                    [  ],
+                    "altIdent" : 
+                    [  ] },
+                  
+                  { "ident" : "minor",
+                    "desc" : 
+                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2024-12-04\" xml:lang=\"en\">this feature is used occasionally through the document<\/desc>" ],
+                    "shortDesc" : "this feature is used occasionally through the document",
+                    "gloss" : 
+                    [  ],
+                    "altIdent" : 
+                    [  ] } ] } } ] },
         
         { "ident" : "att.segLike",
           "ns" : "http:\/\/foo.foo\/foo",

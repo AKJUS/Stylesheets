@@ -689,7 +689,7 @@ sch:pattern [
     "         "
     sch:report [
       test =
-        "( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]"
+        "(   self::tei:classRef                                 | self::tei:dataRef                                 | self::tei:elementRef                                 | self::tei:macroRef                                 | self::tei:moduleRef                                 | self::tei:schemaSpec )                                   and                                   $srcs[2]"
       "\x{a}" ~
       "              When used on a schema description element (like\x{a}" ~
       "              "
@@ -752,13 +752,30 @@ att.global.attribute.xmlspace =
       ## indicates the intent that applications preserve all white space
       "preserve"
   }?
+att.scope.attributes = att.scope.attribute.scope
+att.scope.attribute.scope =
+  
+  ## indicates the scope of application of the element
+  ## Suggested values include: 1] sole; 2] major; 3] minor
+  attribute scope {
+    
+    ## only this particular feature is used throughout the document
+    "sole"
+    | 
+      ## this feature is used through most of the document
+      "major"
+    | 
+      ## this feature is used occasionally through the document
+      "minor"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
 att.handFeatures.attributes =
+  att.scope.attributes,
   att.handFeatures.attribute.scribe,
   att.handFeatures.attribute.scribeRef,
   att.handFeatures.attribute.script,
   att.handFeatures.attribute.scriptRef,
-  att.handFeatures.attribute.medium,
-  att.handFeatures.attribute.scope
+  att.handFeatures.attribute.medium
 att.handFeatures.attribute.scribe =
   
   ## donne un nom normalisé ou un autre identifiant pour le scribe reconnu comme responsable de cette main.
@@ -802,20 +819,6 @@ att.handFeatures.attribute.medium =
     list {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
-  }?
-att.handFeatures.attribute.scope =
-  
-  ## spécifie la fréquence d'apparition de cette main dans le manuscrit.
-  attribute scope {
-    
-    ## il n'y a que cette main dans le manuscrit.
-    "sole"
-    | 
-      ## cette main est utilisée dans la majeure partie du manuscrit.
-      "major"
-    | 
-      ## cette main est utilisée occasionnellement dans le manuscrit.
-      "minor"
   }?
 att.internetMedia.attributes = att.internetMedia.attribute.mimeType
 att.internetMedia.attribute.mimeType =
@@ -3400,10 +3403,9 @@ ref =
            "               "
            sch:report [
              test = "@target and @cRef"
-             "Only one of the attributes @target' and @cRef' may be supplied on "
+             "Only one of the attributes @target and @cRef may be supplied on "
              sch:name [ ]
-             "\x{a}" ~
-             "               "
+             "."
            ]
            "\x{a}" ~
            "            "
@@ -3526,7 +3528,7 @@ headLabel =
   element headLabel { macro.phraseSeq, att.global.attributes, empty }
 headItem =
   
-  ## (intitulé d'une liste d'items ) contient l'intitulé pour la colonne d'items ou de gloses dans un glossaire ou dans une liste semblablement structurée. [3.8. Lists]
+  ## (intitulé d'une liste d'items) contient l'intitulé pour la colonne d'items ou de gloses dans un glossaire ou dans une liste semblablement structurée. [3.8. Lists]
   element headItem { macro.phraseSeq, att.global.attributes, empty }
 note =
   
@@ -6340,7 +6342,7 @@ geoDecl =
         ##             (MGRS).) les valeurs fournies sont des codes objet d'entités geospatiales, fondées sur les coordonnées de la grille de projection transversale universelle de Mercator, (UTM).
         "MGRS"
       | 
-        ## (Système de coordonnées de Grande-Bretagne (OSGB) ) la valeur fournie est à interpréter selon le système "British national grid reference".
+        ## (Système de coordonnées de Grande-Bretagne (OSGB)) la valeur fournie est à interpréter selon le système "British national grid reference".
         "OSGB36"
       | 
         ## (système de coordonnées de données européen.) la valeur fournie doit être interprétée comme la latitude suivie de la longitude selon le système de coordonnées de données européen.
@@ -6474,6 +6476,7 @@ language =
   element language {
     macro.phraseSeq.limited,
     att.global.attributes,
+    att.scope.attributes,
     [
       a:documentation [
         "(identificateur) fournit un code de langue issu de la recommandation "
