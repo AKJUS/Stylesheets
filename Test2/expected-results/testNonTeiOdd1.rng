@@ -183,8 +183,7 @@
          <ref name="att.identifiable.attributes"/>
          <optional>
             <attribute name="class">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The class attribute provides styles through rules in the CSS
-                stylesheet. ) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The class attribute provides styles through rules in the CSS stylesheet.) </a:documentation>
                <list>
                   <oneOrMore>
                      <choice>
@@ -212,20 +211,17 @@
          </attribute>
          <optional>
             <attribute name="data-lg-version">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(path to a larger version of the image to show as a popup (usually a
-                relative path)) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(path to a larger version of the image to show as a popup (usually a relative path)) </a:documentation>
             </attribute>
          </optional>
          <optional>
             <attribute name="alt">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(description of the image for visually-impaired users. If not
-                supplied, then figcaption will be used instead.) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(description of the image for visually-impaired users. If not supplied, then figcaption will be used instead.) </a:documentation>
             </attribute>
          </optional>
          <optional>
             <attribute name="title">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(description of the image which will pop up on mouseover. If not
-                supplied, then figcaption will be used instead.) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(description of the image which will pop up on mouseover. If not supplied, then figcaption will be used instead.) </a:documentation>
             </attribute>
          </optional>
          <empty/>
@@ -253,8 +249,7 @@
          </attribute>
          <optional>
             <attribute name="title">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(explanation of what is being linked to. Will pop up when mousing over
-                the link.) </a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(explanation of what is being linked to. Will pop up when mousing over the link.) </a:documentation>
             </attribute>
          </optional>
          <empty/>
@@ -272,19 +267,16 @@
          <ref name="att.classable.attribute.style"/>
          <ref name="att.identifiable.attributes"/>
          <attribute name="class">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The class attribute provides styles through rules in the CSS
-                stylesheet. ) </a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The class attribute provides styles through rules in the CSS stylesheet.) </a:documentation>
             <list>
                <oneOrMore>
                   <choice>
                      <value>leftFloat</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Float this figure to the left and flow the text around
-                    it.) </a:documentation>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Float this figure to the left and flow the text around it.) </a:documentation>
                      <value>center</value>
                      <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Centre this figure and do not float text around it.) </a:documentation>
                      <value>rightFloat</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Float this figure to the right and flow the text around
-                    it.) </a:documentation>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Float this figure to the right and flow the text around it.) </a:documentation>
                   </choice>
                </oneOrMore>
             </list>
@@ -392,8 +384,7 @@
    <define name="att.classable.attribute.class">
       <optional>
          <attribute name="class">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The class attribute provides styles through rules in the CSS
-                stylesheet. ) </a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The class attribute provides styles through rules in the CSS stylesheet.) </a:documentation>
             <list>
                <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
             </list>
@@ -403,9 +394,7 @@
    <define name="att.classable.attribute.style">
       <optional>
          <attribute name="style">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The style attribute provides one-off style options for specific and
-                unusual cases. Do not use this unless you know that the element you're
-                styling is unlike any other element on the site.) </a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(The style attribute provides one-off style options for specific and unusual cases. Do not use this unless you know that the element you're styling is unlike any other element on the site.) </a:documentation>
          </attribute>
       </optional>
    </define>

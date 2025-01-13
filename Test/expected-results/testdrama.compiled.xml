@@ -8746,8 +8746,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
     <attDef ident="type" mode="change">
       <valList type="semi">
         <valItem ident="deprecationInfo">
-          <gloss versionDate="2018-09-14" xml:lang="en">deprecation
-          information</gloss>
+          <gloss versionDate="2018-09-14" xml:lang="en">deprecation information</gloss>
           <desc versionDate="2018-09-14" xml:lang="en">This element
           describes why or how its parent element is being deprecated,
           typically including recommendations for alternate

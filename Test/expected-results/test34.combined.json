@@ -3231,9 +3231,9 @@
                 { "ident" : "deprecationInfo",
                   "desc" : 
                   [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2018-09-14\" xml:lang=\"en\">This element\n          describes why or how its parent element is being deprecated,\n          typically including recommendations for alternate\n          encoding.<\/desc>" ],
-                  "shortDesc" : "(deprecation\n          information) This element\n          describes why or how its parent element is being deprecated,\n          typically including recommendations for alternate\n          encoding.",
+                  "shortDesc" : "(deprecation information) This element\n          describes why or how its parent element is being deprecated,\n          typically including recommendations for alternate\n          encoding.",
                   "gloss" : 
-                  [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2018-09-14\" xml:lang=\"en\">deprecation\n          information<\/gloss>" ],
+                  [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2018-09-14\" xml:lang=\"en\">deprecation information<\/gloss>" ],
                   "altIdent" : 
                   [  ] } ] } } ],
         "content" : 
