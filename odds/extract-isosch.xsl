@@ -257,7 +257,7 @@ of this software, even if advised of the possibility of such damage.
                                   ||'; using the prefix bound in the first one, '
                                   ||'and ignoring the other(s).'"/>
             </xsl:if>
-            <xsl:sequence select="$DECLARED_NSs_with_this_uri/@prefix => normalize-space()||':'"/>
+            <xsl:sequence select="($DECLARED_NSs_with_this_uri)[1]/@prefix => normalize-space()||':'"/>
           </xsl:when>
           <xsl:when test="namespace::* = $nsu">
             <xsl:value-of select="concat( local-name( namespace::*[ . eq $nsu ][1] ), ':')"/>
