@@ -200,13 +200,22 @@ of this software, even if advised of the possibility of such damage.
            match="//tei:*[@validUntil][ not( ancestor::teix:egXML ) ]"
            use="1"/>
 
+  <!--
+      The CONSTRAINTs key contains the <constraint> elements from
+      within <constraintSpec>s plus whatever Schematron elements
+      are in the <constraintDecl>.
+  -->
   <xsl:key name="CONSTRAINTs"
            match="constraintSpec[ @scheme eq 'schematron' ]/constraint
                                 [ not( ancestor::teix:egXML ) ]"
            use="( ancestor-or-self::*[@xml:lang][1]/@xml:lang, 'en')[1] => normalize-space()"/>
+  <xsl:key name="CONSTRAINTs"
+           match="constraintDecl[ @scheme eq 'schematron' ]/sch:*
+                                [ not( ancestor::teix:egXML ) ]"
+           use="( ancestor-or-self::*[@xml:lang][1]/@xml:lang, 'en')[1] => normalize-space()"/>
 
   <xsl:key name="SCHQCKFIXs"
-           match="constraintSpec[ @scheme eq 'schematron' ]//sqf:fixes
+           match="(constraintSpec|constraintDecl)[ @scheme eq 'schematron' ]//sqf:fixes
                                 [ not( ancestor::teix:egXML ) ]"
            use="( ancestor-or-self::*[@xml:lang][1]/@xml:lang, 'en')[1] => normalize-space()"/>
   
@@ -356,7 +365,8 @@ of this software, even if advised of the possibility of such damage.
       </xsl:if>
       
       <xsl:if test="key('CONSTRAINTs', $langs )">
-        <xsl:variable name="N" select="', of which there are '||count( key('CONSTRAINTs', $langs, $root ))"/>
+        <xsl:variable name="N"
+		      select="', of which there are '||count( key('CONSTRAINTs', $langs, $root )/self::constraint )"/>
         <xsl:call-template name="blockComment">
           <xsl:with-param name="content" select="'constraints in '||string-join( $langs, ', ')||$N"/>
         </xsl:call-template>

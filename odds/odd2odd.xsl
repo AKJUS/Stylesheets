@@ -142,6 +142,8 @@ of this software, even if advised of the possibility of such damage.
   <xsl:key name="odd2odd-REPLACE"    match="tei:macroSpec[@mode eq 'replace']"   use="tei:uniqueName(.)"/>
   <xsl:key name="odd2odd-REPLACEATT" match="tei:attDef[@mode eq 'replace']" use="concat(../../@ident,'_',@ident)"/>
 
+  <xsl:key name="odd2odd-CONSTRAINTDECLS-by-SCHEME" match="tei:constraintDecl" use="@scheme"/>
+
   <xsl:variable name="DEFAULTSOURCE">
     <xsl:choose>
       <xsl:when test="$defaultSource != ''">
@@ -498,15 +500,6 @@ of this software, even if advised of the possibility of such damage.
     </xsl:choose>
   </xsl:template>
   
-  <xsl:template match="@*|processing-instruction()|text()|comment()" mode="pass0">
-      <xsl:copy/>
-  </xsl:template>  
-  <xsl:template match="*" mode="pass0">
-    <xsl:copy>
-      <xsl:apply-templates select="@*|node()" mode="pass0"/>
-    </xsl:copy>
-  </xsl:template>
-
   <xsl:template match="tei:elementSpec[@mode eq 'change']|tei:classSpec[@mode eq 'change']|tei:macroSpec[@mode eq 'change']|tei:dataSpec[@mode eq 'change']" mode="pass0">    
     <xsl:variable name="CURRENT_ID" select="generate-id(.)"/>
     <xsl:variable name="CHANGED_SPECS" select="key('odd2odd-CHANGE',tei:uniqueName(.))" 
@@ -532,6 +525,43 @@ of this software, even if advised of the possibility of such damage.
         </xsl:copy>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="tei:teiHeader" mode="pass0">
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <xsl:apply-templates select="tei:fileDesc" mode="#current"/>
+      <xsl:call-template name="insert_encodingDesc_if_needed"/>
+      <xsl:apply-templates select="tei:profileDesc" mode="#current"/>
+      <xsl:apply-templates select="tei:xenoData" mode="#current"/>
+      <xsl:apply-templates select="tei:revisionDesc" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template name="insert_encodingDesc_if_needed">
+    <xsl:variable name="constraintDecls" as="element(tei:constraintDecl)*"
+		  select="( document(tei:workOutSource(.))//tei:constraintDecl, //tei:constraintDecl )"/>
+    <xsl:if test="child::tei:encodingDesc or count( $constraintDecls ) > 0">
+      <tei:encodingDesc>
+	<xsl:apply-templates select="tei:encodingDesc/@*" mode="#current"/>
+	<xsl:variable name="constraintDecl_schemes" select="$constraintDecls/@scheme" as="xs:string*"/>
+	<xsl:for-each select="distinct-values( $constraintDecl_schemes )">
+	  <constraintDecl scheme="{.}">
+            <xsl:apply-templates select="key('odd2odd-CONSTRAINTDECLS-by-SCHEME', ., document(tei:workOutSource( $top )) )"/>
+            <xsl:apply-templates select="key('odd2odd-CONSTRAINTDECLS-by-SCHEME', ., $top )"/>
+	  </constraintDecl>
+	</xsl:for-each>
+      </tei:encodingDesc>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="@*|processing-instruction()|text()|comment()" mode="pass0">
+      <xsl:copy/>
+  </xsl:template>  
+  <xsl:template match="*" mode="pass0">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" mode="pass0"/>
+    </xsl:copy>
   </xsl:template>
 
   <!-- ******************* Phase 1, expand schemaSpec ********************************* -->
