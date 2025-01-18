@@ -551,6 +551,7 @@ of this software, even if advised of the possibility of such damage.
             <xsl:apply-templates select="key('odd2odd-CONSTRAINTDECLS-by-SCHEME', ., $top )"/>
 	  </constraintDecl>
 	</xsl:for-each>
+	<xsl:apply-templates select="tei:encodingDesc/node() except tei:constraintDecl" mode="#current"/>
       </tei:encodingDesc>
     </xsl:if>
   </xsl:template>

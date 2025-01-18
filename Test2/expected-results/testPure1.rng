@@ -207,7 +207,7 @@
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50544-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50543-constraint">
          <rule context="tei:ab">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://www.loc.gov/mods/v3', 'http://www.tei-c.org/ns/1.0'))]">ab descendants must be in the
               namespaces
@@ -319,7 +319,7 @@
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50555-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50554-constraint">
          <rule context="tei:ab">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://www.w3.org/2000/svg', 'http://www.tei-c.org/ns/1.0'))]">ab descendants must be in the
               namespaces
