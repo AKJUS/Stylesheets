@@ -142,8 +142,6 @@ of this software, even if advised of the possibility of such damage.
   <xsl:key name="odd2odd-REPLACE"    match="tei:macroSpec[@mode eq 'replace']"   use="tei:uniqueName(.)"/>
   <xsl:key name="odd2odd-REPLACEATT" match="tei:attDef[@mode eq 'replace']" use="concat(../../@ident,'_',@ident)"/>
 
-  <xsl:key name="odd2odd-CONSTRAINTDECLS-by-SCHEME" match="tei:constraintDecl" use="@scheme"/>
-
   <xsl:variable name="DEFAULTSOURCE">
     <xsl:choose>
       <xsl:when test="$defaultSource != ''">
@@ -539,19 +537,40 @@ of this software, even if advised of the possibility of such damage.
   </xsl:template>
 
   <xsl:template name="insert_encodingDesc_if_needed">
+    <!-- Get an easy-reference version of the <schemaSpec> we are currently processing: -->
+    <xsl:variable name="this_schemaSpec" as="element(tei:schemaSpec)" select="$top//tei:schemaSpec[ @ident eq $whichSchemaSpec ]"/>
+    <!-- Get a copy of the source (or base) ODD: -->
+    <xsl:variable name="source" as="document-node()" select="document( tei:workOutSource( $this_schemaSpec ) )"/>
+    <!-- Assemble a set of all the relevant <constraintDecl>s: -->
     <xsl:variable name="constraintDecls" as="element(tei:constraintDecl)*"
-		  select="( document(tei:workOutSource(.))//tei:constraintDecl, //tei:constraintDecl )"/>
-    <xsl:if test="child::tei:encodingDesc or count( $constraintDecls ) > 0">
+		  select="(
+			    $source//tei:constraintDecl,
+			    $top//tei:teiHeader//tei:constraintDecl,
+			    $this_schemaSpec//tei:constraintDecl
+			  )"/>
+    <!--
+	If there already is an <encodingDesc> (in which case we need
+	to copy it over) OR there are one or more <constraintDecl>s
+	whose contents we need to preserve for future use …
+    -->
+    <xsl:if test="child::tei:encodingDesc  or  count( $constraintDecls ) gt 0">
+      <!-- … output an <encodingDesc> … -->
       <tei:encodingDesc>
+	<!-- … with any attributes the original <encodingDesc> (if any) had … -->
 	<xsl:apply-templates select="tei:encodingDesc/@*" mode="#current"/>
+	<!-- … and any content the original <encodingDesc> (if any) had; -->
+	<xsl:apply-templates select="tei:encodingDesc/node() except tei:constraintDecl" mode="pass0"/>
+	<!-- … then get the list of schemes to which the <constraintDecl>s apply … -->
 	<xsl:variable name="constraintDecl_schemes" select="$constraintDecls/@scheme" as="xs:string*"/>
+	<!-- … and for each such (unique) scheme … -->
 	<xsl:for-each select="distinct-values( $constraintDecl_schemes )">
-	  <constraintDecl scheme="{.}">
-            <xsl:apply-templates select="key('odd2odd-CONSTRAINTDECLS-by-SCHEME', ., document(tei:workOutSource( $top )) )"/>
-            <xsl:apply-templates select="key('odd2odd-CONSTRAINTDECLS-by-SCHEME', ., $top )"/>
-	  </constraintDecl>
+	  <xsl:variable name="this_scheme" select="."/>
+	  <!-- … create an output <constraintDecl> here in the <encodingDesc> … -->
+	  <tei:constraintDecl scheme="{$this_scheme}">
+	    <!-- … that has the contents of *all* the applicable <constraintDecl>s for this scheme … -->
+            <xsl:apply-templates select="$constraintDecls[ @scheme eq $this_scheme ]/node()" mode="pass0"/>
+	  </tei:constraintDecl>
 	</xsl:for-each>
-	<xsl:apply-templates select="tei:encodingDesc/node() except tei:constraintDecl" mode="#current"/>
       </tei:encodingDesc>
     </xsl:if>
   </xsl:template>
@@ -617,11 +636,20 @@ of this software, even if advised of the possibility of such damage.
     <xsl:copy-of select="."/>
   </xsl:template>
 
-  <xsl:template match="tei:elementSpec[@mode eq 'delete']|tei:classSpec[@mode eq 'delete']|tei:macroSpec[@mode eq 'delete']|tei:dataSpec[@mode eq 'delete']"
+  <xsl:template match="tei:schemaSpec//tei:constraintDecl" mode="pass1">
+    <xsl:if test="$verbose='true'">
+      <xsl:message>Phase 1: remove constraintDecl, as its contents have already been copied to teiHeader/encodingDesc/constraintDecl</xsl:message>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match=" tei:elementSpec[@mode eq 'delete']
+		       |tei:classSpec[@mode eq 'delete']
+		       |tei:macroSpec[@mode eq 'delete']
+		       |tei:dataSpec[@mode eq 'delete']"
                 mode="pass1">
-        <xsl:if test="$verbose='true'">
-          <xsl:message>Phase 1: remove <xsl:value-of select="@ident"/></xsl:message>
-        </xsl:if>
+    <xsl:if test="$verbose='true'">
+      <xsl:message>Phase 1: remove <xsl:value-of select="@ident"/></xsl:message>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="tei:elementSpec|tei:classSpec|tei:macroSpec|tei:dataSpec"
