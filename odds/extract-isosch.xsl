@@ -461,6 +461,10 @@ of this software, even if advised of the possibility of such damage.
     </schema>
   </xsl:template>
 
+  <xsl:template match="tei:constraint[ ../@scheme eq 'schematron' ]/(sch:report|sch:assert)">
+    <xsl:message select="'WARNING: Ignoring invalid '||name(.)||' found directly within &lt;constraint>.'"/>
+  </xsl:template>
+
   <xsl:template match="tei:constraint">
     <xsl:apply-templates select="node()"/>
   </xsl:template>
