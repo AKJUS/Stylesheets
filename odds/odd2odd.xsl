@@ -559,7 +559,7 @@ of this software, even if advised of the possibility of such damage.
 	<!-- … with any attributes the original <encodingDesc> (if any) had … -->
 	<xsl:apply-templates select="tei:encodingDesc/@*" mode="#current"/>
 	<!-- … and any content the original <encodingDesc> (if any) had; -->
-	<xsl:apply-templates select="tei:encodingDesc/node() except tei:constraintDecl" mode="pass0"/>
+	<xsl:apply-templates select="tei:encodingDesc/node() except //tei:constraintDecl" mode="pass0"/>
 	<!-- … then get the list of schemes to which the <constraintDecl>s apply … -->
 	<xsl:variable name="constraintDecl_schemes" select="$constraintDecls/@scheme" as="xs:string*"/>
 	<!-- … and for each such (unique) scheme … -->
