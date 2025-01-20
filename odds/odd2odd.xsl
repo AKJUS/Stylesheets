@@ -543,34 +543,53 @@ of this software, even if advised of the possibility of such damage.
     <xsl:variable name="source" as="document-node()" select="document( tei:workOutSource( $this_schemaSpec ) )"/>
     <!-- Assemble a set of all the relevant <constraintDecl>s: -->
     <xsl:variable name="constraintDecls" as="element(tei:constraintDecl)*"
-		  select="(
-			    $source//tei:constraintDecl,
-			    $top//tei:teiHeader//tei:constraintDecl,
-			    $this_schemaSpec//tei:constraintDecl
-			  )"/>
+                  select="(
+                            $source//tei:constraintDecl,
+                            $top//tei:teiHeader//tei:constraintDecl,
+                            $this_schemaSpec//tei:constraintDecl
+                          )"/>
     <!--
-	If there already is an <encodingDesc> (in which case we need
-	to copy it over) OR there are one or more <constraintDecl>s
-	whose contents we need to preserve for future use …
+        If there already is an <encodingDesc> (in which case we need
+        to copy it over) OR there are one or more <constraintDecl>s
+        whose contents we need to preserve for future use …
     -->
     <xsl:if test="child::tei:encodingDesc  or  count( $constraintDecls ) gt 0">
       <!-- … output an <encodingDesc> … -->
       <tei:encodingDesc>
-	<!-- … with any attributes the original <encodingDesc> (if any) had … -->
-	<xsl:apply-templates select="tei:encodingDesc/@*" mode="#current"/>
-	<!-- … and any content the original <encodingDesc> (if any) had; -->
-	<xsl:apply-templates select="tei:encodingDesc/node() except //tei:constraintDecl" mode="pass0"/>
-	<!-- … then get the list of schemes to which the <constraintDecl>s apply … -->
-	<xsl:variable name="constraintDecl_schemes" select="$constraintDecls/@scheme" as="xs:string*"/>
-	<!-- … and for each such (unique) scheme … -->
-	<xsl:for-each select="distinct-values( $constraintDecl_schemes )">
-	  <xsl:variable name="this_scheme" select="."/>
-	  <!-- … create an output <constraintDecl> here in the <encodingDesc> … -->
-	  <tei:constraintDecl scheme="{$this_scheme}">
-	    <!-- … that has the contents of *all* the applicable <constraintDecl>s for this scheme … -->
+        <!-- … with any attributes the original <encodingDesc> (if any) had … -->
+        <xsl:apply-templates select="tei:encodingDesc/@*" mode="#current"/>
+        <!-- … and any content the original <encodingDesc> (if any) had; -->
+        <xsl:apply-templates select="tei:encodingDesc/node() except //tei:constraintDecl" mode="pass0"/>
+        <!-- … then get the list of schemes to which the <constraintDecl>s apply … -->
+        <xsl:variable name="constraintDecl_schemes" select="$constraintDecls/@scheme" as="xs:string*"/>
+        <!-- … and for each such (unique) scheme … -->
+        <xsl:for-each select="distinct-values( $constraintDecl_schemes )">
+          <xsl:variable name="this_scheme" select="."/>
+          <!-- … create an output <constraintDecl> here in the <encodingDesc> … -->
+          <tei:constraintDecl scheme="{$this_scheme}">
+            <xsl:attribute name="queryBinding">
+              <xsl:variable name="queryBindings" as="xs:string*"
+                            select="$constraintDecls[ @scheme eq $this_scheme ]/@queryBinding!normalize-space()"/>
+              <xsl:variable name="distinct-queryBindings" as="xs:string*"
+                            select="distinct-values( $queryBindings )"/>
+              <xsl:choose>
+                <xsl:when test="count( $distinct-queryBindings ) eq 0">xslt2</xsl:when>
+                <xsl:when test="count( $distinct-queryBindings ) eq 1"><xsl:sequence select="$distinct-queryBindings"/></xsl:when>
+                <xsl:otherwise>
+                  <xsl:variable name="queryBinding" select="($constraintDecls[ @scheme eq $this_scheme ]/@queryBinding)[last()]"/>
+                  <xsl:message expand-text="yes">Warning: multiple
+                  query bindings for {$this_scheme} constraints
+                  specified in input ODDs (<xsl:value-of
+                  select="$distinct-queryBindings" separator=", "/>).
+                  Output combined ODD will specify {$queryBinding}.</xsl:message>
+                  <xsl:sequence select="$queryBinding"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <!-- … that has the contents of *all* the applicable <constraintDecl>s for this scheme … -->
             <xsl:apply-templates select="$constraintDecls[ @scheme eq $this_scheme ]/node()" mode="pass0"/>
-	  </tei:constraintDecl>
-	</xsl:for-each>
+          </tei:constraintDecl>
+        </xsl:for-each>
       </tei:encodingDesc>
     </xsl:if>
   </xsl:template>
@@ -643,9 +662,9 @@ of this software, even if advised of the possibility of such damage.
   </xsl:template>
   
   <xsl:template match=" tei:elementSpec[@mode eq 'delete']
-		       |tei:classSpec[@mode eq 'delete']
-		       |tei:macroSpec[@mode eq 'delete']
-		       |tei:dataSpec[@mode eq 'delete']"
+                       |tei:classSpec[@mode eq 'delete']
+                       |tei:macroSpec[@mode eq 'delete']
+                       |tei:dataSpec[@mode eq 'delete']"
                 mode="pass1">
     <xsl:if test="$verbose='true'">
       <xsl:message>Phase 1: remove <xsl:value-of select="@ident"/></xsl:message>
@@ -1697,14 +1716,14 @@ of this software, even if advised of the possibility of such damage.
     <xsl:if test="$ORIGINAL/self::tei:elementSpec">
       <xsl:apply-templates mode="justcopy"
                            select="tei:attList/tei:attDef
-				   [
-				     (    @mode eq 'change'
+                                   [
+                                     (    @mode eq 'change'
                                        or @mode eq 'delete'
                                        or @mode eq 'replace'
-				     )
-				     and
+                                     )
+                                     and
                                      not( @ident = $ORIGINAL/tei:attList//tei:attDef/@ident )
-				   ]"/>
+                                   ]"/>
     </xsl:if>
     <!-- any direct attRef elements -->
     <xsl:apply-templates mode="justcopy"

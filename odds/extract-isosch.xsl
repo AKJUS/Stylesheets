@@ -358,53 +358,12 @@ of this software, even if advised of the possibility of such damage.
 
       <xsl:if test="key('CONSTRAINTs', $langs )[ not( self::sch:ns ) ]">
         <xsl:variable name="N"
-		      select="', of which there are '||count( key('CONSTRAINTs', $langs, $root )/*[ not( self::sch:ns ) ] )"/>
+                      select="', of which there are '||count( key('CONSTRAINTs', $langs, $root )/*[ not( self::sch:ns ) ] )"/>
         <xsl:call-template name="blockComment">
           <xsl:with-param name="content" select="'constraints in '||string-join( $langs, ', ')||$N"/>
         </xsl:call-template>
       </xsl:if>
-      <xsl:for-each select="$root/key('CONSTRAINTs', $langs )[ not( self::sch:ns ) ]">
-        <xsl:variable name="patID" select="tei:makePatternID(.)"/>
-	<xsl:message select="'DEBUG: processing '||$patID"/>
-        <xsl:choose>
-          <xsl:when test="sch:pattern">
-	    <xsl:message select="'debug: a pattern child'"/>
-            <!-- IF there is a child <pattern>, we just copy over all children, no tweaking -->
-            <xsl:apply-templates select="node()">
-              <!-- they all get handed $patID, but only the template for 'pattern' uses it -->
-              <xsl:with-param name="patID" select="$patID"/>
-            </xsl:apply-templates>
-          </xsl:when>
-          <xsl:when test="sch:rule">
-	    <xsl:message select="'debug: a rule child'"/>
-            <!-- IF there is no <pattern>, but there is a <rule>, copy over all children -->
-            <!-- into a newly created <pattern> wrapper -->
-            <pattern id="{$patID}">
-              <xsl:apply-templates select="node()"/>
-            </pattern>
-          </xsl:when>
-          <xsl:when test="sch:assert | sch:report | sch:extends">
-	    <xsl:message select="'debug: some other child'"/>
-            <!-- IF there is no <pattern> nor <rule> child, but there is a child that -->
-            <!-- requires being wrapped in a rule, create both <rule> and <pattern> -->
-            <!-- wrappers for them, making HERE the context.   NOTE: As of 2025-03-15 -->
-            <!-- a free-floating <assert> or <report> without a parent <rule> (with a -->
-            <!-- @context attribute) will no longer be allowed, so this entire <when> -->
-            <!-- could maybe be dropped.  See PR TEI #2513. -->
-            <pattern id="{$patID}">
-              <rule context="{tei:generate-context(.)}">
-                <xsl:apply-templates select="node()"/>
-              </rule>
-            </pattern>
-          </xsl:when>
-          <xsl:otherwise>
-	    <xsl:message select="'debug: OTHERWISE'"/>
-            <!-- IF there is neither a <pattern> nor a <rule>, nor a child that would -->
-            <!-- require being wrapped in those, just copy over whatever we have -->
-            <xsl:apply-templates select="node()"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:for-each>
+      <xsl:apply-templates select="$root/key('CONSTRAINTs', $langs )[ not( self::sch:ns ) ]"/>
 
       <xsl:if test="key('DEPRECATEDs',1)">
         <xsl:call-template name="blockComment">
@@ -501,17 +460,28 @@ of this software, even if advised of the possibility of such damage.
 
     </schema>
   </xsl:template>
-  
-  <xsl:template match="tei:constraint/sch:rule">
-    <rule>
-      <xsl:apply-templates select="@*"/>
-      <xsl:if test="not(@context)">
-        <!-- note: don't want to call generate-context() if not needed, -->
-        <!-- as we may want it to generate warning msgs -->
-        <xsl:attribute name="context" select="tei:generate-context(.)"/>
-      </xsl:if>
+
+  <xsl:template match="tei:constraint">
+    <xsl:apply-templates select="node()"/>
+  </xsl:template>
+
+  <xsl:template match="tei:constraint/sch:pattern">
+    <xsl:variable name="patID" select="tei:makePatternID( child::sch:pattern[1] )"/>
+    <!-- (Note that makePatternID() will use the @id of <pattern>, if there is one.) -->
+    <pattern id="{$patID}">
       <xsl:apply-templates select="node()"/>
-    </rule>
+    </pattern>
+  </xsl:template>
+
+  <xsl:template match="tei:constraint/sch:rule|tei:constraintDecl/sch:rule">
+    <xsl:variable name="patID" select="tei:makePatternID(.)"/>
+    <!-- IF there is no <pattern>, but there is a <rule>, copy over all children -->
+    <!-- into a newly created <pattern> wrapper -->
+    <pattern id="{$patID}">
+      <rule>
+        <xsl:apply-templates select="@*|node()"/>
+      </rule>
+    </pattern>
   </xsl:template>
   
   <xsl:template match="sch:*|xsl:*">
@@ -595,28 +565,15 @@ of this software, even if advised of the possibility of such damage.
     <xsl:param name="context"/>
     <xsl:variable name="scheme" select="$context/ancestor-or-self::constraintSpec/@scheme|$context/ancestor-or-self::constraintDecl/@scheme"/>
     <xsl:for-each select="$context">
+      <xsl:variable name="id" select="( ancestor-or-self::*[@ident][1]/@ident,
+                                        ancestor-or-self::*[@id][1]/@id,
+                                        ancestor-or-self::*[@xml:id][1]/@xml:id,
+                                        ancestor-or-self::constraintDecl!local-name(.)
+                                      )[1]!translate( .,':','')"/>
       <xsl:variable name="num">
         <xsl:number level="any"/>
       </xsl:variable>
-      <xsl:variable name="id">
-	<xsl:choose>
-	  <xsl:when test="ancestor-or-self::*[@ident]">
-	    <xsl:sequence select="ancestor-or-self::*[@ident][1]/@ident!translate( .,':','')"/>
-	  </xsl:when>
-	  <xsl:when test="ancestor-or-self::*[@xml:id]">
-	    <xsl:sequence select="ancestor-or-self::*[@xml:id][1]/@xml:id!translate( .,':','')"/>
-	  </xsl:when>
-	  <xsl:when test="ancestor-or-self::constraintDecl">
-	    <xsl:sequence select="'constraintDecl'"/>
-	  </xsl:when>
-	</xsl:choose>
-      </xsl:variable>
-      <xsl:value-of
-          select="( $scheme,
-                   'constraint',
-                    $id,
-                    $num )"
-          separator="-"/>
+      <xsl:value-of select="( $scheme, 'constraint', $id, $num )" separator="-"/>
     </xsl:for-each>
   </xsl:function>
   
