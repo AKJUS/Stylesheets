@@ -164,10 +164,12 @@
   <target name="extractSchematronFromOdd">
     <description>
       TARGET extractSchematronFromOdd
-      This target uses Stylesheets/odds/extract-isosch.xsl to
-      extract the Schematron embedded in an ODD file. It takes
-      a single parameter inFile, the name of the ODD file, and creates
-      a single Schematron file, outputFiles/[oddFileNameWithoutExtension]FromOdd.sch.
+      This target uses Stylesheets/odds/extract-isosch.xsl to extract
+      the Schematron embedded in an ODD file. It takes two parameters:
+      inFile, the name of the ODD file, and lang, the natural language
+      of the constraints from which to extract Schematron. It creates
+      a single Schematron file:
+      outputFiles/[oddFileNameWithoutExtension]FromOdd.sch.
     </description>
     <basename file="${inFile}" property="plainFileName" suffix=".odd"/>
     <property name="schFromOddFile" value="${outputDir}/${plainFileName}FromOdd.sch"/>
@@ -178,6 +180,7 @@
       <arg value="-o:${schFromOddFile}"/>
       <arg value="--suppressXsltNamespaceCheck:on"/>
       <arg value="-versionmsg:off"/>
+      <arg value="lang=en"/>
     </java>
     
   </target>

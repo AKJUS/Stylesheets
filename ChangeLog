@@ -1,3 +1,175 @@
+2025-01-24  Raff Viglianti  <raffaeleviglianti@gmail.com>
+
+	updated p5subset
+
+2025-01-22  Raff Viglianti  <raffaeleviglianti@gmail.com>
+
+	Merge pull request #727 from TEIC/sydb_fix_constraintDecl_oversight_01
+	actually process `<constraintDecl>`
+
+2025-01-20  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Seem to be two commits I don’t have
+
+	Stylesheets group figured out how to process constraintDecl when processing the Schematron that goes into RELAX NG output. Still no tests.
+
+	Try pulling in the various fixes made to ISOSCH processing of constraintDecl recently
+
+	Give warning (and don’t process) an sch:assert or sch:report that is directly in a constraint, without an sch:rule.
+
+2025-01-19  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Tiny things: Minor bug-fix in call to makePatternID(), and re-generated an expected result (as IDs have changed).
+
+	More fixes. Mainly I re-worked a large for-each to use apply-templates. Much better. Also added code to handle queryBinding=.
+
+	Fixed some bugs, still more to go:  * Yup, @joeytakeda’s version was right, need the “//” on the    exception to avoid processing twice.  * Removed entire “declarations:” block, as everything is already    processed elsewhere.  * Improved pattern name creation (in case there is no ancestor    with ident=, but there is one with xml:id=, take that; if not,    and if in constraintDecl, just say so).  * Don’t process sch:ns elements in constraintDecl twice. HOWEVER, I am comitting this now as I have just decided to re-write the main "/key('CONSTRAINTs',  )" loop, as it is giving me trouble, and probably should be an apply- templates, anyway.
+
+2025-01-18  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Fix a bug that I introduced initially (caught by @joeytakeda), but also re-work how constraint declaration processing is handled altogether.
+
+	Fix omission rapidly found by @joeytakeda — process other contents of encodingDesc, too
+
+	Big changes: Merge constraintDecls from both customization ODD and base ODD into compiled output ODD, and extract from the resulting constraintDecls.
+
+2025-01-17  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Bug fix: the warning message very clearly says that if there is more than one declared namespace with the same URI, only the prefix of the 1st is used. But the code didn’t actually **do** that. It tried to use both, and thus failed miserably.
+
+2025-01-13  Patricia O Connor  <trishaoconnor88@gmail.com>
+
+	Merge pull request #721 from TEIC/gusr_717
+	Added normalize-space to gloss value
+
+2025-01-11  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Updated P5 subset
+
+2025-01-02  Syd Bauman  <sydb@users.noreply.github.com>
+
+	Change how Makefile’s doc: target *looks* (#716)
+
+2024-12-18  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Stylesheets group figured out how to process constraintDecl when processing the Schematron that goes into RELAX NG output. Still no tests.
+
+2024-12-12  gustavo  <gusfer@gmail.com>
+
+	Modifying test2 to fit new results
+
+	Modified tests to include normalized whitespace for gloss
+
+	Added normalize-space to gloss value
+
+2024-12-01  Elisa Beshero-Bondar  <ebeshero@users.noreply.github.com>
+
+	Merge pull request #707 from TEIC/sydb_also_extract_und_mul_and_zxx
+	Handle 'und', 'mul', & 'zxx', too
+
+2024-11-27  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Whatever dev has, put here
+
+2024-11-26  Helena Bermúdez Sabel  <helena.b.sabel@gmail.com>
+
+	Merge pull request #714 from TEIC/sydb_598
+	Remove last vestiges of using altIdent element for FPI
+
+2024-11-26  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Remove last vestigages of using altIdent element for FPI
+
+2024-11-11  Syd Bauman  <s.bauman@northeastern.edu>
+
+	complete merge of dev into this branch
+
+	updated p5 subset
+
+2024-11-06  Raff Viglianti  <raffaeleviglianti@gmail.com>
+
+	Merge pull request #709 from TEIC/jsonrng
+	passing rng declarations through to a JSON object as string literal
+
+2024-11-05  Raff Viglianti  <raffaeleviglianti@gmail.com>
+
+	more test fixes
+
+	updated test again
+
+	updated test
+
+	passing rng declarations through to a JSON object as string literal
+
+2024-10-30  Syd Bauman  <s.bauman@northeastern.edu>
+
+	forgot to check-in test result change; also minor tweaks in whitespace
+
+	Handle 'und', 'mul', & 'zxx', too
+
+2024-10-29  Helena Bermúdez Sabel  <helena.b.sabel@gmail.com>
+
+	Merge pull request #704 from TEIC/sydb_702_extract_schematron
+	Improve SQF and language handling of Schematron extraction process
+
+	Merge branch 'dev' into sydb_702_extract_schematron
+
+	Merge pull request #706 from TEIC/issue_699_stylesheets_grp_fix
+	Stylesheets group fix of missing value list problem
+
+2024-10-29  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Stylesheets group fix: When merging class attributes, treat missing mode attribute as mode=add.
+
+2024-10-24  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Try to get Test/ and Test2/ to work with improved Schematron extraction routine. Test2/ seems to work, but Test/ does not, however the problem does not seem to have anything to do with Schematron extraction, and exists in the released branch as well.
+
+	In addressing #702, pass the language on from Ant  to XSL, and re-work how languages and Schematron Quick Fixes are handled in extract-isosch.xsl.
+
+2024-10-18  Magdalena Turska  <tuurma@gmail.com>
+
+	Merge pull request #698 from TEIC/sydb_handle_constraintDecl_696
+	handle `<constraintDecl>` from extract-isosch.xsl
+
+2024-10-15  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Improve 2 comments.
+
+2024-10-06  Hugh A. Cayless  <philomousos@gmail.com>
+
+	Remove link to obsolete website page.
+
+2024-09-23  Syd Bauman  <s.bauman@northeastern.edu>
+
+	bug fix and mild improvements per suggestion @joeytakeda
+
+2024-09-21  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Fix tiny expected difference
+
+2024-09-20  Syd Bauman  <s.bauman@northeastern.edu>
+
+	Process constraintDecl element: use its queryBinding= attr, copy over its sch:ns elements into declared NS section, and all other child elements into a new declarations section.
+
+2024-07-22  Helena Bermúdez Sabel  <helena.b.sabel@gmail.com>
+
+	Merge pull request #688 from rvdb/jTEI-fix-name
+	skip //name, since it is not supported in the OpenEdition schema
+
+2024-07-18  Syd Bauman  <sydb@users.noreply.github.com>
+	    Elli Bleeker  <elli.bleeker@gmail.com>
+
+	fix path in output transform pgm (#691)
+	* Changed  to  in Makefile #552
+	
+	* Forgot to delete no-longer needed comment :-)
+	
+	---------
+
+2024-07-17  root  <trishaoconnor88@gmail.com>
+
+	TOC updated p5 subset
 2024-07-08  helenasabel  <helena.b.sabel@gmail.com>
 
 	bump version

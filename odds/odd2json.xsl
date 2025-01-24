@@ -4,6 +4,7 @@
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:j="http://www.w3.org/2005/xpath-functions"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0"
     exclude-result-prefixes="xs math"
     version="3.0">
     
@@ -142,7 +143,7 @@
                 <xsl:sequence select="$source"/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:function>    
+    </xsl:function>
     
     <xsl:function name="tei:getClassType" as="xs:string">
         <xsl:param name="context"/>
@@ -421,6 +422,13 @@
                             </xsl:for-each>
                         </j:array>
                     </xsl:when>
+                    <xsl:when test="self::rng:*">
+                        <!-- RNG elements are not converted to JSON, just serialized -->
+                        <j:string key="type">rng</j:string>
+                        <j:string key="rngContent">
+                            <xsl:value-of select="serialize(.)" />
+                        </j:string>
+                    </xsl:when>
                     <xsl:otherwise>
                         <j:string key="type"><xsl:value-of select="local-name()"/></j:string>
                     </xsl:otherwise>
@@ -498,7 +506,14 @@
                                     </xsl:when>
                                     <xsl:otherwise>1</xsl:otherwise>
                                 </xsl:choose>
-                            </j:string>                            
+                            </j:string>             
+                            <xsl:for-each select="rng:*">
+                                <!-- RNG elements are not converted to JSON, just serialized -->
+                                <j:string key="type">rng</j:string>
+                                <j:string key="rngContent">
+                                    <xsl:value-of select="serialize(.)" />
+                                </j:string>
+                            </xsl:for-each>
                             <xsl:for-each select="tei:dataRef">
                                 <j:map key="dataRef">
                                     <xsl:call-template name="getDataRef"/>

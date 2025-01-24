@@ -28,8 +28,13 @@
     <odd2odd in="${inputFile}" out="${inputFile}.processedodd"/>
     <xslt processor="trax" force="yes" style="${profiledir}/${profile}/schematron/to.xsl" in="${inputFile}.processedodd" out="${outputFile}">
       <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+      <param name="lang" expression="${lang}" if="lang"/>
     </xslt>
-    <delete file="${inputFile}.processedodd"/>
+    <!-- Temporarily removed in order to make it easier to debug
+	 sydb_702_schematron_extraction branch:
+      <delete file="${inputFile}.processedodd"/>
+         Should probably be re-instated before that branch is merged
+	 into dev. -->
   </target>
 
   <target name="notodd" unless="processODD">

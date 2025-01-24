@@ -7754,8 +7754,7 @@ Suggested values include: 1] initial; 2] final</a:documentation>
    </define>
    <define name="triangle">
       <element name="triangle">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(underspecified embedding tree, so called because of its
-  characteristic shape when drawn) provides for an underspecified eTree, that is, an eTree with information left out. [19.3. Another Tree Notation]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(underspecified embedding tree, so called because of its characteristic shape when drawn) provides for an underspecified eTree, that is, an eTree with information left out. [19.3. Another Tree Notation]</a:documentation>
          <group>
       
             <optional>

@@ -248,7 +248,7 @@ case $format in
           ;;
 esac
 
-echo Convert ${indir}/${infilename} to ${outdir}/${outfilename} \($from to $to\) using profile $profile $debug $fileperpage $splitLevel $viewportwidth $viewportheight 
+echo Convert ${indir}/${infilename} to ${outdir}/${outfilename} \($from to $to\) using profile $profile $debug $fileperpage $splitLevel $viewportwidth $viewportheight lang=$lang
 ant $antflag -f "$APPHOME/$format/build-$direction.xml" \
         -lib "${SAXONJAR}" $debug \
     $fileperpage $cssFile $splitLevel $viewportwidth $viewportheight $summaryDoc $mediaoverlay $nocompress \

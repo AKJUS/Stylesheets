@@ -306,7 +306,7 @@ Tatt.cReferencing.attribute.cRef =
     a:documentation [
       "(canonical reference) specifies the destination of the pointer by supplying a canonical reference expressed using the scheme defined in a "
       ns1:code [ "<refsDecl>" ]
-      " element in the TEI header"
+      " element in the TEI header."
     ]
   ]
   attribute cRef { xsd:string }?
@@ -441,9 +441,9 @@ sch:pattern [
   "   "
 ]
 Tatt.datable.attributes =
-  Tatt.datable.w3c.attributes,
-  Tatt.datable.iso.attributes,
   Tatt.datable.custom.attributes,
+  Tatt.datable.iso.attributes,
+  Tatt.datable.w3c.attributes,
   Tatt.datable.attribute.period
 Tatt.datable.attribute.period =
   [
@@ -452,7 +452,7 @@ Tatt.datable.attribute.period =
       ns1:code [ "<category>" ]
       "s, "
       ns1:code [ "<date>" ]
-      "s or "
+      "s, or "
       ns1:code [ "<event>" ]
       "s) within which the datable item is understood to have occurred."
     ]
@@ -687,7 +687,7 @@ Tatt.global.rendition.attribute.rend =
   }?
 Tatt.global.rendition.attribute.style =
   
-  ## contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text
+  ## contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text.
   attribute style { xsd:string }?
 Tatt.global.rendition.attribute.rendition =
   
@@ -723,7 +723,7 @@ sch:pattern [
     "         "
     sch:report [
       test =
-        "( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]"
+        "(   self::tei:classRef                                 | self::tei:dataRef                                 | self::tei:elementRef                                 | self::tei:macroRef                                 | self::tei:moduleRef                                 | self::tei:schemaSpec )                                   and                                   $srcs[2]"
       "\x{a}" ~
       "              When used on a schema description element (like\x{a}" ~
       "              "
@@ -740,13 +740,30 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
+Tatt.scope.attributes = Tatt.scope.attribute.scope
+Tatt.scope.attribute.scope =
+  
+  ## indicates the scope of application of the element
+  ## Suggested values include: 1] sole; 2] major; 3] minor
+  attribute scope {
+    
+    ## only this particular feature is used throughout the document
+    "sole"
+    | 
+      ## this feature is used through most of the document
+      "major"
+    | 
+      ## this feature is used occasionally through the document
+      "minor"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
 Tatt.handFeatures.attributes =
+  Tatt.scope.attributes,
   Tatt.handFeatures.attribute.scribe,
   Tatt.handFeatures.attribute.scribeRef,
   Tatt.handFeatures.attribute.script,
   Tatt.handFeatures.attribute.scriptRef,
-  Tatt.handFeatures.attribute.medium,
-  Tatt.handFeatures.attribute.scope
+  Tatt.handFeatures.attribute.medium
 Tatt.handFeatures.attribute.scribe =
   
   ## gives a name or other identifier for the scribe believed to be responsible for this hand.
@@ -785,30 +802,16 @@ Tatt.handFeatures.attribute.scriptRef =
   }?
 Tatt.handFeatures.attribute.medium =
   
-  ## describes the tint or type of ink, e.g. brown, or other writing medium, e.g. pencil
+  ## describes the tint or type of ink, e.g. brown, or other writing medium, e.g. pencil.
   attribute medium {
     list {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
   }?
-Tatt.handFeatures.attribute.scope =
-  
-  ## specifies how widely this hand is used in the manuscript.
-  attribute scope {
-    
-    ## only this hand is used throughout the manuscript
-    "sole"
-    | 
-      ## this hand is used through most of the manuscript
-      "major"
-    | 
-      ## this hand is used occasionally in the manuscript
-      "minor"
-  }?
 Tatt.internetMedia.attributes = Tatt.internetMedia.attribute.mimeType
 Tatt.internetMedia.attribute.mimeType =
   
-  ## (MIME media type) specifies the applicable multimedia internet mail extension (MIME) media type
+  ## (MIME media type) specifies the applicable multimedia internet mail extension (MIME) media type.
   attribute mimeType {
     list {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
@@ -821,7 +824,7 @@ Tatt.media.attributes =
   Tatt.media.attribute.scale
 Tatt.media.attribute.width =
   
-  ## Where the media are displayed, indicates the display width
+  ## Where the media are displayed, indicates the display width.
   attribute width {
     xsd:token {
       pattern =
@@ -830,7 +833,7 @@ Tatt.media.attribute.width =
   }?
 Tatt.media.attribute.height =
   
-  ## Where the media are displayed, indicates the display height
+  ## Where the media are displayed, indicates the display height.
   attribute height {
     xsd:token {
       pattern =
@@ -839,7 +842,7 @@ Tatt.media.attribute.height =
   }?
 Tatt.media.attribute.scale =
   
-  ## Where the media are displayed, indicates a scale factor to be applied when generating the desired display size
+  ## Where the media are displayed, indicates a scale factor to be applied when generating the desired display size.
   attribute scale {
     xsd:double
     | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
@@ -1053,7 +1056,7 @@ Tatt.typed.attribute.type =
   }?
 Tatt.typed.attribute.subtype =
   
-  ## (subtype) provides a sub-categorization of the element, if needed
+  ## (subtype) provides a sub-categorization of the element, if needed.
   attribute subtype {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
@@ -1122,7 +1125,7 @@ sch:pattern [
 ]
 Tatt.pointing.attribute.target =
   
-  ## specifies the destination of the reference by supplying one or more URI References
+  ## specifies the destination of the reference by supplying one or more URI References.
   attribute target {
     list {
       xsd:anyURI { pattern = "\S+" }+
@@ -2542,6 +2545,7 @@ Temph =
     Tmacro.paraContent,
     Tatt.global.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 Thi =
@@ -2550,8 +2554,8 @@ Thi =
   element hi {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 Tdistinct =
@@ -2560,21 +2564,21 @@ Tdistinct =
   element distinct {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.cmc.attributes,
+    Tatt.typed.attribute.subtype,
     
-    ## specifies the sublanguage or register to which the word or phrase is being assigned
+    ## specifies the sublanguage or register to which the word or phrase is being assigned.
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     
-    ## specifies how the phrase is distinct diachronically
+    ## specifies how the phrase is distinct diachronically.
     attribute time { xsd:string }?,
     
-    ## specifies how the phrase is distinct diatopically
+    ## specifies how the phrase is distinct diatopically.
     attribute space { xsd:string }?,
     
-    ## specifies how the phrase is distinct diastratically
+    ## specifies how the phrase is distinct diastratically.
     attribute social { xsd:string }?,
     empty
   }
@@ -2617,9 +2621,9 @@ Tquote =
   element quote {
     Tmacro.specialPara,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.notated.attributes,
     Tatt.cmc.attributes,
+    Tatt.notated.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tq =
@@ -2678,8 +2682,8 @@ Tcit =
      | Tmodel.attributable
      | Tq)+,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tmentioned =
@@ -2723,15 +2727,14 @@ Tdesc =
          "         "
        ],
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.cmc.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
     ## Suggested values include: 1] deprecationInfo (deprecation information)
     attribute type {
       
-      ## (deprecation
-      ##           information) This element describes why or how its parent element is being deprecated, typically including recommendations for alternate encoding.
+      ## (deprecation information) This element describes why or how its parent element is being deprecated, typically including recommendations for alternate encoding.
       "deprecationInfo"
       | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
@@ -2743,11 +2746,11 @@ Tgloss =
   element gloss {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.declaring.attributes,
-    Tatt.typed.attributes,
-    Tatt.pointing.attributes,
     Tatt.cReferencing.attributes,
     Tatt.cmc.attributes,
+    Tatt.declaring.attributes,
+    Tatt.pointing.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tterm =
@@ -2756,13 +2759,13 @@ Tterm =
   element term {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cReferencing.attributes,
+    Tatt.canonical.attributes,
+    Tatt.cmc.attributes,
     Tatt.declaring.attributes,
     Tatt.pointing.attributes,
-    Tatt.typed.attributes,
-    Tatt.canonical.attributes,
     Tatt.sortable.attributes,
-    Tatt.cReferencing.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Truby =
@@ -2771,8 +2774,8 @@ Truby =
   element ruby {
     (Trb, Trt+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Trb =
@@ -2790,9 +2793,9 @@ Trt =
   element rt {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.placement.attributes,
     Tatt.transcriptional.attributes,
+    Tatt.typed.attributes,
     (
      ## supplies a pointer to the base being glossed by this ruby text.
      attribute target {
@@ -2884,9 +2887,9 @@ Tcorr =
   element corr {
     Tmacro.paraContent,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.editLike.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tchoice =
@@ -2907,9 +2910,9 @@ Treg =
   element reg {
     Tmacro.paraContent,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.editLike.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Torig =
@@ -2928,12 +2931,12 @@ Tgap =
   element gap {
     (Tmodel.descLike | Tmodel.certLike)*,
     Tatt.global.attributes,
-    Tatt.timed.attributes,
-    Tatt.editLike.attributes,
-    Tatt.dimensions.attributes,
     Tatt.cmc.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
+    Tatt.timed.attributes,
     
-    ## (reason) gives the reason for omission
+    ## (reason) gives the reason for omission.
     ## Suggested values include: 1] cancelled (cancelled); 2] deleted (deleted); 3] editorial (editorial); 4] illegible (illegible); 5] inaudible (inaudible); 6] irrelevant (irrelevant); 7] sampling (sampling)
     attribute reason {
       list {
@@ -2985,11 +2988,11 @@ Tadd =
   element add {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.transcriptional.attributes,
-    Tatt.placement.attributes,
-    Tatt.typed.attributes,
-    Tatt.dimensions.attributes,
     Tatt.cmc.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.placement.attributes,
+    Tatt.transcriptional.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tdel =
@@ -2998,10 +3001,10 @@ Tdel =
   element del {
     Tmacro.paraContent,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.dimensions.attributes,
     Tatt.transcriptional.attributes,
     Tatt.typed.attributes,
-    Tatt.dimensions.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tunclear =
@@ -3010,9 +3013,9 @@ Tunclear =
   element unclear {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
-    Tatt.dimensions.attributes,
     Tatt.cmc.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     
     ## indicates why the material is hard to transcribe.
     ## Suggested values include: 1] illegible (illegible); 2] inaudible (inaudible); 3] faded (faded); 4] background_noise (background noise); 5] eccentric_ductus (eccentric ductus)
@@ -3050,41 +3053,11 @@ Tname =
   element name {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.personal.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
+    Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-name-calendar-calendar-check-name-constraint-rule-18"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Trs =
@@ -3093,9 +3066,9 @@ Trs =
   element rs {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Temail =
@@ -3136,9 +3109,9 @@ Tnum =
   element num {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
-    Tatt.ranging.attributes,
     Tatt.cmc.attributes,
+    Tatt.ranging.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## indicates the type of numeric value.
     ## Suggested values include: 1] cardinal; 2] ordinal; 3] fraction; 4] percentage
@@ -3173,10 +3146,10 @@ Tmeasure =
   element measure {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
-    Tatt.measurement.attributes,
     Tatt.cmc.attributes,
+    Tatt.measurement.attributes,
     Tatt.ranging.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## specifies the type of measurement in any convenient typology.
     attribute type {
@@ -3190,9 +3163,9 @@ TmeasureGrp =
   element measureGrp {
     (text | Tmodel.gLike | Tmodel.measureLike)*,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.measurement.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tunit =
@@ -3202,9 +3175,9 @@ Tunit =
   element unit {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.measurement.attributes,
     Tatt.cmc.attributes,
+    Tatt.measurement.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tdate =
@@ -3213,13 +3186,13 @@ Tdate =
   element date {
     (text | Tmodel.gLike | Tmodel.phrase | Tmodel.global)*,
     Tatt.global.attributes,
-    Tatt.canonical.attributes,
-    Tatt.datable.attributes,
     Tatt.calendarSystem.attributes,
-    Tatt.editLike.attributes,
-    Tatt.dimensions.attributes,
-    Tatt.typed.attributes,
+    Tatt.canonical.attributes,
     Tatt.cmc.attributes,
+    Tatt.datable.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Ttime =
@@ -3228,13 +3201,13 @@ Ttime =
   element time {
     (text | Tmodel.gLike | Tmodel.phrase | Tmodel.global)*,
     Tatt.global.attributes,
-    Tatt.datable.attributes,
     Tatt.calendarSystem.attributes,
     Tatt.canonical.attributes,
-    Tatt.editLike.attributes,
-    Tatt.dimensions.attributes,
-    Tatt.typed.attributes,
     Tatt.cmc.attributes,
+    Tatt.datable.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tabbr =
@@ -3243,8 +3216,8 @@ Tabbr =
   element abbr {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.cmc.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## (type) allows the encoder to classify the abbreviation according to some convenient typology.
     ## Sample values include: 1] suspension (suspension); 2] contraction (contraction); 3] brevigraph; 4] superscription (superscription); 5] acronym (acronym); 6] title (title); 7] organization (organization); 8] geographic (geographic)
@@ -3259,8 +3232,8 @@ Texpan =
   element expan {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.cmc.attributes,
+    Tatt.editLike.attributes,
     empty
   }
 Tptr =
@@ -3269,7 +3242,7 @@ Tptr =
   element ptr {
     empty
     >> sch:pattern [
-         id = "testbasic-ptr-ptrAtts-constraint-rule-19"
+         id = "testbasic-ptr-ptrAtts-constraint-rule-18"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3288,13 +3261,13 @@ Tptr =
          "\x{a}" ~
          "         "
        ],
-    Tatt.cReferencing.attributes,
-    Tatt.declaring.attributes,
     Tatt.global.attributes,
+    Tatt.cReferencing.attributes,
+    Tatt.cmc.attributes,
+    Tatt.declaring.attributes,
     Tatt.internetMedia.attributes,
     Tatt.pointing.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tref =
@@ -3303,7 +3276,7 @@ Tref =
   element ref {
     Tmacro.paraContent
     >> sch:pattern [
-         id = "testbasic-ref-refAtts-constraint-rule-20"
+         id = "testbasic-ref-refAtts-constraint-rule-19"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3312,10 +3285,9 @@ Tref =
            "               "
            sch:report [
              test = "@target and @cRef"
-             "Only one of the attributes @target' and @cRef' may be supplied on "
+             "Only one of the attributes @target and @cRef may be supplied on "
              sch:name [ ]
-             "\x{a}" ~
-             "               "
+             "."
            ]
            "\x{a}" ~
            "            "
@@ -3323,13 +3295,13 @@ Tref =
          "\x{a}" ~
          "         "
        ],
-    Tatt.cReferencing.attributes,
-    Tatt.declaring.attributes,
     Tatt.global.attributes,
+    Tatt.cReferencing.attributes,
+    Tatt.cmc.attributes,
+    Tatt.declaring.attributes,
     Tatt.internetMedia.attributes,
     Tatt.pointing.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tlist =
@@ -3344,7 +3316,7 @@ Tlist =
      (Tmodel.divBottom, Tmodel.global*)*)
     >> sch:pattern [
          id =
-           "testbasic-list-gloss-list-must-have-labels-constraint-rule-21"
+           "testbasic-list-gloss-list-must-have-labels-constraint-rule-20"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3362,9 +3334,9 @@ Tlist =
          "         "
        ],
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.sortable.attributes,
     Tatt.typed.attribute.subtype,
-    Tatt.cmc.attributes,
     
     ## (type) describes the nature of the items in the list.
     ## Suggested values include: 1] gloss (gloss); 2] index (index); 3] instructions (instructions); 4] litany (litany); 5] syllogism (syllogism)
@@ -3408,10 +3380,10 @@ Tlabel =
   element label {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.placement.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.placement.attributes,
+    Tatt.typed.attributes,
+    Tatt.written.attributes,
     empty
   }
 Thead =
@@ -3426,10 +3398,10 @@ Thead =
      | Tmodel.lLike
      | Tmodel.global)*,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.placement.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.placement.attributes,
+    Tatt.typed.attributes,
+    Tatt.written.attributes,
     empty
   }
 TheadLabel =
@@ -3446,26 +3418,26 @@ Tnote =
   element note {
     Tmacro.specialPara,
     Tatt.global.attributes,
+    Tatt.anchoring.attributes,
+    Tatt.cmc.attributes,
     Tatt.placement.attributes,
     Tatt.pointing.attributes,
     Tatt.typed.attributes,
     Tatt.written.attributes,
-    Tatt.anchoring.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TnoteGrp =
   
-  ## (note group) contains a group of notes [3.9.1.1. Encoding Grouped Notes]
+  ## (note group) contains a group of notes. [3.9.1.1. Encoding Grouped Notes]
   element noteGrp {
     (Tdesc*, (Tnote | TnoteGrp)+),
     Tatt.global.attributes,
+    Tatt.anchoring.attributes,
+    Tatt.cmc.attributes,
     Tatt.placement.attributes,
     Tatt.pointing.attributes,
     Tatt.typed.attributes,
     Tatt.written.attributes,
-    Tatt.anchoring.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tindex =
@@ -3474,8 +3446,8 @@ Tindex =
   element index {
     (Tterm, Tindex?)*,
     Tatt.global.attributes,
-    Tatt.spanning.attributes,
     Tatt.cmc.attributes,
+    Tatt.spanning.attributes,
     
     ## a single word which follows the rules defining a legal XML name (see ), supplying a name to specify which index (of several) the index entry belongs to.
     attribute indexName { xsd:Name }?,
@@ -3486,17 +3458,17 @@ Tmedia =
   ## indicates the location of any form of external media such as an audio or video clip etc. [3.10. Graphics and Other Non-textual Components]
   element media {
     Tmodel.descLike*,
-    Tatt.typed.attributes,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.declaring.attributes,
     Tatt.media.attribute.width,
     Tatt.media.attribute.height,
     Tatt.media.attribute.scale,
     Tatt.resourced.attributes,
-    Tatt.declaring.attributes,
     Tatt.timed.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     
-    ## (MIME media type) specifies the applicable multimedia internet mail extension (MIME) media type
+    ## (MIME media type) specifies the applicable multimedia internet mail extension (MIME) media type.
     attribute mimeType {
       list {
         xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
@@ -3510,11 +3482,11 @@ Tgraphic =
   element graphic {
     Tmodel.descLike*,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.declaring.attributes,
     Tatt.media.attributes,
     Tatt.resourced.attributes,
-    Tatt.declaring.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TbinaryObject =
@@ -3523,10 +3495,10 @@ TbinaryObject =
   element binaryObject {
     text,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.media.attributes,
     Tatt.timed.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     [
       a:documentation [
         "The encoding used to encode the binary data. If not specified, this is assumed to be "
@@ -3548,12 +3520,12 @@ Tmilestone =
   element milestone {
     empty,
     Tatt.global.attributes,
-    Tatt.milestoneUnit.attributes,
-    Tatt.typed.attributes,
-    Tatt.edition.attributes,
-    Tatt.spanning.attributes,
     Tatt.breaking.attributes,
     Tatt.cmc.attributes,
+    Tatt.edition.attributes,
+    Tatt.milestoneUnit.attributes,
+    Tatt.spanning.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tgb =
@@ -3563,11 +3535,11 @@ Tgb =
   element gb {
     empty,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.spanning.attributes,
     Tatt.breaking.attributes,
-    Tatt.edition.attributes,
     Tatt.cmc.attributes,
+    Tatt.edition.attributes,
+    Tatt.spanning.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tpb =
@@ -3577,11 +3549,11 @@ Tpb =
   element pb {
     empty,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.edition.attributes,
-    Tatt.spanning.attributes,
     Tatt.breaking.attributes,
     Tatt.cmc.attributes,
+    Tatt.edition.attributes,
+    Tatt.spanning.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tlb =
@@ -3591,11 +3563,11 @@ Tlb =
   element lb {
     empty,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.edition.attributes,
-    Tatt.spanning.attributes,
     Tatt.breaking.attributes,
     Tatt.cmc.attributes,
+    Tatt.edition.attributes,
+    Tatt.spanning.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tcb =
@@ -3605,11 +3577,11 @@ Tcb =
   element cb {
     empty,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.edition.attributes,
-    Tatt.spanning.attributes,
     Tatt.breaking.attributes,
     Tatt.cmc.attributes,
+    Tatt.edition.attributes,
+    Tatt.spanning.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tanalytic =
@@ -3677,38 +3649,8 @@ Tauthor =
   element author {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.naming.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-author-calendar-calendar-check-author-constraint-rule-22"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tatt.naming.attributes,
     empty
   }
 Teditor =
@@ -3717,38 +3659,8 @@ Teditor =
   element editor {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.naming.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-editor-calendar-calendar-check-editor-constraint-rule-23"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tatt.naming.attributes,
     empty
   }
 TrespStmt =
@@ -3770,70 +3682,18 @@ Tresp =
     Tatt.global.attributes,
     Tatt.canonical.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-resp-calendar-calendar-check-resp-constraint-rule-24"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Ttitle =
   
   ## (title) contains a title for any kind of work. [3.12.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement 2.2.5. The Series Statement]
   element title {
-    Tmacro.paraContent
-    >> sch:pattern [
-         id = "testbasic-title-calendar-check-title-constraint-rule-25"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.canonical.attributes,
-    Tatt.datable.attributes,
     Tatt.cmc.attributes,
+    Tatt.datable.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## classifies the title according to some convenient typology.
     ## Suggested values include: 1] biography; 2] chronology; 3] introduction; 4] project
@@ -3852,36 +3712,6 @@ Ttitle =
         "project"
       | text
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-title-calendar-calendar-check-title-constraint-rule-26"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
     ## indicates the bibliographic level for a title, that is, whether it identifies an article, book, journal, series, or unpublished material.
     attribute level {
@@ -3909,39 +3739,9 @@ Tmeeting =
   element meeting {
     Tmacro.limitedContent,
     Tatt.global.attributes,
-    Tatt.datable.attributes,
     Tatt.canonical.attributes,
     Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-meeting-calendar-calendar-check-meeting-constraint-rule-27"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tatt.datable.attributes,
     empty
   }
 Timprint =
@@ -3975,12 +3775,12 @@ TbiblScope =
   }
 TcitedRange =
   
-  ## (cited range) defines the range of cited content, often represented by pages or other units [3.12.2.5. Scopes and Ranges in Bibliographic Citations]
+  ## (cited range) defines the range of cited content, often represented by pages or other units. [3.12.2.5. Scopes and Ranges in Bibliographic Citations]
   element citedRange {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.pointing.attributes,
     Tatt.citing.attributes,
+    Tatt.pointing.attributes,
     empty
   }
 TpubPlace =
@@ -4006,11 +3806,11 @@ Tbibl =
      | Tmodel.biblPart
      | Tmodel.global)*,
     Tatt.global.attributes,
-    Tatt.declarable.attributes,
-    Tatt.typed.attributes,
-    Tatt.sortable.attributes,
-    Tatt.docStatus.attributes,
     Tatt.cmc.attributes,
+    Tatt.declarable.attributes,
+    Tatt.docStatus.attributes,
+    Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TbiblStruct =
@@ -4021,11 +3821,11 @@ TbiblStruct =
      (Tmonogr, Tseries*)+,
      (Tmodel.noteLike | Tmodel.ptrLike | TrelatedItem | TcitedRange)*),
     Tatt.global.attributes,
-    Tatt.declarable.attributes,
-    Tatt.typed.attributes,
-    Tatt.sortable.attributes,
-    Tatt.docStatus.attributes,
     Tatt.cmc.attributes,
+    Tatt.declarable.attributes,
+    Tatt.docStatus.attributes,
+    Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TlistBibl =
@@ -4038,10 +3838,10 @@ TlistBibl =
      (Tmodel.biblLike+,
       (Tmodel.milestoneLike | Trelation | TlistRelation)*)+),
     Tatt.global.attributes,
-    Tatt.sortable.attributes,
-    Tatt.declarable.attributes,
-    Tatt.typed.attributes,
     Tatt.cmc.attributes,
+    Tatt.declarable.attributes,
+    Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TrelatedItem =
@@ -4051,7 +3851,7 @@ TrelatedItem =
     ((Tmodel.biblLike | Tmodel.ptrLike)?)
     >> sch:pattern [
          id =
-           "testbasic-relatedItem-targetorcontent1-constraint-rule-28"
+           "testbasic-relatedItem-targetorcontent1-constraint-rule-21"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4079,7 +3879,7 @@ TrelatedItem =
     Tatt.global.attributes,
     Tatt.typed.attributes,
     
-    ## points to the related bibliographic element by means of an absolute or relative URI reference
+    ## points to the related bibliographic element by means of an absolute or relative URI reference.
     attribute target {
       xsd:anyURI { pattern = "\S+" }
     }?,
@@ -4096,7 +3896,7 @@ Tl =
       | Tmodel.global)*)
     >> sch:pattern [
          id =
-           "testbasic-l-abstractModel-structure-l-in-l-constraint-rule-29"
+           "testbasic-l-abstractModel-structure-l-in-l-constraint-rule-22"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4115,8 +3915,8 @@ Tl =
          "         "
        ],
     Tatt.global.attributes,
-    Tatt.fragmentable.attributes,
     Tatt.cmc.attributes,
+    Tatt.fragmentable.attributes,
     empty
   }
 Tlg =
@@ -4137,7 +3937,7 @@ Tlg =
       | Tlg)*,
      (Tmodel.divBottom, Tmodel.global*)*)
     >> sch:pattern [
-         id = "testbasic-lg-atleast1oflggapl-constraint-rule-30"
+         id = "testbasic-lg-atleast1oflggapl-constraint-rule-23"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4157,7 +3957,7 @@ Tlg =
        ]
     >> sch:pattern [
          id =
-           "testbasic-lg-abstractModel-structure-lg-in-l-constraint-rule-31"
+           "testbasic-lg-abstractModel-structure-lg-in-l-constraint-rule-24"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4176,10 +3976,10 @@ Tlg =
          "         "
        ],
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.declaring.attributes,
     Tatt.divLike.attributes,
     Tatt.typed.attributes,
-    Tatt.declaring.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tsp =
@@ -4208,11 +4008,11 @@ Tstage =
   ## (stage direction) contains any kind of stage direction within a dramatic text or fragment. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.4. Stage Directions]
   element stage {
     Tmacro.specialPara,
-    Tatt.ascribed.directed.attributes,
     Tatt.global.attributes,
+    Tatt.ascribed.directed.attributes,
+    Tatt.cmc.attributes,
     Tatt.placement.attributes,
     Tatt.written.attributes,
-    Tatt.cmc.attributes,
     
     ## indicates the kind of stage direction.
     ## Suggested values include: 1] setting; 2] entrance; 3] exit; 4] business; 5] novelistic; 6] delivery; 7] modifier; 8] location; 9] mixed
@@ -4372,36 +4172,6 @@ Tsponsor =
     Tatt.global.attributes,
     Tatt.canonical.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-sponsor-calendar-calendar-check-sponsor-constraint-rule-32"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tfunder =
@@ -4412,36 +4182,6 @@ Tfunder =
     Tatt.global.attributes,
     Tatt.canonical.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-funder-calendar-calendar-check-funder-constraint-rule-33"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tprincipal =
@@ -4452,36 +4192,6 @@ Tprincipal =
     Tatt.global.attributes,
     Tatt.canonical.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-principal-calendar-calendar-check-principal-constraint-rule-34"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TeditionStmt =
@@ -4534,10 +4244,10 @@ Tidno =
   element idno {
     (text | Tmodel.gLike | Tidno)*,
     Tatt.global.attributes,
-    Tatt.sortable.attributes,
-    Tatt.datable.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.cmc.attributes,
+    Tatt.datable.attributes,
+    Tatt.sortable.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## categorizes the identifier, for example as an ISBN, Social Security number, etc.
     ## Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7] OCLC
@@ -4582,36 +4292,6 @@ Tidno =
         "OCLC"
       | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-idno-calendar-calendar-check-idno-constraint-rule-35"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tavailability =
@@ -4642,38 +4322,8 @@ Tlicence =
   element licence {
     Tmacro.specialPara,
     Tatt.global.attributes,
-    Tatt.pointing.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-licence-calendar-calendar-check-licence-constraint-rule-36"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tatt.pointing.attributes,
     empty
   }
 TseriesStmt =
@@ -4715,10 +4365,10 @@ TbiblFull =
       TsourceDesc*)
      | (TfileDesc, TprofileDesc)),
     Tatt.global.attributes,
-    Tatt.declarable.attributes,
-    Tatt.sortable.attributes,
-    Tatt.docStatus.attributes,
     Tatt.cmc.attributes,
+    Tatt.declarable.attributes,
+    Tatt.docStatus.attributes,
+    Tatt.sortable.attributes,
     empty
   }
 TencodingDesc =
@@ -4731,14 +4381,14 @@ TencodingDesc =
   }
 TschemaRef =
   
-  ## (schema reference) describes or points to a related customization or schema file [2.3.10. The Schema Specification]
+  ## (schema reference) describes or points to a related customization or schema file. [2.3.10. The Schema Specification]
   element schemaRef {
     Tmodel.descLike?,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.resourced.attributes,
+    Tatt.typed.attributes,
     
-    ## the identifier used for the customization or schema
+    ## the identifier used for the customization or schema.
     attribute key { xsd:NCName }?,
     empty
   }
@@ -4831,7 +4481,7 @@ Tquotation =
   element quotation {
     (Tmodel.pLike*)
     >> sch:pattern [
-         id = "testbasic-quotation-quotationContents-constraint-rule-37"
+         id = "testbasic-quotation-quotationContents-constraint-rule-25"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4927,8 +4577,8 @@ Tpunctuation =
   ## specifies editorial practice adopted with respect to punctuation marks in the original. [2.3.3. The Editorial Practices Declaration 3.2. Treatment of Punctuation]
   element punctuation {
     Tmodel.pLike*,
-    Tatt.declarable.attributes,
     Tatt.global.attributes,
+    Tatt.declarable.attributes,
     
     ## indicates whether or not punctation marks have been retained as content within the text.
     attribute marks {
@@ -5083,7 +4733,7 @@ TciteStructure =
     attribute match { text }
     >> sch:pattern [
          id =
-           "testbasic-citeStructure-match-citestructure-outer-match-constraint-rule-38"
+           "testbasic-citeStructure-match-citestructure-outer-match-constraint-rule-26"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5104,7 +4754,7 @@ TciteStructure =
        ]
     >> sch:pattern [
          id =
-           "testbasic-citeStructure-match-citestructure-inner-match-constraint-rule-39"
+           "testbasic-citeStructure-match-citestructure-inner-match-constraint-rule-27"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5187,8 +4837,8 @@ TrefState =
   element refState {
     empty,
     Tatt.global.attributes,
-    Tatt.milestoneUnit.attributes,
     Tatt.edition.attributes,
+    Tatt.milestoneUnit.attributes,
     
     ## specifies the fixed length of the reference component.
     attribute length { xsd:nonNegativeInteger }?,
@@ -5257,7 +4907,7 @@ TgeoDecl =
       ## (World Geodetic System) a pair of numbers to be interpreted as latitude followed by longitude according to the World Geodetic System.
       "WGS84"
       | 
-        ## (Military Grid Reference System) the values supplied are geospatial entity object codes, based on
+        ## (Military Grid Reference System) values supplied follow the Military Grid Reference System, which designates grid zones in a string of letters and numbers that distinctly indicate each square meter on the planet.
         "MGRS"
       | 
         ## (ordnance survey great britain) the value supplied is to be interpreted as a British National Grid Reference.
@@ -5274,39 +4924,9 @@ TunitDecl =
   ## (unit declarations) provides information about units of measurement that are not members of the International System of Units. [2.3.9. The Unit Declaration]
   element unitDecl {
     TunitDef+,
+    Tatt.global.attributes,
     Tatt.canonical.attributes,
     Tatt.datable.attributes,
-    Tatt.global.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-unitDecl-calendar-calendar-check-unitDecl-constraint-rule-40"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TunitDef =
@@ -5315,39 +4935,9 @@ TunitDef =
   element unitDef {
     (Tmodel.labelLike | Tmodel.placeNamePart? | Tconversion? | Tunit?)+,
     Tatt.global.attributes,
-    Tatt.datable.attributes,
     Tatt.canonical.attributes,
+    Tatt.datable.attributes,
     Tatt.typed.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-unitDef-calendar-calendar-check-unitDef-constraint-rule-41"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tconversion =
@@ -5359,36 +4949,6 @@ Tconversion =
     Tatt.datable.attributes,
     Tatt.formula.attributes,
     Tatt.locatable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-conversion-calendar-calendar-check-conversion-constraint-rule-42"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     [
       a:documentation [
         "indicates a source unit of measure that is to be converted into another unit indicated in "
@@ -5423,38 +4983,8 @@ Tapplication =
   element application {
     (Tmodel.labelLike+, (Tmodel.ptrLike* | Tmodel.pLike*)),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-application-calendar-calendar-check-application-constraint-rule-43"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tatt.typed.attributes,
     
     ## supplies an identifier for the application, independent of its version number or display name.
     attribute ident { xsd:Name },
@@ -5497,36 +5027,6 @@ Tcreation =
     (text | Tmodel.limitedPhrase | TlistChange)*,
     Tatt.global.attributes,
     Tatt.datable.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-creation-calendar-calendar-check-creation-constraint-rule-44"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TlangUsage =
@@ -5544,6 +5044,7 @@ Tlanguage =
   element language {
     Tmacro.phraseSeq.limited,
     Tatt.global.attributes,
+    Tatt.scope.attributes,
     [
       a:documentation [
         "(identifier) Supplies a language code constructed as defined in "
@@ -5647,9 +5148,9 @@ TcorrespDesc =
   ## (correspondence description) contains a description of the actions related to one act of correspondence. [2.4.6. Correspondence Description]
   element correspDesc {
     (Tmodel.correspDescPart+ | Tmodel.pLike+),
-    Tatt.declarable.attributes,
-    Tatt.canonical.attributes,
     Tatt.global.attributes,
+    Tatt.canonical.attributes,
+    Tatt.declarable.attributes,
     Tatt.typed.attributes,
     empty
   }
@@ -5659,8 +5160,8 @@ TcorrespAction =
   element correspAction {
     (Tmodel.correspActionPart+ | Tmodel.pLike+),
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.sortable.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## describes the nature of the action.
     ## Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5] forwarded
@@ -5694,7 +5195,7 @@ TxenoData =
   
   ## (non-TEI metadata) provides a container element into which metadata in non-TEI formats may be placed. [2.5. Non-TEI Metadata]
   element xenoData {
-    (text | anyElement_xenoData_1),
+    (text | anyElement_xenoData_1+),
     Tatt.global.attributes,
     Tatt.declarable.attributes,
     Tatt.typed.attributes,
@@ -5714,41 +5215,11 @@ Tchange =
   ## (change) documents a change or set of changes made during the production of a source document, or during the revision of an electronic file. [2.6. The Revision Description 2.4.1. Creation 12.7. Identifying Changes and Revisions]
   element change {
     Tmacro.specialPara,
+    Tatt.global.attributes,
     Tatt.ascribed.attributes,
     Tatt.datable.attributes,
     Tatt.docStatus.attributes,
-    Tatt.global.attributes,
     Tatt.typed.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-change-calendar-calendar-check-change-constraint-rule-45"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
     ## (target) points to one or more elements that belong to this change.
     attribute target {
@@ -5771,7 +5242,7 @@ TlistChange =
       a:documentation [
         "indicates whether the ordering of its child "
         ns1:code [ "<change>" ]
-        " elements is to be considered significant or not"
+        " elements is to be considered significant or not."
       ]
     ]
     attribute ordered { xsd:boolean }?,
@@ -5827,7 +5298,7 @@ Tatt.datable.custom.attribute.to-custom =
   }?
 Tatt.datable.custom.attribute.datingPoint =
   
-  ## supplies a pointer to some location defining a named point in time with reference to which the datable item is understood to have occurred
+  ## supplies a pointer to some location defining a named point in time with reference to which the datable item is understood to have occurred.
   attribute datingPoint {
     xsd:anyURI { pattern = "\S+" }
   }?
@@ -5972,41 +5443,11 @@ TorgName =
   element orgName {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-orgName-calendar-calendar-check-orgName-constraint-rule-46"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TpersName =
@@ -6015,41 +5456,11 @@ TpersName =
   element persName {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-persName-calendar-calendar-check-persName-constraint-rule-47"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tsurname =
@@ -6058,9 +5469,9 @@ Tsurname =
   element surname {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tforename =
@@ -6069,9 +5480,9 @@ Tforename =
   element forename {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TgenName =
@@ -6080,9 +5491,9 @@ TgenName =
   element genName {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TnameLink =
@@ -6091,8 +5502,8 @@ TnameLink =
   element nameLink {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TaddName =
@@ -6101,9 +5512,9 @@ TaddName =
   element addName {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TroleName =
@@ -6112,9 +5523,9 @@ TroleName =
   element roleName {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TplaceName =
@@ -6122,42 +5533,12 @@ TplaceName =
   ## (place name) contains an absolute or relative place name. [14.2.3. Place Names]
   element placeName {
     Tmacro.phraseSeq,
+    Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
-    Tatt.global.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-placeName-calendar-calendar-check-placeName-constraint-rule-48"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tbloc =
@@ -6166,40 +5547,10 @@ Tbloc =
   element bloc {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.datable.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.datable.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-bloc-calendar-calendar-check-bloc-constraint-rule-49"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tcountry =
@@ -6208,40 +5559,10 @@ Tcountry =
   element country {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.datable.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.datable.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-country-calendar-calendar-check-country-constraint-rule-50"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tregion =
@@ -6250,40 +5571,10 @@ Tregion =
   element region {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.datable.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.datable.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-region-calendar-calendar-check-region-constraint-rule-51"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tsettlement =
@@ -6292,40 +5583,10 @@ Tsettlement =
   element settlement {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.datable.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.datable.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-settlement-calendar-calendar-check-settlement-constraint-rule-52"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tdistrict =
@@ -6334,40 +5595,10 @@ Tdistrict =
   element district {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.datable.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.datable.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-district-calendar-calendar-check-district-constraint-rule-53"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Toffset =
@@ -6375,43 +5606,13 @@ Toffset =
   ## (offset) marks that part of a relative temporal or spatial expression which indicates the direction of the offset between the two place names, dates, or times involved in the expression. [14.2.3. Place Names]
   element offset {
     Tmacro.phraseSeq,
-    Tatt.datable.attributes,
-    Tatt.editLike.attributes,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.datable.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.dimensions.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-offset-calendar-calendar-check-offset-constraint-rule-54"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TgeogName =
@@ -6419,42 +5620,12 @@ TgeogName =
   ## (geographical name) identifies a name associated with some geographical feature such as Windrush Valley or Mount Sinai. [14.2.3. Place Names]
   element geogName {
     Tmacro.phraseSeq,
+    Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
-    Tatt.global.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-geogName-calendar-calendar-check-geogName-constraint-rule-55"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TgeogFeat =
@@ -6462,43 +5633,13 @@ TgeogFeat =
   ## (geographical feature name) contains a common noun identifying some geographical feature contained within a geographic name, such as valley, mount, etc. [14.2.3. Place Names]
   element geogFeat {
     Tmacro.phraseSeq,
-    Tatt.datable.attributes,
-    Tatt.editLike.attributes,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.datable.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.dimensions.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-geogFeat-calendar-calendar-check-geogFeat-constraint-rule-56"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TeventName =
@@ -6519,47 +5660,17 @@ Taffiliation =
   element affiliation {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
+    Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attribute.subtype,
-    Tatt.cmc.attributes,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
     ## Sample values include: 1] sponsor; 2] recommend; 3] discredit; 4] pledged
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-affiliation-calendar-calendar-check-affiliation-constraint-rule-57"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tage =
@@ -6568,48 +5679,18 @@ Tage =
   element age {
     Tmacro.phraseSeq.limited,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.datable.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
+    Tatt.typed.attribute.subtype,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
     ## Sample values include: 1] western; 2] sui; 3] subjective; 4] objective; 5] inWorld (in world); 6] chronological; 7] biological; 8] psychological; 9] functional
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-age-calendar-calendar-check-age-constraint-rule-58"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
-    ## supplies a numeric code representing the age or age group
+    ## supplies a numeric code representing the age or age group.
     attribute value { xsd:nonNegativeInteger }?,
     empty
   }
@@ -6619,9 +5700,9 @@ Tbirth =
   element birth {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.datable.attributes,
     Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attribute.subtype,
     
@@ -6630,36 +5711,6 @@ Tbirth =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-birth-calendar-calendar-check-birth-constraint-rule-59"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tclimate =
@@ -6671,41 +5722,11 @@ Tclimate =
      (Tmodel.noteLike | Tmodel.biblLike)*,
      Tclimate*),
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-climate-calendar-calendar-check-climate-constraint-rule-60"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tdeath =
@@ -6713,10 +5734,10 @@ Tdeath =
   ## (death) contains information about a person's death, such as its date and place. [16.2.2. The Participant Description]
   element death {
     Tmacro.phraseSeq,
+    Tatt.global.attributes,
     Tatt.datable.attributes,
     Tatt.dimensions.attributes,
     Tatt.editLike.attributes,
-    Tatt.global.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attribute.subtype,
     
@@ -6725,36 +5746,6 @@ Tdeath =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-death-calendar-calendar-check-death-constraint-rule-61"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Teducation =
@@ -6763,8 +5754,8 @@ Teducation =
   element education {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.datable.attributes,
+    Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attribute.subtype,
     
@@ -6773,36 +5764,6 @@ Teducation =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-education-calendar-calendar-check-education-constraint-rule-62"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tevent =
@@ -6830,36 +5791,6 @@ Tevent =
     Tatt.naming.attributes,
     Tatt.sortable.attributes,
     Tatt.typed.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-event-calendar-calendar-check-event-constraint-rule-63"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "            systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "            but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tfaith =
@@ -6868,9 +5799,9 @@ Tfaith =
   element faith {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
-    Tatt.datable.attributes,
     Tatt.canonical.attributes,
+    Tatt.datable.attributes,
+    Tatt.editLike.attributes,
     Tatt.typed.attribute.subtype,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
@@ -6878,36 +5809,6 @@ Tfaith =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-faith-calendar-calendar-check-faith-constraint-rule-64"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tfloruit =
@@ -6919,36 +5820,6 @@ Tfloruit =
     Tatt.datable.attributes,
     Tatt.dimensions.attributes,
     Tatt.editLike.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-floruit-calendar-calendar-check-floruit-constraint-rule-65"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tgender =
@@ -6957,41 +5828,11 @@ Tgender =
   element gender {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.datable.attributes,
+    Tatt.editLike.attributes,
     Tatt.typed.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-gender-calendar-calendar-check-gender-constraint-rule-66"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
-    ## supplies a coded value for gender identity
+    ## supplies a coded value for gender identity.
     attribute value {
       list {
         xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
@@ -7005,8 +5846,8 @@ Tgeo =
   element geo {
     text,
     Tatt.global.attributes,
-    Tatt.declaring.attributes,
     Tatt.cmc.attributes,
+    Tatt.declaring.attributes,
     empty
   }
 TlangKnowledge =
@@ -7029,38 +5870,8 @@ TlangKnowledge =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-langKnowledge-calendar-calendar-check-langKnowledge-constraint-rule-67"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
-    ## supplies one or more valid language tags for the languages specified
+    ## supplies one or more valid language tags for the languages specified.
     attribute tags {
       list {
         (xsd:language
@@ -7079,36 +5890,6 @@ TlangKnown =
     Tatt.global.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-langKnown-calendar-calendar-check-langKnown-constraint-rule-68"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
     ## supplies a valid language tag for the language concerned.
     attribute tag {
@@ -7118,7 +5899,7 @@ TlangKnown =
          "")
     },
     
-    ## a code indicating the person's level of knowledge for this language
+    ## a code indicating the person's level of knowledge for this language.
     attribute level {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
@@ -7133,10 +5914,10 @@ TlistOrg =
      (Trelation | TlistRelation)*,
      ((Torg | TlistOrg)+, (Trelation | TlistRelation)*)+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.sortable.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TlistEvent =
@@ -7148,10 +5929,10 @@ TlistEvent =
      (Trelation | TlistRelation)*,
      (Tmodel.eventLike+, (Trelation | TlistRelation)*)+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.sortable.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TlistPerson =
@@ -7164,10 +5945,10 @@ TlistPerson =
      ((Tmodel.personLike | TlistPerson)+,
       (Trelation | TlistRelation)*)+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.sortable.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TlistPlace =
@@ -7179,10 +5960,10 @@ TlistPlace =
      (Trelation | TlistRelation)*,
      ((Tmodel.placeLike | TlistPlace)+, (Trelation | TlistRelation)*)+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.sortable.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TlistRelation =
@@ -7193,9 +5974,9 @@ TlistRelation =
      Tdesc*,
      (Tmodel.pLike | (Trelation | TlistRelation)+)),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.sortable.attributes,
     Tatt.cmc.attributes,
+    Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tlocation =
@@ -7210,40 +5991,10 @@ Tlocation =
      | Tmodel.noteLike
      | Tmodel.biblLike)*,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-location-calendar-calendar-check-location-constraint-rule-69"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tatt.typed.attributes,
     empty
   }
 Tnationality =
@@ -7262,36 +6013,6 @@ Tnationality =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-nationality-calendar-calendar-check-nationality-constraint-rule-70"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Toccupation =
@@ -7310,36 +6031,6 @@ Toccupation =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-occupation-calendar-calendar-check-occupation-constraint-rule-71"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     [
       a:documentation [
         "indicates the classification system or taxonomy in use, for example by supplying the identifier of a "
@@ -7376,9 +6067,9 @@ Torg =
      (Tmodel.noteLike | Tmodel.biblLike | TlinkGrp | Tlink | Tptr)*,
      Tmodel.personLike*),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.editLike.attributes,
     Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     
     ## specifies a primary role or classification for the organization.
     attribute role {
@@ -7506,9 +6197,9 @@ TpersPronouns =
   element persPronouns {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     
     ## (evidence) indicates support for the listed personal pronouns.
     ## Suggested values include: 1] conjecture (conjecture); 2] selfIdentification (self identification); 3] trustedThirdParty (trusted third party)
@@ -7524,36 +6215,6 @@ TpersPronouns =
         "trustedThirdParty"
       | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-persPronouns-calendar-calendar-check-persPronouns-constraint-rule-72"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
     ## (value) supplies a regularized value for personal pronouns.
     ## Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)
@@ -7566,7 +6227,7 @@ TpersPronouns =
   }
 Tplace =
   
-  ## (place) contains data about a geographic location [14.3.4. Places]
+  ## (place) contains data about a geographic location. [14.3.4. Places]
   element place {
     (Tmodel.headLike*,
      (Tmodel.pLike*
@@ -7582,9 +6243,9 @@ Tplace =
       | Tlink)*,
      (Tmodel.placeLike | TlistPlace)*),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.editLike.attributes,
     Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tpopulation =
@@ -7596,42 +6257,12 @@ Tpopulation =
       (Tmodel.noteLike | Tmodel.biblLike)*)?,
      Tpopulation*),
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
+    Tatt.dimensions.attributes,
     Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.dimensions.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-population-calendar-calendar-check-population-constraint-rule-73"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Trelation =
@@ -7640,7 +6271,7 @@ Trelation =
   element relation {
     (Tdesc?)
     >> sch:pattern [
-         id = "testbasic-relation-ref-or-key-or-name-constraint-rule-74"
+         id = "testbasic-relation-ref-or-key-or-name-constraint-rule-28"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7658,7 +6289,7 @@ Trelation =
          "         "
        ]
     >> sch:pattern [
-         id = "testbasic-relation-active-mutual-constraint-rule-75"
+         id = "testbasic-relation-active-mutual-constraint-rule-29"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7676,7 +6307,7 @@ Trelation =
          "         "
        ]
     >> sch:pattern [
-         id = "testbasic-relation-active-passive-constraint-rule-76"
+         id = "testbasic-relation-active-passive-constraint-rule-30"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7694,41 +6325,11 @@ Trelation =
          "         "
        ],
     Tatt.global.attributes,
+    Tatt.canonical.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
-    Tatt.canonical.attributes,
     Tatt.sortable.attributes,
     Tatt.typed.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-relation-calendar-calendar-check-relation-constraint-rule-77"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "              systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "              but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
     ## supplies a name for the kind of relationship of which this is an instance.
     attribute name {
@@ -7773,36 +6374,6 @@ Tresidence =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-residence-calendar-calendar-check-residence-constraint-rule-78"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tsex =
@@ -7811,41 +6382,11 @@ Tsex =
   element sex {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.datable.attributes,
+    Tatt.editLike.attributes,
     Tatt.typed.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-sex-calendar-calendar-check-sex-constraint-rule-79"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     
-    ## supplies a coded value for sex
+    ## supplies a coded value for sex.
     attribute value {
       list {
         xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
@@ -7869,36 +6410,6 @@ TsocecStatus =
     attribute type {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-socecStatus-calendar-calendar-check-socecStatus-constraint-rule-80"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     [
       a:documentation [
         "identifies the classification system or taxonomy in use, for example by pointing to a locally-defined "
@@ -7931,42 +6442,12 @@ Tstate =
         (Tmodel.noteLike | Tmodel.biblLike)*)
      | (Tmodel.labelLike | Tmodel.noteLike | Tmodel.biblLike)*),
     Tatt.global.attributes,
-    Tatt.datable.attributes,
-    Tatt.editLike.attributes,
-    Tatt.typed.attributes,
-    Tatt.naming.attributes,
-    Tatt.dimensions.attributes,
     Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-state-calendar-calendar-check-state-constraint-rule-81"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tatt.datable.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
+    Tatt.naming.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tterrain =
@@ -7978,41 +6459,11 @@ Tterrain =
      (Tmodel.noteLike | Tmodel.biblLike)*,
      Tterrain*),
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-terrain-calendar-calendar-check-terrain-constraint-rule-82"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Ttrait =
@@ -8025,42 +6476,12 @@ Ttrait =
         (Tmodel.noteLike | Tmodel.biblLike)*)
      | (Tmodel.labelLike | Tmodel.noteLike | Tmodel.biblLike)*),
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
+    Tatt.dimensions.attributes,
     Tatt.editLike.attributes,
     Tatt.naming.attributes,
     Tatt.typed.attributes,
-    Tatt.dimensions.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-trait-calendar-calendar-check-trait-constraint-rule-83"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 TobjectName =
@@ -8068,42 +6489,12 @@ TobjectName =
   ## (name of an object) contains a proper noun or noun phrase used to refer to an object. [14.2.5. Object Names]
   element objectName {
     Tmacro.phraseSeq,
+    Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.datable.attributes,
     Tatt.editLike.attributes,
-    Tatt.global.attributes,
     Tatt.personal.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
-    (
-     ## indicates one or more systems or calendars to which the date represented by the content of this element belongs.
-     attribute calendar {
-       list {
-         xsd:anyURI { pattern = "\S+" }+
-       }
-     }?)
-    >> sch:pattern [
-         id =
-           "testbasic-objectName-calendar-calendar-check-objectName-constraint-rule-84"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:*[@calendar]"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "string-length( normalize-space(.) ) gt 0"
-             " @calendar indicates one or more\x{a}" ~
-             "                        systems or calendars to which the date represented by the content of this element belongs,\x{a}" ~
-             "                        but this "
-             sch:name [ ]
-             " element has no textual content."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
     empty
   }
 Tobject =
@@ -8116,11 +6507,11 @@ Tobject =
      (Tmodel.noteLike | Tmodel.biblLike | TlinkGrp | Tlink)*,
      Tobject*),
     Tatt.global.attributes,
-    Tatt.sortable.attributes,
-    Tatt.typed.attributes,
+    Tatt.canonical.attributes,
     Tatt.declaring.attributes,
     Tatt.docStatus.attributes,
-    Tatt.canonical.attributes,
+    Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TlistObject =
@@ -8132,10 +6523,10 @@ TlistObject =
      (Trelation | TlistRelation)*,
      (Tmodel.objectLike+, (Trelation | TlistRelation)*)+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.sortable.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TobjectIdentifier =
@@ -8152,10 +6543,10 @@ Tnym =
   element nym {
     (Tidno*, Tmodel.entryPart*, Tmodel.pLike*, Tnym*),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.sortable.attributes,
+    Tatt.typed.attributes,
     
-    ## points to constituent nyms
+    ## points to constituent nyms.
     attribute parts {
       list {
         xsd:anyURI { pattern = "\S+" }+
@@ -8172,10 +6563,10 @@ TlistNym =
      (Trelation | TlistRelation)*,
      ((Tnym | TlistNym)+, (Trelation | TlistRelation)*)+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.sortable.attributes,
-    Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tatt.global.facs.attributes = Tatt.global.facs.attribute.facs
@@ -8272,7 +6663,7 @@ Tfacsimile =
     (Tfront?, (Tmodel.graphicLike | Tsurface | TsurfaceGrp)+, Tback?)
     >> sch:pattern [
          id =
-           "testbasic-facsimile-no_facsimile_text_nodes-constraint-rule-85"
+           "testbasic-facsimile-no_facsimile_text_nodes-constraint-rule-31"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8317,13 +6708,13 @@ Tsurface =
     Tatt.declaring.attributes,
     Tatt.typed.attributes,
     
-    ## describes the method by which this surface is or was connected to the main surface
+    ## describes the method by which this surface is or was connected to the main surface.
     ## Sample values include: 1] glued; 2] pinned; 3] sewn
     attribute attachment {
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     
-    ## indicates whether the surface is attached and folded in such a way as to provide two writing surfaces
+    ## indicates whether the surface is attached and folded in such a way as to provide two writing surfaces.
     attribute flipping { xsd:boolean }?,
     empty
   }
@@ -8382,7 +6773,7 @@ Tpath =
   element path {
     empty
     >> sch:pattern [
-         id = "testbasic-path-pathmustnotbeclosed-constraint-rule-86"
+         id = "testbasic-path-pathmustnotbeclosed-constraint-rule-32"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8475,7 +6866,7 @@ TaddSpan =
     empty
     >> sch:pattern [
          id =
-           "testbasic-addSpan-addSpan-requires-spanTo-constraint-rule-87"
+           "testbasic-addSpan-addSpan-requires-spanTo-constraint-rule-33"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8496,7 +6887,7 @@ TaddSpan =
        ]
     >> sch:pattern [
          id =
-           "testbasic-addSpan-addSpan-requires-spanTo-fr-constraint-rule-88"
+           "testbasic-addSpan-addSpan-requires-spanTo-fr-constraint-rule-34"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8514,11 +6905,11 @@ TaddSpan =
          "         "
        ],
     Tatt.global.attributes,
-    Tatt.transcriptional.attributes,
-    Tatt.placement.attributes,
-    Tatt.typed.attributes,
-    Tatt.spanning.attributes,
     Tatt.dimensions.attributes,
+    Tatt.placement.attributes,
+    Tatt.spanning.attributes,
+    Tatt.transcriptional.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tdamage =
@@ -8527,8 +6918,8 @@ Tdamage =
   element damage {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.damaged.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TdamageSpan =
@@ -8538,7 +6929,7 @@ TdamageSpan =
     empty
     >> sch:pattern [
          id =
-           "testbasic-damageSpan-damageSpan-requires-spanTo-constraint-rule-89"
+           "testbasic-damageSpan-damageSpan-requires-spanTo-constraint-rule-35"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8559,7 +6950,7 @@ TdamageSpan =
        ]
     >> sch:pattern [
          id =
-           "testbasic-damageSpan-damageSpan-requires-spanTo-fr-constraint-rule-90"
+           "testbasic-damageSpan-damageSpan-requires-spanTo-fr-constraint-rule-36"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8578,8 +6969,8 @@ TdamageSpan =
        ],
     Tatt.global.attributes,
     Tatt.damaged.attributes,
-    Tatt.typed.attributes,
     Tatt.spanning.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TdelSpan =
@@ -8589,7 +6980,7 @@ TdelSpan =
     empty
     >> sch:pattern [
          id =
-           "testbasic-delSpan-delSpan-requires-spanTo-constraint-rule-91"
+           "testbasic-delSpan-delSpan-requires-spanTo-constraint-rule-37"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8610,7 +7001,7 @@ TdelSpan =
        ]
     >> sch:pattern [
          id =
-           "testbasic-delSpan-delSpan-requires-spanTo-fr-constraint-rule-92"
+           "testbasic-delSpan-delSpan-requires-spanTo-fr-constraint-rule-38"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8628,10 +7019,10 @@ TdelSpan =
          "         "
        ],
     Tatt.global.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.spanning.attributes,
     Tatt.transcriptional.attributes,
     Tatt.typed.attributes,
-    Tatt.spanning.attributes,
-    Tatt.dimensions.attributes,
     empty
   }
 Tex =
@@ -8640,8 +7031,8 @@ Tex =
   element ex {
     Tmacro.xtext,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     empty
   }
 Tfw =
@@ -8650,8 +7041,8 @@ Tfw =
   element fw {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.typed.attribute.subtype,
     Tatt.placement.attributes,
+    Tatt.typed.attribute.subtype,
     Tatt.written.attributes,
     
     ## classifies the material encoded according to some useful typology.
@@ -8695,8 +7086,8 @@ Tam =
   element am {
     (text | Tmodel.gLike | Tmodel.pPart.transcriptional)*,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.editLike.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Trestore =
@@ -8705,9 +7096,9 @@ Trestore =
   element restore {
     Tmacro.paraContent,
     Tatt.global.attributes,
+    Tatt.dimensions.attributes,
     Tatt.transcriptional.attributes,
     Tatt.typed.attributes,
-    Tatt.dimensions.attributes,
     empty
   }
 Tspace =
@@ -8719,21 +7110,21 @@ Tspace =
     Tatt.global.attribute.xmllang,
     Tatt.global.attribute.xmlbase,
     Tatt.global.attribute.xmlspace,
-    Tatt.global.rendition.attribute.rend,
-    Tatt.global.rendition.attribute.style,
-    Tatt.global.rendition.attribute.rendition,
+    Tatt.global.change.attribute.change,
+    Tatt.global.facs.attribute.facs,
     Tatt.global.linking.attribute.sameAs,
     Tatt.global.linking.attribute.copyOf,
     Tatt.global.linking.attribute.exclude,
     Tatt.global.linking.attribute.select,
-    Tatt.global.facs.attribute.facs,
-    Tatt.global.change.attribute.change,
+    Tatt.global.rendition.attribute.rend,
+    Tatt.global.rendition.attribute.style,
+    Tatt.global.rendition.attribute.rendition,
     Tatt.global.responsibility.attribute.cert,
     Tatt.global.source.attribute.source,
-    Tatt.typed.attributes,
     Tatt.dimensions.attributes,
+    Tatt.typed.attributes,
     
-    ## (responsible party) (responsible party) indicates the individual responsible for identifying and measuring the space
+    ## (responsible party) (responsible party) indicates the individual responsible for identifying and measuring the space.
     attribute resp {
       list {
         xsd:anyURI { pattern = "\S+" }+
@@ -8757,7 +7148,7 @@ Tsubst =
   element subst {
     ((Tadd | Tsurplus | Tdel | Tmodel.milestoneLike)+)
     >> sch:pattern [
-         id = "testbasic-subst-substContents1-constraint-rule-93"
+         id = "testbasic-subst-substContents1-constraint-rule-39"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8779,19 +7170,19 @@ Tsubst =
          "         "
        ],
     Tatt.global.attributes,
-    Tatt.transcriptional.attributes,
     Tatt.dimensions.attributes,
+    Tatt.transcriptional.attributes,
     empty
   }
 TsubstJoin =
   
-  ## (substitution join) identifies a series of possibly fragmented additions, deletions, or other revisions on a manuscript that combine to make up a single intervention in the text [12.3.1.5. Substitutions]
+  ## (substitution join) identifies a series of possibly fragmented additions, deletions, or other revisions on a manuscript that combine to make up a single intervention in the text. [12.3.1.5. Substitutions]
   element substJoin {
     (Tmodel.descLike | Tmodel.certLike)*,
     Tatt.global.attributes,
+    Tatt.dimensions.attributes,
     Tatt.pointing.attributes,
     Tatt.transcriptional.attributes,
-    Tatt.dimensions.attributes,
     empty
   }
 Tsupplied =
@@ -8800,8 +7191,8 @@ Tsupplied =
   element supplied {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     
     ## one or more words indicating why the text has had to be supplied, e.g. overbinding, faded-ink, lost-folio, omitted-in-original.
     attribute reason {
@@ -8817,8 +7208,8 @@ Tsurplus =
   element surplus {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     
     ## one or more words indicating why this text is believed to be superfluous, e.g. repeated, interpolated etc.
     attribute reason {
@@ -8834,8 +7225,8 @@ Tsecl =
   element secl {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.editLike.attributes,
     Tatt.dimensions.attributes,
+    Tatt.editLike.attributes,
     
     ## one or more words indicating why this text has been secluded, e.g. interpolated etc.
     attribute reason {
@@ -8847,12 +7238,12 @@ Tsecl =
   }
 Tline =
   
-  ## contains the transcription of a topographic line in the source document [12.2.2. Embedded Transcription]
+  ## contains the transcription of a topographic line in the source document. [12.2.2. Embedded Transcription]
   element line {
     (text | Tmodel.global | Tmodel.gLike | Tmodel.linePart)*,
-    Tatt.typed.attributes,
     Tatt.global.attributes,
     Tatt.coordinated.attributes,
+    Tatt.typed.attributes,
     Tatt.written.attributes,
     empty
   }
@@ -8865,9 +7256,9 @@ Tmetamark =
   ## contains or describes any kind of graphic or written signal within a document the function of which is to determine how it should be read rather than forming part of the actual content of the document. [12.3.4.2. Metamarks]
   element metamark {
     Tmacro.specialPara,
-    Tatt.spanning.attributes,
-    Tatt.placement.attributes,
     Tatt.global.attributes,
+    Tatt.placement.attributes,
+    Tatt.spanning.attributes,
     
     ## describes the function (for example status, insertion, deletion, transposition) of the metamark.
     attribute function {
@@ -8888,10 +7279,10 @@ Tmod =
   element mod {
     Tmacro.paraContent,
     Tatt.global.attributes,
+    Tatt.dimensions.attributes,
+    Tatt.spanning.attributes,
     Tatt.transcriptional.attributes,
     Tatt.typed.attributes,
-    Tatt.spanning.attributes,
-    Tatt.dimensions.attributes,
     empty
   }
 Tredo =
@@ -8900,9 +7291,9 @@ Tredo =
   element redo {
     empty,
     Tatt.global.attributes,
+    Tatt.dimensions.attributes,
     Tatt.spanning.attributes,
     Tatt.transcriptional.attributes,
-    Tatt.dimensions.attributes,
     
     ## points to one or more elements representing the interventions which are being reasserted.
     attribute target {
@@ -8918,9 +7309,9 @@ Tretrace =
   element retrace {
     Tmacro.paraContent,
     Tatt.global.attributes,
+    Tatt.dimensions.attributes,
     Tatt.spanning.attributes,
     Tatt.transcriptional.attributes,
-    Tatt.dimensions.attributes,
     empty
   }
 Tundo =
@@ -8929,9 +7320,9 @@ Tundo =
   element undo {
     empty,
     Tatt.global.attributes,
+    Tatt.dimensions.attributes,
     Tatt.spanning.attributes,
     Tatt.transcriptional.attributes,
-    Tatt.dimensions.attributes,
     
     ## points to one or more elements representing the interventions which are to be reverted or undone.
     attribute target {
@@ -8975,8 +7366,8 @@ Ttable =
      ((Trow, Tmodel.global*)+ | (Tmodel.graphicLike, Tmodel.global*)+),
      (Tmodel.divBottom, Tmodel.global*)*),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     
     ## (rows) indicates the number of rows in the table.
     attribute rows { xsd:nonNegativeInteger }?,
@@ -9009,13 +7400,13 @@ Tformula =
   element formula {
     (text | Tmodel.graphicLike | Tmodel.hiLike)*,
     Tatt.global.attributes,
-    Tatt.notated.attributes,
     Tatt.cmc.attributes,
+    Tatt.notated.attributes,
     empty
   }
 TnotatedMusic =
   
-  ## encodes the presence of music notation in a text [15.3. Notated Music in Written Text]
+  ## encodes the presence of music notation in a text. [15.3. Notated Music in Written Text]
   element notatedMusic {
     (Tmodel.labelLike
      | Tmodel.ptrLike
@@ -9023,9 +7414,9 @@ TnotatedMusic =
      | TbinaryObject
      | Tseg)*,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.placement.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tfigure =
@@ -9039,10 +7430,10 @@ Tfigure =
      | Tmodel.global
      | Tmodel.divBottom)*,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.placement.attributes,
     Tatt.typed.attributes,
     Tatt.written.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TfigDesc =
@@ -9057,7 +7448,7 @@ Tlink =
   element link {
     empty
     >> sch:pattern [
-         id = "testbasic-link-linkTargets3-constraint-rule-94"
+         id = "testbasic-link-linkTargets3-constraint-rule-40"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9078,9 +7469,9 @@ Tlink =
          "         "
        ],
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.pointing.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 TlinkGrp =
@@ -9089,8 +7480,8 @@ TlinkGrp =
   element linkGrp {
     (Tmodel.descLike*, (Tlink | Tptr)+),
     Tatt.global.attributes,
-    Tatt.pointing.group.attributes,
     Tatt.cmc.attributes,
+    Tatt.pointing.group.attributes,
     empty
   }
 Tab =
@@ -9100,7 +7491,7 @@ Tab =
     Tmacro.abContent
     >> sch:pattern [
          id =
-           "testbasic-ab-abstractModel-structure-ab-in-l-or-lg-constraint-rule-95"
+           "testbasic-ab-abstractModel-structure-ab-in-l-or-lg-constraint-rule-41"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9121,11 +7512,11 @@ Tab =
          "         "
        ],
     Tatt.global.attributes,
-    Tatt.typed.attributes,
+    Tatt.cmc.attributes,
     Tatt.declaring.attributes,
     Tatt.fragmentable.attributes,
+    Tatt.typed.attributes,
     Tatt.written.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tanchor =
@@ -9134,8 +7525,8 @@ Tanchor =
   element anchor {
     empty,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.cmc.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tseg =
@@ -9144,11 +7535,11 @@ Tseg =
   element seg {
     Tmacro.paraContent,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
+    Tatt.notated.attributes,
     Tatt.segLike.attributes,
     Tatt.typed.attributes,
     Tatt.written.attributes,
-    Tatt.notated.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Twhen =
@@ -9198,7 +7589,7 @@ Twhen =
       | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     
-    ## specifies a time interval either as a number or as one of the keywords defined by the datatype teidata.interval
+    ## specifies a time interval either as a number or as one of the keywords defined by the datatype teidata.interval.
     attribute interval {
       xsd:float
       | (
@@ -9283,7 +7674,7 @@ Tjoin =
   element join {
     ((Tmodel.descLike | Tmodel.certLike)*)
     >> sch:pattern [
-         id = "testbasic-join-joinTargets3-constraint-rule-96"
+         id = "testbasic-join-joinTargets3-constraint-rule-42"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9305,9 +7696,9 @@ Tjoin =
          "         "
        ],
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.pointing.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     
     ## specifies the name of an element which this aggregation may be understood to represent.
     attribute result { xsd:Name }?,
@@ -9345,8 +7736,8 @@ TjoinGrp =
   element joinGrp {
     ((Tgloss | Tmodel.descLike)*, (Tjoin | Tptr)+),
     Tatt.global.attributes,
-    Tatt.pointing.group.attributes,
     Tatt.cmc.attributes,
+    Tatt.pointing.group.attributes,
     [
       a:documentation [
         "supplies the default value for the "
@@ -9365,12 +7756,12 @@ Talt =
   element alt {
     empty,
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.pointing.attribute.targetLang,
     Tatt.pointing.attribute.evaluate,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     
-    ## specifies the destination of the reference by supplying one or more URI References
+    ## specifies the destination of the reference by supplying one or more URI References.
     attribute target {
       list {
         xsd:anyURI { pattern = "\S+" },
@@ -9417,8 +7808,8 @@ TaltGrp =
   element altGrp {
     (Tmodel.descLike*, (Talt | Tptr)*),
     Tatt.global.attributes,
-    Tatt.pointing.group.attributes,
     Tatt.cmc.attributes,
+    Tatt.pointing.group.attributes,
     
     ## states whether the alternations gathered in this collection are exclusive or inclusive.
     [ a:defaultValue = "excl" ]
@@ -9439,7 +7830,7 @@ TstandOff =
     (Tmodel.standOffPart+)
     >> sch:pattern [
          id =
-           "testbasic-standOff-nested_standOff_should_be_typed-constraint-rule-97"
+           "testbasic-standOff-nested_standOff_should_be_typed-constraint-rule-43"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9464,8 +7855,8 @@ TstandOff =
          "         "
        ],
     Tatt.global.attributes,
-    Tatt.typed.attributes,
     Tatt.declaring.attributes,
+    Tatt.typed.attributes,
     empty
   }
 TlistAnnotation =
@@ -9487,20 +7878,16 @@ TlistAnnotation =
      Tmodel.labelLike*,
      (Tmodel.annotationLike | TlistAnnotation)+),
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.notated.attributes,
     Tatt.declaring.attributes,
+    Tatt.notated.attributes,
+    Tatt.typed.attributes,
     empty
   }
 Tannotation =
   [
     a:documentation [
       "represents an annotation following the "
-      ns1:a [
-        href = "#WADM"
-        "Web\x{a}" ~
-        "      Annotation Data Model"
-      ]
+      ns1:a [ href = "#WADM" "Web Annotation Data Model" ]
       ". [17.10. The standOff Container]"
     ]
   ]
@@ -9512,15 +7899,15 @@ Tannotation =
     Tatt.global.attribute.xmllang,
     Tatt.global.attribute.xmlbase,
     Tatt.global.attribute.xmlspace,
-    Tatt.global.rendition.attribute.rend,
-    Tatt.global.rendition.attribute.style,
-    Tatt.global.rendition.attribute.rendition,
+    Tatt.global.change.attribute.change,
+    Tatt.global.facs.attribute.facs,
     Tatt.global.linking.attribute.sameAs,
     Tatt.global.linking.attribute.copyOf,
     Tatt.global.linking.attribute.exclude,
     Tatt.global.linking.attribute.select,
-    Tatt.global.facs.attribute.facs,
-    Tatt.global.change.attribute.change,
+    Tatt.global.rendition.attribute.rend,
+    Tatt.global.rendition.attribute.style,
+    Tatt.global.rendition.attribute.rendition,
     Tatt.global.responsibility.attribute.cert,
     Tatt.global.responsibility.attribute.resp,
     Tatt.global.source.attribute.source,
@@ -9530,7 +7917,7 @@ Tannotation =
     ## (identifier) provides a unique identifier for the element bearing the attribute.
     attribute xml:id { xsd:ID },
     
-    ## specifies the destination of the reference by supplying one or more URI References
+    ## specifies the destination of the reference by supplying one or more URI References.
     attribute target {
       list {
         xsd:anyURI { pattern = "\S+" }+
@@ -9680,9 +8067,9 @@ TfloatingText =
      Tmodel.global*,
      (Tback, Tmodel.global*)?),
     Tatt.global.attributes,
+    Tatt.cmc.attributes,
     Tatt.declaring.attributes,
     Tatt.typed.attributes,
-    Tatt.cmc.attributes,
     empty
   }
 Tdiv =
@@ -9696,7 +8083,7 @@ Tdiv =
       (Tmodel.divBottom, Tmodel.global*)*)?)
     >> sch:pattern [
          id =
-           "testbasic-div-abstractModel-structure-div-in-l-or-lg-constraint-rule-98"
+           "testbasic-div-abstractModel-structure-div-in-l-or-lg-constraint-rule-44"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9718,7 +8105,7 @@ Tdiv =
        ]
     >> sch:pattern [
          id =
-           "testbasic-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-99"
+           "testbasic-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-45"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9739,9 +8126,9 @@ Tdiv =
          "         "
        ],
     Tatt.global.attributes,
+    Tatt.declaring.attributes,
     Tatt.divLike.attributes,
     Tatt.typed.attribute.subtype,
-    Tatt.declaring.attributes,
     Tatt.written.attributes,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
@@ -9773,10 +8160,10 @@ Ttrailer =
      | Tmodel.lLike
      | Tmodel.global)*,
     Tatt.global.attributes,
-    Tatt.typed.attributes,
-    Tatt.placement.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.placement.attributes,
+    Tatt.typed.attributes,
+    Tatt.written.attributes,
     empty
   }
 Tbyline =
@@ -9831,8 +8218,8 @@ Topener =
      | Tsigned
      | Tmodel.global)*,
     Tatt.global.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 Tcloser =
@@ -9847,8 +8234,8 @@ Tcloser =
      | Tmodel.phrase
      | Tmodel.global)*,
     Tatt.global.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 Tsalute =
@@ -9857,8 +8244,8 @@ Tsalute =
   element salute {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 Tsigned =
@@ -9867,8 +8254,8 @@ Tsigned =
   element signed {
     Tmacro.paraContent,
     Tatt.global.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 Tpostscript =
@@ -9880,8 +8267,8 @@ Tpostscript =
      (Tmodel.global | Tmodel.common)*,
      (Tmodel.divBottomPart, Tmodel.global*)*),
     Tatt.global.attributes,
-    Tatt.written.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 TtitlePage =
@@ -9982,9 +8369,9 @@ TdocDate =
   element docDate {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
+    Tatt.calendarSystem.attributes,
     Tatt.cmc.attributes,
     Tatt.datable.attributes,
-    Tatt.calendarSystem.attributes,
     empty
   }
 Tfront =
@@ -10056,10 +8443,10 @@ Tatt.global.linking.attribute.select =
     }
   }?
 Tatt.global.attributes =
-  Tatt.global.rendition.attributes,
-  Tatt.global.linking.attributes,
-  Tatt.global.facs.attributes,
   Tatt.global.change.attributes,
+  Tatt.global.facs.attributes,
+  Tatt.global.linking.attributes,
+  Tatt.global.rendition.attributes,
   Tatt.global.responsibility.attributes,
   Tatt.global.source.attributes,
   Tatt.global.attribute.xmlid,
@@ -10164,7 +8551,7 @@ TMenu =
   }
 start = TTEI | Tdiv
 sch:pattern [
-  id = "testbasic-outerconstraint-constraint-rule-100"
+  id = "testbasic-outerconstraint-constraint-rule-46"
   "\x{a}" ~
   "      "
   sch:rule [

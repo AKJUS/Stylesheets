@@ -586,7 +586,7 @@ of this software, even if advised of the possibility of such damage.
         </xsl:if>
         
          <xsl:copy-of select="@xml:lang"/>
-         <xsl:value-of select="."/>
+         <xsl:value-of select="normalize-space(.)"/>
       </seg>
   </xsl:template>
 

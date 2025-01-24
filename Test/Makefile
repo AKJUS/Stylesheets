@@ -571,7 +571,7 @@ test-oddity: actual css
 		else echo "==deferring: \` diff  $(AR)/test.odd.html $(ER)/test.odd.html \`"; fi
 
 	$(BINDIR)/teitoodd $(FLAGS) test.odd $(AR)/test.processedodd
-	$(SAXON) $(AR)/test.processedodd ../odds/extract-isosch.xsl > $(AR)/test.isosch
+	$(SAXON) $(AR)/test.processedodd ../odds/extract-isosch.xsl lang=en > $(AR)/test.isosch
 	perl -i -p -e 's/This file generated [0-9T:Z-]+ by .extract-isosch.xsl./DELETED TIMESTAMP/' $(AR)/test.isosch
 	if [ $(DIFFNOW) -eq 1 ]; \
 		then diff  $(AR)/test.isosch $(ER)/test.isosch; \

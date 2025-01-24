@@ -175,7 +175,7 @@ att.global.rendition.attribute.rend =
   }?
 att.global.rendition.attribute.style =
   
-  ## contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text
+  ## contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text.
   attribute style { xsd:string }?
 att.global.rendition.attribute.rendition =
   
@@ -211,7 +211,7 @@ sch:pattern [
     "         "
     sch:report [
       test =
-        "( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]"
+        "(   self::tei:classRef                                 | self::tei:dataRef                                 | self::tei:elementRef                                 | self::tei:macroRef                                 | self::tei:moduleRef                                 | self::tei:schemaSpec )                                   and                                   $srcs[2]"
       "\x{a}" ~
       "              When used on a schema description element (like\x{a}" ~
       "              "
@@ -289,7 +289,7 @@ att.typed.attribute.type =
   }?
 att.typed.attribute.subtype =
   
-  ## (subtype) provides a sub-categorization of the element, if needed
+  ## (subtype) provides a sub-categorization of the element, if needed.
   attribute subtype {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
@@ -701,9 +701,9 @@ model.divGenLike = notAllowed
          "         "
        ],
     att.global.attributes,
+    att.declaring.attributes,
     att.divLike.attributes,
     att.typed.attributes,
-    att.declaring.attributes,
     att.written.attributes,
     empty
   }
@@ -757,10 +757,10 @@ p =
          "         "
        ],
     att.global.attributes,
+    att.cmc.attributes,
     att.declaring.attributes,
     att.fragmentable.attributes,
     att.written.attributes,
-    att.cmc.attributes,
     empty
   }
 testClass = x | y | z
