@@ -53,16 +53,23 @@ att.ascribed.attribute.who =
       xsd:anyURI { pattern = "\S+" }+
     }
   }?
-att.ascribed.directed.attributes =
-  att.ascribed.attributes, att.ascribed.directed.attribute.toWhom
-att.ascribed.directed.attribute.toWhom =
+att.breaking.attributes = att.breaking.attribute.break
+att.breaking.attribute.break =
   
-  ## indicates the person, or group of people, to whom a speech act or action is directed.
-  attribute toWhom {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
+  ## indique si l'élément qui porte cet attribut peut être considéré comme une espace blanc indiquant la fin d'un mot orthographique.
+  attribute break {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
+att.cReferencing.attributes = att.cReferencing.attribute.cRef
+att.cReferencing.attribute.cRef =
+  [
+    a:documentation [
+      "(référence canonique) précise la cible du pointeur en fournissant une référence canonique issue d'un modèle défini par un élément "
+      ns1:code [ "<refsDecl>" ]
+      "dans l'En-tête TEI."
+    ]
+  ]
+  attribute cRef { xsd:string }?
 att.canonical.attributes =
   att.canonical.attribute.key, att.canonical.attribute.ref
 att.canonical.attribute.key =
@@ -77,176 +84,61 @@ att.canonical.attribute.ref =
       xsd:anyURI { pattern = "\S+" }+
     }
   }?
-att.ranging.attributes =
-  att.ranging.attribute.atLeast,
-  att.ranging.attribute.atMost,
-  att.ranging.attribute.min,
-  att.ranging.attribute.max,
-  att.ranging.attribute.confidence
-att.ranging.attribute.atLeast =
+att.citing.attributes =
+  att.citing.attribute.unit,
+  att.citing.attribute.from,
+  att.citing.attribute.to
+att.citing.attribute.unit =
   
-  ## donne une estimation de la valeur minimum pour la mesure.
-  attribute atLeast {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-att.ranging.attribute.atMost =
-  
-  ## donne une estimation de la valeur maximum pour la mesure.
-  attribute atMost {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-att.ranging.attribute.min =
-  
-  ## lorsque la mesure résume plus d'une observation, fournit la valeur minimum observée.
-  attribute min {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-att.ranging.attribute.max =
-  
-  ## lorsque la mesure résume plus d'une observation, fournit la valeur maximum observée.
-  attribute max {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-att.ranging.attribute.confidence =
-  [
-    a:documentation [
-      "specifies the degree of statistical confidence (between zero and one) that a value falls within the range specified by "
-      ns1:code [ "@min" ]
-      " and "
-      ns1:code [ "@max" ]
-      ", or the proportion of observed values that fall within that range."
-    ]
-  ]
-  attribute confidence {
-    xsd:double { minInclusive = "0" maxInclusive = "1" }
-  }?
-att.dimensions.attributes =
-  att.ranging.attributes,
-  att.dimensions.attribute.unit,
-  att.dimensions.attribute.quantity,
-  att.dimensions.attribute.extent,
-  att.dimensions.attribute.precision,
-  att.dimensions.attribute.scope
-att.dimensions.attribute.unit =
-  
-  ## noms des unités utilisées pour la mesure.
-  ## Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inches); 4] line; 5] char (characters)
+  ## identifie le type d'information que transmet l'élément, par exemple colonnes, pages, volume, inscription, etc.
+  ## Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line; 5] chapter (chapter); 6] part; 7] column; 8] entry
   attribute unit {
     
-    ## (centimètres) 
-    "cm"
+    ## (volume) l'élément contient un numéro de volume.
+    "volume"
     | 
-      ## (millimètres) 
-      "mm"
+      ## l'élément contient un numéro de livraison ou bien un numéro de volume et de livraison.
+      "issue"
     | 
-      ## (pouces) 
-      "in"
+      ## (page) l'élément contient un nombre de pages ou l'étendue de sélection des pages.
+      "page"
     | 
-      ## lignes de texte
+      ## the element contains a line number or line range.
       "line"
     | 
-      ## (characters) caractères du texte
-      "char"
+      ## (chapitre) l'élément contient une indication de chapitre (le numéro et/ou le titre)
+      "chapter"
+    | 
+      ## l'élément identifie une partie d'un livre ou une anthologie.
+      "part"
+    | 
+      ## the element identifies a column.
+      "column"
+    | 
+      ## the element identifies an entry number or label in a list of entries.
+      "entry"
     | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-att.dimensions.attribute.quantity =
-  
-  ## spécifie la longueur dans les unités indiquées
-  attribute quantity {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-att.dimensions.attribute.extent =
-  
-  ## indique la dimension de l'objet en utilisant un vocabulaire spécifique à un projet qui combine la quantité et l'unité dans une chaîne seule de mots.
-  attribute extent { xsd:string }?
-att.dimensions.attribute.precision =
-  
-  ## caractérise la précision des valeurs spécifiées par les autres attributs.
-  attribute precision {
-    
-    ##
-    "high"
-    | 
-      ##
-      "medium"
-    | 
-      ##
-      "low"
-    | 
-      ##
-      "unknown"
-  }?
-att.dimensions.attribute.scope =
-  
-  ## spécifie l'applicabilité de cette mesure, là où plus d'un objet est mesuré.
-  ## Sample values include: 1] all; 2] most; 3] range
-  attribute scope {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-att.written.attributes = att.written.attribute.hand
-att.written.attribute.hand =
-  
-  ## signale la main de celui qui est intervenue.
-  attribute hand {
-    xsd:anyURI { pattern = "\S+" }
-  }?
-att.damaged.attributes =
-  att.dimensions.attributes,
-  att.written.attributes,
-  att.damaged.attribute.agent,
-  att.damaged.attribute.degree,
-  att.damaged.attribute.group
-att.damaged.attribute.agent =
-  
-  ## caractérise la raison des dommages, lorsqu'elle peut être identifiée.
-  ## Sample values include: 1] rubbing; 2] mildew; 3] smoke
-  attribute agent {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-att.damaged.attribute.degree =
+att.citing.attribute.from =
   [
     a:documentation [
-      "indique le degré (la gravité) du dommage subi, selon une grille appropriée. L'attribut "
-      ns1:code [ "@degree" ]
-      " doit être utilisé dans le seul cas où le texte peut être lu avec certitude ; le texte restitué en utilisant d'autres sources doit être encodé au moyen de l'élément "
-      ns1:code [ "<supplied>" ]
-      "."
+      "specifies the starting point of the range of units indicated by the "
+      ns1:code [ "@unit" ]
+      " attribute."
     ]
   ]
-  attribute degree {
-    xsd:double { minInclusive = "0" maxInclusive = "1" }
-    | (
-       ##
-       "high"
-       | 
-         ##
-         "medium"
-       | 
-         ##
-         "low"
-       | 
-         ##
-         "unknown")
+  attribute from {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-att.damaged.attribute.group =
-  
-  ## permet d'assigner un numéro quelconque à chaque fragment endommagé considéré comme faisant partie d'un ensemble résultant du même phénomène physique
-  attribute group { xsd:nonNegativeInteger }?
-att.breaking.attributes = att.breaking.attribute.break
-att.breaking.attribute.break =
-  
-  ## indique si l'élément qui porte cet attribut peut être considéré comme une espace blanc indiquant la fin d'un mot orthographique.
-  attribute break {
+att.citing.attribute.to =
+  [
+    a:documentation [
+      "specifies the end-point of the range of units indicated by the "
+      ns1:code [ "@unit" ]
+      " attribute."
+    ]
+  ]
+  attribute to {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
 att.cmc.attributes = att.cmc.attribute.generatedBy
@@ -291,16 +183,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-att.cReferencing.attributes = att.cReferencing.attribute.cRef
-att.cReferencing.attribute.cRef =
-  [
-    a:documentation [
-      "(référence canonique) précise la cible du pointeur en fournissant une référence canonique issue d'un modèle défini par un élément "
-      ns1:code [ "<refsDecl>" ]
-      "dans l'En-tête TEI."
-    ]
-  ]
-  attribute cRef { xsd:string }?
 att.datable.w3c.attributes =
   att.datable.w3c.attribute.when,
   att.datable.w3c.attribute.notBefore,
@@ -429,19 +311,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-att.datable.attributes =
-  att.datable.custom.attributes,
-  att.datable.iso.attributes,
-  att.datable.w3c.attributes,
-  att.datable.attribute.period
-att.datable.attribute.period =
-  
-  ## fournit un pointeur vers un emplacement donné définissant une période de temps nommée durant laquelle l'item concerné s'inscrit.
-  attribute period {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
 att.datcat.attributes =
   att.datcat.attribute.datcat,
   att.datcat.attribute.valueDatcat,
@@ -509,65 +378,6 @@ att.declaring.attribute.decls =
       xsd:anyURI { pattern = "\S+" }+
     }
   }?
-att.fragmentable.attributes = att.fragmentable.attribute.part
-att.fragmentable.attribute.part =
-  
-  ## specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.
-  [ a:defaultValue = "N" ]
-  attribute part {
-    
-    ## (yes) the element is fragmented in some (unspecified) respect
-    "Y"
-    | 
-      ## (no) the element is not fragmented, or no claim is made as to its completeness
-      "N"
-    | 
-      ## (initial) this is the initial part of a fragmented element
-      "I"
-    | 
-      ## (medial) this is a medial part of a fragmented element
-      "M"
-    | 
-      ## (final) this is the final part of a fragmented element
-      "F"
-  }?
-att.divLike.attributes =
-  att.fragmentable.attributes,
-  att.divLike.attribute.org,
-  att.divLike.attribute.sample
-att.divLike.attribute.org =
-  
-  ## (organisation) précise l'organisation du contenu de la division
-  [ a:defaultValue = "uniform" ]
-  attribute org {
-    
-    ## aucune déclaration n'est faite quant à l'ordre dans lequel les composants de cette division doivent être traités ou bien quant à leurs corrélations
-    "composite"
-    | 
-      ## contenu uniforme : c'est-à-dire que les composants de cet élément sont à considérer comme formant une unité logique et doivent être traités dans l'ordre séquentiel
-      "uniform"
-  }?
-att.divLike.attribute.sample =
-  
-  ## indique si cette division est un échantillon de la source originale et dans ce cas, de quelle partie.
-  [ a:defaultValue = "complete" ]
-  attribute sample {
-    
-    ## par rapport à la source, lacune à la fin de la division
-    "initial"
-    | 
-      ## par rapport à la source, lacune au début et à la fin de la division
-      "medial"
-    | 
-      ## par rapport à la source, lacune au début de la division
-      "final"
-    | 
-      ## par rapport à la source, position de l'échantillon inconnue
-      "unknown"
-    | 
-      ## la division n'est pas un échantillon
-      "complete"
-  }?
 att.docStatus.attributes = att.docStatus.attribute.status
 att.docStatus.attribute.status =
   
@@ -576,35 +386,6 @@ att.docStatus.attribute.status =
   [ a:defaultValue = "draft" ]
   attribute status {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-att.global.responsibility.attributes =
-  att.global.responsibility.attribute.cert,
-  att.global.responsibility.attribute.resp
-att.global.responsibility.attribute.cert =
-  
-  ## (certitude) donne le degré de certitude associée à l'intervention ou à l'interprétation.
-  attribute cert {
-    xsd:double { minInclusive = "0" maxInclusive = "1" }
-    | (
-       ##
-       "high"
-       | 
-         ##
-         "medium"
-       | 
-         ##
-         "low"
-       | 
-         ##
-         "unknown")
-  }?
-att.global.responsibility.attribute.resp =
-  
-  ## (responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.
-  attribute resp {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
   }?
 att.editLike.attributes =
   att.editLike.attribute.evidence, att.editLike.attribute.instant
@@ -639,6 +420,46 @@ att.editLike.attribute.instant =
          ##
          "inapplicable")
   }?
+att.edition.attributes =
+  att.edition.attribute.ed, att.edition.attribute.edRef
+att.edition.attribute.ed =
+  
+  ## (édition) fournit un identifiant arbitraire pour l'édition source dans laquelle la caractéristique associée (par exemple, une page, une colonne ou un saut de ligne) apparaît à ce point du texte.
+  attribute ed {
+    list {
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+    }
+  }?
+att.edition.attribute.edRef =
+  
+  ## (edition reference) provides a pointer to the source edition in which the associated feature (for example, a page, column, or line beginning) occurs at this point in the text.
+  attribute edRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+att.fragmentable.attributes = att.fragmentable.attribute.part
+att.fragmentable.attribute.part =
+  
+  ## specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.
+  [ a:defaultValue = "N" ]
+  attribute part {
+    
+    ## (yes) the element is fragmented in some (unspecified) respect
+    "Y"
+    | 
+      ## (no) the element is not fragmented, or no claim is made as to its completeness
+      "N"
+    | 
+      ## (initial) this is the initial part of a fragmented element
+      "I"
+    | 
+      ## (medial) this is a medial part of a fragmented element
+      "M"
+    | 
+      ## (final) this is the final part of a fragmented element
+      "F"
+  }?
 att.global.rendition.attributes =
   att.global.rendition.attribute.rend,
   att.global.rendition.attribute.style,
@@ -659,6 +480,35 @@ att.global.rendition.attribute.rendition =
   
   ## pointe vers une description du rendu ou de la présentation utilisés pour cet élément dans le texte source.
   attribute rendition {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+att.global.responsibility.attributes =
+  att.global.responsibility.attribute.cert,
+  att.global.responsibility.attribute.resp
+att.global.responsibility.attribute.cert =
+  
+  ## (certitude) donne le degré de certitude associée à l'intervention ou à l'interprétation.
+  attribute cert {
+    xsd:double { minInclusive = "0" maxInclusive = "1" }
+    | (
+       ##
+       "high"
+       | 
+         ##
+         "medium"
+       | 
+         ##
+         "low"
+       | 
+         ##
+         "unknown")
+  }?
+att.global.responsibility.attribute.resp =
+  
+  ## (responsable) indique l'agent responsable de l'intervention ou de l'interprétation, par exemple un éditeur ou un transcripteur.
+  attribute resp {
     list {
       xsd:anyURI { pattern = "\S+" }+
     }
@@ -706,120 +556,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-att.global.attributes =
-  att.global.change.attributes,
-  att.global.facs.attributes,
-  att.global.linking.attributes,
-  att.global.rendition.attributes,
-  att.global.responsibility.attributes,
-  att.global.source.attributes,
-  att.global.attribute.xmlid,
-  att.global.attribute.xmllang,
-  att.global.attribute.xmlbase,
-  att.global.attribute.xmlspace
-att.global.attribute.xmlid =
-  
-  ## (identifiant) fournit un identifiant unique pour l'élément qui porte l'attribut.
-  attribute xml:id { xsd:ID }?
-att.global.attribute.xmllang =
-  [
-    a:documentation [
-      "(langue) indique la langue du contenu de l'élément en utilisant les codes du "
-      ns1:a [ href = "https://www.ietf.org/rfc/rfc3066.txt" "RFC 3066" ]
-      "."
-    ]
-  ]
-  attribute xml:lang {
-    xsd:language
-    | (
-       ##
-       "")
-  }?
-att.global.attribute.xmlbase =
-  
-  ## donne une référence URI de base au moyen de laquelle les applications peuvent résoudre des références d'URI relatives en références d'URI absolues.
-  attribute xml:base {
-    xsd:anyURI { pattern = "\S+" }
-  }?
-att.global.attribute.xmlspace =
-  
-  ## signale que les applications doivent préserver l'espace blanc
-  attribute xml:space {
-    
-    ## signals that the application's default white-space processing modes are acceptable
-    "default"
-    | 
-      ## indicates the intent that applications preserve all white space
-      "preserve"
-  }?
-att.scope.attributes = att.scope.attribute.scope
-att.scope.attribute.scope =
-  
-  ## indicates the scope of application of the element
-  ## Suggested values include: 1] sole; 2] major; 3] minor
-  attribute scope {
-    
-    ## only this particular feature is used throughout the document
-    "sole"
-    | 
-      ## this feature is used through most of the document
-      "major"
-    | 
-      ## this feature is used occasionally through the document
-      "minor"
-    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-att.handFeatures.attributes =
-  att.scope.attributes,
-  att.handFeatures.attribute.scribe,
-  att.handFeatures.attribute.scribeRef,
-  att.handFeatures.attribute.script,
-  att.handFeatures.attribute.scriptRef,
-  att.handFeatures.attribute.medium
-att.handFeatures.attribute.scribe =
-  
-  ## donne un nom normalisé ou un autre identifiant pour le scribe reconnu comme responsable de cette main.
-  attribute scribe { xsd:Name }?
-att.handFeatures.attribute.scribeRef =
-  [
-    a:documentation [
-      "points to a full description of the scribe concerned, typically supplied by a "
-      ns1:code [ "<person>" ]
-      " element elsewhere in the description."
-    ]
-  ]
-  attribute scribeRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
-att.handFeatures.attribute.script =
-  
-  ## caractérise la calligraphie ou le style d'écriture particuliers utilisés par cette main, par exemple écriture anglaise, de chancellerie, italienne, etc.
-  attribute script {
-    list { xsd:Name+ }
-  }?
-att.handFeatures.attribute.scriptRef =
-  [
-    a:documentation [
-      "points to a full description of the script or writing style used by this hand, typically supplied by a "
-      ns1:code [ "<scriptNote>" ]
-      " element elsewhere in the description."
-    ]
-  ]
-  attribute scriptRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
-att.handFeatures.attribute.medium =
-  
-  ## décrit la teinte ou le type d'encre, par exemple brune, ou un autre outil d'écriture, par exemple un crayon.
-  attribute medium {
-    list {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
-    }
-  }?
 att.internetMedia.attributes = att.internetMedia.attribute.mimeType
 att.internetMedia.attribute.mimeType =
   
@@ -829,44 +565,6 @@ att.internetMedia.attribute.mimeType =
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
   }?
-att.media.attributes =
-  att.internetMedia.attributes,
-  att.media.attribute.width,
-  att.media.attribute.height,
-  att.media.attribute.scale
-att.media.attribute.width =
-  
-  ## Where the media are displayed, indicates the display width.
-  attribute width {
-    xsd:token {
-      pattern =
-        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
-    }
-  }?
-att.media.attribute.height =
-  
-  ## Where the media are displayed, indicates the display height.
-  attribute height {
-    xsd:token {
-      pattern =
-        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
-    }
-  }?
-att.media.attribute.scale =
-  
-  ## Where the media are displayed, indicates a scale factor to be applied when generating the desired display size.
-  attribute scale {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-att.resourced.attributes = att.resourced.attribute.url
-att.resourced.attribute.url =
-  
-  ## (adresse URL) specifies the URL from which the media concerned may be obtained.
-  attribute url {
-    xsd:anyURI { pattern = "\S+" }
-  }
 att.measurement.attributes =
   att.measurement.attribute.unit,
   att.measurement.attribute.unitRef,
@@ -985,31 +683,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-att.naming.attributes =
-  att.canonical.attributes,
-  att.naming.attribute.altname,
-  att.naming.attribute.role,
-  att.naming.attribute.nymRef
-att.naming.attribute.altname =
-  
-  ## alternative name
-  attribute altname { text }?
-att.naming.attribute.role =
-  
-  ## may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.
-  attribute role {
-    list {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
-    }
-  }?
-att.naming.attribute.nymRef =
-  
-  ## (référence au nom canonique) indique comment localiser la forme canonique (nym) des noms qui sont associés à l'objet nommé par l'élément qui le contient.
-  attribute nymRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
 att.notated.attributes = att.notated.attribute.notation
 att.notated.attribute.notation =
   
@@ -1063,45 +736,6 @@ att.placement.attribute.place =
        | xsd:token { pattern = "[^\p{C}\p{Z}]+" })+
     }
   }?
-att.typed.attributes =
-  att.typed.attribute.type, att.typed.attribute.subtype
-att.typed.attribute.type =
-  
-  ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
-  attribute type {
-    
-    ## first type
-    "A"
-    | 
-      ## second type
-      "B"
-  }?
-att.typed.attribute.subtype =
-  
-  ## (sous-type) fournit une sous-catégorisation de l'élément, si c'est nécessaire.
-  attribute subtype {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-sch:pattern [
-  id = "test21-att.typed-subtypeTyped-constraint-rule-7"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@subtype]"
-    "\x{a}" ~
-    "         "
-    sch:assert [
-      test = "@type"
-      "The "
-      sch:name [ ]
-      " element should not be categorized in detail with @subtype unless also categorized in general with @type"
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
 att.pointing.attributes =
   att.pointing.attribute.targetLang,
   att.pointing.attribute.target,
@@ -1126,7 +760,7 @@ att.pointing.attribute.targetLang =
        "")
   }?
 sch:pattern [
-  id = "test21-att.pointing-targetLang-targetLang-constraint-rule-8"
+  id = "test21-att.pointing-targetLang-targetLang-constraint-rule-7"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -1166,6 +800,495 @@ att.pointing.attribute.evaluate =
     | 
       ## aucune évaluation ultérieure des cibles n'est menée au-delà de la recherche de l'élément désigné dans la cible du pointeur.
       "none"
+  }?
+att.ranging.attributes =
+  att.ranging.attribute.atLeast,
+  att.ranging.attribute.atMost,
+  att.ranging.attribute.min,
+  att.ranging.attribute.max,
+  att.ranging.attribute.confidence
+att.ranging.attribute.atLeast =
+  
+  ## donne une estimation de la valeur minimum pour la mesure.
+  attribute atLeast {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+att.ranging.attribute.atMost =
+  
+  ## donne une estimation de la valeur maximum pour la mesure.
+  attribute atMost {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+att.ranging.attribute.min =
+  
+  ## lorsque la mesure résume plus d'une observation, fournit la valeur minimum observée.
+  attribute min {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+att.ranging.attribute.max =
+  
+  ## lorsque la mesure résume plus d'une observation, fournit la valeur maximum observée.
+  attribute max {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+att.ranging.attribute.confidence =
+  [
+    a:documentation [
+      "specifies the degree of statistical confidence (between zero and one) that a value falls within the range specified by "
+      ns1:code [ "@min" ]
+      " and "
+      ns1:code [ "@max" ]
+      ", or the proportion of observed values that fall within that range."
+    ]
+  ]
+  attribute confidence {
+    xsd:double { minInclusive = "0" maxInclusive = "1" }
+  }?
+att.resourced.attributes = att.resourced.attribute.url
+att.resourced.attribute.url =
+  
+  ## (adresse URL) specifies the URL from which the media concerned may be obtained.
+  attribute url {
+    xsd:anyURI { pattern = "\S+" }
+  }
+att.scope.attributes = att.scope.attribute.scope
+att.scope.attribute.scope =
+  
+  ## indicates the scope of application of the element
+  ## Suggested values include: 1] sole; 2] major; 3] minor
+  attribute scope {
+    
+    ## only this particular feature is used throughout the document
+    "sole"
+    | 
+      ## this feature is used through most of the document
+      "major"
+    | 
+      ## this feature is used occasionally through the document
+      "minor"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+att.sortable.attributes = att.sortable.attribute.sortKey
+att.sortable.attribute.sortKey =
+  
+  ## supplies the sort key for this element in an index, list or group which contains it.
+  attribute sortKey {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+att.spanning.attributes = att.spanning.attribute.spanTo
+att.spanning.attribute.spanTo =
+  
+  ## indique la fin d'un passage introduit par l'élément portant cet attribut.
+  attribute spanTo {
+    xsd:anyURI { pattern = "\S+" }
+  }?
+sch:pattern [
+  id =
+    "test21-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-8"
+  "\x{a}" ~
+  "      "
+  sch:rule [
+    context = "tei:*[ starts-with( @spanTo, '#') ]"
+    "\x{a}" ~
+    "         "
+    sch:assert [
+      test = "id( substring( @spanTo, 2 ) ) >> ."
+      "\x{a}" ~
+      "	      The element indicated by @spanTo ("
+      sch:value-of [ select = "@spanTo" ]
+      ") must follow the current "
+      sch:name [ ]
+      " element \x{a}" ~
+      "            "
+    ]
+    "\x{a}" ~
+    "      "
+  ]
+  "\x{a}" ~
+  "   "
+]
+att.styleDef.attributes =
+  att.styleDef.attribute.scheme, att.styleDef.attribute.schemeVersion
+att.styleDef.attribute.scheme =
+  
+  ## identifie la langue employée pour décrire le rendu.
+  attribute scheme {
+    
+    ## langage CSS (Cascading Stylesheet )
+    "css"
+    | 
+      ## langage XSL (Extensible Stylesheet )Formatting Objects
+      "xslfo"
+    | 
+      ## description en texte libre non structuré.
+      "free"
+    | 
+      ## langue de description de l'interprétation définie par l'utilisateur
+      "other"
+  }?
+att.styleDef.attribute.schemeVersion =
+  [
+    a:documentation [
+      "supplies a version number for the style language provided in "
+      ns1:code [ "@scheme" ]
+      "."
+    ]
+  ]
+  attribute schemeVersion {
+    xsd:token { pattern = "[\d]+[a-z]*[\d]*(\.[\d]+[a-z]*[\d]*){0,3}" }
+  }?
+sch:pattern [
+  id =
+    "test21-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-9"
+  "\x{a}" ~
+  "      "
+  sch:rule [
+    context = "tei:*[@schemeVersion]"
+    "\x{a}" ~
+    "         "
+    sch:assert [
+      test = "@scheme and not(@scheme = 'free')"
+      "\x{a}" ~
+      "              @schemeVersion can only be used if @scheme is specified.\x{a}" ~
+      "            "
+    ]
+    "\x{a}" ~
+    "      "
+  ]
+  "\x{a}" ~
+  "   "
+]
+att.typed.attributes =
+  att.typed.attribute.type, att.typed.attribute.subtype
+att.typed.attribute.type =
+  
+  ## caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.
+  attribute type {
+    
+    ## first type
+    "A"
+    | 
+      ## second type
+      "B"
+  }?
+att.typed.attribute.subtype =
+  
+  ## (sous-type) fournit une sous-catégorisation de l'élément, si c'est nécessaire.
+  attribute subtype {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+sch:pattern [
+  id = "test21-att.typed-subtypeTyped-constraint-rule-10"
+  "\x{a}" ~
+  "      "
+  sch:rule [
+    context = "tei:*[@subtype]"
+    "\x{a}" ~
+    "         "
+    sch:assert [
+      test = "@type"
+      "The "
+      sch:name [ ]
+      " element should not be categorized in detail with @subtype unless also categorized in general with @type"
+    ]
+    "\x{a}" ~
+    "      "
+  ]
+  "\x{a}" ~
+  "   "
+]
+att.written.attributes = att.written.attribute.hand
+att.written.attribute.hand =
+  
+  ## signale la main de celui qui est intervenue.
+  attribute hand {
+    xsd:anyURI { pattern = "\S+" }
+  }?
+att.ascribed.directed.attributes =
+  att.ascribed.attributes, att.ascribed.directed.attribute.toWhom
+att.ascribed.directed.attribute.toWhom =
+  
+  ## indicates the person, or group of people, to whom a speech act or action is directed.
+  attribute toWhom {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+att.datable.attributes =
+  att.datable.custom.attributes,
+  att.datable.iso.attributes,
+  att.datable.w3c.attributes,
+  att.datable.attribute.period
+att.datable.attribute.period =
+  
+  ## fournit un pointeur vers un emplacement donné définissant une période de temps nommée durant laquelle l'item concerné s'inscrit.
+  attribute period {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+att.dimensions.attributes =
+  att.ranging.attributes,
+  att.dimensions.attribute.unit,
+  att.dimensions.attribute.quantity,
+  att.dimensions.attribute.extent,
+  att.dimensions.attribute.precision,
+  att.dimensions.attribute.scope
+att.dimensions.attribute.unit =
+  
+  ## noms des unités utilisées pour la mesure.
+  ## Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inches); 4] line; 5] char (characters)
+  attribute unit {
+    
+    ## (centimètres) 
+    "cm"
+    | 
+      ## (millimètres) 
+      "mm"
+    | 
+      ## (pouces) 
+      "in"
+    | 
+      ## lignes de texte
+      "line"
+    | 
+      ## (characters) caractères du texte
+      "char"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+att.dimensions.attribute.quantity =
+  
+  ## spécifie la longueur dans les unités indiquées
+  attribute quantity {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+att.dimensions.attribute.extent =
+  
+  ## indique la dimension de l'objet en utilisant un vocabulaire spécifique à un projet qui combine la quantité et l'unité dans une chaîne seule de mots.
+  attribute extent { xsd:string }?
+att.dimensions.attribute.precision =
+  
+  ## caractérise la précision des valeurs spécifiées par les autres attributs.
+  attribute precision {
+    
+    ##
+    "high"
+    | 
+      ##
+      "medium"
+    | 
+      ##
+      "low"
+    | 
+      ##
+      "unknown"
+  }?
+att.dimensions.attribute.scope =
+  
+  ## spécifie l'applicabilité de cette mesure, là où plus d'un objet est mesuré.
+  ## Sample values include: 1] all; 2] most; 3] range
+  attribute scope {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+att.divLike.attributes =
+  att.fragmentable.attributes,
+  att.divLike.attribute.org,
+  att.divLike.attribute.sample
+att.divLike.attribute.org =
+  
+  ## (organisation) précise l'organisation du contenu de la division
+  [ a:defaultValue = "uniform" ]
+  attribute org {
+    
+    ## aucune déclaration n'est faite quant à l'ordre dans lequel les composants de cette division doivent être traités ou bien quant à leurs corrélations
+    "composite"
+    | 
+      ## contenu uniforme : c'est-à-dire que les composants de cet élément sont à considérer comme formant une unité logique et doivent être traités dans l'ordre séquentiel
+      "uniform"
+  }?
+att.divLike.attribute.sample =
+  
+  ## indique si cette division est un échantillon de la source originale et dans ce cas, de quelle partie.
+  [ a:defaultValue = "complete" ]
+  attribute sample {
+    
+    ## par rapport à la source, lacune à la fin de la division
+    "initial"
+    | 
+      ## par rapport à la source, lacune au début et à la fin de la division
+      "medial"
+    | 
+      ## par rapport à la source, lacune au début de la division
+      "final"
+    | 
+      ## par rapport à la source, position de l'échantillon inconnue
+      "unknown"
+    | 
+      ## la division n'est pas un échantillon
+      "complete"
+  }?
+att.global.attributes =
+  att.global.change.attributes,
+  att.global.facs.attributes,
+  att.global.linking.attributes,
+  att.global.rendition.attributes,
+  att.global.responsibility.attributes,
+  att.global.source.attributes,
+  att.global.attribute.xmlid,
+  att.global.attribute.xmllang,
+  att.global.attribute.xmlbase,
+  att.global.attribute.xmlspace
+att.global.attribute.xmlid =
+  
+  ## (identifiant) fournit un identifiant unique pour l'élément qui porte l'attribut.
+  attribute xml:id { xsd:ID }?
+att.global.attribute.xmllang =
+  [
+    a:documentation [
+      "(langue) indique la langue du contenu de l'élément en utilisant les codes du "
+      ns1:a [ href = "https://www.ietf.org/rfc/rfc3066.txt" "RFC 3066" ]
+      "."
+    ]
+  ]
+  attribute xml:lang {
+    xsd:language
+    | (
+       ##
+       "")
+  }?
+att.global.attribute.xmlbase =
+  
+  ## donne une référence URI de base au moyen de laquelle les applications peuvent résoudre des références d'URI relatives en références d'URI absolues.
+  attribute xml:base {
+    xsd:anyURI { pattern = "\S+" }
+  }?
+att.global.attribute.xmlspace =
+  
+  ## signale que les applications doivent préserver l'espace blanc
+  attribute xml:space {
+    
+    ## signals that the application's default white-space processing modes are acceptable
+    "default"
+    | 
+      ## indicates the intent that applications preserve all white space
+      "preserve"
+  }?
+att.handFeatures.attributes =
+  att.scope.attributes,
+  att.handFeatures.attribute.scribe,
+  att.handFeatures.attribute.scribeRef,
+  att.handFeatures.attribute.script,
+  att.handFeatures.attribute.scriptRef,
+  att.handFeatures.attribute.medium
+att.handFeatures.attribute.scribe =
+  
+  ## donne un nom normalisé ou un autre identifiant pour le scribe reconnu comme responsable de cette main.
+  attribute scribe { xsd:Name }?
+att.handFeatures.attribute.scribeRef =
+  [
+    a:documentation [
+      "points to a full description of the scribe concerned, typically supplied by a "
+      ns1:code [ "<person>" ]
+      " element elsewhere in the description."
+    ]
+  ]
+  attribute scribeRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+att.handFeatures.attribute.script =
+  
+  ## caractérise la calligraphie ou le style d'écriture particuliers utilisés par cette main, par exemple écriture anglaise, de chancellerie, italienne, etc.
+  attribute script {
+    list { xsd:Name+ }
+  }?
+att.handFeatures.attribute.scriptRef =
+  [
+    a:documentation [
+      "points to a full description of the script or writing style used by this hand, typically supplied by a "
+      ns1:code [ "<scriptNote>" ]
+      " element elsewhere in the description."
+    ]
+  ]
+  attribute scriptRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+att.handFeatures.attribute.medium =
+  
+  ## décrit la teinte ou le type d'encre, par exemple brune, ou un autre outil d'écriture, par exemple un crayon.
+  attribute medium {
+    list {
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+    }
+  }?
+att.media.attributes =
+  att.internetMedia.attributes,
+  att.media.attribute.width,
+  att.media.attribute.height,
+  att.media.attribute.scale
+att.media.attribute.width =
+  
+  ## Where the media are displayed, indicates the display width.
+  attribute width {
+    xsd:token {
+      pattern =
+        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
+    }
+  }?
+att.media.attribute.height =
+  
+  ## Where the media are displayed, indicates the display height.
+  attribute height {
+    xsd:token {
+      pattern =
+        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
+    }
+  }?
+att.media.attribute.scale =
+  
+  ## Where the media are displayed, indicates a scale factor to be applied when generating the desired display size.
+  attribute scale {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+att.naming.attributes =
+  att.canonical.attributes,
+  att.naming.attribute.altname,
+  att.naming.attribute.role,
+  att.naming.attribute.nymRef
+att.naming.attribute.altname =
+  
+  ## alternative name
+  attribute altname { text }?
+att.naming.attribute.role =
+  
+  ## may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.
+  attribute role {
+    list {
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+    }
+  }?
+att.naming.attribute.nymRef =
+  
+  ## (référence au nom canonique) indique comment localiser la forme canonique (nym) des noms qui sont associés à l'objet nommé par l'élément qui le contient.
+  attribute nymRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
   }?
 att.pointing.group.attributes =
   att.pointing.attributes,
@@ -1213,131 +1336,9 @@ att.segLike.attribute.function =
   attribute function {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-att.sortable.attributes = att.sortable.attribute.sortKey
-att.sortable.attribute.sortKey =
-  
-  ## supplies the sort key for this element in an index, list or group which contains it.
-  attribute sortKey {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-att.edition.attributes =
-  att.edition.attribute.ed, att.edition.attribute.edRef
-att.edition.attribute.ed =
-  
-  ## (édition) fournit un identifiant arbitraire pour l'édition source dans laquelle la caractéristique associée (par exemple, une page, une colonne ou un saut de ligne) apparaît à ce point du texte.
-  attribute ed {
-    list {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
-    }
-  }?
-att.edition.attribute.edRef =
-  
-  ## (edition reference) provides a pointer to the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
-  attribute edRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
-att.spanning.attributes = att.spanning.attribute.spanTo
-att.spanning.attribute.spanTo =
-  
-  ## indique la fin d'un passage introduit par l'élément portant cet attribut.
-  attribute spanTo {
-    xsd:anyURI { pattern = "\S+" }
-  }?
-sch:pattern [
-  id =
-    "test21-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-9"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@spanTo]"
-    "\x{a}" ~
-    "         "
-    sch:assert [
-      test =
-        "id(substring(@spanTo,2)) and following::*[@xml:id=substring(current()/@spanTo,2)]"
-      "\x{a}" ~
-      "The element indicated by @spanTo ("
-      sch:value-of [ select = "@spanTo" ]
-      ") must follow the current element "
-      sch:name [ ]
-      "\x{a}" ~
-      "         "
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
-att.styleDef.attributes =
-  att.styleDef.attribute.scheme, att.styleDef.attribute.schemeVersion
-att.styleDef.attribute.scheme =
-  
-  ## identifie la langue employée pour décrire le rendu.
-  attribute scheme {
-    
-    ## langage CSS (Cascading Stylesheet )
-    "css"
-    | 
-      ## langage XSL (Extensible Stylesheet )Formatting Objects
-      "xslfo"
-    | 
-      ## description en texte libre non structuré.
-      "free"
-    | 
-      ## langue de description de l'interprétation définie par l'utilisateur
-      "other"
-  }?
-att.styleDef.attribute.schemeVersion =
-  [
-    a:documentation [
-      "supplies a version number for the style language provided in "
-      ns1:code [ "@scheme" ]
-      "."
-    ]
-  ]
-  attribute schemeVersion {
-    xsd:token { pattern = "[\d]+[a-z]*[\d]*(\.[\d]+[a-z]*[\d]*){0,3}" }
-  }?
-sch:pattern [
-  id =
-    "test21-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-10"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@schemeVersion]"
-    "\x{a}" ~
-    "         "
-    sch:assert [
-      test = "@scheme and not(@scheme = 'free')"
-      "\x{a}" ~
-      "              @schemeVersion can only be used if @scheme is specified.\x{a}" ~
-      "            "
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
-att.timed.attributes =
-  att.timed.attribute.start, att.timed.attribute.end
-att.timed.attribute.start =
-  
-  ## indique dans un alignement temporel (un ordre chronologique) l'endroit où commence cet élément.
-  attribute start {
-    xsd:anyURI { pattern = "\S+" }
-  }?
-att.timed.attribute.end =
-  
-  ## indique l'endroit où se termine cet élément dans un alignement temporel.
-  attribute end {
-    xsd:anyURI { pattern = "\S+" }
-  }?
 att.transcriptional.attributes =
   att.editLike.attributes,
+  att.placement.attributes,
   att.written.attributes,
   att.transcriptional.attribute.status,
   att.transcriptional.attribute.cause,
@@ -1360,62 +1361,61 @@ att.transcriptional.attribute.seq =
   
   ## (séquence) assigne un numéro séquentiel relatif à l'ordre dans lequel les traits encodés portant cet attribut sont supposés être apparus.
   attribute seq { xsd:nonNegativeInteger }?
-att.citing.attributes =
-  att.citing.attribute.unit,
-  att.citing.attribute.from,
-  att.citing.attribute.to
-att.citing.attribute.unit =
+att.damaged.attributes =
+  att.dimensions.attributes,
+  att.written.attributes,
+  att.damaged.attribute.agent,
+  att.damaged.attribute.degree,
+  att.damaged.attribute.group
+att.damaged.attribute.agent =
   
-  ## identifie le type d'information que transmet l'élément, par exemple colonnes, pages, volume, inscription, etc.
-  ## Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line; 5] chapter (chapter); 6] part; 7] column; 8] entry
-  attribute unit {
-    
-    ## (volume) l'élément contient un numéro de volume.
-    "volume"
-    | 
-      ## l'élément contient un numéro de livraison ou bien un numéro de volume et de livraison.
-      "issue"
-    | 
-      ## (page) l'élément contient un nombre de pages ou l'étendue de sélection des pages.
-      "page"
-    | 
-      ## the element contains a line number or line range.
-      "line"
-    | 
-      ## (chapitre) l'élément contient une indication de chapitre (le numéro et/ou le titre)
-      "chapter"
-    | 
-      ## l'élément identifie une partie d'un livre ou une anthologie.
-      "part"
-    | 
-      ## the element identifies a column.
-      "column"
-    | 
-      ## the element identifies an entry number or label in a list of entries.
-      "entry"
-    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-att.citing.attribute.from =
-  [
-    a:documentation [
-      "specifies the starting point of the range of units indicated by the "
-      ns1:code [ "@unit" ]
-      " attribute."
-    ]
-  ]
-  attribute from {
+  ## caractérise la raison des dommages, lorsqu'elle peut être identifiée.
+  ## Sample values include: 1] rubbing; 2] mildew; 3] smoke
+  attribute agent {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-att.citing.attribute.to =
+att.damaged.attribute.degree =
   [
     a:documentation [
-      "specifies the end-point of the range of units indicated by the "
-      ns1:code [ "@unit" ]
-      " attribute."
+      "indique le degré (la gravité) du dommage subi, selon une grille appropriée. L'attribut "
+      ns1:code [ "@degree" ]
+      " doit être utilisé dans le seul cas où le texte peut être lu avec certitude ; le texte restitué en utilisant d'autres sources doit être encodé au moyen de l'élément "
+      ns1:code [ "<supplied>" ]
+      "."
     ]
   ]
-  attribute to {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  attribute degree {
+    xsd:double { minInclusive = "0" maxInclusive = "1" }
+    | (
+       ##
+       "high"
+       | 
+         ##
+         "medium"
+       | 
+         ##
+         "low"
+       | 
+         ##
+         "unknown")
+  }?
+att.damaged.attribute.group =
+  
+  ## permet d'assigner un numéro quelconque à chaque fragment endommagé considéré comme faisant partie d'un ensemble résultant du même phénomène physique
+  attribute group { xsd:nonNegativeInteger }?
+att.timed.attributes =
+  att.timed.attribute.start, att.timed.attribute.end
+att.timed.attribute.start =
+  
+  ## indique dans un alignement temporel (un ordre chronologique) l'endroit où commence cet élément.
+  attribute start {
+    xsd:anyURI { pattern = "\S+" }
+  }?
+att.timed.attribute.end =
+  
+  ## indique l'endroit où se termine cet élément dans un alignement temporel.
+  attribute end {
+    xsd:anyURI { pattern = "\S+" }
   }?
 model.nameLike.agent = name | orgName | persName
 model.nameLike.agent_alternation = name | orgName | persName
@@ -2591,18 +2591,18 @@ p =
        ]
     >> sch:pattern [
          id =
-           "test21-p-abstractModel-structure-p-in-l-or-lg-constraint-rule-13"
+           "test21-p-abstractModel-structure-p-in-l-constraint-rule-13"
          "\x{a}" ~
          "            "
          sch:rule [
-           context = "tei:p"
+           context = "tei:l//tei:p"
            "\x{a}" ~
            "               "
-           sch:report [
+           sch:assert [
              test =
-               "( ancestor::tei:l  or  ancestor::tei:lg ) and                        not( ancestor::tei:floatingText                           | parent::tei:figure                           | parent::tei:note )"
+               "ancestor::tei:floatingText | parent::tei:figure | parent::tei:note"
              "\x{a}" ~
-             "          Abstract model violation: Lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
+             "          Abstract model violation: Metrical lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
              "        "
            ]
            "\x{a}" ~
@@ -2898,7 +2898,6 @@ rt =
   element rt {
     macro.phraseSeq,
     att.global.attributes,
-    att.placement.attributes,
     att.transcriptional.attributes,
     att.typed.attributes,
     (
@@ -3082,13 +3081,12 @@ ellipsis =
   }
 add =
   
-  ## ( ajout) contient des lettres, des mots ou des phrases insérés dans le texte par un auteur, un copiste, un annotateur ou un correcteur. [3.5.3. Additions, Deletions, and Omissions]
+  ## (ajout) contient des lettres, des mots ou des phrases insérés dans le texte par un auteur, un copiste, un annotateur ou un correcteur. [3.5.3. Additions, Deletions, and Omissions]
   element add {
     macro.paraContent,
     att.global.attributes,
     att.cmc.attributes,
     att.dimensions.attributes,
-    att.placement.attributes,
     att.transcriptional.attributes,
     att.typed.attributes,
     empty
@@ -3909,6 +3907,7 @@ bibl =
      | model.biblPart
      | model.global)*,
     att.global.attributes,
+    att.canonical.attributes,
     att.cmc.attributes,
     att.declarable.attributes,
     att.docStatus.attributes,
@@ -3924,6 +3923,7 @@ biblStruct =
      (monogr, series*)+,
      (model.noteLike | model.ptrLike | relatedItem | citedRange)*),
     att.global.attributes,
+    att.canonical.attributes,
     att.cmc.attributes,
     att.declarable.attributes,
     att.docStatus.attributes,
@@ -4106,12 +4106,20 @@ sp =
       (model.global* | q))+),
     att.global.attributes,
     att.ascribed.directed.attributes,
+    att.placement.attributes,
+    att.written.attributes,
     empty
   }
 speaker =
   
   ## forme particulière de titre ou de marque qui donne le nom d'un ou de plusieurs locuteurs dans un texte ou dans un fragment de texte écrit pour le théâtre. [3.13.2. Core Tags for Drama]
-  element speaker { macro.phraseSeq, att.global.attributes, empty }
+  element speaker {
+    macro.phraseSeq,
+    att.global.attributes,
+    att.placement.attributes,
+    att.written.attributes,
+    empty
+  }
 stage =
   
   ## (indication scénique) contient tout type d'indication scénique à l'intérieur d'un texte ou fragment de texte écrit pour le théâtre. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.4. Stage Directions]
@@ -4190,10 +4198,10 @@ divGen =
         ## (Catalogue of Attribute Classes) 
         "attclasscat"
       | 
-        ## ( Catalogue of Elements) 
+        ## (Catalogue of Elements) 
         "elementcat"
       | 
-        ## ( Catalogue of Macros) 
+        ## (Catalogue of Macros) 
         "macrocat"
       | 
         ## (Catalogue of Model Classes) 
@@ -5800,6 +5808,7 @@ biblFull =
       sourceDesc*)
      | (fileDesc, profileDesc)),
     att.global.attributes,
+    att.canonical.attributes,
     att.cmc.attributes,
     att.declarable.attributes,
     att.docStatus.attributes,
@@ -6717,7 +6726,7 @@ att.global.linking.attribute.next =
   }?
 att.global.linking.attribute.prev =
   
-  ## ( précédent) pointe vers l'élément précédent d'un ensemble virtuel auquel appartient l'élément en question.
+  ## (précédent) pointe vers l'élément précédent d'un ensemble virtuel auquel appartient l'élément en question.
   attribute prev {
     xsd:anyURI { pattern = "\S+" }
   }?
@@ -6739,7 +6748,7 @@ att.global.linking.attribute.select =
   }?
 link =
   
-  ## ( lien) définit une association ou un lien hypertextuel entre des éléments ou des passages, lien dont le type ne peut être spécifié précisément par d'autres éléments. [17.1. Links]
+  ## (lien) définit une association ou un lien hypertextuel entre des éléments ou des passages, lien dont le type ne peut être spécifié précisément par d'autres éléments. [17.1. Links]
   element link {
     empty
     >> sch:pattern [
@@ -6786,18 +6795,18 @@ ab =
     macro.abContent
     >> sch:pattern [
          id =
-           "test21-ab-abstractModel-structure-ab-in-l-or-lg-constraint-rule-32"
+           "test21-ab-abstractModel-structure-ab-in-l-constraint-rule-32"
          "\x{a}" ~
          "            "
          sch:rule [
-           context = "tei:ab"
+           context = "tei:l//tei:ab"
            "\x{a}" ~
            "               "
-           sch:report [
+           sch:assert [
              test =
-               "(ancestor::tei:l or ancestor::tei:lg) and not( ancestor::tei:floatingText |parent::tei:figure |parent::tei:note )"
+               "ancestor::tei:floatingText | parent::tei:figure | parent::tei:note"
              "\x{a}" ~
-             "          Abstract model violation: Lines may not contain higher-level divisions such as p or ab, unless ab is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
+             "          Abstract model violation: Metrical lines may not contain higher-level divisions such as p or ab, unless ab is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
              "        "
            ]
            "\x{a}" ~
@@ -8550,7 +8559,6 @@ addSpan =
        ],
     att.global.attributes,
     att.dimensions.attributes,
-    att.placement.attributes,
     att.transcriptional.attributes,
     att.typed.attributes,
     
@@ -8564,19 +8572,18 @@ addSpan =
          "\x{a}" ~
          "            "
          sch:rule [
-           context = "tei:*[@spanTo]"
+           context = "tei:*[ starts-with( @spanTo, '#') ]"
            "\x{a}" ~
            "               "
            sch:assert [
-             test =
-               "id(substring(@spanTo,2)) and following::*[@xml:id=substring(current()/@spanTo,2)]"
+             test = "id( substring( @spanTo, 2 ) ) >> ."
              "\x{a}" ~
-             "The element indicated by @spanTo ("
+             "	      The element indicated by @spanTo ("
              sch:value-of [ select = "@spanTo" ]
-             ") must follow the current element "
+             ") must follow the current "
              sch:name [ ]
-             "\x{a}" ~
-             "               "
+             " element \x{a}" ~
+             "            "
            ]
            "\x{a}" ~
            "            "
@@ -8817,7 +8824,7 @@ space =
   }
 subst =
   
-  ## ( substitution) regroupe une ou plusieurs parties de texte supprimées et une ou plusieurs parties de texte ajoutées, lorsque cette combinaison peut être considérée comme une intervention unique sur le texte. [12.3.1.5. Substitutions]
+  ## (substitution) regroupe une ou plusieurs parties de texte supprimées et une ou plusieurs parties de texte ajoutées, lorsque cette combinaison peut être considérée comme une intervention unique sur le texte. [12.3.1.5. Substitutions]
   element subst {
     ((add | surplus | del | model.milestoneLike)+)
     >> sch:pattern [
@@ -9008,25 +9015,7 @@ TEI =
   ]
   element TEI {
     (teiHeader,
-     ((model.resource+, TEI*) | TEI+))
-    >> sch:ns [ prefix = "tei" uri = "http://www.tei-c.org/ns/1.0" ]
-    >> sch:ns [ prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema" ]
-    >> sch:ns [
-         prefix = "rng"
-         uri = "http://relaxng.org/ns/structure/1.0"
-       ]
-    >> sch:ns [
-         prefix = "rna"
-         uri = "http://relaxng.org/ns/compatibility/annotations/1.0"
-       ]
-    >> sch:ns [
-         prefix = "sch"
-         uri = "http://purl.oclc.org/dsdl/schematron"
-       ]
-    >> sch:ns [
-         prefix = "sch1x"
-         uri = "http://www.ascc.net/xml/schematron"
-       ],
+     ((model.resource+, TEI*) | TEI+)),
     att.global.attributes,
     att.typed.attributes,
     
@@ -9102,18 +9091,17 @@ group =
       (model.divBottom, model.global*)*)?)
     >> sch:pattern [
          id =
-           "test21-div-abstractModel-structure-div-in-l-or-lg-constraint-rule-51"
+           "test21-div-abstractModel-structure-div-in-l-constraint-rule-51"
          "\x{a}" ~
          "            "
          sch:rule [
-           context = "tei:div"
+           context = "tei:l//tei:div"
            "\x{a}" ~
            "               "
-           sch:report [
-             test =
-               "(ancestor::tei:l or ancestor::tei:lg) and not(ancestor::tei:floatingText)"
+           sch:assert [
+             test = "ancestor::tei:floatingText"
              "\x{a}" ~
-             "          Abstract model violation: Lines may not contain higher-level structural elements such as div, unless div is a descendant of floatingText.\x{a}" ~
+             "          Abstract model violation: Metrical lines may not contain higher-level structural elements such as div, unless div is a descendant of floatingText.\x{a}" ~
              "        "
            ]
            "\x{a}" ~
@@ -9147,6 +9135,7 @@ group =
     att.global.attributes,
     att.declaring.attributes,
     att.divLike.attributes,
+    att.placement.attributes,
     att.typed.attribute.subtype,
     att.written.attributes,
     
@@ -9246,7 +9235,7 @@ div6 =
   }
 div7 =
   
-  ## ( division du texte de niveau 7) contient la plus petite subdivision possible dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire, plus grande néanmoins qu’un paragraphe. [4.1.2. Numbered Divisions]
+  ## (division du texte de niveau 7) contient la plus petite subdivision possible dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire, plus grande néanmoins qu’un paragraphe. [4.1.2. Numbered Divisions]
   element div7 {
     ((model.divTop | model.global)*,
      ((model.common, model.global*)+,
@@ -9291,6 +9280,7 @@ dateline =
     (text | model.gLike | model.phrase | model.global | docDate)*,
     att.global.attributes,
     att.cmc.attributes,
+    att.written.attributes,
     empty
   }
 argument =
@@ -9376,6 +9366,7 @@ postscript =
      (model.divBottomPart, model.global*)*),
     att.global.attributes,
     att.cmc.attributes,
+    att.placement.attributes,
     att.written.attributes,
     empty
   }
@@ -9539,3 +9530,12 @@ att.magical.attribute.degree =
       "entirely"
   }?
 start = TEI
+sch:ns [ prefix = "tei" uri = "http://www.tei-c.org/ns/1.0" ]
+sch:ns [ prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema" ]
+sch:ns [ prefix = "rng" uri = "http://relaxng.org/ns/structure/1.0" ]
+sch:ns [
+  prefix = "rna"
+  uri = "http://relaxng.org/ns/compatibility/annotations/1.0"
+]
+sch:ns [ prefix = "sch" uri = "http://purl.oclc.org/dsdl/schematron" ]
+sch:ns [ prefix = "sch1x" uri = "http://www.ascc.net/xml/schematron" ]

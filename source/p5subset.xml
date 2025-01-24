@@ -6,8 +6,8 @@
         <title>The TEI Guidelines</title>
       </titleStmt>
       <editionStmt>
-        <edition>P5 <ref target="#ABTEI4">Version</ref> <ref target="../../readme-4.9.0.html">4.9.0a</ref>. Last updated on
-        <date when="2025-01-24">24th January 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/02b1a468e">02b1a468e</ref></edition>
+        <edition>P5 <ref target="#ABTEI4">Version</ref> <ref target="../../readme-4.9.0.html">4.9.0</ref>. Last updated on
+        <date when="2025-01-24">24th January 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/6795113f8">6795113f8</ref></edition>
       </editionStmt>
       <publicationStmt>
         <distributor>TEI Consortium</distributor>

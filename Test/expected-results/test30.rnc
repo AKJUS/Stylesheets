@@ -55,16 +55,23 @@ Tatt.ascribed.attribute.who =
       xsd:anyURI { pattern = "\S+" }+
     }
   }?
-Tatt.ascribed.directed.attributes =
-  Tatt.ascribed.attributes, Tatt.ascribed.directed.attribute.toWhom
-Tatt.ascribed.directed.attribute.toWhom =
+Tatt.breaking.attributes = Tatt.breaking.attribute.break
+Tatt.breaking.attribute.break =
   
-  ## indicates the person, or group of people, to whom a speech act or action is directed.
-  attribute toWhom {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
+  ## indicates whether or not the element bearing this attribute should be considered to mark the end of an orthographic token in the same way as whitespace.
+  attribute break {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
+Tatt.cReferencing.attributes = Tatt.cReferencing.attribute.cRef
+Tatt.cReferencing.attribute.cRef =
+  [
+    a:documentation [
+      "(canonical reference) specifies the destination of the pointer by supplying a canonical reference expressed using the scheme defined in a "
+      ns1:code [ "<refsDecl>" ]
+      " element in the TEI header."
+    ]
+  ]
+  attribute cRef { xsd:string }?
 Tatt.canonical.attributes =
   Tatt.canonical.attribute.key, Tatt.canonical.attribute.ref
 Tatt.canonical.attribute.key =
@@ -79,183 +86,61 @@ Tatt.canonical.attribute.ref =
       xsd:anyURI { pattern = "\S+" }+
     }
   }?
-Tatt.ranging.attributes =
-  Tatt.ranging.attribute.atLeast,
-  Tatt.ranging.attribute.atMost,
-  Tatt.ranging.attribute.min,
-  Tatt.ranging.attribute.max,
-  Tatt.ranging.attribute.confidence
-Tatt.ranging.attribute.atLeast =
+Tatt.citing.attributes =
+  Tatt.citing.attribute.unit,
+  Tatt.citing.attribute.from,
+  Tatt.citing.attribute.to
+Tatt.citing.attribute.unit =
   
-  ## gives a minimum estimated value for the approximate measurement.
-  attribute atLeast {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-Tatt.ranging.attribute.atMost =
-  
-  ## gives a maximum estimated value for the approximate measurement.
-  attribute atMost {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-Tatt.ranging.attribute.min =
-  
-  ## where the measurement summarizes more than one observation or a range, supplies the minimum value observed.
-  attribute min {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-Tatt.ranging.attribute.max =
-  
-  ## where the measurement summarizes more than one observation or a range, supplies the maximum value observed.
-  attribute max {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-Tatt.ranging.attribute.confidence =
-  [
-    a:documentation [
-      "specifies the degree of statistical confidence (between zero and one) that a value falls within the range specified by "
-      ns1:code [ "@min" ]
-      " and "
-      ns1:code [ "@max" ]
-      ", or the proportion of observed values that fall within that range."
-    ]
-  ]
-  attribute confidence {
-    xsd:double { minInclusive = "0" maxInclusive = "1" }
-  }?
-Tatt.dimensions.attributes =
-  Tatt.ranging.attributes,
-  Tatt.dimensions.attribute.unit,
-  Tatt.dimensions.attribute.quantity,
-  Tatt.dimensions.attribute.extent,
-  Tatt.dimensions.attribute.precision,
-  Tatt.dimensions.attribute.scope
-Tatt.dimensions.attribute.unit =
-  
-  ## names the unit used for the measurement
-  ## Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inches); 4] line; 5] char (characters)
+  ## identifies the unit of information conveyed by the element, e.g. columns, pages, volume, entry.
+  ## Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line; 5] chapter (chapter); 6] part; 7] column; 8] entry
   attribute unit {
     
-    ## (centimetres) 
-    "cm"
+    ## (volume) the element contains a volume number.
+    "volume"
     | 
-      ## (millimetres) 
-      "mm"
+      ## the element contains an issue number, or volume and issue numbers.
+      "issue"
     | 
-      ## (inches) 
-      "in"
+      ## (page) the element contains a page number or page range.
+      "page"
     | 
-      ## lines of text
+      ## the element contains a line number or line range.
       "line"
     | 
-      ## (characters) characters of text
-      "char"
+      ## (chapter) the element contains a chapter indication (number and/or title)
+      "chapter"
+    | 
+      ## the element identifies a part of a book or collection.
+      "part"
+    | 
+      ## the element identifies a column.
+      "column"
+    | 
+      ## the element identifies an entry number or label in a list of entries.
+      "entry"
     | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-Tatt.dimensions.attribute.quantity =
-  
-  ## specifies the length in the units specified
-  attribute quantity {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-Tatt.dimensions.attribute.extent =
-  
-  ## indicates the size of the object concerned using a project-specific vocabulary combining quantity and units in a single string of words.
-  attribute extent { xsd:string }?
-Tatt.dimensions.attribute.precision =
-  
-  ## characterizes the precision of the values specified by the other attributes.
-  attribute precision {
-    
-    ##
-    "high"
-    | 
-      ##
-      "medium"
-    | 
-      ##
-      "low"
-    | 
-      ##
-      "unknown"
-  }?
-Tatt.dimensions.attribute.scope =
-  
-  ## where the measurement summarizes more than one observation, specifies the applicability of this measurement.
-  ## Sample values include: 1] all; 2] most; 3] range
-  attribute scope {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-Tatt.written.attributes = Tatt.written.attribute.hand
-Tatt.written.attribute.hand =
+Tatt.citing.attribute.from =
   [
     a:documentation [
-      "points to a "
-      ns1:code [ "<handNote>" ]
-      " element describing the hand considered responsible for the content of the element concerned."
+      "specifies the starting point of the range of units indicated by the "
+      ns1:code [ "@unit" ]
+      " attribute."
     ]
   ]
-  attribute hand {
-    xsd:anyURI { pattern = "\S+" }
-  }?
-Tatt.damaged.attributes =
-  Tatt.dimensions.attributes,
-  Tatt.written.attributes,
-  Tatt.damaged.attribute.agent,
-  Tatt.damaged.attribute.degree,
-  Tatt.damaged.attribute.group
-Tatt.damaged.attribute.agent =
-  
-  ## categorizes the cause of the damage, if it can be identified.
-  ## Sample values include: 1] rubbing; 2] mildew; 3] smoke
-  attribute agent {
+  attribute from {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-Tatt.damaged.attribute.degree =
+Tatt.citing.attribute.to =
   [
     a:documentation [
-      "provides a coded representation of the degree of damage, either as a number between 0 (undamaged) and 1 (very extensively damaged), or as one of the codes high, medium, low, or unknown. The "
-      ns1:code [ "<damage>" ]
-      " element with the "
-      ns1:code [ "@degree" ]
-      " attribute should only be used where the text may be read with some confidence; text supplied from other sources should be tagged as "
-      ns1:code [ "<supplied>" ]
-      "."
+      "specifies the end-point of the range of units indicated by the "
+      ns1:code [ "@unit" ]
+      " attribute."
     ]
   ]
-  attribute degree {
-    xsd:double { minInclusive = "0" maxInclusive = "1" }
-    | (
-       ##
-       "high"
-       | 
-         ##
-         "medium"
-       | 
-         ##
-         "low"
-       | 
-         ##
-         "unknown")
-  }?
-Tatt.damaged.attribute.group =
-  
-  ## assigns an arbitrary number to each stretch of damage regarded as forming part of the same physical phenomenon.
-  attribute group { xsd:nonNegativeInteger }?
-Tatt.breaking.attributes = Tatt.breaking.attribute.break
-Tatt.breaking.attribute.break =
-  
-  ## indicates whether or not the element bearing this attribute should be considered to mark the end of an orthographic token in the same way as whitespace.
-  attribute break {
+  attribute to {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
 Tatt.cmc.attributes = Tatt.cmc.attribute.generatedBy
@@ -300,16 +185,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-Tatt.cReferencing.attributes = Tatt.cReferencing.attribute.cRef
-Tatt.cReferencing.attribute.cRef =
-  [
-    a:documentation [
-      "(canonical reference) specifies the destination of the pointer by supplying a canonical reference expressed using the scheme defined in a "
-      ns1:code [ "<refsDecl>" ]
-      " element in the TEI header."
-    ]
-  ]
-  attribute cRef { xsd:string }?
 Tatt.datable.w3c.attributes =
   Tatt.datable.w3c.attribute.when,
   Tatt.datable.w3c.attribute.notBefore,
@@ -440,28 +315,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-Tatt.datable.attributes =
-  Tatt.datable.custom.attributes,
-  Tatt.datable.iso.attributes,
-  Tatt.datable.w3c.attributes,
-  Tatt.datable.attribute.period
-Tatt.datable.attribute.period =
-  [
-    a:documentation [
-      "supplies pointers to one or more definitions of named periods of time (typically "
-      ns1:code [ "<category>" ]
-      "s, "
-      ns1:code [ "<date>" ]
-      "s, or "
-      ns1:code [ "<event>" ]
-      "s) within which the datable item is understood to have occurred."
-    ]
-  ]
-  attribute period {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
 Tatt.datcat.attributes =
   Tatt.datcat.attribute.datcat,
   Tatt.datcat.attribute.valueDatcat,
@@ -529,65 +382,6 @@ Tatt.declaring.attribute.decls =
       xsd:anyURI { pattern = "\S+" }+
     }
   }?
-Tatt.fragmentable.attributes = Tatt.fragmentable.attribute.part
-Tatt.fragmentable.attribute.part =
-  
-  ## specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.
-  [ a:defaultValue = "N" ]
-  attribute part {
-    
-    ## (yes) the element is fragmented in some (unspecified) respect
-    "Y"
-    | 
-      ## (no) the element is not fragmented, or no claim is made as to its completeness
-      "N"
-    | 
-      ## (initial) this is the initial part of a fragmented element
-      "I"
-    | 
-      ## (medial) this is a medial part of a fragmented element
-      "M"
-    | 
-      ## (final) this is the final part of a fragmented element
-      "F"
-  }?
-Tatt.divLike.attributes =
-  Tatt.fragmentable.attributes,
-  Tatt.divLike.attribute.org,
-  Tatt.divLike.attribute.sample
-Tatt.divLike.attribute.org =
-  
-  ## (organization) specifies how the content of the division is organized.
-  [ a:defaultValue = "uniform" ]
-  attribute org {
-    
-    ## no claim is made about the sequence in which the immediate contents of this division are to be processed, or their inter-relationships.
-    "composite"
-    | 
-      ## the immediate contents of this element are regarded as forming a logical unit, to be processed in sequence.
-      "uniform"
-  }?
-Tatt.divLike.attribute.sample =
-  
-  ## indicates whether this division is a sample of the original source and if so, from which part.
-  [ a:defaultValue = "complete" ]
-  attribute sample {
-    
-    ## division lacks material present at end in source.
-    "initial"
-    | 
-      ## division lacks material at start and end.
-      "medial"
-    | 
-      ## division lacks material at start.
-      "final"
-    | 
-      ## position of sampled material within original unknown.
-      "unknown"
-    | 
-      ## division is not a sample.
-      "complete"
-  }?
 Tatt.docStatus.attributes = Tatt.docStatus.attribute.status
 Tatt.docStatus.attribute.status =
   
@@ -596,35 +390,6 @@ Tatt.docStatus.attribute.status =
   [ a:defaultValue = "draft" ]
   attribute status {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-Tatt.global.responsibility.attributes =
-  Tatt.global.responsibility.attribute.cert,
-  Tatt.global.responsibility.attribute.resp
-Tatt.global.responsibility.attribute.cert =
-  
-  ## (certainty) signifies the degree of certainty associated with the intervention or interpretation.
-  attribute cert {
-    xsd:double { minInclusive = "0" maxInclusive = "1" }
-    | (
-       ##
-       "high"
-       | 
-         ##
-         "medium"
-       | 
-         ##
-         "low"
-       | 
-         ##
-         "unknown")
-  }?
-Tatt.global.responsibility.attribute.resp =
-  
-  ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.
-  attribute resp {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
   }?
 Tatt.editLike.attributes =
   Tatt.editLike.attribute.evidence, Tatt.editLike.attribute.instant
@@ -658,6 +423,46 @@ Tatt.editLike.attribute.instant =
        | 
          ##
          "inapplicable")
+  }?
+Tatt.edition.attributes =
+  Tatt.edition.attribute.ed, Tatt.edition.attribute.edRef
+Tatt.edition.attribute.ed =
+  
+  ## (edition) supplies a sigil or other arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line beginning) occurs at this point in the text.
+  attribute ed {
+    list {
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+    }
+  }?
+Tatt.edition.attribute.edRef =
+  
+  ## (edition reference) provides a pointer to the source edition in which the associated feature (for example, a page, column, or line beginning) occurs at this point in the text.
+  attribute edRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+Tatt.fragmentable.attributes = Tatt.fragmentable.attribute.part
+Tatt.fragmentable.attribute.part =
+  
+  ## specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.
+  [ a:defaultValue = "N" ]
+  attribute part {
+    
+    ## (yes) the element is fragmented in some (unspecified) respect
+    "Y"
+    | 
+      ## (no) the element is not fragmented, or no claim is made as to its completeness
+      "N"
+    | 
+      ## (initial) this is the initial part of a fragmented element
+      "I"
+    | 
+      ## (medial) this is a medial part of a fragmented element
+      "M"
+    | 
+      ## (final) this is the final part of a fragmented element
+      "F"
   }?
 Tatt.global.rendition.attributes =
   Tatt.global.rendition.attribute.rend,
@@ -693,6 +498,35 @@ Tatt.global.rendition.attribute.rendition =
   
   ## points to a description of the rendering or presentation used for this element in the source text.
   attribute rendition {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+Tatt.global.responsibility.attributes =
+  Tatt.global.responsibility.attribute.cert,
+  Tatt.global.responsibility.attribute.resp
+Tatt.global.responsibility.attribute.cert =
+  
+  ## (certainty) signifies the degree of certainty associated with the intervention or interpretation.
+  attribute cert {
+    xsd:double { minInclusive = "0" maxInclusive = "1" }
+    | (
+       ##
+       "high"
+       | 
+         ##
+         "medium"
+       | 
+         ##
+         "low"
+       | 
+         ##
+         "unknown")
+  }?
+Tatt.global.responsibility.attribute.resp =
+  
+  ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.
+  attribute resp {
     list {
       xsd:anyURI { pattern = "\S+" }+
     }
@@ -740,74 +574,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-Tatt.scope.attributes = Tatt.scope.attribute.scope
-Tatt.scope.attribute.scope =
-  
-  ## indicates the scope of application of the element
-  ## Suggested values include: 1] sole; 2] major; 3] minor
-  attribute scope {
-    
-    ## only this particular feature is used throughout the document
-    "sole"
-    | 
-      ## this feature is used through most of the document
-      "major"
-    | 
-      ## this feature is used occasionally through the document
-      "minor"
-    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-Tatt.handFeatures.attributes =
-  Tatt.scope.attributes,
-  Tatt.handFeatures.attribute.scribe,
-  Tatt.handFeatures.attribute.scribeRef,
-  Tatt.handFeatures.attribute.script,
-  Tatt.handFeatures.attribute.scriptRef,
-  Tatt.handFeatures.attribute.medium
-Tatt.handFeatures.attribute.scribe =
-  
-  ## gives a name or other identifier for the scribe believed to be responsible for this hand.
-  attribute scribe { xsd:Name }?
-Tatt.handFeatures.attribute.scribeRef =
-  [
-    a:documentation [
-      "points to a full description of the scribe concerned, typically supplied by a "
-      ns1:code [ "<person>" ]
-      " element elsewhere in the description."
-    ]
-  ]
-  attribute scribeRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
-Tatt.handFeatures.attribute.script =
-  
-  ## characterizes the particular script or writing style used by this hand, for example secretary, copperplate, Chancery, Italian, etc.
-  attribute script {
-    list { xsd:Name+ }
-  }?
-Tatt.handFeatures.attribute.scriptRef =
-  [
-    a:documentation [
-      "points to a full description of the script or writing style used by this hand, typically supplied by a "
-      ns1:code [ "<scriptNote>" ]
-      " element elsewhere in the description."
-    ]
-  ]
-  attribute scriptRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
-Tatt.handFeatures.attribute.medium =
-  
-  ## describes the tint or type of ink, e.g. brown, or other writing medium, e.g. pencil.
-  attribute medium {
-    list {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
-    }
-  }?
 Tatt.internetMedia.attributes = Tatt.internetMedia.attribute.mimeType
 Tatt.internetMedia.attribute.mimeType =
   
@@ -817,44 +583,6 @@ Tatt.internetMedia.attribute.mimeType =
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
   }?
-Tatt.media.attributes =
-  Tatt.internetMedia.attributes,
-  Tatt.media.attribute.width,
-  Tatt.media.attribute.height,
-  Tatt.media.attribute.scale
-Tatt.media.attribute.width =
-  
-  ## Where the media are displayed, indicates the display width.
-  attribute width {
-    xsd:token {
-      pattern =
-        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
-    }
-  }?
-Tatt.media.attribute.height =
-  
-  ## Where the media are displayed, indicates the display height.
-  attribute height {
-    xsd:token {
-      pattern =
-        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
-    }
-  }?
-Tatt.media.attribute.scale =
-  
-  ## Where the media are displayed, indicates a scale factor to be applied when generating the desired display size.
-  attribute scale {
-    xsd:double
-    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
-    | xsd:decimal
-  }?
-Tatt.resourced.attributes = Tatt.resourced.attribute.url
-Tatt.resourced.attribute.url =
-  
-  ## (uniform resource locator) specifies the URL from which the media concerned may be obtained.
-  attribute url {
-    xsd:anyURI { pattern = "\S+" }
-  }
 Tatt.measurement.attributes =
   Tatt.measurement.attribute.unit,
   Tatt.measurement.attribute.unitRef,
@@ -973,26 +701,6 @@ sch:pattern [
   "\x{a}" ~
   "   "
 ]
-Tatt.naming.attributes =
-  Tatt.canonical.attributes,
-  Tatt.naming.attribute.role,
-  Tatt.naming.attribute.nymRef
-Tatt.naming.attribute.role =
-  
-  ## may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.
-  attribute role {
-    list {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
-    }
-  }?
-Tatt.naming.attribute.nymRef =
-  
-  ## (reference to the canonical name) provides a means of locating the canonical form (nym) of the names associated with the object named by the element bearing it.
-  attribute nymRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
 Tatt.notated.attributes = Tatt.notated.attribute.notation
 Tatt.notated.attribute.notation =
   
@@ -1046,40 +754,6 @@ Tatt.placement.attribute.place =
        | xsd:token { pattern = "[^\p{C}\p{Z}]+" })+
     }
   }?
-Tatt.typed.attributes =
-  Tatt.typed.attribute.type, Tatt.typed.attribute.subtype
-Tatt.typed.attribute.type =
-  
-  ## characterizes the element in some sense, using any convenient classification scheme or typology.
-  attribute type {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-Tatt.typed.attribute.subtype =
-  
-  ## (subtype) provides a sub-categorization of the element, if needed.
-  attribute subtype {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-sch:pattern [
-  id = "testbasic-att.typed-subtypeTyped-constraint-rule-7"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@subtype]"
-    "\x{a}" ~
-    "         "
-    sch:assert [
-      test = "@type"
-      "The "
-      sch:name [ ]
-      " element should not be categorized in detail with @subtype unless also categorized in general with @type"
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
 Tatt.pointing.attributes =
   Tatt.pointing.attribute.targetLang,
   Tatt.pointing.attribute.target,
@@ -1104,7 +778,7 @@ Tatt.pointing.attribute.targetLang =
        "")
   }?
 sch:pattern [
-  id = "testbasic-att.pointing-targetLang-targetLang-constraint-rule-8"
+  id = "testbasic-att.pointing-targetLang-targetLang-constraint-rule-7"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -1144,6 +818,453 @@ Tatt.pointing.attribute.evaluate =
     | 
       ## no further evaluation of targets is carried out beyond that needed to find the element specified in the pointer's target.
       "none"
+  }?
+Tatt.ranging.attributes =
+  Tatt.ranging.attribute.atLeast,
+  Tatt.ranging.attribute.atMost,
+  Tatt.ranging.attribute.min,
+  Tatt.ranging.attribute.max,
+  Tatt.ranging.attribute.confidence
+Tatt.ranging.attribute.atLeast =
+  
+  ## gives a minimum estimated value for the approximate measurement.
+  attribute atLeast {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+Tatt.ranging.attribute.atMost =
+  
+  ## gives a maximum estimated value for the approximate measurement.
+  attribute atMost {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+Tatt.ranging.attribute.min =
+  
+  ## where the measurement summarizes more than one observation or a range, supplies the minimum value observed.
+  attribute min {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+Tatt.ranging.attribute.max =
+  
+  ## where the measurement summarizes more than one observation or a range, supplies the maximum value observed.
+  attribute max {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+Tatt.ranging.attribute.confidence =
+  [
+    a:documentation [
+      "specifies the degree of statistical confidence (between zero and one) that a value falls within the range specified by "
+      ns1:code [ "@min" ]
+      " and "
+      ns1:code [ "@max" ]
+      ", or the proportion of observed values that fall within that range."
+    ]
+  ]
+  attribute confidence {
+    xsd:double { minInclusive = "0" maxInclusive = "1" }
+  }?
+Tatt.resourced.attributes = Tatt.resourced.attribute.url
+Tatt.resourced.attribute.url =
+  
+  ## (uniform resource locator) specifies the URL from which the media concerned may be obtained.
+  attribute url {
+    xsd:anyURI { pattern = "\S+" }
+  }
+Tatt.scope.attributes = Tatt.scope.attribute.scope
+Tatt.scope.attribute.scope =
+  
+  ## indicates the scope of application of the element
+  ## Suggested values include: 1] sole; 2] major; 3] minor
+  attribute scope {
+    
+    ## only this particular feature is used throughout the document
+    "sole"
+    | 
+      ## this feature is used through most of the document
+      "major"
+    | 
+      ## this feature is used occasionally through the document
+      "minor"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+Tatt.sortable.attributes = Tatt.sortable.attribute.sortKey
+Tatt.sortable.attribute.sortKey =
+  
+  ## supplies the sort key for this element in an index, list or group which contains it.
+  attribute sortKey {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+Tatt.spanning.attributes = Tatt.spanning.attribute.spanTo
+Tatt.spanning.attribute.spanTo =
+  
+  ## indicates the end of a span initiated by the element bearing this attribute.
+  attribute spanTo {
+    xsd:anyURI { pattern = "\S+" }
+  }?
+sch:pattern [
+  id =
+    "testbasic-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-8"
+  "\x{a}" ~
+  "      "
+  sch:rule [
+    context = "tei:*[ starts-with( @spanTo, '#') ]"
+    "\x{a}" ~
+    "         "
+    sch:assert [
+      test = "id( substring( @spanTo, 2 ) ) >> ."
+      "\x{a}" ~
+      "	      The element indicated by @spanTo ("
+      sch:value-of [ select = "@spanTo" ]
+      ") must follow the current "
+      sch:name [ ]
+      " element \x{a}" ~
+      "            "
+    ]
+    "\x{a}" ~
+    "      "
+  ]
+  "\x{a}" ~
+  "   "
+]
+Tatt.styleDef.attributes =
+  Tatt.styleDef.attribute.scheme, Tatt.styleDef.attribute.schemeVersion
+Tatt.styleDef.attribute.scheme =
+  
+  ## identifies the language used to describe the rendition.
+  attribute scheme {
+    
+    ## Cascading Stylesheet Language
+    "css"
+    | 
+      ## Extensible Stylesheet Language Formatting Objects
+      "xslfo"
+    | 
+      ## Informal free text description
+      "free"
+    | 
+      ## A user-defined rendition description language
+      "other"
+  }?
+Tatt.styleDef.attribute.schemeVersion =
+  [
+    a:documentation [
+      "supplies a version number for the style language provided in "
+      ns1:code [ "@scheme" ]
+      "."
+    ]
+  ]
+  attribute schemeVersion {
+    xsd:token { pattern = "[\d]+[a-z]*[\d]*(\.[\d]+[a-z]*[\d]*){0,3}" }
+  }?
+sch:pattern [
+  id =
+    "testbasic-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-9"
+  "\x{a}" ~
+  "      "
+  sch:rule [
+    context = "tei:*[@schemeVersion]"
+    "\x{a}" ~
+    "         "
+    sch:assert [
+      test = "@scheme and not(@scheme = 'free')"
+      "\x{a}" ~
+      "              @schemeVersion can only be used if @scheme is specified.\x{a}" ~
+      "            "
+    ]
+    "\x{a}" ~
+    "      "
+  ]
+  "\x{a}" ~
+  "   "
+]
+Tatt.typed.attributes =
+  Tatt.typed.attribute.type, Tatt.typed.attribute.subtype
+Tatt.typed.attribute.type =
+  
+  ## characterizes the element in some sense, using any convenient classification scheme or typology.
+  attribute type {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+Tatt.typed.attribute.subtype =
+  
+  ## (subtype) provides a sub-categorization of the element, if needed.
+  attribute subtype {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+sch:pattern [
+  id = "testbasic-att.typed-subtypeTyped-constraint-rule-10"
+  "\x{a}" ~
+  "      "
+  sch:rule [
+    context = "tei:*[@subtype]"
+    "\x{a}" ~
+    "         "
+    sch:assert [
+      test = "@type"
+      "The "
+      sch:name [ ]
+      " element should not be categorized in detail with @subtype unless also categorized in general with @type"
+    ]
+    "\x{a}" ~
+    "      "
+  ]
+  "\x{a}" ~
+  "   "
+]
+Tatt.written.attributes = Tatt.written.attribute.hand
+Tatt.written.attribute.hand =
+  [
+    a:documentation [
+      "points to a "
+      ns1:code [ "<handNote>" ]
+      " element describing the hand considered responsible for the content of the element concerned."
+    ]
+  ]
+  attribute hand {
+    xsd:anyURI { pattern = "\S+" }
+  }?
+Tatt.ascribed.directed.attributes =
+  Tatt.ascribed.attributes, Tatt.ascribed.directed.attribute.toWhom
+Tatt.ascribed.directed.attribute.toWhom =
+  
+  ## indicates the person, or group of people, to whom a speech act or action is directed.
+  attribute toWhom {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+Tatt.datable.attributes =
+  Tatt.datable.custom.attributes,
+  Tatt.datable.iso.attributes,
+  Tatt.datable.w3c.attributes,
+  Tatt.datable.attribute.period
+Tatt.datable.attribute.period =
+  [
+    a:documentation [
+      "supplies pointers to one or more definitions of named periods of time (typically "
+      ns1:code [ "<category>" ]
+      "s, "
+      ns1:code [ "<date>" ]
+      "s, or "
+      ns1:code [ "<event>" ]
+      "s) within which the datable item is understood to have occurred."
+    ]
+  ]
+  attribute period {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+Tatt.dimensions.attributes =
+  Tatt.ranging.attributes,
+  Tatt.dimensions.attribute.unit,
+  Tatt.dimensions.attribute.quantity,
+  Tatt.dimensions.attribute.extent,
+  Tatt.dimensions.attribute.precision,
+  Tatt.dimensions.attribute.scope
+Tatt.dimensions.attribute.unit =
+  
+  ## names the unit used for the measurement
+  ## Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inches); 4] line; 5] char (characters)
+  attribute unit {
+    
+    ## (centimetres) 
+    "cm"
+    | 
+      ## (millimetres) 
+      "mm"
+    | 
+      ## (inches) 
+      "in"
+    | 
+      ## lines of text
+      "line"
+    | 
+      ## (characters) characters of text
+      "char"
+    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+Tatt.dimensions.attribute.quantity =
+  
+  ## specifies the length in the units specified
+  attribute quantity {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+Tatt.dimensions.attribute.extent =
+  
+  ## indicates the size of the object concerned using a project-specific vocabulary combining quantity and units in a single string of words.
+  attribute extent { xsd:string }?
+Tatt.dimensions.attribute.precision =
+  
+  ## characterizes the precision of the values specified by the other attributes.
+  attribute precision {
+    
+    ##
+    "high"
+    | 
+      ##
+      "medium"
+    | 
+      ##
+      "low"
+    | 
+      ##
+      "unknown"
+  }?
+Tatt.dimensions.attribute.scope =
+  
+  ## where the measurement summarizes more than one observation, specifies the applicability of this measurement.
+  ## Sample values include: 1] all; 2] most; 3] range
+  attribute scope {
+    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  }?
+Tatt.divLike.attributes =
+  Tatt.fragmentable.attributes,
+  Tatt.divLike.attribute.org,
+  Tatt.divLike.attribute.sample
+Tatt.divLike.attribute.org =
+  
+  ## (organization) specifies how the content of the division is organized.
+  [ a:defaultValue = "uniform" ]
+  attribute org {
+    
+    ## no claim is made about the sequence in which the immediate contents of this division are to be processed, or their inter-relationships.
+    "composite"
+    | 
+      ## the immediate contents of this element are regarded as forming a logical unit, to be processed in sequence.
+      "uniform"
+  }?
+Tatt.divLike.attribute.sample =
+  
+  ## indicates whether this division is a sample of the original source and if so, from which part.
+  [ a:defaultValue = "complete" ]
+  attribute sample {
+    
+    ## division lacks material present at end in source.
+    "initial"
+    | 
+      ## division lacks material at start and end.
+      "medial"
+    | 
+      ## division lacks material at start.
+      "final"
+    | 
+      ## position of sampled material within original unknown.
+      "unknown"
+    | 
+      ## division is not a sample.
+      "complete"
+  }?
+Tatt.handFeatures.attributes =
+  Tatt.scope.attributes,
+  Tatt.handFeatures.attribute.scribe,
+  Tatt.handFeatures.attribute.scribeRef,
+  Tatt.handFeatures.attribute.script,
+  Tatt.handFeatures.attribute.scriptRef,
+  Tatt.handFeatures.attribute.medium
+Tatt.handFeatures.attribute.scribe =
+  
+  ## gives a name or other identifier for the scribe believed to be responsible for this hand.
+  attribute scribe { xsd:Name }?
+Tatt.handFeatures.attribute.scribeRef =
+  [
+    a:documentation [
+      "points to a full description of the scribe concerned, typically supplied by a "
+      ns1:code [ "<person>" ]
+      " element elsewhere in the description."
+    ]
+  ]
+  attribute scribeRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+Tatt.handFeatures.attribute.script =
+  
+  ## characterizes the particular script or writing style used by this hand, for example secretary, copperplate, Chancery, Italian, etc.
+  attribute script {
+    list { xsd:Name+ }
+  }?
+Tatt.handFeatures.attribute.scriptRef =
+  [
+    a:documentation [
+      "points to a full description of the script or writing style used by this hand, typically supplied by a "
+      ns1:code [ "<scriptNote>" ]
+      " element elsewhere in the description."
+    ]
+  ]
+  attribute scriptRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
+  }?
+Tatt.handFeatures.attribute.medium =
+  
+  ## describes the tint or type of ink, e.g. brown, or other writing medium, e.g. pencil.
+  attribute medium {
+    list {
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+    }
+  }?
+Tatt.media.attributes =
+  Tatt.internetMedia.attributes,
+  Tatt.media.attribute.width,
+  Tatt.media.attribute.height,
+  Tatt.media.attribute.scale
+Tatt.media.attribute.width =
+  
+  ## Where the media are displayed, indicates the display width.
+  attribute width {
+    xsd:token {
+      pattern =
+        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
+    }
+  }?
+Tatt.media.attribute.height =
+  
+  ## Where the media are displayed, indicates the display height.
+  attribute height {
+    xsd:token {
+      pattern =
+        "[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|ch|rem|vw|vh|vmin|vmax)"
+    }
+  }?
+Tatt.media.attribute.scale =
+  
+  ## Where the media are displayed, indicates a scale factor to be applied when generating the desired display size.
+  attribute scale {
+    xsd:double
+    | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+    | xsd:decimal
+  }?
+Tatt.naming.attributes =
+  Tatt.canonical.attributes,
+  Tatt.naming.attribute.role,
+  Tatt.naming.attribute.nymRef
+Tatt.naming.attribute.role =
+  
+  ## may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.
+  attribute role {
+    list {
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+    }
+  }?
+Tatt.naming.attribute.nymRef =
+  
+  ## (reference to the canonical name) provides a means of locating the canonical form (nym) of the names associated with the object named by the element bearing it.
+  attribute nymRef {
+    list {
+      xsd:anyURI { pattern = "\S+" }+
+    }
   }?
 Tatt.pointing.group.attributes =
   Tatt.pointing.attributes,
@@ -1191,131 +1312,9 @@ Tatt.segLike.attribute.function =
   attribute function {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-Tatt.sortable.attributes = Tatt.sortable.attribute.sortKey
-Tatt.sortable.attribute.sortKey =
-  
-  ## supplies the sort key for this element in an index, list or group which contains it.
-  attribute sortKey {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-Tatt.edition.attributes =
-  Tatt.edition.attribute.ed, Tatt.edition.attribute.edRef
-Tatt.edition.attribute.ed =
-  
-  ## (edition) supplies a sigil or other arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
-  attribute ed {
-    list {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
-    }
-  }?
-Tatt.edition.attribute.edRef =
-  
-  ## (edition reference) provides a pointer to the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
-  attribute edRef {
-    list {
-      xsd:anyURI { pattern = "\S+" }+
-    }
-  }?
-Tatt.spanning.attributes = Tatt.spanning.attribute.spanTo
-Tatt.spanning.attribute.spanTo =
-  
-  ## indicates the end of a span initiated by the element bearing this attribute.
-  attribute spanTo {
-    xsd:anyURI { pattern = "\S+" }
-  }?
-sch:pattern [
-  id =
-    "testbasic-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-9"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@spanTo]"
-    "\x{a}" ~
-    "         "
-    sch:assert [
-      test =
-        "id(substring(@spanTo,2)) and following::*[@xml:id=substring(current()/@spanTo,2)]"
-      "\x{a}" ~
-      "The element indicated by @spanTo ("
-      sch:value-of [ select = "@spanTo" ]
-      ") must follow the current element "
-      sch:name [ ]
-      "\x{a}" ~
-      "         "
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
-Tatt.styleDef.attributes =
-  Tatt.styleDef.attribute.scheme, Tatt.styleDef.attribute.schemeVersion
-Tatt.styleDef.attribute.scheme =
-  
-  ## identifies the language used to describe the rendition.
-  attribute scheme {
-    
-    ## Cascading Stylesheet Language
-    "css"
-    | 
-      ## Extensible Stylesheet Language Formatting Objects
-      "xslfo"
-    | 
-      ## Informal free text description
-      "free"
-    | 
-      ## A user-defined rendition description language
-      "other"
-  }?
-Tatt.styleDef.attribute.schemeVersion =
-  [
-    a:documentation [
-      "supplies a version number for the style language provided in "
-      ns1:code [ "@scheme" ]
-      "."
-    ]
-  ]
-  attribute schemeVersion {
-    xsd:token { pattern = "[\d]+[a-z]*[\d]*(\.[\d]+[a-z]*[\d]*){0,3}" }
-  }?
-sch:pattern [
-  id =
-    "testbasic-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-10"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@schemeVersion]"
-    "\x{a}" ~
-    "         "
-    sch:assert [
-      test = "@scheme and not(@scheme = 'free')"
-      "\x{a}" ~
-      "              @schemeVersion can only be used if @scheme is specified.\x{a}" ~
-      "            "
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
-Tatt.timed.attributes =
-  Tatt.timed.attribute.start, Tatt.timed.attribute.end
-Tatt.timed.attribute.start =
-  
-  ## indicates the location within a temporal alignment at which this element begins.
-  attribute start {
-    xsd:anyURI { pattern = "\S+" }
-  }?
-Tatt.timed.attribute.end =
-  
-  ## indicates the location within a temporal alignment at which this element ends.
-  attribute end {
-    xsd:anyURI { pattern = "\S+" }
-  }?
 Tatt.transcriptional.attributes =
   Tatt.editLike.attributes,
+  Tatt.placement.attributes,
   Tatt.written.attributes,
   Tatt.transcriptional.attribute.status,
   Tatt.transcriptional.attribute.cause,
@@ -1338,62 +1337,63 @@ Tatt.transcriptional.attribute.seq =
   
   ## (sequence) assigns a sequence number related to the order in which the encoded features carrying this attribute are believed to have occurred.
   attribute seq { xsd:nonNegativeInteger }?
-Tatt.citing.attributes =
-  Tatt.citing.attribute.unit,
-  Tatt.citing.attribute.from,
-  Tatt.citing.attribute.to
-Tatt.citing.attribute.unit =
+Tatt.damaged.attributes =
+  Tatt.dimensions.attributes,
+  Tatt.written.attributes,
+  Tatt.damaged.attribute.agent,
+  Tatt.damaged.attribute.degree,
+  Tatt.damaged.attribute.group
+Tatt.damaged.attribute.agent =
   
-  ## identifies the unit of information conveyed by the element, e.g. columns, pages, volume, entry.
-  ## Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line; 5] chapter (chapter); 6] part; 7] column; 8] entry
-  attribute unit {
-    
-    ## (volume) the element contains a volume number.
-    "volume"
-    | 
-      ## the element contains an issue number, or volume and issue numbers.
-      "issue"
-    | 
-      ## (page) the element contains a page number or page range.
-      "page"
-    | 
-      ## the element contains a line number or line range.
-      "line"
-    | 
-      ## (chapter) the element contains a chapter indication (number and/or title)
-      "chapter"
-    | 
-      ## the element identifies a part of a book or collection.
-      "part"
-    | 
-      ## the element identifies a column.
-      "column"
-    | 
-      ## the element identifies an entry number or label in a list of entries.
-      "entry"
-    | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
-  }?
-Tatt.citing.attribute.from =
-  [
-    a:documentation [
-      "specifies the starting point of the range of units indicated by the "
-      ns1:code [ "@unit" ]
-      " attribute."
-    ]
-  ]
-  attribute from {
+  ## categorizes the cause of the damage, if it can be identified.
+  ## Sample values include: 1] rubbing; 2] mildew; 3] smoke
+  attribute agent {
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
-Tatt.citing.attribute.to =
+Tatt.damaged.attribute.degree =
   [
     a:documentation [
-      "specifies the end-point of the range of units indicated by the "
-      ns1:code [ "@unit" ]
-      " attribute."
+      "provides a coded representation of the degree of damage, either as a number between 0 (undamaged) and 1 (very extensively damaged), or as one of the codes high, medium, low, or unknown. The "
+      ns1:code [ "<damage>" ]
+      " element with the "
+      ns1:code [ "@degree" ]
+      " attribute should only be used where the text may be read with some confidence; text supplied from other sources should be tagged as "
+      ns1:code [ "<supplied>" ]
+      "."
     ]
   ]
-  attribute to {
-    xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+  attribute degree {
+    xsd:double { minInclusive = "0" maxInclusive = "1" }
+    | (
+       ##
+       "high"
+       | 
+         ##
+         "medium"
+       | 
+         ##
+         "low"
+       | 
+         ##
+         "unknown")
+  }?
+Tatt.damaged.attribute.group =
+  
+  ## assigns an arbitrary number to each stretch of damage regarded as forming part of the same physical phenomenon.
+  attribute group { xsd:nonNegativeInteger }?
+Tatt.timed.attributes =
+  Tatt.timed.attribute.start, Tatt.timed.attribute.end
+Tatt.timed.attribute.start =
+  
+  ## indicates the location within a temporal alignment at which this element begins.
+  attribute start {
+    xsd:anyURI { pattern = "\S+" }
+  }?
+Tatt.timed.attribute.end =
+  
+  ## indicates the location within a temporal alignment at which this element ends.
+  attribute end {
+    xsd:anyURI { pattern = "\S+" }
   }?
 Tmodel.nameLike.agent = Tname | TorgName | TpersName | Tplatypus
 Tmodel.nameLike.agent_alternation =
@@ -2431,18 +2431,18 @@ Tatt.milestoneUnit.attribute.unit =
   attribute unit {
     [
       a:documentation [
-        "physical page breaks (synonymous with the "
+        "physical page beginnings (synonymous with the "
         ns1:code [ "<pb>" ]
         " element)."
       ]
     ]
     "page"
     | 
-      ## column breaks.
+      ## column beginnings.
       "column"
     | [
         a:documentation [
-          "line breaks (synonymous with the "
+          "line beginnings (synonymous with the "
           ns1:code [ "<lb>" ]
           " element)."
         ]
@@ -2509,18 +2509,18 @@ Tp =
        ]
     >> sch:pattern [
          id =
-           "testbasic-p-abstractModel-structure-p-in-l-or-lg-constraint-rule-13"
+           "testbasic-p-abstractModel-structure-p-in-l-constraint-rule-13"
          "\x{a}" ~
          "            "
          sch:rule [
-           context = "tei:p"
+           context = "tei:l//tei:p"
            "\x{a}" ~
            "               "
-           sch:report [
+           sch:assert [
              test =
-               "( ancestor::tei:l  or  ancestor::tei:lg ) and                        not( ancestor::tei:floatingText                           | parent::tei:figure                           | parent::tei:note )"
+               "ancestor::tei:floatingText | parent::tei:figure | parent::tei:note"
              "\x{a}" ~
-             "          Abstract model violation: Lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
+             "          Abstract model violation: Metrical lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
              "        "
            ]
            "\x{a}" ~
@@ -2793,7 +2793,6 @@ Trt =
   element rt {
     Tmacro.phraseSeq,
     Tatt.global.attributes,
-    Tatt.placement.attributes,
     Tatt.transcriptional.attributes,
     Tatt.typed.attributes,
     (
@@ -2990,7 +2989,6 @@ Tadd =
     Tatt.global.attributes,
     Tatt.cmc.attributes,
     Tatt.dimensions.attributes,
-    Tatt.placement.attributes,
     Tatt.transcriptional.attributes,
     Tatt.typed.attributes,
     empty
@@ -3558,7 +3556,7 @@ Tpb =
   }
 Tlb =
   
-  ## (line beginning) marks the beginning of a new (typographic) line in some edition or version of a text. [3.11.3. Milestone
+  ## (line beginning) marks the beginning of a topographic line in some edition or version of a text. [3.11.3. Milestone
   ## Elements 7.2.5. Speech Contents]
   element lb {
     empty,
@@ -3806,6 +3804,7 @@ Tbibl =
      | Tmodel.biblPart
      | Tmodel.global)*,
     Tatt.global.attributes,
+    Tatt.canonical.attributes,
     Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.docStatus.attributes,
@@ -3821,6 +3820,7 @@ TbiblStruct =
      (Tmonogr, Tseries*)+,
      (Tmodel.noteLike | Tmodel.ptrLike | TrelatedItem | TcitedRange)*),
     Tatt.global.attributes,
+    Tatt.canonical.attributes,
     Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.docStatus.attributes,
@@ -3997,12 +3997,20 @@ Tsp =
       (Tmodel.global* | Tq))+),
     Tatt.global.attributes,
     Tatt.ascribed.directed.attributes,
+    Tatt.placement.attributes,
+    Tatt.written.attributes,
     empty
   }
 Tspeaker =
   
   ## contains a specialized form of heading or label, giving the name of one or more speakers in a dramatic text or fragment. [3.13.2. Core Tags for Drama]
-  element speaker { Tmacro.phraseSeq, Tatt.global.attributes, empty }
+  element speaker {
+    Tmacro.phraseSeq,
+    Tatt.global.attributes,
+    Tatt.placement.attributes,
+    Tatt.written.attributes,
+    empty
+  }
 Tstage =
   
   ## (stage direction) contains any kind of stage direction within a dramatic text or fragment. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.4. Stage Directions]
@@ -4365,6 +4373,7 @@ TbiblFull =
       TsourceDesc*)
      | (TfileDesc, TprofileDesc)),
     Tatt.global.attributes,
+    Tatt.canonical.attributes,
     Tatt.cmc.attributes,
     Tatt.declarable.attributes,
     Tatt.docStatus.attributes,
@@ -6906,7 +6915,6 @@ TaddSpan =
        ],
     Tatt.global.attributes,
     Tatt.dimensions.attributes,
-    Tatt.placement.attributes,
     Tatt.spanning.attributes,
     Tatt.transcriptional.attributes,
     Tatt.typed.attributes,
@@ -7491,18 +7499,18 @@ Tab =
     Tmacro.abContent
     >> sch:pattern [
          id =
-           "testbasic-ab-abstractModel-structure-ab-in-l-or-lg-constraint-rule-41"
+           "testbasic-ab-abstractModel-structure-ab-in-l-constraint-rule-41"
          "\x{a}" ~
          "            "
          sch:rule [
-           context = "tei:ab"
+           context = "tei:l//tei:ab"
            "\x{a}" ~
            "               "
-           sch:report [
+           sch:assert [
              test =
-               "(ancestor::tei:l or ancestor::tei:lg) and not( ancestor::tei:floatingText |parent::tei:figure |parent::tei:note )"
+               "ancestor::tei:floatingText | parent::tei:figure | parent::tei:note"
              "\x{a}" ~
-             "          Abstract model violation: Lines may not contain higher-level divisions such as p or ab, unless ab is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
+             "          Abstract model violation: Metrical lines may not contain higher-level divisions such as p or ab, unless ab is a child of figure or note, or is a descendant of floatingText.\x{a}" ~
              "        "
            ]
            "\x{a}" ~
@@ -7984,25 +7992,7 @@ TTEI =
   ]
   element TEI {
     (TteiHeader,
-     ((Tmodel.resource+, TTEI*) | TTEI+))
-    >> sch:ns [ prefix = "tei" uri = "http://www.tei-c.org/ns/1.0" ]
-    >> sch:ns [ prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema" ]
-    >> sch:ns [
-         prefix = "rng"
-         uri = "http://relaxng.org/ns/structure/1.0"
-       ]
-    >> sch:ns [
-         prefix = "rna"
-         uri = "http://relaxng.org/ns/compatibility/annotations/1.0"
-       ]
-    >> sch:ns [
-         prefix = "sch"
-         uri = "http://purl.oclc.org/dsdl/schematron"
-       ]
-    >> sch:ns [
-         prefix = "sch1x"
-         uri = "http://www.ascc.net/xml/schematron"
-       ],
+     ((Tmodel.resource+, TTEI*) | TTEI+)),
     Tatt.global.attributes,
     Tatt.typed.attributes,
     
@@ -8083,18 +8073,17 @@ Tdiv =
       (Tmodel.divBottom, Tmodel.global*)*)?)
     >> sch:pattern [
          id =
-           "testbasic-div-abstractModel-structure-div-in-l-or-lg-constraint-rule-44"
+           "testbasic-div-abstractModel-structure-div-in-l-constraint-rule-44"
          "\x{a}" ~
          "            "
          sch:rule [
-           context = "tei:div"
+           context = "tei:l//tei:div"
            "\x{a}" ~
            "               "
-           sch:report [
-             test =
-               "(ancestor::tei:l or ancestor::tei:lg) and not(ancestor::tei:floatingText)"
+           sch:assert [
+             test = "ancestor::tei:floatingText"
              "\x{a}" ~
-             "          Abstract model violation: Lines may not contain higher-level structural elements such as div, unless div is a descendant of floatingText.\x{a}" ~
+             "          Abstract model violation: Metrical lines may not contain higher-level structural elements such as div, unless div is a descendant of floatingText.\x{a}" ~
              "        "
            ]
            "\x{a}" ~
@@ -8128,6 +8117,7 @@ Tdiv =
     Tatt.global.attributes,
     Tatt.declaring.attributes,
     Tatt.divLike.attributes,
+    Tatt.placement.attributes,
     Tatt.typed.attribute.subtype,
     Tatt.written.attributes,
     
@@ -8182,6 +8172,7 @@ Tdateline =
     (text | Tmodel.gLike | Tmodel.phrase | Tmodel.global | TdocDate)*,
     Tatt.global.attributes,
     Tatt.cmc.attributes,
+    Tatt.written.attributes,
     empty
   }
 Targument =
@@ -8268,6 +8259,7 @@ Tpostscript =
      (Tmodel.divBottomPart, Tmodel.global*)*),
     Tatt.global.attributes,
     Tatt.cmc.attributes,
+    Tatt.placement.attributes,
     Tatt.written.attributes,
     empty
   }
@@ -8518,7 +8510,7 @@ Tplatypus =
      ##
      attribute bill { "duck" }?)
     >> sch:pattern [
-         id = "testbasic-platypus-bill-silly-test-constraint-report-23"
+         id = "testbasic-platypus-bill-silly-test-constraint-report-20"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8550,6 +8542,15 @@ TMenu =
     empty
   }
 start = TTEI | Tdiv
+sch:ns [ prefix = "tei" uri = "http://www.tei-c.org/ns/1.0" ]
+sch:ns [ prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema" ]
+sch:ns [ prefix = "rng" uri = "http://relaxng.org/ns/structure/1.0" ]
+sch:ns [
+  prefix = "rna"
+  uri = "http://relaxng.org/ns/compatibility/annotations/1.0"
+]
+sch:ns [ prefix = "sch" uri = "http://purl.oclc.org/dsdl/schematron" ]
+sch:ns [ prefix = "sch1x" uri = "http://www.ascc.net/xml/schematron" ]
 sch:pattern [
   id = "testbasic-outerconstraint-constraint-rule-46"
   "\x{a}" ~

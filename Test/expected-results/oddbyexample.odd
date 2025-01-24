@@ -88,6 +88,11 @@
                   <attDef ident="toWhom" mode="delete"/>
                </attList>
             </classSpec>
+            <classSpec ident="att.datable" type="atts" mode="change">
+               <attList>
+                  <attDef ident="period" mode="delete"/>
+               </attList>
+            </classSpec>
             <classSpec ident="att.dimensions" type="atts" mode="change">
                <attList>
                   <attDef ident="unit" mode="delete"/>
@@ -95,18 +100,6 @@
                   <attDef ident="extent" mode="delete"/>
                   <attDef ident="precision" mode="delete"/>
                   <attDef ident="scope" mode="delete"/>
-               </attList>
-            </classSpec>
-            <classSpec ident="att.damaged" type="atts" mode="change">
-               <attList>
-                  <attDef ident="agent" mode="delete"/>
-                  <attDef ident="degree" mode="delete"/>
-                  <attDef ident="group" mode="delete"/>
-               </attList>
-            </classSpec>
-            <classSpec ident="att.datable" type="atts" mode="change">
-               <attList>
-                  <attDef ident="period" mode="delete"/>
                </attList>
             </classSpec>
             <classSpec ident="att.divLike" type="atts" mode="change">
@@ -148,17 +141,24 @@
                   <attDef ident="function" mode="delete"/>
                </attList>
             </classSpec>
-            <classSpec ident="att.timed" type="atts" mode="change">
-               <attList>
-                  <attDef ident="start" mode="delete"/>
-                  <attDef ident="end" mode="delete"/>
-               </attList>
-            </classSpec>
             <classSpec ident="att.transcriptional" type="atts" mode="change">
                <attList>
                   <attDef ident="status" mode="delete"/>
                   <attDef ident="cause" mode="delete"/>
                   <attDef ident="seq" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.damaged" type="atts" mode="change">
+               <attList>
+                  <attDef ident="agent" mode="delete"/>
+                  <attDef ident="degree" mode="delete"/>
+                  <attDef ident="group" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.timed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="start" mode="delete"/>
+                  <attDef ident="end" mode="delete"/>
                </attList>
             </classSpec>
             <classSpec ident="att.personal" type="atts" mode="change">

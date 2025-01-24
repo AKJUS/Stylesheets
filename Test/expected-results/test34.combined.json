@@ -343,7 +343,6 @@
           [ "att.global",
             "att.cmc",
             "att.dimensions",
-            "att.placement",
             "att.transcriptional",
             "att.typed" ],
           "unknown" : 
@@ -1335,6 +1334,7 @@
             "model.biblPart" ],
           "atts" : 
           [ "att.global",
+            "att.canonical",
             "att.cmc",
             "att.declarable",
             "att.docStatus",
@@ -1393,6 +1393,7 @@
           [ "model.biblLike" ],
           "atts" : 
           [ "att.global",
+            "att.canonical",
             "att.cmc",
             "att.declarable",
             "att.docStatus",
@@ -1492,6 +1493,7 @@
           [ "model.biblLike" ],
           "atts" : 
           [ "att.global",
+            "att.canonical",
             "att.cmc",
             "att.declarable",
             "att.docStatus",
@@ -3130,7 +3132,8 @@
             "model.pLike.front" ],
           "atts" : 
           [ "att.global",
-            "att.cmc" ],
+            "att.cmc",
+            "att.written" ],
           "unknown" : 
           [  ] },
         "attributes" : 
@@ -3231,9 +3234,9 @@
                 { "ident" : "deprecationInfo",
                   "desc" : 
                   [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2018-09-14\" xml:lang=\"en\">This element\n          describes why or how its parent element is being deprecated,\n          typically including recommendations for alternate\n          encoding.<\/desc>" ],
-                  "shortDesc" : "(deprecation information) This element\n          describes why or how its parent element is being deprecated,\n          typically including recommendations for alternate\n          encoding.",
+                  "shortDesc" : "(deprecation\n          information) This element\n          describes why or how its parent element is being deprecated,\n          typically including recommendations for alternate\n          encoding.",
                   "gloss" : 
-                  [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2018-09-14\" xml:lang=\"en\">deprecation information<\/gloss>" ],
+                  [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2018-09-14\" xml:lang=\"en\">deprecation\n          information<\/gloss>" ],
                   "altIdent" : 
                   [  ] } ] } } ],
         "content" : 
@@ -3392,6 +3395,7 @@
           [ "att.global",
             "att.declaring",
             "att.divLike",
+            "att.placement",
             "att.typed",
             "att.written" ],
           "unknown" : 
@@ -6584,8 +6588,8 @@
         "type" : "elementSpec",
         "module" : "core",
         "desc" : 
-        [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-01-14\" xml:lang=\"en\">marks the beginning of a new (typographic) line in some edition or version of a text.<\/desc>" ],
-        "shortDesc" : "(line beginning) marks the beginning of a new (typographic) line in some edition or version of a text.",
+        [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-01-14\" xml:lang=\"en\">marks the beginning of a topographic line in some edition or version of a text.<\/desc>" ],
+        "shortDesc" : "(line beginning) marks the beginning of a topographic line in some edition or version of a text.",
         "gloss" : 
         [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2017-06-14\" xml:lang=\"en\">line beginning<\/gloss>" ],
         "altIdent" : 
@@ -8181,6 +8185,7 @@
           "atts" : 
           [ "att.global",
             "att.cmc",
+            "att.placement",
             "att.written" ],
           "unknown" : 
           [  ] },
@@ -9375,7 +9380,6 @@
           [  ],
           "atts" : 
           [ "att.global",
-            "att.placement",
             "att.transcriptional",
             "att.typed" ],
           "unknown" : 
@@ -9992,7 +9996,9 @@
           [ "model.divPart" ],
           "atts" : 
           [ "att.global",
-            "att.ascribed.directed" ],
+            "att.ascribed.directed",
+            "att.placement",
+            "att.written" ],
           "unknown" : 
           [  ] },
         "attributes" : 
@@ -10072,7 +10078,9 @@
         { "model" : 
           [  ],
           "atts" : 
-          [ "att.global" ],
+          [ "att.global",
+            "att.placement",
+            "att.written" ],
           "unknown" : 
           [  ] },
         "attributes" : 
@@ -14834,8 +14842,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-11-22\" xml:lang=\"en\">supplies a sigil or other arbitrary identifier for the source edition in which\n      the associated feature (for example, a  page, column, or line\n      break) occurs at this point in the text.<\/desc>" ],
-              "shortDesc" : "(edition) supplies a sigil or other arbitrary identifier for the source edition in which\n      the associated feature (for example, a  page, column, or line\n      break) occurs at this point in the text.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-11-22\" xml:lang=\"en\">supplies a sigil or other arbitrary identifier for the source edition in which\n      the associated feature (for example, a  page, column, or line\n      beginning) occurs at this point in the text.<\/desc>" ],
+              "shortDesc" : "(edition) supplies a sigil or other arbitrary identifier for the source edition in which\n      the associated feature (for example, a  page, column, or line\n      beginning) occurs at this point in the text.",
               "gloss" : 
               [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-01-11\" xml:lang=\"en\">edition<\/gloss>" ],
               "altIdent" : 
@@ -14854,8 +14862,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-01-11\" xml:lang=\"en\">provides a pointer to the source edition in which\n      the associated feature (for example, a  page, column, or line\n      break) occurs at this point in the text.<\/desc>" ],
-              "shortDesc" : "(edition reference) provides a pointer to the source edition in which\n      the associated feature (for example, a  page, column, or line\n      break) occurs at this point in the text.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-01-11\" xml:lang=\"en\">provides a pointer to the source edition in which\n      the associated feature (for example, a  page, column, or line\n      beginning) occurs at this point in the text.<\/desc>" ],
+              "shortDesc" : "(edition reference) provides a pointer to the source edition in which\n      the associated feature (for example, a  page, column, or line\n      beginning) occurs at this point in the text.",
               "gloss" : 
               [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-01-11\" xml:lang=\"en\">edition reference<\/gloss>" ],
               "altIdent" : 
@@ -16043,8 +16051,8 @@
                 [ 
                   { "ident" : "page",
                     "desc" : 
-                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-07-16\" xml:lang=\"en\">physical page breaks (synonymous with the <gi>pb<\/gi> element).<\/desc>" ],
-                    "shortDesc" : "physical page breaks (synonymous with the pb element).",
+                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-07-16\" xml:lang=\"en\">physical page beginnings (synonymous with the <gi>pb<\/gi> element).<\/desc>" ],
+                    "shortDesc" : "physical page beginnings (synonymous with the pb element).",
                     "gloss" : 
                     [  ],
                     "altIdent" : 
@@ -16052,8 +16060,8 @@
                   
                   { "ident" : "column",
                     "desc" : 
-                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-07-16\" xml:lang=\"en\">column breaks.<\/desc>" ],
-                    "shortDesc" : "column breaks.",
+                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-07-16\" xml:lang=\"en\">column beginnings.<\/desc>" ],
+                    "shortDesc" : "column beginnings.",
                     "gloss" : 
                     [  ],
                     "altIdent" : 
@@ -16061,8 +16069,8 @@
                   
                   { "ident" : "line",
                     "desc" : 
-                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-07-16\" xml:lang=\"en\">line breaks (synonymous with the <gi>lb<\/gi> element).<\/desc>" ],
-                    "shortDesc" : "line breaks (synonymous with the lb element).",
+                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-07-16\" xml:lang=\"en\">line beginnings (synonymous with the <gi>lb<\/gi> element).<\/desc>" ],
+                    "shortDesc" : "line beginnings (synonymous with the lb element).",
                     "gloss" : 
                     [  ],
                     "altIdent" : 
@@ -17004,8 +17012,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-10-10\" xml:lang=\"en\">indicates the end of a span initiated by the element\n        bearing this attribute.<\/desc>" ],
-              "shortDesc" : "indicates the end of a span initiated by the element\n        bearing this attribute.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-10-10\" xml:lang=\"en\">indicates the end of a span initiated by the element bearing this attribute.<\/desc>" ],
+              "shortDesc" : "indicates the end of a span initiated by the element bearing this attribute.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -17186,6 +17194,7 @@
             [  ],
             "atts" : 
             [ "att.editLike",
+              "att.placement",
               "att.written" ],
             "unknown" : 
             [  ] },

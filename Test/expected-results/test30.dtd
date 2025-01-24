@@ -66,14 +66,6 @@
 
 <!-- predeclared classes -->
 
-<!ENTITY % Tatt.global.responsibility.attribute.cert '
-cert %teidata.probCert;  #IMPLIED'>
-
-<!ENTITY % Tatt.global.responsibility.attribute.resp '
-resp CDATA  #IMPLIED'>
-<!ENTITY % Tatt.global.responsibility.attributes '
- %Tatt.global.responsibility.attribute.cert;
- %Tatt.global.responsibility.attribute.resp;'> 
 <!ENTITY % Tatt.global.rendition.attribute.rend '
 rend (bold|boxed|center|italic|underline) #IMPLIED'>
 
@@ -86,6 +78,14 @@ rendition CDATA  #IMPLIED'>
  %Tatt.global.rendition.attribute.rend;
  %Tatt.global.rendition.attribute.style;
  %Tatt.global.rendition.attribute.rendition;'> 
+<!ENTITY % Tatt.global.responsibility.attribute.cert '
+cert %teidata.probCert;  #IMPLIED'>
+
+<!ENTITY % Tatt.global.responsibility.attribute.resp '
+resp CDATA  #IMPLIED'>
+<!ENTITY % Tatt.global.responsibility.attributes '
+ %Tatt.global.responsibility.attribute.cert;
+ %Tatt.global.responsibility.attribute.resp;'> 
 <!ENTITY % Tatt.global.source.attribute.source '
 source CDATA  #IMPLIED'>
 <!ENTITY % Tatt.global.source.attributes '
@@ -233,10 +233,14 @@ targetEnd CDATA  #IMPLIED'>
 who CDATA  #IMPLIED'>
 <!ENTITY % Tatt.ascribed.attributes '
  %Tatt.ascribed.attribute.who;'> 
-<!ENTITY % Tatt.ascribed.directed.attribute.toWhom '
-toWhom CDATA  #IMPLIED'>
-<!ENTITY % Tatt.ascribed.directed.attributes '%Tatt.ascribed.attributes;
- %Tatt.ascribed.directed.attribute.toWhom;'> 
+<!ENTITY % Tatt.breaking.attribute.break '
+break %teidata.enumerated;  #IMPLIED'>
+<!ENTITY % Tatt.breaking.attributes '
+ %Tatt.breaking.attribute.break;'> 
+<!ENTITY % Tatt.cReferencing.attribute.cRef '
+cRef %teidata.text;  #IMPLIED'>
+<!ENTITY % Tatt.cReferencing.attributes '
+ %Tatt.cReferencing.attribute.cRef;'> 
 <!ENTITY % Tatt.canonical.attribute.key '
 key %teidata.text;  #IMPLIED'>
 
@@ -245,74 +249,22 @@ ref CDATA  #IMPLIED'>
 <!ENTITY % Tatt.canonical.attributes '
  %Tatt.canonical.attribute.key;
  %Tatt.canonical.attribute.ref;'> 
-<!ENTITY % Tatt.ranging.attribute.atLeast '
-atLeast %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % Tatt.ranging.attribute.atMost '
-atMost %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % Tatt.ranging.attribute.min '
-min %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % Tatt.ranging.attribute.max '
-max %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % Tatt.ranging.attribute.confidence '
-confidence %teidata.probability;  #IMPLIED'>
-<!ENTITY % Tatt.ranging.attributes '
- %Tatt.ranging.attribute.atLeast;
- %Tatt.ranging.attribute.atMost;
- %Tatt.ranging.attribute.min;
- %Tatt.ranging.attribute.max;
- %Tatt.ranging.attribute.confidence;'> 
-<!ENTITY % Tatt.dimensions.attribute.unit '
+<!ENTITY % Tatt.citing.attribute.unit '
 unit %teidata.enumerated;  #IMPLIED'>
 
-<!ENTITY % Tatt.dimensions.attribute.quantity '
-quantity %teidata.numeric;  #IMPLIED'>
+<!ENTITY % Tatt.citing.attribute.from '
+from %teidata.word;  #IMPLIED'>
 
-<!ENTITY % Tatt.dimensions.attribute.extent '
-extent %teidata.text;  #IMPLIED'>
-
-<!ENTITY % Tatt.dimensions.attribute.precision '
-precision %teidata.certainty;  #IMPLIED'>
-
-<!ENTITY % Tatt.dimensions.attribute.scope '
-scope %teidata.enumerated;  #IMPLIED'>
-<!ENTITY % Tatt.dimensions.attributes '%Tatt.ranging.attributes;
- %Tatt.dimensions.attribute.unit;
- %Tatt.dimensions.attribute.quantity;
- %Tatt.dimensions.attribute.extent;
- %Tatt.dimensions.attribute.precision;
- %Tatt.dimensions.attribute.scope;'> 
-<!ENTITY % Tatt.written.attribute.hand '
-hand %teidata.pointer;  #IMPLIED'>
-<!ENTITY % Tatt.written.attributes '
- %Tatt.written.attribute.hand;'> 
-<!ENTITY % Tatt.damaged.attribute.agent '
-agent %teidata.enumerated;  #IMPLIED'>
-
-<!ENTITY % Tatt.damaged.attribute.degree '
-degree %teidata.probCert;  #IMPLIED'>
-
-<!ENTITY % Tatt.damaged.attribute.group '
-group %teidata.count;  #IMPLIED'>
-<!ENTITY % Tatt.damaged.attributes '%Tatt.dimensions.attributes;%Tatt.written.attributes;
- %Tatt.damaged.attribute.agent;
- %Tatt.damaged.attribute.degree;
- %Tatt.damaged.attribute.group;'> 
-<!ENTITY % Tatt.breaking.attribute.break '
-break %teidata.enumerated;  #IMPLIED'>
-<!ENTITY % Tatt.breaking.attributes '
- %Tatt.breaking.attribute.break;'> 
+<!ENTITY % Tatt.citing.attribute.to '
+to %teidata.word;  #IMPLIED'>
+<!ENTITY % Tatt.citing.attributes '
+ %Tatt.citing.attribute.unit;
+ %Tatt.citing.attribute.from;
+ %Tatt.citing.attribute.to;'> 
 <!ENTITY % Tatt.cmc.attribute.generatedBy '
 generatedBy %teidata.enumerated;  #IMPLIED'>
 <!ENTITY % Tatt.cmc.attributes '
  %Tatt.cmc.attribute.generatedBy;'> 
-<!ENTITY % Tatt.cReferencing.attribute.cRef '
-cRef %teidata.text;  #IMPLIED'>
-<!ENTITY % Tatt.cReferencing.attributes '
- %Tatt.cReferencing.attribute.cRef;'> 
 <!ENTITY % Tatt.datable.w3c.attribute.when '
 when %teidata.temporal.w3c;  #IMPLIED'>
 
@@ -333,10 +285,6 @@ to %teidata.temporal.w3c;  #IMPLIED'>
  %Tatt.datable.w3c.attribute.notAfter;
  %Tatt.datable.w3c.attribute.from;
  %Tatt.datable.w3c.attribute.to;'> 
-<!ENTITY % Tatt.datable.attribute.period '
-period CDATA  #IMPLIED'>
-<!ENTITY % Tatt.datable.attributes '%Tatt.datable.custom.attributes;%Tatt.datable.iso.attributes;%Tatt.datable.w3c.attributes;
- %Tatt.datable.attribute.period;'> 
 <!ENTITY % Tatt.datcat.attribute.datcat '
 datcat CDATA  #IMPLIED'>
 
@@ -357,30 +305,10 @@ default (true|false) "false" '>
 decls CDATA  #IMPLIED'>
 <!ENTITY % Tatt.declaring.attributes '
  %Tatt.declaring.attribute.decls;'> 
-<!ENTITY % Tatt.fragmentable.attribute.part '
-part (Y|N|I|M|F) "N" '>
-<!ENTITY % Tatt.fragmentable.attributes '
- %Tatt.fragmentable.attribute.part;'> 
-<!ENTITY % Tatt.divLike.attribute.org '
-org (composite|uniform) "uniform" '>
-
-<!ENTITY % Tatt.divLike.attribute.sample '
-sample (initial|medial|final|unknown|complete) "complete" '>
-<!ENTITY % Tatt.divLike.attributes '%Tatt.fragmentable.attributes;
- %Tatt.divLike.attribute.org;
- %Tatt.divLike.attribute.sample;'> 
 <!ENTITY % Tatt.docStatus.attribute.status '
 status %teidata.enumerated;  "draft" '>
 <!ENTITY % Tatt.docStatus.attributes '
  %Tatt.docStatus.attribute.status;'> 
-<!ENTITY % Tatt.global.responsibility.attribute.cert '
-cert %teidata.probCert;  #IMPLIED'>
-
-<!ENTITY % Tatt.global.responsibility.attribute.resp '
-resp CDATA  #IMPLIED'>
-<!ENTITY % Tatt.global.responsibility.attributes '
- %Tatt.global.responsibility.attribute.cert;
- %Tatt.global.responsibility.attribute.resp;'> 
 <!ENTITY % Tatt.editLike.attribute.evidence '
 evidence NMTOKENS  #IMPLIED'>
 
@@ -389,6 +317,18 @@ instant %teidata.xTruthValue;  "false" '>
 <!ENTITY % Tatt.editLike.attributes '
  %Tatt.editLike.attribute.evidence;
  %Tatt.editLike.attribute.instant;'> 
+<!ENTITY % Tatt.edition.attribute.ed '
+ed CDATA  #IMPLIED'>
+
+<!ENTITY % Tatt.edition.attribute.edRef '
+edRef CDATA  #IMPLIED'>
+<!ENTITY % Tatt.edition.attributes '
+ %Tatt.edition.attribute.ed;
+ %Tatt.edition.attribute.edRef;'> 
+<!ENTITY % Tatt.fragmentable.attribute.part '
+part (Y|N|I|M|F) "N" '>
+<!ENTITY % Tatt.fragmentable.attributes '
+ %Tatt.fragmentable.attribute.part;'> 
 <!ENTITY % Tatt.global.rendition.attribute.rend '
 rend (bold|boxed|center|italic|underline) #IMPLIED'>
 
@@ -401,14 +341,150 @@ rendition CDATA  #IMPLIED'>
  %Tatt.global.rendition.attribute.rend;
  %Tatt.global.rendition.attribute.style;
  %Tatt.global.rendition.attribute.rendition;'> 
+<!ENTITY % Tatt.global.responsibility.attribute.cert '
+cert %teidata.probCert;  #IMPLIED'>
+
+<!ENTITY % Tatt.global.responsibility.attribute.resp '
+resp CDATA  #IMPLIED'>
+<!ENTITY % Tatt.global.responsibility.attributes '
+ %Tatt.global.responsibility.attribute.cert;
+ %Tatt.global.responsibility.attribute.resp;'> 
 <!ENTITY % Tatt.global.source.attribute.source '
 source CDATA  #IMPLIED'>
 <!ENTITY % Tatt.global.source.attributes '
  %Tatt.global.source.attribute.source;'> 
+<!ENTITY % Tatt.internetMedia.attribute.mimeType '
+mimeType CDATA  #IMPLIED'>
+<!ENTITY % Tatt.internetMedia.attributes '
+ %Tatt.internetMedia.attribute.mimeType;'> 
+<!ENTITY % Tatt.measurement.attribute.unit '
+unit %teidata.enumerated;  #IMPLIED'>
+
+<!ENTITY % Tatt.measurement.attribute.unitRef '
+unitRef %teidata.pointer;  #IMPLIED'>
+
+<!ENTITY % Tatt.measurement.attribute.quantity '
+quantity %teidata.numeric;  #IMPLIED'>
+
+<!ENTITY % Tatt.measurement.attribute.commodity '
+commodity CDATA  #IMPLIED'>
+<!ENTITY % Tatt.measurement.attributes '
+ %Tatt.measurement.attribute.unit;
+ %Tatt.measurement.attribute.unitRef;
+ %Tatt.measurement.attribute.quantity;
+ %Tatt.measurement.attribute.commodity;'> 
+<!ENTITY % Tatt.notated.attribute.notation '
+notation %teidata.enumerated;  #IMPLIED'>
+<!ENTITY % Tatt.notated.attributes '
+ %Tatt.notated.attribute.notation;'> 
+<!ENTITY % Tatt.placement.attribute.place '
+place NMTOKENS  #IMPLIED'>
+<!ENTITY % Tatt.placement.attributes '
+ %Tatt.placement.attribute.place;'> 
+<!ENTITY % Tatt.pointing.attribute.targetLang '
+targetLang %teidata.language;  #IMPLIED'>
+
+<!ENTITY % Tatt.pointing.attribute.target '
+target CDATA  #IMPLIED'>
+
+<!ENTITY % Tatt.pointing.attribute.evaluate '
+evaluate (all|one|none) #IMPLIED'>
+<!ENTITY % Tatt.pointing.attributes '
+ %Tatt.pointing.attribute.targetLang;
+ %Tatt.pointing.attribute.target;
+ %Tatt.pointing.attribute.evaluate;'> 
+<!ENTITY % Tatt.ranging.attribute.atLeast '
+atLeast %teidata.numeric;  #IMPLIED'>
+
+<!ENTITY % Tatt.ranging.attribute.atMost '
+atMost %teidata.numeric;  #IMPLIED'>
+
+<!ENTITY % Tatt.ranging.attribute.min '
+min %teidata.numeric;  #IMPLIED'>
+
+<!ENTITY % Tatt.ranging.attribute.max '
+max %teidata.numeric;  #IMPLIED'>
+
+<!ENTITY % Tatt.ranging.attribute.confidence '
+confidence %teidata.probability;  #IMPLIED'>
+<!ENTITY % Tatt.ranging.attributes '
+ %Tatt.ranging.attribute.atLeast;
+ %Tatt.ranging.attribute.atMost;
+ %Tatt.ranging.attribute.min;
+ %Tatt.ranging.attribute.max;
+ %Tatt.ranging.attribute.confidence;'> 
+<!ENTITY % Tatt.resourced.attribute.url '
+url %teidata.pointer;  #REQUIRED'>
+<!ENTITY % Tatt.resourced.attributes '
+ %Tatt.resourced.attribute.url;'> 
 <!ENTITY % Tatt.scope.attribute.scope '
 scope %teidata.enumerated;  #IMPLIED'>
 <!ENTITY % Tatt.scope.attributes '
  %Tatt.scope.attribute.scope;'> 
+<!ENTITY % Tatt.sortable.attribute.sortKey '
+sortKey %teidata.word;  #IMPLIED'>
+<!ENTITY % Tatt.sortable.attributes '
+ %Tatt.sortable.attribute.sortKey;'> 
+<!ENTITY % Tatt.spanning.attribute.spanTo '
+spanTo %teidata.pointer;  #IMPLIED'>
+<!ENTITY % Tatt.spanning.attributes '
+ %Tatt.spanning.attribute.spanTo;'> 
+<!ENTITY % Tatt.styleDef.attribute.scheme '
+scheme (css|xslfo|free|other) #IMPLIED'>
+
+<!ENTITY % Tatt.styleDef.attribute.schemeVersion '
+schemeVersion %teidata.versionNumber;  #IMPLIED'>
+<!ENTITY % Tatt.styleDef.attributes '
+ %Tatt.styleDef.attribute.scheme;
+ %Tatt.styleDef.attribute.schemeVersion;'> 
+<!ENTITY % Tatt.typed.attribute.type '
+type %teidata.enumerated;  #IMPLIED'>
+
+<!ENTITY % Tatt.typed.attribute.subtype '
+subtype %teidata.enumerated;  #IMPLIED'>
+<!ENTITY % Tatt.typed.attributes '
+ %Tatt.typed.attribute.type;
+ %Tatt.typed.attribute.subtype;'> 
+<!ENTITY % Tatt.written.attribute.hand '
+hand %teidata.pointer;  #IMPLIED'>
+<!ENTITY % Tatt.written.attributes '
+ %Tatt.written.attribute.hand;'> 
+<!ENTITY % Tatt.ascribed.directed.attribute.toWhom '
+toWhom CDATA  #IMPLIED'>
+<!ENTITY % Tatt.ascribed.directed.attributes '%Tatt.ascribed.attributes;
+ %Tatt.ascribed.directed.attribute.toWhom;'> 
+<!ENTITY % Tatt.datable.attribute.period '
+period CDATA  #IMPLIED'>
+<!ENTITY % Tatt.datable.attributes '%Tatt.datable.custom.attributes;%Tatt.datable.iso.attributes;%Tatt.datable.w3c.attributes;
+ %Tatt.datable.attribute.period;'> 
+<!ENTITY % Tatt.dimensions.attribute.unit '
+unit %teidata.enumerated;  #IMPLIED'>
+
+<!ENTITY % Tatt.dimensions.attribute.quantity '
+quantity %teidata.numeric;  #IMPLIED'>
+
+<!ENTITY % Tatt.dimensions.attribute.extent '
+extent %teidata.text;  #IMPLIED'>
+
+<!ENTITY % Tatt.dimensions.attribute.precision '
+precision %teidata.certainty;  #IMPLIED'>
+
+<!ENTITY % Tatt.dimensions.attribute.scope '
+scope %teidata.enumerated;  #IMPLIED'>
+<!ENTITY % Tatt.dimensions.attributes '%Tatt.ranging.attributes;
+ %Tatt.dimensions.attribute.unit;
+ %Tatt.dimensions.attribute.quantity;
+ %Tatt.dimensions.attribute.extent;
+ %Tatt.dimensions.attribute.precision;
+ %Tatt.dimensions.attribute.scope;'> 
+<!ENTITY % Tatt.divLike.attribute.org '
+org (composite|uniform) "uniform" '>
+
+<!ENTITY % Tatt.divLike.attribute.sample '
+sample (initial|medial|final|unknown|complete) "complete" '>
+<!ENTITY % Tatt.divLike.attributes '%Tatt.fragmentable.attributes;
+ %Tatt.divLike.attribute.org;
+ %Tatt.divLike.attribute.sample;'> 
 <!ENTITY % Tatt.handFeatures.attribute.scribe '
 scribe %teidata.name;  #IMPLIED'>
 
@@ -429,10 +505,6 @@ medium NMTOKENS  #IMPLIED'>
  %Tatt.handFeatures.attribute.script;
  %Tatt.handFeatures.attribute.scriptRef;
  %Tatt.handFeatures.attribute.medium;'> 
-<!ENTITY % Tatt.internetMedia.attribute.mimeType '
-mimeType CDATA  #IMPLIED'>
-<!ENTITY % Tatt.internetMedia.attributes '
- %Tatt.internetMedia.attribute.mimeType;'> 
 <!ENTITY % Tatt.media.attribute.width '
 width %teidata.outputMeasurement;  #IMPLIED'>
 
@@ -445,26 +517,6 @@ scale %teidata.numeric;  #IMPLIED'>
  %Tatt.media.attribute.width;
  %Tatt.media.attribute.height;
  %Tatt.media.attribute.scale;'> 
-<!ENTITY % Tatt.resourced.attribute.url '
-url %teidata.pointer;  #REQUIRED'>
-<!ENTITY % Tatt.resourced.attributes '
- %Tatt.resourced.attribute.url;'> 
-<!ENTITY % Tatt.measurement.attribute.unit '
-unit %teidata.enumerated;  #IMPLIED'>
-
-<!ENTITY % Tatt.measurement.attribute.unitRef '
-unitRef %teidata.pointer;  #IMPLIED'>
-
-<!ENTITY % Tatt.measurement.attribute.quantity '
-quantity %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % Tatt.measurement.attribute.commodity '
-commodity CDATA  #IMPLIED'>
-<!ENTITY % Tatt.measurement.attributes '
- %Tatt.measurement.attribute.unit;
- %Tatt.measurement.attribute.unitRef;
- %Tatt.measurement.attribute.quantity;
- %Tatt.measurement.attribute.commodity;'> 
 <!ENTITY % Tatt.naming.attribute.role '
 role NMTOKENS  #IMPLIED'>
 
@@ -473,34 +525,6 @@ nymRef CDATA  #IMPLIED'>
 <!ENTITY % Tatt.naming.attributes '%Tatt.canonical.attributes;
  %Tatt.naming.attribute.role;
  %Tatt.naming.attribute.nymRef;'> 
-<!ENTITY % Tatt.notated.attribute.notation '
-notation %teidata.enumerated;  #IMPLIED'>
-<!ENTITY % Tatt.notated.attributes '
- %Tatt.notated.attribute.notation;'> 
-<!ENTITY % Tatt.placement.attribute.place '
-place NMTOKENS  #IMPLIED'>
-<!ENTITY % Tatt.placement.attributes '
- %Tatt.placement.attribute.place;'> 
-<!ENTITY % Tatt.typed.attribute.type '
-type %teidata.enumerated;  #IMPLIED'>
-
-<!ENTITY % Tatt.typed.attribute.subtype '
-subtype %teidata.enumerated;  #IMPLIED'>
-<!ENTITY % Tatt.typed.attributes '
- %Tatt.typed.attribute.type;
- %Tatt.typed.attribute.subtype;'> 
-<!ENTITY % Tatt.pointing.attribute.targetLang '
-targetLang %teidata.language;  #IMPLIED'>
-
-<!ENTITY % Tatt.pointing.attribute.target '
-target CDATA  #IMPLIED'>
-
-<!ENTITY % Tatt.pointing.attribute.evaluate '
-evaluate (all|one|none) #IMPLIED'>
-<!ENTITY % Tatt.pointing.attributes '
- %Tatt.pointing.attribute.targetLang;
- %Tatt.pointing.attribute.target;
- %Tatt.pointing.attribute.evaluate;'> 
 <!ENTITY % Tatt.pointing.group.attribute.domains '
 domains CDATA  #IMPLIED'>
 
@@ -513,38 +537,6 @@ targFunc CDATA  #IMPLIED'>
 function %teidata.enumerated;  #IMPLIED'>
 <!ENTITY % Tatt.segLike.attributes '%Tatt.datcat.attributes;%Tatt.fragmentable.attributes;
  %Tatt.segLike.attribute.function;'> 
-<!ENTITY % Tatt.sortable.attribute.sortKey '
-sortKey %teidata.word;  #IMPLIED'>
-<!ENTITY % Tatt.sortable.attributes '
- %Tatt.sortable.attribute.sortKey;'> 
-<!ENTITY % Tatt.edition.attribute.ed '
-ed CDATA  #IMPLIED'>
-
-<!ENTITY % Tatt.edition.attribute.edRef '
-edRef CDATA  #IMPLIED'>
-<!ENTITY % Tatt.edition.attributes '
- %Tatt.edition.attribute.ed;
- %Tatt.edition.attribute.edRef;'> 
-<!ENTITY % Tatt.spanning.attribute.spanTo '
-spanTo %teidata.pointer;  #IMPLIED'>
-<!ENTITY % Tatt.spanning.attributes '
- %Tatt.spanning.attribute.spanTo;'> 
-<!ENTITY % Tatt.styleDef.attribute.scheme '
-scheme (css|xslfo|free|other) #IMPLIED'>
-
-<!ENTITY % Tatt.styleDef.attribute.schemeVersion '
-schemeVersion %teidata.versionNumber;  #IMPLIED'>
-<!ENTITY % Tatt.styleDef.attributes '
- %Tatt.styleDef.attribute.scheme;
- %Tatt.styleDef.attribute.schemeVersion;'> 
-<!ENTITY % Tatt.timed.attribute.start '
-start %teidata.pointer;  #IMPLIED'>
-
-<!ENTITY % Tatt.timed.attribute.end '
-end %teidata.pointer;  #IMPLIED'>
-<!ENTITY % Tatt.timed.attributes '
- %Tatt.timed.attribute.start;
- %Tatt.timed.attribute.end;'> 
 <!ENTITY % Tatt.transcriptional.attribute.status '
 status %teidata.enumerated;  "unremarkable" '>
 
@@ -553,22 +545,30 @@ cause %teidata.enumerated;  #IMPLIED'>
 
 <!ENTITY % Tatt.transcriptional.attribute.seq '
 seq %teidata.count;  #IMPLIED'>
-<!ENTITY % Tatt.transcriptional.attributes '%Tatt.editLike.attributes;%Tatt.written.attributes;
+<!ENTITY % Tatt.transcriptional.attributes '%Tatt.editLike.attributes;%Tatt.placement.attributes;%Tatt.written.attributes;
  %Tatt.transcriptional.attribute.status;
  %Tatt.transcriptional.attribute.cause;
  %Tatt.transcriptional.attribute.seq;'> 
-<!ENTITY % Tatt.citing.attribute.unit '
-unit %teidata.enumerated;  #IMPLIED'>
+<!ENTITY % Tatt.damaged.attribute.agent '
+agent %teidata.enumerated;  #IMPLIED'>
 
-<!ENTITY % Tatt.citing.attribute.from '
-from %teidata.word;  #IMPLIED'>
+<!ENTITY % Tatt.damaged.attribute.degree '
+degree %teidata.probCert;  #IMPLIED'>
 
-<!ENTITY % Tatt.citing.attribute.to '
-to %teidata.word;  #IMPLIED'>
-<!ENTITY % Tatt.citing.attributes '
- %Tatt.citing.attribute.unit;
- %Tatt.citing.attribute.from;
- %Tatt.citing.attribute.to;'> 
+<!ENTITY % Tatt.damaged.attribute.group '
+group %teidata.count;  #IMPLIED'>
+<!ENTITY % Tatt.damaged.attributes '%Tatt.dimensions.attributes;%Tatt.written.attributes;
+ %Tatt.damaged.attribute.agent;
+ %Tatt.damaged.attribute.degree;
+ %Tatt.damaged.attribute.group;'> 
+<!ENTITY % Tatt.timed.attribute.start '
+start %teidata.pointer;  #IMPLIED'>
+
+<!ENTITY % Tatt.timed.attribute.end '
+end %teidata.pointer;  #IMPLIED'>
+<!ENTITY % Tatt.timed.attributes '
+ %Tatt.timed.attribute.start;
+ %Tatt.timed.attribute.end;'> 
 <!ENTITY % model.nameLike.agent "name |orgName |persName |platypus"> 
 <!ENTITY % model.nameLike.agent_sequence "name, orgName, persName, platypus"> 
 <!ENTITY % model.nameLike.agent_sequenceOptional "name?, orgName?, persName?, platypus?"> 
@@ -1265,7 +1265,6 @@ type %teidata.enumerated;  #IMPLIED >
  %Tatt.global.attributes;
  %Tatt.cmc.attributes;
  %Tatt.dimensions.attributes;
- %Tatt.placement.attributes;
  %Tatt.transcriptional.attributes;
  %Tatt.typed.attributes; >
 <!--doc:(additional name) contains an additional name component, such as a nickname, epithet, or alias, or any other descriptive phrase used within a personal name. [14.2.1. Personal Names] -->
@@ -1282,7 +1281,6 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST addSpan
  %Tatt.global.attributes;
  %Tatt.dimensions.attributes;
- %Tatt.placement.attributes;
  %Tatt.spanning.attributes;
  %Tatt.transcriptional.attributes;
  %Tatt.typed.attributes; >
@@ -1433,6 +1431,7 @@ status (free|unknown|restricted) #IMPLIED >
 <!ATTLIST bibl xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST bibl
  %Tatt.global.attributes;
+ %Tatt.canonical.attributes;
  %Tatt.cmc.attributes;
  %Tatt.declarable.attributes;
  %Tatt.docStatus.attributes;
@@ -1443,6 +1442,7 @@ status (free|unknown|restricted) #IMPLIED >
 <!ATTLIST biblFull xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST biblFull
  %Tatt.global.attributes;
+ %Tatt.canonical.attributes;
  %Tatt.cmc.attributes;
  %Tatt.declarable.attributes;
  %Tatt.docStatus.attributes;
@@ -1458,6 +1458,7 @@ status (free|unknown|restricted) #IMPLIED >
 <!ATTLIST biblStruct xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST biblStruct
  %Tatt.global.attributes;
+ %Tatt.canonical.attributes;
  %Tatt.cmc.attributes;
  %Tatt.declarable.attributes;
  %Tatt.docStatus.attributes;
@@ -1727,7 +1728,8 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST dateline xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST dateline
  %Tatt.global.attributes;
- %Tatt.cmc.attributes; >
+ %Tatt.cmc.attributes;
+ %Tatt.written.attributes; >
 <!--doc:(death) contains information about a person's death, such as its date and place. [16.2.2. The Participant Description] -->
 <!ELEMENT death %macro.phraseSeq;>
 <!ATTLIST death xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1798,6 +1800,7 @@ social %teidata.text;  #IMPLIED >
  %Tatt.global.attributes;
  %Tatt.declaring.attributes;
  %Tatt.divLike.attributes;
+ %Tatt.placement.attributes;
  %Tatt.typed.attribute.subtype;
  %Tatt.written.attributes;
 type (Act|Scene|play|letter) #IMPLIED >
@@ -2301,7 +2304,7 @@ level %teidata.word;  #IMPLIED >
  %Tatt.scope.attributes;
 ident %teidata.language;  #REQUIRED
 usage CDATA #IMPLIED >
-<!--doc:(line beginning) marks the beginning of a new (typographic) line in some edition or version of a text. [3.11.3. Milestone
+<!--doc:(line beginning) marks the beginning of a topographic line in some edition or version of a text. [3.11.3. Milestone
 Elements 7.2.5. Speech Contents] -->
 <!ELEMENT lb  EMPTY>
 <!ATTLIST lb xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -2855,6 +2858,7 @@ bill CDATA #IMPLIED >
 <!ATTLIST postscript
  %Tatt.global.attributes;
  %Tatt.cmc.attributes;
+ %Tatt.placement.attributes;
  %Tatt.written.attributes; >
 <!--doc:(prefix definition) defines a prefixing scheme used in teidata.pointer values, showing how abbreviated URIs using the scheme may be expanded into full URIs. [17.2.3. Using Abbreviated Pointers] -->
 <!ELEMENT prefixDef (%model.pLike;)*>
@@ -3100,7 +3104,6 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST rt xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST rt
  %Tatt.global.attributes;
- %Tatt.placement.attributes;
  %Tatt.transcriptional.attributes;
  %Tatt.typed.attributes;
 target %teidata.pointer;  #IMPLIED
@@ -3262,7 +3265,9 @@ code %teidata.pointer;  #IMPLIED >
 <!ATTLIST sp xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST sp
  %Tatt.global.attributes;
- %Tatt.ascribed.directed.attributes; >
+ %Tatt.ascribed.directed.attributes;
+ %Tatt.placement.attributes;
+ %Tatt.written.attributes; >
 <!--doc:(space) indicates the location of a significant space in the text. [12.4.1. Space] -->
 <!ELEMENT space (%model.descLike;|_DUMMY_model.certLike)*>
 <!ATTLIST space xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -3290,7 +3295,9 @@ dim (horizontal|vertical) #IMPLIED >
 <!ELEMENT speaker %macro.phraseSeq;>
 <!ATTLIST speaker xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST speaker
- %Tatt.global.attributes; >
+ %Tatt.global.attributes;
+ %Tatt.placement.attributes;
+ %Tatt.written.attributes; >
 <!--doc:(sponsor) specifies the name of a sponsoring organization or institution. [2.2.1. The Title Statement] -->
 <!ELEMENT sponsor %macro.phraseSeq.limited;>
 <!ATTLIST sponsor xmlns CDATA "http://www.tei-c.org/ns/1.0">
