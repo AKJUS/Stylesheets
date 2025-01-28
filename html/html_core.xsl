@@ -82,7 +82,15 @@ of this software, even if advised of the possibility of such damage.
           </xsl:if>
           <xsl:call-template name="makeRendition">
             <xsl:with-param name="default">false</xsl:with-param>
-          </xsl:call-template>
+	  </xsl:call-template>
+	  <xsl:if test="@type">
+	    <xsl:attribute name="class">
+	      <xsl:sequence select="@type"/>
+	      <xsl:if test="@subtype">
+		<xsl:sequence select="' '||@subtype"/>
+	      </xsl:if>
+	    </xsl:attribute>
+	  </xsl:if>
           <xsl:apply-templates/>
         </div>
       </xsl:otherwise>
