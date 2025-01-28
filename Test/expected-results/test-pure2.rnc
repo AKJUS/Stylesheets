@@ -1,11 +1,13 @@
 default namespace = ""
+namespace math = "http://www.w3.org/1998/Math/MathML"
+namespace rng = "http://relaxng.org/ns/structure/1.0"
 namespace sch = "http://purl.oclc.org/dsdl/schematron"
+namespace svg = "http://www.w3.org/2000/svg"
 namespace tei = "http://www.tei-c.org/ns/1.0"
 namespace teix = "http://www.tei-c.org/ns/Examples"
+namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-
-sch:ns [ prefix = "tei" uri = "http://www.tei-c.org/ns/1.0" ]
 stuffPart = bob | bit
 stuff =
   
@@ -38,3 +40,12 @@ bit =
   ## élément textuel du schéma simplissime (peut contenir des bobs) 
   element bit { (text | bob)* }
 start = stuff | stuffSeq | stuffSeqOpt | stuffSeqRep
+sch:ns [ prefix = "tei" uri = "http://www.tei-c.org/ns/1.0" ]
+sch:ns [ prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema" ]
+sch:ns [ prefix = "rng" uri = "http://relaxng.org/ns/structure/1.0" ]
+sch:ns [
+  prefix = "rna"
+  uri = "http://relaxng.org/ns/compatibility/annotations/1.0"
+]
+sch:ns [ prefix = "sch" uri = "http://purl.oclc.org/dsdl/schematron" ]
+sch:ns [ prefix = "sch1x" uri = "http://www.ascc.net/xml/schematron" ]
