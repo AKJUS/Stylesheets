@@ -818,7 +818,7 @@ of this software, even if advised of the possibility of such damage.
                               tei:*[1]/tei:author/tei:forename
                               ,tei:*[1]/tei:editor/tei:forename
                               ,'')[1]))"/>
-            <xsl:sort select="tei:monogr/tei:imprint/tei:date"/>
+            <xsl:sort select="head(tei:monogr/tei:imprint/tei:date)"/>
             <li>
               <xsl:call-template name="makeAnchor"/>
               <xsl:apply-templates select="."/>
