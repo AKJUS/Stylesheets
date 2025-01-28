@@ -87,7 +87,7 @@ of this software, even if advised of the possibility of such damage.
 	    <xsl:attribute name="class">
 	      <xsl:sequence select="@type"/>
 	      <xsl:if test="@subtype">
-		<xsl:sequence select="'_'||@subtype"/>
+		<xsl:sequence select="' '||@subtype"/>
 	      </xsl:if>
 	    </xsl:attribute>
 	  </xsl:if>
