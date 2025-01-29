@@ -28,19 +28,19 @@
          <ref name="macro.divContent"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                  id="nonTeiOdd-div-headingLevelMustMatchNesting-constraint-assert-1">
-            <rule context="xh:div">
-               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
-                           xmlns:gcse="http://www.google.com/cse"
-                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                           xmlns:xh="http://www.w3.org/1999/xhtml"
-                           test="if (child::xh:h3) then count(ancestor::xh:div) = 0                                   else if (child::xh:h4) then count(ancestor::xh:div) = 1                                   else if (child::xh:h5) then count(ancestor::xh:div) = 2                                   else not(child::xh:h3 or child::xh:h4 or child::xh:h5)">
-                  The level of your heading (h3, h4 or h5) must fit
-                  with the depth of your division nesting; so the
-                  top-level div would have h3, a div inside it would
-                  have h4, and a div inside that would have h5.
-                </sch:assert>
-            </rule>
+                  id="nonTeiOdd-div-headingLevelMustMatchNesting-constraint-rule-1">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:gcse="http://www.google.com/cse"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      context="xh:div">
+               <sch:assert test="if (child::xh:h3) then count(ancestor::xh:div) = 0                                     else if (child::xh:h4) then count(ancestor::xh:div) = 1                                     else if (child::xh:h5) then count(ancestor::xh:div) = 2                                     else not(child::xh:h3 or child::xh:h4 or child::xh:h5)">
+                    The level of your heading (h3, h4 or h5) must fit
+                    with the depth of your division nesting; so the
+                    top-level div would have h3, a div inside it would
+                    have h4, and a div inside that would have h5.
+                  </sch:assert>
+            </sch:rule>
          </pattern>
          <ref name="att.classable.attributes"/>
          <ref name="att.identifiable.attributes"/>
@@ -165,16 +165,16 @@
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                  id="nonTeiOdd-img-imgWithoutCaptionNeedsAltAndTitle-constraint-assert-2">
-            <rule context="xh:img">
-               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
-                           xmlns:gcse="http://www.google.com/cse"
-                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                           xmlns:xh="http://www.w3.org/1999/xhtml"
-                           test="(@alt and @title) or following-sibling::xh:figcaption or ancestor::xh:ul[@class='gallery']"> If your img element is not inside a figure element with a figcaption,
-                then it requires @alt and @title attributes to provide help for
-                visually-impaired users. </sch:assert>
-            </rule>
+                  id="nonTeiOdd-img-imgWithoutCaptionNeedsAltAndTitle-constraint-rule-2">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:gcse="http://www.google.com/cse"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      context="xh:img">
+               <sch:assert test="(@alt and @title) or following-sibling::xh:figcaption or ancestor::xh:ul[@class='gallery']"> If your img element is not inside a figure element with a figcaption,
+                  then it requires @alt and @title attributes to provide help for
+                  visually-impaired users. </sch:assert>
+            </sch:rule>
          </pattern>
          <ref name="att.classable.attribute.style"/>
          <ref name="att.identifiable.attributes"/>
@@ -335,12 +335,14 @@
    <define name="table">
       <element name="table" ns="http://www.w3.org/1999/xhtml">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A table.</a:documentation>
-         <optional>
-            <ref name="caption"/>
-         </optional>
-         <oneOrMore>
-            <ref name="tr"/>
-         </oneOrMore>
+         <group>
+            <optional>
+               <ref name="caption"/>
+            </optional>
+            <oneOrMore>
+               <ref name="tr"/>
+            </oneOrMore>
+         </group>
          <ref name="att.classable.attributes"/>
          <empty/>
       </element>
@@ -471,7 +473,7 @@
                value="concat('[', $straightDouble, $straightApos, ']')"/>
    </sch:pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noQuotesInText-constraint-rule-1">
+            id="nonTeiOdd-noQuotesInText-constraint-rule-3">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -483,7 +485,7 @@
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noDivJustForFigure-constraint-rule-2">
+            id="nonTeiOdd-noDivJustForFigure-constraint-rule-4">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -494,7 +496,7 @@
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-onlyPermittedImgAttributes-constraint-rule-3">
+            id="nonTeiOdd-onlyPermittedImgAttributes-constraint-rule-5">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -506,7 +508,7 @@
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-spacesAfterPeriods-constraint-rule-4">
+            id="nonTeiOdd-spacesAfterPeriods-constraint-rule-6">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -517,7 +519,7 @@
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noSpacesInHrefs-constraint-rule-5">
+            id="nonTeiOdd-noSpacesInHrefs-constraint-rule-7">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -528,7 +530,7 @@
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noLinksInLinks-constraint-rule-6">
+            id="nonTeiOdd-noLinksInLinks-constraint-rule-8">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -539,7 +541,7 @@
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-periodsAndCommasOutsideLinks-constraint-rule-7">
+            id="nonTeiOdd-periodsAndCommasOutsideLinks-constraint-rule-9">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
