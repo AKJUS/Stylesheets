@@ -473,7 +473,7 @@ of this software, even if advised of the possibility of such damage.
     <xsl:variable name="patID" select="tei:makePatternID(.)"/>
     <!-- (Note that makePatternID() will use the @id of <pattern>, if there is one.) -->
     <pattern id="{$patID}">
-      <xsl:apply-templates select="node()"/>
+      <xsl:apply-templates select="@*|node()"/>
     </pattern>
   </xsl:template>
 
