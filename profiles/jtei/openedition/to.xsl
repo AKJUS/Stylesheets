@@ -89,7 +89,7 @@
     " use="local:map.styles(.)"/>
   
   <!-- an index of <rendition> definitions that are in use in the input document -->
-  <xsl:key name="renditionsInUse" match="@rendition" use="substring-after(., '#')"/>
+  <xsl:key name="renditionsInUse" match="@rendition" use="tokenize(., '\s*#')"/>
     
   <!-- a conversion table with <rendition> definitions for input elements that should be converted to <hi> -->
   <xsl:variable name="hiConversion">
@@ -472,10 +472,12 @@
   </xsl:template>
 
   <xsl:template match="tei:eg">
-    <xsl:variable name="stripIndent" select="min((for $line in tokenize(., '\n')[.] return string-length(replace($line, '^(\s+).*', '$1'))))"/>
+    <!-- strip leading blank lines, normalize tabs -->
+    <xsl:variable name="eg" select="replace(., '^(\s*\n+)', '') ! replace(., '\t', '    ')"/>
+    <xsl:variable name="stripIndent" select="min((for $line in tokenize($eg, '\n')[.] return string-length(replace($line, '^(\s*).+', '$1'))))"/>
     <p rend="noindent">
       <code lang="xml">
-        <xsl:analyze-string select="." regex="\n">
+        <xsl:analyze-string select="replace($eg, '^\n+', '')" regex="\n">
           <xsl:matching-substring>
             <xsl:text>&#10;</xsl:text>
           </xsl:matching-substring>
@@ -812,7 +814,7 @@
   
   <xsl:template match="*[@rendition]" priority="-.5">
     <hi>
-      <xsl:apply-templates select="@*"/>
+      <xsl:copy-of select="@rendition"/>
       <xsl:call-template name="get.rendition"/>
       <xsl:apply-templates/>
     </hi>
@@ -994,8 +996,14 @@
     <xsl:apply-templates/>
   </xsl:template>
   
-  <xsl:template match="tei:name[not(@rendition)]" priority="0">
-    <xsl:apply-templates/>
+  <xsl:template match="tei:name|tei:abbr|tei:placeName|tei:surname|tei:forename" priority="0">
+    <xsl:choose>
+    <xsl:when test="@rendition">
+      <xsl:next-match/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates/></xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- ==== -->
@@ -1122,8 +1130,8 @@
       <!-- for paragraph indentation
       <xsl:when test="$node/self::tei:p[parent::tei:div]">p.indent</xsl:when>
       -->
-            
-      <xsl:otherwise><xsl:value-of select="$node/local-name()"/></xsl:otherwise>
+<!--       <xsl:when test="$node/@rendition"><xsl:value-of select="replace($node/@rendition, '#', '')"/></xsl:when>     
+-->      <xsl:otherwise><xsl:value-of select="$node/local-name()"/></xsl:otherwise>
     </xsl:choose>
   </xsl:function>
   
