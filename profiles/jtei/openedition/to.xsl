@@ -472,10 +472,12 @@
   </xsl:template>
 
   <xsl:template match="tei:eg">
-    <xsl:variable name="stripIndent" select="min((for $line in tokenize(., '\n')[.] return string-length(replace($line, '^(\s+).*', '$1'))))"/>
+    <!-- strip leading blank lines, normalize tabs -->
+    <xsl:variable name="eg" select="replace(., '^(\s*\n+)', '') ! replace(., '\t', '    ')"/>
+    <xsl:variable name="stripIndent" select="min((for $line in tokenize($eg, '\n')[.] return string-length(replace($line, '^(\s*).+', '$1'))))"/>
     <p rend="noindent">
       <code lang="xml">
-        <xsl:analyze-string select="." regex="\n">
+        <xsl:analyze-string select="replace($eg, '^\n+', '')" regex="\n">
           <xsl:matching-substring>
             <xsl:text>&#10;</xsl:text>
           </xsl:matching-substring>
