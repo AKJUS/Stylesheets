@@ -160,9 +160,9 @@ else
 fi
 if [ $from = odd ] ; then odd=true; fi
 
-infile=${1}
-indir=$(cd $(dirname ${1}); pwd) # This returns a full path where just $(dirname) might return just ‘.’
-infilename=$(basename ${1})
+infile="${1}"
+indir=$(cd $(dirname "${1}"); pwd) # This returns a full path where just $(dirname) might return just ‘.’
+infilename=$(basename "${1}")
 if [ $# -eq 1 ]; then           # only 1 argument, output file is input with new extension
     # strip off expected suffixes from input filename
     infilebase=${infilename}
@@ -184,16 +184,16 @@ if [ $# -eq 1 ]; then           # only 1 argument, output file is input with new
     # output filename is like input but with common prefix replaced with new one
     outfilename=${infilebase}$outsuffix
 else                            # 2 arguments (if there were more then 2 we would have already aborted)
-    outfile=${2}
+    outfile="${2}"
     # output directory is the directory specified
     outdir=`dirname "${outfile}"`
     # Following line tries to create the output directory if it does not exist yet
     outdir=`(mkdir -p ${outdir}; cd ${outdir}; pwd)`
     # output filename is as specified
-    outfilename=`basename ${outfile}`
+    outfilename=`basename "${outfile}"`
 fi
 
-if [ ${indir}/${infilename} = ${outdir}/${outfilename} ] ; then die "input and output files are the same"; fi
+if [ "${indir}"/"${infilename}" = "${outdir}"/"${outfilename}" ] ; then die "input and output files are the same"; fi
 
 if [ ! -f "${indir}/${infilename}" ] ; then die "Input file $infile does not exist"; fi
 
