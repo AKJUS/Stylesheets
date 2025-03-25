@@ -15099,8 +15099,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-02-10\" xml:lang=\"en\">signals an intention about how white space should be \n      managed by  applications.<\/desc>" ],
-              "shortDesc" : "signals an intention about how white space should be \n      managed by  applications.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-02-10\" xml:lang=\"en\">signals an intention about how white space should be managed by applications.<\/desc>" ],
+              "shortDesc" : "signals an intention about how white space should be managed by applications.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15234,9 +15234,9 @@
               "usage" : "opt",
               "desc" : 
               [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-10-10\" xml:lang=\"en\">points to the next element of a virtual aggregate of which the current element is part.<\/desc>" ],
-              "shortDesc" : "points to the next element of a virtual aggregate of which the current element is part.",
+              "shortDesc" : "(next) points to the next element of a virtual aggregate of which the current element is part.",
               "gloss" : 
-              [  ],
+              [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2025-02-06\" xml:lang=\"en\">next<\/gloss>" ],
               "altIdent" : 
               [  ],
               "valDesc" : 

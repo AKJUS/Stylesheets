@@ -4765,7 +4765,12 @@ event =
     (idno*,
      model.headLike*,
      (model.pLike+ | model.labelLike+ | eventName+),
-     (model.noteLike | model.biblLike | linkGrp | link | idno | ptr)*,
+     (model.noteLike
+      | model.biblLike
+      | model.ptrLike
+      | linkGrp
+      | link
+      | idno)*,
      model.eventLike*,
      (model.personLike | listPerson)*,
      (model.placeLike | listPlace)*,
@@ -5050,7 +5055,11 @@ org =
          | model.placeLike
          | model.orgPart
          | model.milestoneLike)*),
-     (model.noteLike | model.biblLike | linkGrp | link | ptr)*,
+     (model.noteLike
+      | model.biblLike
+      | model.ptrLike
+      | linkGrp
+      | link)*,
      model.personLike*),
     att.global.attributes,
     att.editLike.attributes,
@@ -5069,7 +5078,7 @@ person =
   
   ## (personne) fournit des informations sur un individu identifiable, par exemple un participant à une interaction linguistique, ou une personne citée dans une source historique. [14.3.2. The Person Element 16.2.2. The Participant Description]
   element person {
-    (model.pLike+ | (model.personPart | model.global | ptr)*),
+    (model.pLike+ | (model.personPart | model.global | model.ptrLike)*),
     att.global.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
@@ -5226,7 +5235,12 @@ place =
          | model.placeStateLike
          | model.eventLike
          | name)*),
-     (model.noteLike | model.biblLike | idno | ptr | linkGrp | link)*,
+     (model.noteLike
+      | model.biblLike
+      | model.ptrLike
+      | idno
+      | linkGrp
+      | link)*,
      (model.placeLike | listPlace)*),
     att.global.attributes,
     att.editLike.attributes,
@@ -6720,7 +6734,7 @@ att.global.linking.attribute.copyOf =
   }?
 att.global.linking.attribute.next =
   
-  ## pointe vers l'élément suivant d'un ensemble virtuel dont l'élément en question est une partie.
+  ## (suivant) pointe vers l'élément suivant d'un ensemble virtuel dont l'élément en question est une partie.
   attribute next {
     xsd:anyURI { pattern = "\S+" }
   }?

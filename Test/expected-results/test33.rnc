@@ -5573,7 +5573,7 @@ tei_att.global.linking.attribute.copyOf =
   }?
 tei_att.global.linking.attribute.next =
   
-  ## points to the next element of a virtual aggregate of which the current element is part.
+  ## (next) points to the next element of a virtual aggregate of which the current element is part.
   attribute next {
     xsd:anyURI { pattern = "\S+" }
   }?

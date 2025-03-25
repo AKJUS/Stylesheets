@@ -594,7 +594,7 @@ Elements</ref>
         <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="class-attr-cmc-egXML-mz">
           <post type="standard" generatedBy="human" indentLevel="2" synch="#t00394407" who="#WU00005582">
             <p> Kurze Nachfrage: Die Hieros für den Goldnamen stammen
-              auch von Beckerath gem. Literatur ? Grüße —</p><signed generatedBy="template" rend="inline"><gap reason="signatureContent"/><time generatedBy="template">18:50, 22. Okt. 2008 (CEST)</time></signed>
+              auch von Beckerath gem. Literatur ? Grüße --</p><signed generatedBy="template" rend="inline"><gap reason="signatureContent"/><time generatedBy="template">18:50, 22. Okt. 2008 (CEST)</time></signed>
           </post>
         </egXML>
       </exemplum>   
@@ -1809,10 +1809,12 @@ the TEI header.</p>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" predeclare="true" xml:id="GBLSRC" module="tei" type="atts" ident="att.global.source">
   <desc versionDate="2021-08-22" xml:lang="en">provides attributes used by elements to point to an external source.</desc>
   <desc versionDate="2019-09-18" xml:lang="ja">外部ソースを参照する要素によって用いられる属性を示す。</desc>
+  <desc versionDate="2025-02-06" xml:lang="de">stellt Attribute bereit, anhand derer die Elemente auf eine externe Quelle verweisen.</desc>
   <attList>
     <attDef ident="source" usage="opt">
       <desc versionDate="2010-05-09" xml:lang="en">specifies the source from which some aspect of this element is drawn.</desc>
       <desc versionDate="2019-09-18" xml:lang="ja">この要素の何らかの側面を示すソースを指定する。</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">gibt die Quelle an, aus der ein Bestandteil dieses Elements stammt.</desc>
       <datatype maxOccurs="unbounded">
         <dataRef key="teidata.pointer"/>
       </datatype>
@@ -3580,6 +3582,7 @@ l'échantillon inconnue</desc>
     elementos del esquema de codificación TEI.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">stabilisce un insieme di attributi comuni a tutti gli
     elementi dello schema di codifica TEI</desc>
+  <desc versionDate="2025-02-06" xml:lang="de">stellt gemeinsame Attribute für alle Elemente im TEI-Kodierungsschema bereit.</desc>
   <classes>
     
     
@@ -3599,6 +3602,7 @@ l'échantillon inconnue</desc>
       <gloss versionDate="2008-03-30" xml:lang="fr">identifiant</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">identificatore</gloss>
       <gloss versionDate="2019-06-08" xml:lang="ja">識別子</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="de">Identifikator</gloss>
       <desc versionDate="2005-10-10" xml:lang="en">provides a unique identifier for the element bearing the attribute.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">속성을 포함하는 요소에 대한 고유한 확인소를 제공한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">提供一個獨特識別符碼，識別帶有該屬性的元素。</desc>
@@ -3609,6 +3613,7 @@ l'échantillon inconnue</desc>
         al cual se asocia el atributo.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">assegna un identificatore unico all'elemento a cui è
         associato l'attributo</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">liefert einen Identifikator für das Element, welches dieses Attribut trägt.</desc>
       <datatype><dataRef name="ID"/></datatype>
       <remarks versionDate="2005-10-10" xml:lang="en">
         <p>The <att>xml:id</att> attribute may be used to specify a canonical reference for an
@@ -3633,6 +3638,7 @@ l'échantillon inconnue</desc>
       <gloss versionDate="2008-03-30" xml:lang="fr">nombre</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">numero</gloss>
       <gloss versionDate="2019-06-08" xml:lang="ja">数値</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="de">Nummer</gloss>
       <desc versionDate="2005-10-10" xml:lang="en">gives a number (or other label) for an element, which is not necessarily unique within
         the document.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">요소의 번호(또는 다른 표지)를 제시하며, 문서 내에서 반드시 고유값일 필요는 없다.</desc>
@@ -3644,6 +3650,7 @@ l'échantillon inconnue</desc>
         que no es necesariamente único en el documento.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">assegna un numero (o altra etichetta) a un elemento
         che non è necessariamente unico all'interno del documento</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">gibt eine Nummer (oder eine andere Bezeichnung) für ein Element an, die innerhalb des Dokuments nicht zwangsläufig eindeutig ist.</desc>
       <datatype maxOccurs="1"><dataRef key="teidata.text"/></datatype>
       <remarks versionDate="2013-12-06" xml:lang="en">
         <p>The value of this attribute is always understood to be a single token, even if it contains space or other punctuation characters, and need not be composed of numbers only. It is typically used to specify the numbering of chapters, sections,
@@ -3669,6 +3676,7 @@ l'échantillon inconnue</desc>
       <gloss versionDate="2008-03-30" xml:lang="fr">langue</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">lingua</gloss>
       <gloss versionDate="2019-06-08" xml:lang="ja">言語</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="de">Sprache</gloss>
       <desc versionDate="2013-01-07" xml:lang="en">indicates the language of the element content using a <soCalled>tag</soCalled> generated
         according to <ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref>.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko"><ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref>에 따라 생성된
@@ -3683,6 +3691,7 @@ l'échantillon inconnue</desc>
       <desc versionDate="2007-01-21" xml:lang="it">indica la lingua del contenuto dell'elemento
         utilizzando i codici tratti da <ref target="https://www.ietf.org/rfc/rfc3066.txt">RFC
         3066</ref></desc>
+      <desc versionDate="2025-02-06" xml:lang="de">gibt die Sprache des Elementinhalts durch ein <soCalled>Tag</soCalled> an, das nach <ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref> festgelegt wird.</desc>
       <datatype><dataRef key="teidata.language"/></datatype>
       <exemplum xml:lang="en">
         <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="GLOBAL-egXML-op" xml:lang="en">
@@ -3732,9 +3741,6 @@ l'échantillon inconnue</desc>
       </remarks>
       <remarks versionDate="2019-06-16" xml:lang="ja"><p>xml:lang の値は、直接の親要素、そのまた親要素からというように、文書の上位階層から継承されてくる。できるだけ高い適切な階層に xml:lang を指定するのが一般には望ましいが、teiHeader には関連するリソース要素と異なるデフォルト値が必要となったり、一つのTEI文書が多くの言語のテキストを含みうることには注意されたい。登録された言語タグの正式なリストはIANAが管理しており、<ptr target="https://www.iana.org/assignments/language-subtag-registry"/> から確認できる。言語タグの構造についての良い概説は <ptr target="https://www.w3.org/International/articles/language-tags/"/> を、手順を追った実用的なガイドは <ptr target="https://www.w3.org/International/questions/qa-choosing-language-tags.en.php"/> を参照されたい。利用する値は、BCP 47 に準拠しなければならない。もし値が私用コード（<val>x-</val> から始まったり <val>-x-</val> を含む）ならば、その <att>ident</att> 属性と一致する値を持つ <gi>language</gi> 要素をTEIヘッダ内に追加して内容を説明すべきである。この説明は私用コード以外にも任意で追加できるが、<choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice> による定義と整合していなければならない。</p></remarks>
     </attDef>
-    
-    
-    
     <attDef ident="xml:base" usage="opt">
       <desc versionDate="2005-10-10" xml:lang="en">provides a base URI reference with which applications can resolve relative URI
         references into absolute URI references.</desc>
@@ -3752,6 +3758,7 @@ l'échantillon inconnue</desc>
       <desc versionDate="2007-01-21" xml:lang="it">assegna un riferimento URI di base grazie al quale
         eventuali applicazioni possono analizzare riferimenti URI relativi come riferimenti URI
         assoluti</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">liefert eine Basis-URI-Referenz, mit der Anwendungen relative URI-Referenzen in absolute auflösen können.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <exemplum xml:lang="en">
         <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="GLOBAL-egXML-ol">
@@ -3780,13 +3787,12 @@ l'échantillon inconnue</desc>
      
     </attDef>
     <attDef ident="xml:space" usage="opt">
-      <desc versionDate="2010-02-10" xml:lang="en">signals an intention about how white space should be 
-      managed by  applications.</desc>
-      <desc versionDate="2007-06-12" xml:lang="fr">signale que les applications doivent préserver
-          l'espace blanc</desc>
+      <desc versionDate="2010-02-10" xml:lang="en">signals an intention about how white space should be managed by applications.</desc>
+      <desc versionDate="2007-06-12" xml:lang="fr">signale que les applications doivent préserver l'espace blanc</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala la voluntad de hacer que el espaciado sea preservado por cualquier aplicación.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">segnala la volontà di far sì che la spaziatura sia mantenuta da qualsivoglia applicazione.</desc>
       <desc versionDate="2019-06-08" xml:lang="ja">空白文字類をアプリケーションがどう解釈するかを示す。</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">signalisiert die gewünschte Handhabung von Leerzeichen durch Anwendungen.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="closed">
         <valItem ident="default">
@@ -7870,7 +7876,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-hi-egXML-ec" source="#fr-ex-Bataille_Arbre">
       <p>Au fronton, on lit cette inscription : <hi rend="uppercase">attends. Tu verras.</hi> Le
           notaire encore prétend qu' elle ne saurait être antérieure au XVIII siècle, car, sinon, l'
-          on eût écrit —<q>tu voiras</q>—. </p>
+          on eût écrit --<q>tu voiras</q>--. </p>
     </egXML>
   </exemplum>
   <exemplum xml:lang="zh-TW">
@@ -21197,7 +21203,7 @@ codes used elsewhere in the text.</desc>
       <textClass>
         <keywords scheme="#LCSH">
           <term>Political science</term>
-          <term>United States — Politics and government —
+          <term>United States -- Politics and government --
                       Revolution, 1775-1783</term>
         </keywords>
       </textClass>
@@ -21215,7 +21221,7 @@ codes used elsewhere in the text.</desc>
       <!-- ... -->
       <textClass>
         <keywords scheme="#RAMEAU">
-          <term>Bien et mal — Enseignement coranique</term>
+          <term>Bien et mal -- Enseignement coranique</term>
         </keywords>
       </textClass>
     </egXML>
@@ -21339,7 +21345,7 @@ codes used elsewhere in the text.</desc>
           <catDesc>Dernières lettres</catDesc>
         </category>
         <category xml:id="fr_tax.a.c.">
-          <catDesc>Littérature européenne — 16e siècle</catDesc>
+          <catDesc>Littérature européenne -- 16e siècle</catDesc>
         </category>
         <category xml:id="fr_tax.a.c.1">
           <catDesc>Satire de la Renaissance </catDesc>
@@ -22620,9 +22626,9 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
       <textClass>
         <keywords scheme="#fr_RAMEAU">
           <list>
-            <item>Littérature française — 20ème siècle — Histoire et critique</item>
-            <item>Littérature française — Histoire et critique — Théorie, etc.</item>
-            <item>Français (langue) — Style — Bases de données.</item>
+            <item>Littérature française -- 20ème siècle -- Histoire et critique</item>
+            <item>Littérature française -- Histoire et critique -- Théorie, etc.</item>
+            <item>Français (langue) -- Style -- Bases de données.</item>
           </list>
         </keywords>
       </textClass>
@@ -22726,9 +22732,9 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
   <exemplum versionDate="2008-04-06" xml:lang="fr">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-keywords-egXML-dn">
       <keywords scheme="#fr_RAMEAU">
-        <term>Littérature française — 20ème siècle — Histoire et critique</term>
-        <term>Littérature française — Histoire et critique — Théorie, etc.</term>
-        <term>Français (langue) — Style — Bases de données.</term>
+        <term>Littérature française -- 20ème siècle -- Histoire et critique</term>
+        <term>Littérature française -- Histoire et critique -- Théorie, etc.</term>
+        <term>Français (langue) -- Style -- Bases de données.</term>
       </keywords>
     </egXML>
   </exemplum>
@@ -27813,6 +27819,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2016-02-16" xml:lang="fr">fournit un ensemble d'attributs pour décrire les liens hypertextuels.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define un conjunto de atributos para hipertexto u otro vínculo habilitado para todos los elementos cuando se selecciona la etiqueta adicional para los enlaces.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi per ipertesto o altro legame abilitati per tutti gli elementi quando è selezionato il sottoinsieme di marcatori per i collegamenti</desc>
+  <desc versionDate="2025-02-06" xml:lang="de">stellt Attribute für hypertextuelle Verlinkungen bereit.</desc>
   <attList>
     <attDef ident="corresp" usage="opt">
       <gloss versionDate="2007-07-04" xml:lang="en">corresponds</gloss>
@@ -27821,6 +27828,7 @@ reserved for the element likely to be used more often.</p>
       <gloss versionDate="2008-03-30" xml:lang="fr">correspond</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">corrispondente</gloss>
       <gloss versionDate="2019-07-21" xml:lang="ja">対応</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="de">korrespondiert</gloss>
       <desc versionDate="2005-10-10" xml:lang="en">points to elements that correspond to the current element in some way.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">어떤 식으로든 현 요소와 일치하는 요소를 가리킨다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">連結到的元素在某方面符合現有元素。</desc>
@@ -27828,6 +27836,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers des éléments qui ont une correspondance avec l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala los elementos que presentan una correspondencia con el elemento corriente.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">punta a elementi che hanno una qualche corrispondenza con l'elemento corrente</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">zeigt auf Elemente, die dem aktuellen Element in gewisser Weise entsprechen.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
       <exemplum versionDate="2017-05-11" xml:lang="en">
         <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="CLLINK-egXML-vp" xml:lang="en">
@@ -27894,6 +27903,7 @@ reserved for the element likely to be used more often.</p>
       <gloss versionDate="2008-03-30" xml:lang="fr">synchrone</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">sincrono</gloss>
       <gloss versionDate="2019-07-21" xml:lang="ja">連動</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="de">synchron</gloss>
       <desc versionDate="2005-10-10" xml:lang="en">points to elements that are synchronous with the current element.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">현 요소와 동시 발생하는 요소를 가리킨다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">連結到的元素和現有元素同時出現。</desc>
@@ -27901,6 +27911,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers des éléments qui sont synchrones avec l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala los elementos que son sincrónicos con el elemento corriente.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">punta a elementi sincroni rispetto all'elemento corrente</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">zeigt auf Elemente, die synchron mit dem aktuellen Element sind.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
     </attDef>
     <attDef ident="sameAs" usage="opt">
@@ -27911,6 +27922,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers un élément identique à l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala el elementos que se corresponde exactamente con el elemento corriente.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">punta a un elemento che corrisponde esattamente all'elemento corrente</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">zeigt auf ein Element, das mit dem aktuellen Element identisch ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
     </attDef>
     <attDef ident="copyOf" usage="opt">
@@ -27921,6 +27933,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers un élément dont l'élément en question est une copie.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala un elemento del que el elemento corriente es una copia.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">punta a un elemento di cui l'elemento corrente è una copia</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">zeigt auf ein Element, von dem das aktuelle Element eine Kopie ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2005-10-10" xml:lang="en">
         <p>Any content of the current element should be ignored. Its
@@ -27938,6 +27951,9 @@ reserved for the element likely to be used more often.</p>
       </remarks>
     </attDef>
     <attDef ident="next" usage="opt">
+      <gloss versionDate="2025-02-06" xml:lang="en">next</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="fr">suivant</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="de">nachfolgend</gloss>
       <desc versionDate="2005-10-10" xml:lang="en">points to the next element of a virtual aggregate of which the current element is part.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">현 요소가 그 부분인 가상 집합의 다음 요소를 가리킨다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">連結到現有元素所屬虛擬集合中的下一個元素。</desc>
@@ -27945,6 +27961,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素も所属する仮想集合における次の要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers l'élément suivant d'un ensemble virtuel dont l'élément en question est une partie.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">punta all'elemento seguente all'interno di un aggregazione virtuale di cui l'elemento corrente fa parte</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">zeigt auf das nächste Element innerhalb einer gedachten Gruppe, von der das betreffende Element ein Teil ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2017-05-02" xml:lang="en"><p>It is recommended that the element indicated be of the same type as the element bearing this attribute.</p></remarks>
       <remarks versionDate="2019-09-16" xml:lang="ja">
@@ -27955,9 +27972,10 @@ reserved for the element likely to be used more often.</p>
       <gloss versionDate="2007-07-04" xml:lang="en">previous</gloss>
       <gloss versionDate="2007-12-20" xml:lang="ko">이전</gloss>
       <gloss versionDate="2008-04-06" xml:lang="es">anterior</gloss>
-      <gloss versionDate="2008-03-30" xml:lang="fr"> précédent</gloss>
+      <gloss versionDate="2008-03-30" xml:lang="fr">précédent</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">precedente</gloss>
       <gloss versionDate="2019-07-21" xml:lang="ja">前の</gloss>
+      <gloss versionDate="2025-02-06" xml:lang="de">vorhergehend</gloss>
       <desc versionDate="2005-10-10" xml:lang="en">points to the previous element of a virtual aggregate of which the current element is part.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">현 요소가 그 부분인 가상 집합의 이전 요소를 가리킨다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">連結到現有元素所屬虛擬集合中的上一個元素。</desc>
@@ -27965,6 +27983,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers l'élément précédent d'un ensemble virtuel auquel appartient l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala al elemento precedente de una adición virtual, de la cual el elemento corriente forma parte.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">punta all'elemento precedente all'interno di un aggregazione virtuale di cui l'elemento corrente fa parte</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">zeigt auf das vorherige Element innerhalb einer gedachten Gruppe, von der das betreffende Element ein Teil ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2017-05-02" xml:lang="en"><p>It is recommended that the element indicated be of the same type as the element bearing this attribute.</p></remarks>
       <remarks versionDate="2019-09-16" xml:lang="ja">
@@ -27979,6 +27998,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers des éléments qui sont une alternative exclusive à l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala los elementos que estan en relación de alternancia exclusiva con el elemento corriente.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">punta a elementi in relazione di alternanza esclusiva con l'elemento corrente</desc>
+      <desc versionDate="2025-02-06" xml:lang="de">zeigt auf Elemente, die eine exklusive Alternative zu dem aktuellen Element darstellen.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
     </attDef>
     <attDef ident="select" usage="opt">
@@ -31256,11 +31276,11 @@ dialogue.</desc>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-view-egXML-fc">
       <view><name>Max</name> joins his daughter
 at the window. <hi>Rain</hi> sprays his
-        face— </view>
+        face-- </view>
       <view><camera>Max's POV</camera> He sees occasional
 windows open, and just across from his apartment
 house, a <hi>man</hi> opens the front door of
-        a brownstone—</view>
+        a brownstone--</view>
     </egXML>
   </exemplum>
   <exemplum versionDate="2008-04-06" xml:lang="fr">
@@ -31293,8 +31313,8 @@ house, a <hi>man</hi> opens the front door of
   </exemplum>
   <exemplum xml:lang="zh-TW">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-view-egXML-xu">
-      <view><name>馬克思</name>隨他女兒到窗邊。<hi>雨水</hi> 打在他臉上— </view>
-      <view><camera>馬克思的視點</camera> 他看見一些打開的窗戶，而就在他公寓對面，有一個<hi>男子</hi> 正打開富麗堂皇的大門。—</view>
+      <view><name>馬克思</name>隨他女兒到窗邊。<hi>雨水</hi> 打在他臉上-- </view>
+      <view><camera>馬克思的視點</camera> 他看見一些打開的窗戶，而就在他公寓對面，有一個<hi>男子</hi> 正打開富麗堂皇的大門。--</view>
     </egXML>
   </exemplum>
   <exemplum xml:lang="zh-TW">

@@ -1907,7 +1907,7 @@ type %teidata.enumerated;  #IMPLIED >
  %Tatt.global.attributes;
  %Tatt.cmc.attributes; >
 <!--doc:(event) contains data relating to anything of significance that happens in time. [14.3.1. Basic Principles] -->
-<!ELEMENT event (((idno)*,(%model.headLike;)*,((%model.pLike;)+|(%model.labelLike;)+|(eventName)+),(%model.noteLike;|%model.biblLike;|linkGrp|link|idno|ptr)*,(%model.eventLike;)*,(%model.personLike;|listPerson)*,(%model.placeLike;|listPlace)*,(%model.objectLike;)*,(relation|listRelation)*))>
+<!ELEMENT event (((idno)*,(%model.headLike;)*,((%model.pLike;)+|(%model.labelLike;)+|(eventName)+),(%model.noteLike;|%model.biblLike;|%model.ptrLike;|linkGrp|link|idno)*,(%model.eventLike;)*,(%model.personLike;|listPerson)*,(%model.placeLike;|listPlace)*,(%model.objectLike;)*,(relation|listRelation)*))>
 <!ATTLIST event xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST event
  %Tatt.global.attributes;
@@ -2701,7 +2701,7 @@ code %teidata.pointer;  #IMPLIED >
  %Tatt.cmc.attributes;
  %Tatt.written.attributes; >
 <!--doc:(organization) provides information about an identifiable organization such as a business, a tribe, or any other grouping of people. [14.3.3. Organizational Data] -->
-<!ELEMENT org (((%model.headLike;)*,((%model.pLike;)*|(%model.labelLike;|%model.nameLike;|%model.placeLike;|%model.orgPart;|%model.milestoneLike;)*),(%model.noteLike;|%model.biblLike;|linkGrp|link|ptr)*,(%model.personLike;)*))>
+<!ELEMENT org (((%model.headLike;)*,((%model.pLike;)*|(%model.labelLike;|%model.nameLike;|%model.placeLike;|%model.orgPart;|%model.milestoneLike;)*),(%model.noteLike;|%model.biblLike;|%model.ptrLike;|linkGrp|link)*,(%model.personLike;)*))>
 <!ATTLIST org xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST org
  %Tatt.global.attributes;
@@ -2776,7 +2776,7 @@ Elements] -->
 evidence %teidata.enumerated;  #IMPLIED
 value NMTOKENS  #IMPLIED >
 <!--doc:(person) provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [14.3.2. The Person Element 16.2.2. The Participant Description] -->
-<!ELEMENT person ((%model.pLike;)+|(%model.personPart;|%model.global;|ptr)*)>
+<!ELEMENT person ((%model.pLike;)+|(%model.personPart;|%model.global;|%model.ptrLike;)*)>
 <!ATTLIST person xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST person
  %Tatt.global.attributes;
@@ -2809,7 +2809,7 @@ sex CDATA  #IMPLIED
 gender CDATA  #IMPLIED
 age %teidata.enumerated;  #IMPLIED >
 <!--doc:(place) contains data about a geographic location. [14.3.4. Places] -->
-<!ELEMENT place (((%model.headLike;)*,((%model.pLike;)*|(%model.labelLike;|%model.placeStateLike;|%model.eventLike;|name)*),(%model.noteLike;|%model.biblLike;|idno|ptr|linkGrp|link)*,(%model.placeLike;|listPlace)*))>
+<!ELEMENT place (((%model.headLike;)*,((%model.pLike;)*|(%model.labelLike;|%model.placeStateLike;|%model.eventLike;|name)*),(%model.noteLike;|%model.biblLike;|%model.ptrLike;|idno|linkGrp|link)*,(%model.placeLike;|listPlace)*))>
 <!ATTLIST place xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST place
  %Tatt.global.attributes;

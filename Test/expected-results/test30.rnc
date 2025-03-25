@@ -5784,10 +5784,10 @@ Tevent =
      (Tmodel.pLike+ | Tmodel.labelLike+ | TeventName+),
      (Tmodel.noteLike
       | Tmodel.biblLike
+      | Tmodel.ptrLike
       | TlinkGrp
       | Tlink
-      | Tidno
-      | Tptr)*,
+      | Tidno)*,
      Tmodel.eventLike*,
      (Tmodel.personLike | TlistPerson)*,
      (Tmodel.placeLike | TlistPlace)*,
@@ -6073,7 +6073,11 @@ Torg =
          | Tmodel.placeLike
          | Tmodel.orgPart
          | Tmodel.milestoneLike)*),
-     (Tmodel.noteLike | Tmodel.biblLike | TlinkGrp | Tlink | Tptr)*,
+     (Tmodel.noteLike
+      | Tmodel.biblLike
+      | Tmodel.ptrLike
+      | TlinkGrp
+      | Tlink)*,
      Tmodel.personLike*),
     Tatt.global.attributes,
     Tatt.editLike.attributes,
@@ -6092,7 +6096,8 @@ Tperson =
   
   ## (person) provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [14.3.2. The Person Element 16.2.2. The Participant Description]
   element person {
-    (Tmodel.pLike+ | (Tmodel.personPart | Tmodel.global | Tptr)*),
+    (Tmodel.pLike+
+     | (Tmodel.personPart | Tmodel.global | Tmodel.ptrLike)*),
     Tatt.global.attributes,
     Tatt.editLike.attributes,
     Tatt.sortable.attributes,
@@ -6246,8 +6251,8 @@ Tplace =
          | Tname)*),
      (Tmodel.noteLike
       | Tmodel.biblLike
+      | Tmodel.ptrLike
       | Tidno
-      | Tptr
       | TlinkGrp
       | Tlink)*,
      (Tmodel.placeLike | TlistPlace)*),
