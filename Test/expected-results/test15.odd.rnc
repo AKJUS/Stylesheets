@@ -5497,7 +5497,7 @@ att.global.linking.attribute.copyOf =
   }?
 att.global.linking.attribute.next =
   
-  ## points to the next element of a virtual aggregate of which the current element is part.
+  ## (next) points to the next element of a virtual aggregate of which the current element is part.
   attribute next {
     xsd:anyURI { pattern = "\S+" }
   }?
@@ -6671,7 +6671,12 @@ event =
     (idno*,
      model.headLike*,
      (model.pLike+ | model.labelLike+ | eventName+),
-     (model.noteLike | model.biblLike | linkGrp | link | idno | ptr)*,
+     (model.noteLike
+      | model.biblLike
+      | model.ptrLike
+      | linkGrp
+      | link
+      | idno)*,
      model.eventLike*,
      (model.personLike | listPerson)*,
      (model.placeLike | listPlace)*,
@@ -6956,7 +6961,11 @@ org =
          | model.placeLike
          | model.orgPart
          | model.milestoneLike)*),
-     (model.noteLike | model.biblLike | linkGrp | link | ptr)*,
+     (model.noteLike
+      | model.biblLike
+      | model.ptrLike
+      | linkGrp
+      | link)*,
      model.personLike*),
     att.global.attributes,
     att.editLike.attributes,
@@ -6975,7 +6984,7 @@ person =
   
   ## (person) provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [14.3.2. The Person Element 16.2.2. The Participant Description]
   element person {
-    (model.pLike+ | (model.personPart | model.global | ptr)*),
+    (model.pLike+ | (model.personPart | model.global | model.ptrLike)*),
     att.global.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
@@ -7127,7 +7136,12 @@ place =
          | model.placeStateLike
          | model.eventLike
          | name)*),
-     (model.noteLike | model.biblLike | idno | ptr | linkGrp | link)*,
+     (model.noteLike
+      | model.biblLike
+      | model.ptrLike
+      | idno
+      | linkGrp
+      | link)*,
      (model.placeLike | listPlace)*),
     att.global.attributes,
     att.editLike.attributes,
