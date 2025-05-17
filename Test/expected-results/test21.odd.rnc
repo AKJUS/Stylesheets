@@ -8328,7 +8328,9 @@ facsimile =
   
   ## contient une représentation d'une source écrite quelconque sous la forme d'un ensemble d'images plutôt que sous la forme d'un texte transcrit ou encodé. [12.1. Digital Facsimiles]
   element facsimile {
-    (front?, (model.graphicLike | surface | surfaceGrp)+, back?)
+    (front?,
+     ((model.graphicLike | surface | surfaceGrp)+ | facsimile+),
+     back?)
     >> sch:pattern [
          id =
            "test21-facsimile-no_facsimile_text_nodes-constraint-rule-41"

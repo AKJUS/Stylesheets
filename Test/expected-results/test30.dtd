@@ -1946,7 +1946,7 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST extent
  %Tatt.global.attributes; >
 <!--doc:contains a representation of some written source in the form of a set of images rather than as transcribed or encoded text. [12.1. Digital Facsimiles] -->
-<!ELEMENT facsimile (((front)?,(%model.graphicLike;|surface|surfaceGrp)+,(back)?))>
+<!ELEMENT facsimile (((front)?,((%model.graphicLike;|surface|surfaceGrp)+|(facsimile)+),(back)?))>
 <!ATTLIST facsimile xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST facsimile
  %Tatt.global.attributes;

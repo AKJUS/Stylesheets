@@ -7,7 +7,7 @@
       </titleStmt>
       <editionStmt>
         <edition>P5 <ref target="#ABTEI4">Version</ref> <ref target="../../readme-4.10.0.html">4.10.0a</ref>. Last updated on
-        <date when="2025-04-08">8th April 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/d5b789979">d5b789979</ref></edition>
+        <date when="2025-05-16">16th May 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/a449704c0">a449704c0</ref></edition>
       </editionStmt>
       <publicationStmt>
         <distributor>TEI Consortium</distributor>
@@ -45493,15 +45493,11 @@ deprecated.
 <div xml:id="PH-transcr"><head>Combining Transcription with Facsimile</head>
 <div xml:id="PH-bov"><head>Parallel Transcription</head>
 <elementSpec ident="facsimile" xml:id="gi-facsimile" module="transcr">
-  <desc versionDate="2007-08-26" xml:lang="en">contains a representation of some written source in the form of
-a set of images rather than as transcribed or encoded text.</desc>
+  <desc versionDate="2007-08-26" xml:lang="en">contains a representation of some written source in the form of a set of images rather than as transcribed or encoded text.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">전사 또는 부호화된 텍스트 형태보다는 이미지 집합의 형태로 기록 원본의 표상을 포함한다.</desc>
   <desc versionDate="2008-04-06" xml:lang="es">contiene una representación de una cierta fuente escrita bajo la forma de conjunto de las imágenes algo que como texto transcrito o codificado.</desc>
-  <desc versionDate="2008-04-06" xml:lang="ja">転記または符号化されたテキストではなく、画像データ中にある、書記資料の
-表現を示す。</desc>
-  <desc versionDate="2009-11-16" xml:lang="fr">contient une représentation d'une source écrite
-quelconque sous la forme d'un ensemble d'images plutôt que sous la forme d'un texte transcrit
-ou encodé.</desc>
+  <desc versionDate="2008-04-06" xml:lang="ja">転記または符号化されたテキストではなく、画像データ中にある、書記資料の 表現を示す。</desc>
+  <desc versionDate="2009-11-16" xml:lang="fr">contient une représentation d'une source écrite quelconque sous la forme d'un ensemble d'images plutôt que sous la forme d'un texte transcrit ou encodé.</desc>
   <desc versionDate="2007-11-06" xml:lang="it">contiene una rappresentazione di una qualche fonte scritta sotto forma di una serie di immagini piuttosto che di testo trascritto o codificato</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -45511,10 +45507,13 @@ ou encodé.</desc>
   <content>
     <sequence>
       <elementRef key="front" minOccurs="0"/>
-      <alternate minOccurs="1" maxOccurs="unbounded">
-        <classRef key="model.graphicLike"/>
-        <elementRef key="surface"/>
-        <elementRef key="surfaceGrp"/>
+      <alternate>
+        <alternate minOccurs="1" maxOccurs="unbounded">
+          <classRef key="model.graphicLike"/>
+          <elementRef key="surface"/>
+          <elementRef key="surfaceGrp"/>
+        </alternate>
+        <elementRef key="facsimile" minOccurs="1" maxOccurs="unbounded"/>
       </alternate>
       <elementRef key="back" minOccurs="0"/>
     </sequence>

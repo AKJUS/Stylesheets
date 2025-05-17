@@ -7595,13 +7595,18 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
         <optional>
           <ref name="front"/>
         </optional>
-        <oneOrMore>
-          <choice>
-            <ref name="model.graphicLike"/>
-            <ref name="surface"/>
-            <ref name="surfaceGrp"/>
-          </choice>
-        </oneOrMore>
+        <choice>
+          <oneOrMore>
+            <choice>
+              <ref name="model.graphicLike"/>
+              <ref name="surface"/>
+              <ref name="surfaceGrp"/>
+            </choice>
+          </oneOrMore>
+          <oneOrMore>
+            <ref name="facsimile"/>
+          </oneOrMore>
+        </choice>
         <optional>
           <ref name="back"/>
         </optional>
