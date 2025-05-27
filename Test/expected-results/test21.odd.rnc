@@ -90,7 +90,7 @@ att.citing.attributes =
   att.citing.attribute.to
 att.citing.attribute.unit =
   
-  ## identifie le type d'information que transmet l'élément, par exemple colonnes, pages, volume, inscription, etc.
+  ## identifie le type d'information que transmet l'élément.
   ## Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line; 5] chapter (chapter); 6] part; 7] column; 8] entry
   attribute unit {
     
@@ -781,7 +781,7 @@ sch:pattern [
 ]
 att.pointing.attribute.target =
   
-  ## précise la cible de la référence en donnant une ou plusieurs références URI.
+  ## précise la cible de la référence en donnant une ou plusieurs références URI
   attribute target {
     list {
       xsd:anyURI { pattern = "\S+" }+
@@ -4095,8 +4095,8 @@ sp =
   
   ## (langue orale) monologue dans un texte écrit pour la scène ou un passage présenté sous cette forme dans un texte en prose ou en vers. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.2. Speeches and Speakers]
   element sp {
-    (model.global*,
-     (speaker, model.global*)?,
+    ((model.global | model.stageLike)*,
+     (speaker, model.global*),
      ((lg
        | model.lLike
        | model.pLike
@@ -7103,7 +7103,7 @@ alt =
     att.pointing.attribute.evaluate,
     att.typed.attributes,
     
-    ## précise la cible de la référence en donnant une ou plusieurs références URI.
+    ## précise la cible de la référence en donnant une ou plusieurs références URI
     attribute target {
       list {
         xsd:anyURI { pattern = "\S+" },
@@ -7264,7 +7264,7 @@ annotation =
     ## (identifiant) fournit un identifiant unique pour l'élément qui porte l'attribut.
     attribute xml:id { xsd:ID },
     
-    ## précise la cible de la référence en donnant une ou plusieurs références URI.
+    ## précise la cible de la référence en donnant une ou plusieurs références URI
     attribute target {
       list {
         xsd:anyURI { pattern = "\S+" }+
@@ -8428,7 +8428,11 @@ zone =
         " itself. The orientation is expressed in arc degrees."
       ]
     ]
-    attribute rotate { xsd:nonNegativeInteger }?,
+    attribute rotate {
+      xsd:double
+      | xsd:token { pattern = "(\-?[\d]+/\-?[\d]+)" }
+      | xsd:decimal
+    }?,
     empty
   }
 path =

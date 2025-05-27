@@ -3261,7 +3261,7 @@ code %teidata.pointer;  #IMPLIED >
  %Tatt.global.attributes;
  %Tatt.declaring.attributes; >
 <!--doc:(speech) contains an individual speech in a performance text, or a passage presented as such in a prose or verse text. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.2. Speeches and Speakers] -->
-<!ELEMENT sp (((%model.global;)*,(speaker,(%model.global;)*)?,((lg|%model.lLike;|%model.pLike;|%model.listLike;|%model.stageLike;|%model.attributable;),((%model.global;)*|q))+))>
+<!ELEMENT sp (((%model.global;|%model.stageLike;)*,(speaker,(%model.global;)*),((lg|%model.lLike;|%model.pLike;|%model.listLike;|%model.stageLike;|%model.attributable;),((%model.global;)*|q))+))>
 <!ATTLIST sp xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST sp
  %Tatt.global.attributes;
@@ -3406,7 +3406,7 @@ flipping %teidata.truthValue;  #IMPLIED >
  %Tatt.global.attributes;
  %Tatt.dimensions.attributes;
  %Tatt.editLike.attributes;
-reason NMTOKENS  #IMPLIED >
+reason CDATA  #IMPLIED >
 <!--doc:(table) contains text displayed in tabular form, in rows and columns. [15.1.1. TEI Tables] -->
 <!ELEMENT table (((%model.headLike;|%model.global;)*,((row,(%model.global;)*)+|((%model.graphicLike;),(%model.global;)*)+),((%model.divBottom;),(%model.global;)*)*))>
 <!ATTLIST table xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -3633,5 +3633,5 @@ since %teidata.pointer;  #IMPLIED >
  %Tatt.coordinated.attributes;
  %Tatt.typed.attributes;
  %Tatt.written.attributes;
-rotate %teidata.count;  "0"  >
+rotate %teidata.numeric;  "0"  >
 <!-- end elements -->

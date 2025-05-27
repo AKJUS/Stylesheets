@@ -7,7 +7,7 @@
       </titleStmt>
       <editionStmt>
         <edition>P5 <ref target="#ABTEI4">Version</ref> <ref target="../../readme-4.10.0.html">4.10.0a</ref>. Last updated on
-        <date when="2025-05-16">16th May 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/a449704c0">a449704c0</ref></edition>
+        <date when="2025-05-19">19th May 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/2aeaaa198">2aeaaa198</ref></edition>
       </editionStmt>
       <publicationStmt>
         <distributor>TEI Consortium</distributor>
@@ -562,9 +562,8 @@ of any adjacent whitespace</desc>
   <classes/>
   <attList>
     <attDef ident="unit" usage="opt">
-      <desc versionDate="2012-12-17" xml:lang="en">identifies the unit of information conveyed by the element, e.g. <val>columns</val>, <val>pages</val>, <val>volume</val>, <val>entry</val>.</desc>
-      <desc versionDate="2017-06-24" xml:lang="fr">identifie le type d'information
-      que transmet l'élément, par exemple <val>colonnes</val>, <val>pages</val>, <val>volume</val>, <val>inscription</val>, etc.</desc>
+      <desc versionDate="2025-03-31" xml:lang="en">identifies the unit of information conveyed by the element.</desc>
+      <desc versionDate="2025-03-31" xml:lang="fr">identifie le type d'information que transmet l'élément.</desc>
       <desc versionDate="2019-01-04" xml:lang="ja">当該要素が伝える情報の単位を特定する。たとえば、カラム (<val>columns</val>)、頁 (<val>pages</val>)、巻 (<val>volume</val>)、エントリ (<val>entry</val>) 等。</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="semi">
@@ -587,8 +586,7 @@ of any adjacent whitespace</desc>
 	  <desc versionDate="2007-05-02" xml:lang="zh-TW">該元素標記的內容為一期刊號或冊號與期刊號。</desc>
 	  <desc versionDate="2008-04-06" xml:lang="es">el elemento contiene el número de la edición, o los números del volumen y de la edición.</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">号番号かまたは巻と号の番号を含む。</desc>
-	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient un numéro de
-	  livraison ou bien un numéro de volume et de livraison.</desc>
+	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient un numéro de livraison ou bien un numéro de volume et de livraison.</desc>
 	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento contiene l'indicazione del numero della pubblicazione</desc>
 	</valItem>
 	<valItem ident="page">
@@ -601,8 +599,7 @@ of any adjacent whitespace</desc>
 	  <desc versionDate="2007-05-02" xml:lang="zh-TW">該元素標記的內容為一頁數或頁數範圍。</desc>
 	  <desc versionDate="2021-01-18" xml:lang="es">el elemento contiene un número de página o un intervalo de páginas.</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">ページ番号またはページ範囲を含む。</desc>
-	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient un nombre de pages
-	  ou l'étendue de sélection des pages.</desc>
+	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient un nombre de pages ou l'étendue de sélection des pages.</desc>
 	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento contiene l'indicazione di pagina o pagine</desc>
 	</valItem>
 	<valItem ident="line">
@@ -615,13 +612,11 @@ of any adjacent whitespace</desc>
 	  <gloss versionDate="2008-04-06" xml:lang="es">capítulo</gloss>
 	  <gloss versionDate="2009-01-06" xml:lang="fr">chapitre</gloss>
 	  <gloss versionDate="2007-11-06" xml:lang="it">capitolo</gloss>
-	  <desc versionDate="2013-06-17" xml:lang="en">the element contains a chapter indication (number
-	  and/or title)</desc>
+	  <desc versionDate="2013-06-17" xml:lang="en">the element contains a chapter indication (number and/or title)</desc>
 	  <desc versionDate="2007-12-20" xml:lang="ko">장 표시(숫자와/또는 제목)를 포함한다.</desc>
 	  <desc versionDate="2008-04-06" xml:lang="es">el elemento contiene la indicación del capítulo (número y/o el título)</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">章の識別子(番号やタイトル)を含む。</desc>
-	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient une indication de
-	  chapitre (le numéro et/ou le titre)</desc>
+	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient une indication de chapitre (le numéro et/ou le titre)</desc>
 	  <desc versionDate="2007-11-06" xml:lang="it">l'elemento contiene un'indicazione di capitolo (numero e/o titolo</desc>
 	</valItem>
 	<valItem ident="part">
@@ -630,8 +625,7 @@ of any adjacent whitespace</desc>
 	  <desc versionDate="2007-05-02" xml:lang="zh-TW">該元素標明的內容為單書或集合作品的一部份。</desc>
 	  <desc versionDate="2008-04-06" xml:lang="es">el elemento identifica una parte de un libro o de una colección.</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">書籍や叢書の部分を特定する。</desc>
-	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément identifie une partie d'un
-	  livre ou une anthologie.</desc>
+	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément identifie une partie d'un livre ou une anthologie.</desc>
 	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento identifica una parte di un libro o di una raccolta</desc>
 	</valItem>
 	<valItem ident="column">
@@ -3320,7 +3314,7 @@ baby?</l></egXML>
   to other elements by means of one or more URI references.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">하나 이상의 URI 참조를 통해서 다른 요소를 가리키는 모든 요소에 의해 사용된 속성 집합을 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義一組與其他元素相連結的所有元素皆使用的屬性，連結是使用ㄧ個或多個統一資源識別符 (URI) 參照。</desc>
-  <desc versionDate="2023-09-27" xml:lang="ja">一つ以上のURIにより他の要素を指示するすべての要素に使用される属性のセットを作成する示す。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">すべての、一つ以上のURIを参照することで別の要素を指示する要素で使用できる属性のセットを示す。</desc>
   <desc versionDate="2016-02-15" xml:lang="fr">fournit un ensemble d'attributs utilisés par tous les éléments qui pointent vers d'autres éléments au moyen d'une ou de plusieurs références URI.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define un conjunto de atributos usados por todos los elementos que señalan a otros elementos a través de uno o más URI.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi usati da tutti gli elementi che puntano ad altri elementi tramite uno o più URI</desc>
@@ -3328,7 +3322,8 @@ baby?</l></egXML>
     <attDef ident="targetLang" usage="opt">
       <desc versionDate="2012-06-16" xml:lang="en">specifies the language of the content to be found at the destination referenced by <att>target</att>, using a <soCalled>language tag</soCalled> generated
         according to <ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref>.</desc>
-      <desc versionDate="2023-09-27" xml:lang="ja"><ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref>に従って生成された<soCalled>言語タグ</soCalled>を使用することで、<att>target</att>の参照先にあるコンテンツの言語を特定する。</desc>
+      <desc versionDate="2023-09-27" xml:lang="ja">
+        <ref target="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</ref>に従って生成された<soCalled>言語タグ</soCalled>を使用することで、<att>target</att>の参照先にあるコンテンツの言語を特定する。</desc>
       <datatype><dataRef key="teidata.language"/></datatype>
       <constraintSpec ident="targetLang" scheme="schematron" xml:lang="en">
         <constraint>
@@ -3359,16 +3354,17 @@ baby?</l></egXML>
       <choice><abbr>IETF</abbr><expan>Internet Engineering Task
       Force</expan></choice> definitions.</p></remarks>
       
-      <remarks versionDate="2023-09-27" xml:lang="ja"><p>
-        値はBCP 47に準拠している必要がある。 (<val>x-</val>で始まっていたり、<val>-x-</val>を含むような記述のように)値がプライベートに使用されるコードの場合、自身の<att>ident</att>属性に対応する値をもった<gi>language</gi>要素は、TEIのヘッダーにおいてその値を記述しなくてはならない。そうした（非公式なコードの）記述はあるいは公式なコードにオプションとして取り入れられることもあるが、公式なコードは<choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice> （インターネット技術特別調査委員会）の定義に準拠したものでなくてはならない。</p></remarks>
+      <remarks versionDate="2024-08-08" xml:lang="ja"><p>
+        値はBCP 47に準拠している必要がある。言語コードが<val>x-</val>で始まっていたり、<val>-x-</val>を含んでいたりする私的利用の値である場合、TEIヘッダーにおいて、そのコードを<att>ident</att>属性の値として持った<gi>language</gi>要素を記述しなければならない。私的利用にあたらないコードの記述をしてもよいが、<choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice>の定義に準拠したものでなくてはならない。
+      </p></remarks>
       
     </attDef>
     <attDef ident="target" usage="opt">
       <desc versionDate="2010-05-02" xml:lang="en">specifies the destination of the reference by supplying one or more URI References.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">하나 혹은 다수의 URI 참조를 제시하여 참조의 목적지를 명시한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">用一個或多個統一資源識別符參照 (URI References) 來說明參照所指位置。</desc>
-      <desc versionDate="2008-04-05" xml:lang="ja">1つまたは複数のURI参照を指名することで、参照先を指定する。</desc>
-      <desc versionDate="2009-01-06" xml:lang="fr">précise la cible de la référence en donnant une ou plusieurs références URI.</desc>
+      <desc versionDate="2024-08-08" xml:lang="ja">一つ以上のURI参照を与えることで、参照先を指定する。</desc>
+      <desc versionDate="2009-01-06" xml:lang="fr">précise la cible de la référence en donnant une ou plusieurs références URI</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica la destinación de una referencia
         proporcionando una o más referencias URI.</desc>
       <desc versionDate="2007-01-21" xml:lang="it">specifica la destinazione di un riferimento, fornendo
@@ -3383,8 +3379,8 @@ baby?</l></egXML>
         n’est autorisé à l'intérieur d'un URI. Si un espace est requis dans un URI, il
         faut le représenter avec une séquence d'échappement, comme par exemple 
         <code>TEI%20Consortium</code>.</p></remarks>
-      <remarks versionDate="2023-09-27" xml:lang="ja"><p>
-      空白で区切られた1つもしくはそれ以上の構文的に有効なURI参照。空白はURIを区切るために使用されるため、各URI中において空白を使用することはできない。URIに空白文字が必要な場合は、たとえば<code> TEI％20Consortium </code>と言ったような通常の方法でエスケープする必要がある。
+      <remarks versionDate="2024-08-08" xml:lang="ja"><p>
+        空白で区切られた一つ以上の構文的に有効なURI参照。空白は複数のURIを区別するために使用されるので、それぞれのURI中において空白を使用することはできない。URI中で空白文字が必要な場合は、たとえば<code>TEI％20Consortium</code>と言ったような通常の方法でエスケープする必要がある。
       </p></remarks>
     </attDef>
     <attDef ident="evaluate" usage="opt">
@@ -5042,7 +5038,7 @@ this name in the form of a set of whitespace-separated values, for example the o
   enclose groups of pointer elements.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">포인터 요소군을 포함하는 모든 요소에 공통적인 속성 집합을 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義一組屬性，通用於所有包含指標元素群組的元素。</desc>
-  <desc versionDate="2023-09-27" xml:lang="ja">ポインター要素のグループを含むすべての要素に共通の属性セットを提供する。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">ポインター要素をグループ化する、すべての要素に共通の属性セットを提供する。</desc>
   <desc versionDate="2016-02-15" xml:lang="fr">fournit un ensemble d'attributs communs à tous les éléments qui contiennent des groupes d'éléments pointeurs.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define un conjunto de atributos comunes a todos los elementos que incluyen grupos de indicadores.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi comuni a tutti gli elementi che includono gruppi di puntatori</desc>
@@ -5083,13 +5079,7 @@ this name in the form of a set of whitespace-separated values, for example the o
       </remarks>
       <remarks versionDate="2008-04-05" xml:lang="ja">
         <p>
-	当該属性が付与されている場合、参照先の要素は全て、当該要素また
-	は参照先の要素中になければならない。
-	ソフトウェアは、この制約に違反した場合にエラーを返すかどうかを
-	選択できるかもしれないが、識別子は正しくとも間違った文脈乳にあ
-	る要素にはアクセスできないかもしれない。
-	当該属性が付与されていない場合、参照先の要素は、参照された文書
-	中のどこにあってもよい。
+          当該属性が付与されている場合、参照先の要素は全て、当該要素または参照先の要素中になければならない。ソフトウェアは、この制約に違反した場合にエラーを返すかどうかを選択できるかもしれないが、識別子は正しくとも間違った文脈にある要素にはアクセスできないかもしれない。当該属性が付与されていない場合、参照先の要素は、参照された文書中のどこにあってもよい。
 	</p>
       </remarks>
     </attDef>
@@ -5099,13 +5089,13 @@ this name in the form of a set of whitespace-separated values, for example the o
       <gloss versionDate="2008-04-06" xml:lang="es">función meta</gloss>
       <gloss versionDate="2008-03-30" xml:lang="fr">fonction cible</gloss>
       <gloss versionDate="2007-11-06" xml:lang="it">funzione obiettivo</gloss>
-      <gloss versionDate="2023-09-27" xml:lang="ja">ターゲット機能</gloss>
+      <gloss versionDate="2024-08-08" xml:lang="ja">ターゲットの機能</gloss>
       <desc versionDate="2011-07-25" xml:lang="en">describes the function of each of the values of the
       <att>target</att> attribute of the enclosed <gi>link</gi>,
       <gi>join</gi>, or <gi>alt</gi> tags.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko"><gi>link</gi>, <gi>join</gi> 또는 <gi>alt</gi> 태그의  속성 값 각각에 대한 기능을 기술한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">描述每個元素標籤<gi>link</gi>、<gi>join</gi>、或<gi>alt</gi>當中的屬性<att>target</att>的屬性值功能。</desc>
-      <desc versionDate="2023-09-27" xml:lang="ja"><gi>link</gi>タグや<gi>join</gi>タグ、<gi>alt</gi>タグに付与される<att>target</att>属性の値のそれぞれの機能を示す。</desc>
+      <desc versionDate="2024-08-08" xml:lang="ja">この属性を有する要素がグループ化する<gi>link</gi>や<gi>join</gi>、<gi>alt</gi>自体がもっている<att>target</att>属性のそれぞれの値の機能を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">décrit la fonction de chacune des valeurs de
           l'attribut <att>target</att> pour les balises incluses <gi>link</gi>, <gi>join</gi>, ou
           <gi>alt</gi>.</desc>
@@ -5132,10 +5122,7 @@ this name in the form of a set of whitespace-separated values, for example the o
       </remarks>
       <remarks versionDate="2023-09-27" xml:lang="ja">
         <p>
-          個々の値の数は<gi>link</gi>、<gi>join</gi>、
-          あるいは <gi>alt</gi>における<att>target</att>属性における値の数と一致しなければならない。
-          （仲立ちをする<gi>ptr</gi>要素がこのために必要かもしれない）。
-          もし<att>domains</att>属性が付与されるならば、現在の要素の<att>domains</att>属性における値の数とも一致すべきである。
+          この値で指定される値の数は、<gi>link</gi>, <gi>join</gi>, あるいは<gi>alt</gi>に含まれる<att>target</att>属性における値の数と一致しなければならない（仲立ちをする<gi>ptr</gi>要素がこのために必要かもしれない）。もし同じ要素に<att>domains</att>属性が付与されているならば、その値の数とも一致させるべきである。
     </p>
       </remarks>
     </attDef>
@@ -7705,8 +7692,8 @@ used for transcribing extant documents.</desc>
     <!--For a more precise indication, <ident type="datatype">teidata.probability</ident>, which provides
         an may be used instead or in addition.--></p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-    <p> 確信度は、<val>high</val>、<val>medium</val>、<val>low</val>のうち の1つが選択される。より詳細に示したい場合には、 <ident type="datatype">teidata.probability</ident>を単独または追加と して使用することができる。 </p>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p>確信度は、予め定義された値<val>high</val>、<val>medium</val>、または<val>low</val>のいずれかで表現される。確信度に関して何らかの意見を表明することを望んでいない場合は、<val> unknown</val>という値が使用されるべきである。より正確な指標を望む場合は、<ident type="datatype">data.probability</ident>を先に挙げた値の代わりに、またはそれに加えて使用することができる。</p>
   </remarks>
   <remarks versionDate="2009-05-25" xml:lang="fr">
     <p>Le degré de certitude peut être exprimé par l'une des valeurs symboliques prédéfinies
@@ -7776,28 +7763,8 @@ used for transcribing extant documents.</desc>
       character. Thus, the value represented in decimal notation as 0.5 might be represented as a
       ratio by the string 1/2.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-      <p> 10進数を作る数値。 </p>
-      <p> また、IEEE倍精度浮動小数点(64bit長)をとることもできる。例えば、 ±10⁻³²³ から ±10³⁰⁸など。 </p>
-      <p> 科学的数値を評点する際、<soCalled>指数表現</soCalled>は、属性値と して記述される。
-      10進数による仮数部、続いて記号<mentioned>E</mentioned>、続いて指数 部がくる。
-      <!-- to which a base of 10 should be raised and the result multiplied by
-    the signficand -->
-        乗算記号と底(<mentioned>10</mentioned>)は省略される。仮数部と指数 部には負になるかもしれない。記号<mentioned>E</mentioned>と指数部を
-      分けるために空白文字を入れる必要はない。例えば、3×10⁸ は <val>3E8</val>と書かれる。 </p>
-      <p> 他の例として、以下のようなものがある。 <list>
-            <item>
-               <val>3E10</val> (光の速度(cm/秒))</item>
-            <item>
-               <val>9.12E-31</val> (電子の質量(kg))</item>
-            <item>
-               <val>4E11</val> (銀河系にある恒星の数(推定値))</item>
-            <item>
-               <val>-1.76E11</val> (電子の電荷(クローン))</item>
-         </list>
-      </p>
-      <p> 仮数部と指数部を分ける記号は<mentioned>e</mentioned>または <mentioned>E</mentioned>のどちらでもよいが、当ガイドラインでは
-        <mentioned>E</mentioned>を使うことを推奨する。これは、他の規格との 整合性を保ち、数学における定数との混同を避けるためである。 </p>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p>浮動小数点形式の10進小数、あるいは比の形式で表現されるなんらかの数値。浮動小数点数を表現するには、<soCalled>指数表記</soCalled>の一種である科学的表記、通称<soCalled>E記法</soCalled>が使用できる。この形式では、値はEの文字で区切られた二つの数字で表現する。一つ目の数字である仮数は小数で、二つ目の数字は整数で表される。値は、仮数を〔二つ目の〕整数の示す回数だけ10倍することで得られる。したがって、10進小数で1000.0と表記されている値は、科学的表記では10E3となる。</p><p>比の値は、二つの整数を「/」で区切って表す。したがって、10進小数で0.5と表される値は、比としては1/2という文字列で表現できる。 </p>
   </remarks>
   <remarks versionDate="2009-10-06" xml:lang="fr">
       <p> Toute valeur numérique, représentée en nombre décimal, notée en virgule flottante ou
@@ -7817,6 +7784,7 @@ used for transcribing extant documents.</desc>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.interval">
   <desc versionDate="2013-04-13" xml:lang="en">defines attribute values used to express an interval value.</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">間隔の値の表現に用いる属性値を定義する。</desc>
   <content>
       <alternate>
          <dataRef name="float"/>
@@ -7830,6 +7798,11 @@ used for transcribing extant documents.</desc>
   <remarks versionDate="2013-04-13" xml:lang="en">
       <p>Any value greater than zero or any one of the values
     <val>regular</val>, <val>irregular</val>, <val>unknown</val>.</p>
+  </remarks>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p>
+      ゼロより大きな数値、あるいは<val>regular</val>, <val>irregular</val>, <val>unknown</val>のいずれかの値。
+    </p>
   </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.count">
@@ -7848,8 +7821,8 @@ integer value used as a count.</desc>
   <remarks versionDate="2016-12-01" xml:lang="en">
       <p>Any positive integer value or zero is permitted</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-      <p>非負整数値のみが許される。</p>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+      <p>正の整数値（ゼロを含む）のみが許可される。</p>
   </remarks>
   <remarks versionDate="2009-05-25" xml:lang="fr">
       <p>Seules des valeurs positives entières sont autorisées.</p>
@@ -7930,7 +7903,7 @@ integer value used as a count.</desc>
   <desc versionDate="2007-10-18" xml:lang="en">defines the range of attribute values available for representation of a duration in time using W3C datatypes.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">W3C 데이터 유형을 사용해서 시간 지속을 나타내는 속성 값 범위를 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">以W3C datatypes標準格式來定義表示一段持續性時間的屬性值範圍</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">W3Cのデータ型を使い、時間幅を表現する当該属性値の範囲を定義する。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">W3Cのデータ型を使用して表現できる時間幅を値域とする属性値を定義する。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit la gamme des
   valeurs d'attributs exprimant une durée temporaraire utilisant les types de données W3C</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define la gama de valores de atributos disponibles para la representación de un periodo de tiempo usando tipos de datos W3C</desc>
@@ -8039,11 +8012,9 @@ value.</desc>
     <val>inapplicable</val>, it should have the extended version of
     this datatype: <ident type="datatype">teidata.xTruthValue</ident>.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
+  <remarks xml:lang="ja" versionDate="2024-09-02">
       <p>
-    曖昧な値が許されない場合に使われるデータ型になる。属性値が真偽値で
-    ない場合、例えば"unknown"や"inapplicable"の場合には、当該データ型
-    の拡張版であるteidata.xTruthValueを使うべきである。
+        このデータ型が取り得る値は、<val>1</val>または<val>true</val>または<val>0</val>または<val>false</val>である。曖昧な値が許されない場合に使われるデータ型である。属性値が真偽値でない場合、例えば<val>unknown</val>や<val>inapplicable</val>の場合には、当該データ型の拡張版である<ident type="datatype">data.xTruthValue</ident>を使うべきである。
     </p>
   </remarks>
   <remarks versionDate="2007-06-12" xml:lang="fr">
@@ -8058,6 +8029,7 @@ value.</desc>
   <gloss versionDate="2007-07-04" xml:lang="en">extended truth value</gloss>
   <gloss versionDate="2007-12-20" xml:lang="ko">확장 진리값</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW"/>
+  <gloss versionDate="2024-09-02" xml:lang="ja">拡張真理値</gloss>
   <desc versionDate="2007-10-18" xml:lang="en">defines the range of attribute values used to express a truth value which may be unknown.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">알려지지 않을 수 있는 진리값을 표현하는 속성 값 범위를 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義的屬性值範圍表示一個可能未知的真實值</desc>
@@ -8081,8 +8053,8 @@ value.</desc>
       <p>In cases where where uncertainty is inappropriate, use the
     datatype <ident type="datatype">teidata.TruthValue</ident>.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-      <p> 不明な場合がなければ、データ型teidata.TruthValueを使用する。 </p>
+  <remarks versionDate="2024-09-02" xml:lang="ja">
+    <p> 不確実性を持つべきではない場合は、データ型<ident type="datatype">teidata.TruthValue</ident>を使用する。 </p>
   </remarks>
   <remarks versionDate="2007-06-12" xml:lang="fr">
       <p>Dans le cas où l'incertitude n’est pas adaptée, employer plutot
@@ -8094,7 +8066,7 @@ value.</desc>
     language and writing system.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">인간의 언어와 문자 체계의 특별한 조합을 식별하는 속성 값 범위를 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義的屬性值範圍標明人類語言與寫作系統的特殊結合</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">自然言語を示す属性値の範囲を定義する。</desc>
+  <desc versionDate="2024-07-01" xml:lang="ja">自然言語と表記体系の組合せを示す表現を値域とする属性値を定義する。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit la gamme des
   valeurs d'attributs exprimant 
     une combinaison particulière du langage humain avec un système d'écriture.</desc>
@@ -8200,76 +8172,43 @@ value.</desc>
       <p>The W3C Internationalization Activity has published a useful introduction to BCP 47, <ref target="https://www.w3.org/International/articles/language-tags/Overview.en.php">Language
         tags in HTML and XML</ref>.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-      <p> 当該属性値は、 <ref target="https://tools.ietf.org/html/bcp47">BCP 47</ref>
-      で定義されている言語<soCalled>タグ</soCalled>になる。 現行のBCPには、RFC4646とRFC4647の内容が含まれている。
-      今後は、他のIETF文書も採用されるかもしれない。 </p>
-    <p> BCP 47にある<soCalled>言語タグ</soCalled>は、ハイフン (<mentioned>-</mentioned>、U+002D)で区切られた一連の
-        <term>下位タグ</term>から構成されている。下位タグは、以下の順番 らなる。下位タグは、初めの1つは必須で、あとは選択的である。
-      variantとextensionは複数回、他は1回のみ出現出現する。この下位タグ のグループは繰り返し可能である。 <list type="gloss">
-            <label>language</label>
-            <item> IANAの言語コード。この殆どは、該当言語が既にあれば、ISO 639の2文字 (以下、この場合の文字はラテン文字)言語コードと同じである。利用可能
-          な言語下位タグのリストは <ptr target="https://www.iana.org/assignments/language-subtag-registry"/>
-          にある。言語コードは、小文字で書かれることが推奨されている。 </item>
-            <label>script</label>
-            <item> ISO 15924による文字を示すコード。4文字から構成され、冒頭文字は大文 字で、残り3文字は小文字で書かれることが推奨されている。このコード
-          は、ユニコードコンソーシアムで管理され、 <ptr target="https://unicode.org/iso15924/iso15924-codes.html"/>か
-          ら入手することができる。IETFでは、不要であれば当該コードを省略する ことを推奨している。 </item>
-            <label>region</label>
-            <item> ISO 3166またはUN M.49による国または地域コード。このコードはIANAに 登録されている(但し全てではない。例えば、UNコードには経済圏や、 ISO
-          3166の2文字コードで既に登録されているところは含まれていない)。 ISOコードは、2文字から構成され、大文字で書かれることが推奨されてい る。このコードは、 <ptr target="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/index.html"/>にある。 またUNコードは、3文字から構成されている。このコードは、 <ptr target="http://unstats.un.org/unsd/methods/m49/m49.htm"/>にあ る。 </item>
-            <label>variant</label>
-            <item> IANAにある登録値。このコードは、<quote> 他の下位タグでは対応できない、追加的であるがよく知られている、ある言語
-            や方言の種類を示すために使用される</quote>。 <!-- RFC 4646, sect  2.2.5 -->
-        </item>
-            <label>extension</label>
-            <item> いち文字、ハイフン、追加下位タグの順番で、拡張情報が示される。 これは、BCP 47が将来拡張された時のためある。現時点ではそのような 拡張はない。 </item>
-            <label>private use</label>
-            <item>
-               <mentioned>x</mentioned>Xで始まる(すなわち、<code>x-</code>)下位タ
-          グで示される拡張情報は、関連する団体間で決められた範囲の意味を持つ。 このコードは大文字で書かれるべきである。これは、RFC4646aで使われて
-          いるタグとの相互運用性を保つためである。 このタグを使用してTEI準拠の文書を作成するには、要素 <gi>language</gi>をTEIヘダー中に記述しなければならない。
-        </item>
-         </list>
-      </p>
-      <p> 上記記述形式には、2つの例外がある。ひとつは、ここにある言語タグは、 <ref target="https://www.iana.org/assignments/language-subtag-registry">
-      IANA</ref>にある統語規則に違反しているものがある。 これはIANAでは昔の規定を<soCalled>継承している</soCalled>からであ る。 </p>
-      <p> ふたつめは、言語タグを、下位タグprivateだけで構成することができる ことである。<code>x-</code>で始まるタグの内容は、IETFにある規定に
-      も当該TEIガイドラインにある規定にも従う必要はない。他の言語タグと 同様に、このタグを使用した場合には、TEIヘダーにある要素
-      <gi>language</gi>にこのタグを記述しなければならない。 </p>
-      <p> 言語コードには、以下のようなものがある。 <list type="gloss">
-            <label>
-               <val>sn</val>
-            </label>
-            <item>ショナ語</item>
-            <label>
-               <val>zh-TW</val>
-            </label>
-            <item>中国語、台湾</item>
-            <label>
-               <val>zh-Hant-HK</val>
-            </label>
-            <item>中国語、繁体字、香港</item>
-            <label>
-               <val>en-SL</val>
-            </label>
-            <item>英語、シエラレオネ共和国</item>
-            <label>
-               <val>pl</val>
-            </label>
-            <item>ポーランド語</item>
-            <label>
-               <val>es-MX</val>
-            </label>
-            <item>スペイン語、メキシコ</item>
-            <label>
-               <val>es-419</val>
-            </label>
-            <item>スペイン語、ラテンアメリカ</item>
-         </list>
-      </p>
-      <p> W3Cの国際化活動では、BCP 47の解説を以下に用意している。 <ref target="https://www.w3.org/International/articles/language-tags/Overview.en.php">
-        HTMLとXMLで使用される言語タグ</ref>。</p>
+  <remarks versionDate="2024-07-01" xml:lang="ja">
+    <p>当該属性値は、<ref target="https://tools.ietf.org/html/bcp47">BCP 47</ref>で定義されている言語<soCalled>タグ</soCalled>である。
+      BCP 47は、RFC 5646とRFC 4647からなる。将来的に、その他のIETF文書が現状における最良の慣行としての地位を受け継ぐかもしれない。</p>
+    <p>BCP 47における<soCalled>言語タグ</soCalled>とは、ハイフン (<mentioned>-</mentioned>, U+002D)で区切られた一連の<term>下位タグ</term>と呼ばれる構成要素からなっている。
+    下位タグは、以下の順番に並べられる。
+    下位タグは、初めの1つ以外は必須でない。もし存在するときは、それぞれの下位タグは、繰返し可能な4番目と5番目の構成要素（変種と拡張）をのぞき、1度までしか用いられない。<list type="gloss"><label>言語</label><item>IANAに登録された、言語に対するコード。
+      これは、当該言語が既にISO 639の2文字言語コードにあれば、ほとんどのばあい、それと同一である。
+      利用可能な言語下位タグのリストは<ptr target="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry"/>にある。
+      言語コードは、小文字で書くことが推奨されている。</item>
+      <label>用字系</label><item>ISO 15924による用字系を示すコード。
+        4文字から構成され、先頭の文字は大文字で、残りの3文字は小文字で書くことが推奨されている。
+        公式なコードのリストは、ユニコードコンソーシアムが管理しており、 <ptr target="https://unicode.org/iso15924/iso15924-codes.html"/>から入手することができる。
+        IETFでは、不要であれば当該コードを省略することを推奨している。</item>
+      <label>地域</label><item>IANAに登録されたISO 3166の国名コードまたはUN M.49による地域コード (但し全てが〔IANAに〕登録されてはいない。例えば、UNコードのうち、経済圏やISO 3166の2文字コードが存在するものは含まれない)。
+        このうち前者は、2文字から構成され、大文字で書かれることが推奨されている。このコードのリストは、 <ptr target="https://www.iso.org/obp/ui/#search/code/"/> にあり、確認できる。
+        後者は、数字3桁から構成されている。このコードは、 <ptr target="https://unstats.un.org/unsd/methodology/m49/"/>にある。</item>
+      <label>変種</label><item>IANAに登録された変種。
+        このコードは、<quote rend="quoted">他の下位タグでは対応できない、その他のよく知られている言語や方言として定義される変種を示すために使用される</quote>。</item>
+      <label>拡張</label><item>拡張は、英字1文字、ハイフン、後続する（1つ以上の）下位タグの形式からなる。
+        これは、BCP 47が将来拡張された時のためにある。執筆時点ではそのような拡張はない。〔2024年時点ではuとtの2つの拡張が存在する。〕 </item>
+      <label>私用</label><item>拡張の先頭の下位タグが<mentioned>x</mentioned>1文字である (すなわち、<code>x-</code>で始まる) ものは、関係者間で取り決めがある場合のみ意味を持つ。 
+        このコードは十分に注意して使用しなければならない。これは、RFC 4646を使用する目的である相互運用性を損なうからである。〔現在ではRFC 4646は廃止され、RFC 5646を使用すべきである。〕 
+        文書内で私用タグを使う場合、TEIに準拠するためには<gi>language</gi>要素をTEIヘッダー中に記述しなければならない。</item></list></p>
+    <p>上記記述形式には、2つの例外がある。
+    ひとつは、<ref target="http://www.iana.org/assignments/language-subtag-registry">IANAレジストリ</ref>にある言語タグには、上述の形式に違反しているが有効なものがある。これはIANAでは以前の形式では許容されていた<soCalled>歴史的例外</soCalled>だからである。 </p>
+    <p>ふたつめは、言語タグ全体を私用タグにすることができる。
+    <code>x-</code>で始まるタグの内容は、IETFにある他の規定にも当該TEIガイドラインにある規定にも従う必要はない。
+    私用タグを含む言語タグと同様に、その言語をTEIヘッダーにある<gi>language</gi>要素に記述しなければならない。 </p>
+    <p>言語コードには、以下のようなものがある。
+    <list type="gloss"><label><val>sn</val></label><item>ショナ語</item>
+      <label><val>zh-TW</val></label><item>中国語（台湾）</item>
+      <label><val>zh-Hant-HK</val></label><item>繁体字中国語（香港）</item>
+      <label><val>en-SL</val></label><item>英語（シエラレオネ）</item>
+      <label><val>pl</val></label><item>ポーランド語</item>
+      <label><val>es-MX</val></label><item>スペイン語（メキシコ）</item>
+      <label><val>es-419</val></label><item>スペイン語（ラテンアメリカ）</item></list></p><p>
+    W3Cの国際化活動では、BCP 47の解説 <ref target="http://www.w3.org/International/articles/language-tags/Overview.en.php">「HTMLとXMLで使用される言語タグ」</ref>を以下に用意している。</p>
   </remarks>
   <remarks versionDate="2009-10-06" xml:lang="fr">
       <p>Les valeurs pour cet attribut sont les <soCalled>étiquettes</soCalled> de langue définies
@@ -8441,7 +8380,7 @@ value.</desc>
     display.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">웹에서 디스플레이 목적의 대상 크기를 명시하는 값의 범위를 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義的屬性值範圍說明預定呈現在網路上之物件大小</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">webページ上で表示する際の大きさを定義する値の範囲を定義する。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">表示を意図するオブジェクトの寸法を指定するための値の範囲を定義する。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit la gamme de valeurs exprimant
     les dimensions d'un objet destiné à être affiché.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define una gama de valores para emplearlos en la
@@ -8530,16 +8469,9 @@ bibliography and link to that (LB 2013-03-13) -->
       supported by XSD Schema. </p>
     <!-- http://www.regular-expressions.info/xml.html -->
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
+  <remarks xml:lang="ja" versionDate="2024-08-08">
     <p>
-      <cit>
-        <quote> 正規表現は、よく<term>パタン/パターン</term>ともいわれるもので、
-          一連の文字列を示すための表現方法である。一般には、簡潔な表現で、 多くのものを表現するために使用される。例えば、3つの文字列
-          <mentioned>Handel</mentioned>、<mentioned>Händel</mentioned>、<mentioned>Haendel</mentioned>を、１つのパタン
-          <code>H(ä|ae?)ndel</code>で示すことができる(または、
-          <code>H(ä|ae?)ndel</code>は、3つの文字列のいずれにも <term>マッチする</term>、といえる)。 </quote>
-        <ref target="http://en.wikipedia.org/wiki/Regular_expression#Basic_concepts">wikipedia</ref>
-      </cit>
+      <cit rend="display"><quote>正規表現は、よく<term>パタン/パターン</term>ともいわれるもので、文字列の集合を記述するための表現方法である。一般には、簡潔な表現で、 すべての要素を列挙することなく集合を表現するために使用される。例えば、三つの文字列<mentioned>Handel</mentioned>, <mentioned>Händel</mentioned>, <mentioned>Haendel</mentioned>〔訳注：これらはすべて「ヘンデル」の異表記〕を、一つのパタン<code>H(ä|ae?)ndel</code>で記述することができる（あるいは、<code>H(ä|ae?)ndel</code>は、三つの文字列のいずれにも<term>マッチする</term>といわれる）。</quote><ref target="http://en.wikipedia.org/wiki/Regular_expression#Basic_concepts">wikipedia</ref></cit>
     </p>
   </remarks>
   <remarks versionDate="2009-05-25" xml:lang="fr">
@@ -8563,6 +8495,7 @@ bibliography and link to that (LB 2013-03-13) -->
 </dataSpec>
 <dataSpec module="tei" xml:id="data-point" ident="teidata.point">
   <desc versionDate="2010-10-17" xml:lang="en">defines the data type used to express a point in cartesian space.</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">デカルト空間内の点を表現するデータ型を定義する。</desc>
   <content>
     <dataRef name="token" restriction="(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"/>
   </content>
@@ -8585,6 +8518,9 @@ bibliography and link to that (LB 2013-03-13) -->
     <!-- 51°45'45.63"N,  1°16'11.81"W -->
     </p>
   </remarks>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p>点は、ふたつの数値で定義される。数値は10進小数で表されることが望ましい。数値は小数点で終わってはならない。たとえば、<code>0.0,84.2</code>も<code>0,84</code>も有効であるが、<code>0.,84.</code>はそうではない。</p>
+  </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.pointer">
   <desc versionDate="2013-01-19" xml:lang="en">defines the range of attribute values used to provide a single
@@ -8592,7 +8528,7 @@ bibliography and link to that (LB 2013-03-13) -->
 resource, either within the current document or elsewhere.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">현 문서 또는 다른 곳 어디서든 다른 자원에 대한 단일 포인터를 제공하는 속성 값 범위를 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義的屬性值範圍提供單一指標，連結到其他位於目前文件或他處的資源</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">他の資源へのポインタをとる属性値の範囲を定義する。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">現在の文書や他の場所にあるなんらかの他の資源を指す単一の相対URIもしくは絶対URIを提供するために用いる属性値の範囲を定義する。</desc>
   <desc versionDate="2009-05-29" xml:lang="fr">définit la gamme des valeurs d'attributs utilisées
       pour fournir un pointeur URI unique sur une autre ressource, soit dans le document courant, soit
       dans un autre document.</desc>
@@ -8616,13 +8552,9 @@ resource, either within the current document or elsewhere.</desc>
     <code>http://xn--4gbrim.xn----rmckbbajlc6dj7bxne2c.xn--wgbh1c/</code>
       </p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
+  <remarks xml:lang="ja" versionDate="2024-08-08">
       <p>
-    当該属性値は、
-    <ref target="https://www.ietf.org/rfc/rfc3986.txt">RFC 3986
-    <title>Uniform Resource Identifier (URI) Reference</title>
-         </ref>
-    に定義されている。
+        シンタクス上正しい値の範囲は<ref target="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</ref> <title>Uniform Resource Identifier (URI): Generic Syntax</title>で定義されている。値自体は<ref target="http://www.ietf.org/rfc/rfc3987.txt">RFC 3987</ref> <title>Internationalized Resource Identifiers</title> (IRIs)をURIにマッピングして符号化する。たとえば、<code>https://secure.wikimedia.org/wikipedia/en/wiki/%</code>は <code>https://secure.wikimedia.org/wikipedia/en/wiki/%25</code>と符号化され、<code>http://موقع.وزارة-الاتصالات.مصر/</code>は<code>http://xn--4gbrim.xn----rmckbbajlc6dj7bxne2c.xn--wgbh1c/</code>と符号化される。
     </p>
   </remarks>
   <remarks versionDate="2009-05-25" xml:lang="fr">
@@ -8653,6 +8585,7 @@ resource, either within the current document or elsewhere.</desc>
   specify a TEI or Unicode version number.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit la gamme des valeurs d'attribut
   exprimant un numéro de version TEI.</desc>
+  <desc versionDate="2024-09-02" xml:lang="ja">TEIあるいはUnicodeのバージョン番号を指定するために使用できる属性値の範囲を定義する。</desc>
   <content>
       <dataRef name="token" restriction="[\d]+(\.[\d]+){0,2}"/>
    </content>
@@ -8674,9 +8607,13 @@ resource, either within the current document or elsewhere.</desc>
     facultative des versions mineures ou sous-mineurs.
 </p>
   </remarks>
+  <remarks versionDate="2024-09-02" xml:lang="ja">
+    <p>この属性の値はUnicodeコンソーシアムがバージョン番号のために定めた書式 (<ptr target="http://unicode.org/versions/"/>) に従う。一つのバージョン番号は数字とピリオドのみからなる。与えられた1番目の数字がメジャーバージョンを示す。2番目と3番目の数字をマイナーバージョンとサブマイナーバージョンを示すために付加することができる。</p>
+  </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.versionNumber">
   <desc versionDate="2013-04-14" xml:lang="en">defines the range of attribute values used for version numbers.</desc>
+    <desc versionDate="2024-09-02" xml:lang="ja">バージョン番号に使用される属性値の範囲を定義する。</desc>
   <content>
       <dataRef name="token" restriction="[\d]+[a-z]*[\d]*(\.[\d]+[a-z]*[\d]*){0,3}"/>
    </content>
@@ -8686,6 +8623,7 @@ resource, either within the current document or elsewhere.</desc>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.replacement">
   <desc versionDate="2013-04-14" xml:lang="en">defines attribute values which contain a replacement template.</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">置換テンプレートを含む属性値を定義する。</desc>
   <content>
       <textNode/>
    </content>
@@ -8694,20 +8632,27 @@ resource, either within the current document or elsewhere.</desc>
   </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.xpath">
-<desc versionDate="2013-04-14" xml:lang="en">defines attribute values
-which contain an XPath expression.</desc>
-<content>
-  <textNode/>
-</content>
-<remarks versionDate="2013-04-14" xml:lang="en">
-  <p>Any XPath expression using the syntax
-  defined in <ptr target="#XSLT2"/>.</p>
-  <p>When writing programs that evaluate XPath expressions,
-  programmers should be mindful of the possibility of malicious code
-  injection attacks. For further information about XPath injection
-  attacks, see the <ref target="https://owasp.org/www-community/attacks/XPATH_Injection">article at
-  OWASP</ref>.</p>
-</remarks>
+  <desc versionDate="2013-04-14" xml:lang="en">defines attribute values which contain an XPath expression.</desc>
+  <desc versionDate="2024-09-02" xml:lang="ja">XPath式を含む属性を定義する。</desc>
+  <content>
+    <textNode/>
+  </content>
+  <remarks versionDate="2013-04-14" xml:lang="en">
+    <p>Any XPath expression using the syntax
+    defined in <ptr target="#XSLT2"/>.</p>
+    <p>When writing programs that evaluate XPath expressions,
+    programmers should be mindful of the possibility of malicious code
+    injection attacks. For further information about XPath injection
+    attacks, see the <ref target="https://owasp.org/www-community/attacks/XPATH_Injection">article at
+    OWASP</ref>.</p>
+  </remarks>
+  <remarks versionDate="2024-09-02" xml:lang="ja">
+    <p>XPath式は、<ptr target="#XSLT2"/>で定義された文法を用いる。</p>
+    <p>XPath式を評価するプログラムを作成するときは、プログラマーはコー
+    ドインジェクション攻撃の可能性に留意すべきである。XPathのインジェ
+    クション攻撃については、<ref target="https://owasp.org/www-community/attacks/XPATH_Injection">OWASP
+    に掲載された記事</ref>を参照せよ。</p>
+  </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.word">
   <desc versionDate="2007-10-22" xml:lang="en">defines the range of attribute values expressed as a single
@@ -8750,6 +8695,7 @@ which contain an XPath expression.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit la gamme des valeurs d'attributs 
       exprimant une chaine de caracteres Unicode, y compris des
   espaces blancs.</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">空白文字を含みうるUnicode文字の単一の列として表現される何らかの識別のための文字列を示す属性値の範囲を定義する。</desc>
   <content>
       <dataRef name="string"/>
    </content>
@@ -8757,6 +8703,9 @@ which contain an XPath expression.</desc>
       <p>Attributes using this datatype must contain a single
     <soCalled>token</soCalled> in which whitespace and other
     punctuation characters are permitted. </p>
+  </remarks>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p>このデータ型を用いる属性は、単一の<soCalled>トークン</soCalled>（空白文字や句読点を入れてもよい）を含まなければならない。</p>
   </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.name">
@@ -8790,11 +8739,15 @@ which contain an XPath expression.</desc>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.xmlName">
   <desc versionDate="2013-04-13" xml:lang="en">defines attribute values which contain an XML name.</desc>
+    <desc versionDate="2024-09-02" xml:lang="ja">XML名を含む属性の値を定義する。</desc>
   <content>
       <dataRef name="NCName"/>
    </content>
   <remarks versionDate="2013-04-13" xml:lang="en">
       <p>The rules defining an XML name form a part of the XML Specification.</p>
+  </remarks>
+  <remarks versionDate="2024-09-02" xml:lang="ja">
+    <p>XML名を定める規 則はXMLの仕様に記載されている。</p>
   </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.prefix">
@@ -8815,7 +8768,7 @@ which contain an XPath expression.</desc>
     documented possibilities.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">기록된 확률의 목록으로부터 얻어진 단일 XML 이름으로 표현된 속성 값 범위를 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義的屬性值範圍以單字或代號呈現，該單字或代號出自於一份紀錄所有可能性的列表</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">符号化されている記述にある、ひつとのXML名前を示す属性値の範囲を定義する。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">定められた選択肢の一覧から選ばれる単一のXML名前を値域とする属性値を定義する。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit la gamme de
   valeurs des attributs exprimant un nom XML
     extrait d'une liste de possibilités documentées.</desc>
@@ -8834,10 +8787,8 @@ which contain an XPath expression.</desc>
       <p>Typically, the list of documented possibilities will be provided (or exemplified) by a value
       list in the associated attribute specification, expressed with a <gi>valList</gi> element.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-      <p> 当該データ型は、妥当なXML名前 (詳細は<ptr target="https://www.w3.org/TR/REC-xml/#dt-name"/>
-      を参照のこと)である単語でなくてはならない。例えば、 属性値として空白文字、または数値で始まる名前をとることはできない。 </p>
-      <p> 典型例は、可能な記述またはその例のリストが、要素<gi>valList</gi> 中に属性定義として示されている。 </p>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p>このデータ型を使用する属性は、このデータ型のために定義されたパターンと一致する単一の単語を含めなければならない。たとえば、空白は含むことはできないが、数字で始まってもよい。定められた選択肢の一覧は、典型的には関連する属性指定のなかで<gi>valList</gi>要素による値のリストの形で提供（または例示）される。</p>
   </remarks>
   <remarks versionDate="2009-05-25" xml:lang="fr">
       <p>Les attributs utilisant ce type de données doivent contenir un mot qui suit les règles de
@@ -8865,7 +8816,7 @@ which contain an XPath expression.</desc>
     the sex of an organism.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">인간 또는 동물의 성을 식별하는 속성 값 범위를 정의한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義的屬性值範圍用以識別人類或動物的性別</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">人間または動物の性を示す属性値の範囲を定義する。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">なんらかの生命体の性別を示す属性値の範囲を定義する。</desc>
   <desc versionDate="2022-05-10" xml:lang="fr">définit la gamme des valeurs d'attributs employés
     pour identifier le sexe d’un organisme.</desc>
   <desc versionDate="2022-05-10" xml:lang="es">define la gama de valores de atributos usados para
@@ -8881,6 +8832,9 @@ which contain an XPath expression.</desc>
   <remarks versionDate="2022-05-03" xml:lang="fr">
     <p>Les valeurs de cet attribut peuvent être définies localement par un projet ou peuvent faire
       référence à un standard externe.</p>
+  </remarks>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p>このデータ型を用いる属性の値は、プロジェクトごとに内部的に定めたり、外部の標準を参照したりしてよい。</p>
   </remarks>
 </dataSpec>
 <dataSpec module="tei" ident="teidata.probCert">
@@ -11236,7 +11190,7 @@ during the encoding of a text.</desc>
   <desc versionDate="2009-01-05" xml:lang="fr">indique l'extension de la normalisation ou de la régularisation effectuée sur le texte source dans sa conversion vers sa forme électronique.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">전자 형식으로 변환할 때 수행된 원본 텍스트의 표준화 또는 규칙화의 정도를 표시한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">指出來源文件轉換成電子文本時規格化或標準化的程度。</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">元資料が電子形式に変換される施される正規化の程度を示す。</desc>
+  <desc versionDate="2008-04-05" xml:lang="ja">元資料が電子形式に変換される際に施される正規化の程度を示す。</desc>
   <desc versionDate="2006-10-18" xml:lang="de">gibt an, in welchem Ausmaß das Original bei der
     Umwandlung in elektronische Form normalisiert und vereinheitlicht wurde.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">indica el grado de normalización o de regularización
@@ -14157,10 +14111,10 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
       debe ser confundido con el elemento <gi>publicationStmt</gi>, que registra la fecha y el lugar
       de la publicación.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-    <p rend="dataDesc"> 文字データまたは句レベルの要素。 </p>
-    <p> 当該要素<gi>creation</gi>は、テキストの作成に関する詳細を記録する ために使用される。例えば、作られた日付や場所など。出版日や出版地を
-        示す要素<gi>publicationStmt</gi>と混同しないように。 </p>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p><gi>creation</gi>要素はテキストが作成された詳細、たとえば時間や場所などの記録に使用できる。
+      <gi>listChange</gi>要素を用いてテキストの発展段階や修正についての構造的情報を含んでもよい。
+      刊行時・刊行地を記録する<gi>publicationStmt</gi>要素と混同しないように。 </p>
   </remarks>
   <remarks versionDate="2016-11-17" xml:lang="de">
       <p rend="dataDesc">
@@ -14731,8 +14685,8 @@ should be supplied for the <att>scheme</att> attribute.</p>
     <p>El atributo del esquema necesita ser suministrado solamente si se ha declarado más de una
       taxonomía</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-    <p> 当該属性sdchemeは、複数の分類法が宣言されている場合にのみ、必要と なる。 </p>
+  <remarks versionDate="2024-09-02" xml:lang="ja">
+    <p><att>scheme</att>属性は、複数の分類法が宣言されている場合にのみ、必要となる。</p>
   </remarks>
   <remarks versionDate="2016-11-24" xml:lang="de">
       <p>Das <att>scheme</att>-Attribut muss nur dann verwendet werden, wenn mehr als eine Taxonomie deklariert ist.</p>
@@ -14971,10 +14925,10 @@ should be supplied for the <att>scheme</att> attribute.</p>
 <elementSpec module="header" xml:id="gi-correspDesc" ident="correspDesc">
   <gloss versionDate="2014-01-13" xml:lang="en">correspondence description</gloss>
   <gloss versionDate="2021-02-02" xml:lang="it">descrizione di corrispondenza epistolare</gloss>
-  <gloss versionDate="2022-08-26" xml:lang="ja">書簡に関する記述</gloss>
+  <gloss versionDate="2024-07-01" xml:lang="ja">書簡の記述</gloss>
   <desc versionDate="2015-01-29" xml:lang="en">contains a description
     of the actions related to one act of correspondence.</desc>
-  <desc versionDate="2022-06-02" xml:lang="ja">書簡の一連の動きに関連する所作の記述を含む。</desc>
+  <desc versionDate="2024-07-01" xml:lang="ja">書簡の一連のやりとりに関連する所作の記述を含む。</desc>
   <desc versionDate="2021-02-02" xml:lang="it">contiene una descrizione delle azioni intorno a un atto di corrispondenza epistolare.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -15097,7 +15051,7 @@ should be supplied for the <att>scheme</att> attribute.</p>
   <gloss versionDate="2022-06-02" xml:lang="ja">書簡の文脈</gloss>
   <!-- related by sender/addressee or topics … -->
   <desc versionDate="2014-01-13" xml:lang="en">provides references to preceding or following correspondence related to this piece of correspondence.</desc>
-  <desc versionDate="2022-06-02" xml:lang="ja">当該書簡に関連する前後の書簡への参照。</desc>
+  <desc versionDate="2024-07-01" xml:lang="ja">当該書簡の前後の書簡への参照。</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="model.correspDescPart"/>
@@ -16772,7 +16726,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
   <gloss versionDate="2005-01-14" xml:lang="en">description</gloss>
   <gloss versionDate="2007-12-20" xml:lang="ko">기술</gloss>
   <gloss versionDate="2007-05-02" xml:lang="zh-TW">描述</gloss>
-  <gloss versionDate="2008-04-06" xml:lang="ja"/>
+  <gloss versionDate="2024-09-05" xml:lang="ja">説明</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">descripción</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">descrizione</gloss>
   <gloss versionDate="2008-12-09" xml:lang="fr">description</gloss>
@@ -16784,7 +16738,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
   </desc>
   <desc versionDate="2007-12-20" xml:lang="ko">요소, 속성, 또는 속성 값의 목적과 적용에 대한 간단한 기술을 포함한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含一段簡短描述，說明一元素、屬性、或屬性值的應用與目的。</desc>
-  <desc versionDate="2008-04-06" xml:lang="ja">当該要素、属性、属性値を採用した目的の簡単な解説を示す。</desc>
+  <desc versionDate="2024-09-05" xml:lang="ja">この要素の親要素（典型的には記述的要素やエンティティ）によって記述されるオブジェクトの簡単な説明（を含む）</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">contient une courte description de l'objet documenté par
     son élément parent, qui comprend son utilisation prévue, son but, ou son application là où c'est
     approprié.</desc>
@@ -17886,8 +17840,7 @@ Normalization</head>
       <desc versionDate="2007-12-20" xml:lang="ko">누락의 이유를 제시한다. 그 값의 예들은 다음과 같다: <val>sampling</val>,
           <val>illegible</val>, <val>inaudible</val>, <val>irrelevant</val>, <val>cancelled</val>,
           <val>cancelled and illegible</val></desc>
-      <desc versionDate="2007-05-02" xml:lang="zh-TW">說明省略的原因。屬性值的例子有<val>sampling</val>、<val>illegible</val>、<val>inaudible</val>、<val>irrelevant</val>、<val>cancelled</val>、<val>cancelled
-          and illegible</val>。</desc>
+      <desc versionDate="2025-03-31" xml:lang="zh-TW">說明省略的原因。</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">省略の理由を示す。例えば、 <val>見本</val>、<val>聞こえない</val>、
           <val>無関係</val>、<val>取り消し</val>、<val>取り消しがありかつ判読できない</val>、など。</desc>
       <desc versionDate="2017-02-06" xml:lang="fr">donne la raison de l'omission.</desc>
@@ -17911,10 +17864,8 @@ Normalization</head>
 	</valItem>
 	<valItem ident="editorial">
 	  <gloss versionDate="2021-02-01" xml:lang="en">editorial</gloss>
-	  <desc versionDate="2017-02-06" xml:lang="en">for features omitted from
-	  transcription due to editorial policy</desc>
-	  <desc versionDate="2017-02-07" xml:lang="de">für Bestandteile, 
-	  die aus editorischen Gründen nicht übertragen wurden</desc>
+	  <desc versionDate="2017-02-06" xml:lang="en">for features omitted from transcription due to editorial policy</desc>
+	  <desc versionDate="2017-02-07" xml:lang="de">für Bestandteile, die aus editorischen Gründen nicht übertragen wurden</desc>
 	</valItem>
 	<valItem ident="illegible">
 	  <gloss versionDate="2017-02-06" xml:lang="en">illegible</gloss>
@@ -17949,19 +17900,14 @@ Normalization</head>
     <attDef ident="agent" usage="opt">
       <gloss versionDate="2016-11-25" xml:lang="en">agent</gloss>
       <gloss versionDate="2016-11-25" xml:lang="de">Ursache</gloss>
-      <desc versionDate="2005-08-03" xml:lang="en">in the case of text omitted because of damage, categorizes the cause of the damage, if
-        it can be identified.</desc>
+      <desc versionDate="2005-08-03" xml:lang="en">in the case of text omitted because of damage, categorizes the cause of the damage, if it can be identified.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">훼손으로 인해 누락된 텍스트의 경우, 확인이 가능하다면 그 훼손 원인을 분류하여 기술한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">若省略是由於內容遭受損毀，且可識別損毀原因，則針對損毀原因加以分類。</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">損傷が原因のテキスト省略の場合、特定可能であれば当該損傷を分類する。</desc>
-      <desc versionDate="2007-06-12" xml:lang="fr">lorsque du texte est omis de la transcription en
-        raison d'un dommage, catégorise la cause du dommage, si celle-ci peut être identifiée.</desc>
-      <desc versionDate="2007-05-04" xml:lang="es">En el caso de texto omitido a causa de algún daño,
-        identifica (si es posible) la causa de tal daño.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">nel caso in cui il testo sia stato omesse a causa di
-        danneggiamento, indica la causa del danno qualora possa essere identificata.</desc>
-      <desc versionDate="2016-11-25" xml:lang="de">bestimmt im Falle von Text, der wegen Beschädigung weggelassen wird, 
-        die Ursache für den Schaden, sofern er ermittelt werden kann.</desc>
+      <desc versionDate="2007-06-12" xml:lang="fr">lorsque du texte est omis de la transcription en raison d'un dommage, catégorise la cause du dommage, si celle-ci peut être identifiée.</desc>
+      <desc versionDate="2007-05-04" xml:lang="es">En el caso de texto omitido a causa de algún daño, identifica (si es posible) la causa de tal daño.</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">nel caso in cui il testo sia stato omesse a causa di danneggiamento, indica la causa del danno qualora possa essere identificata.</desc>
+      <desc versionDate="2016-11-25" xml:lang="de">bestimmt im Falle von Text, der wegen Beschädigung weggelassen wird, die Ursache für den Schaden, sofern er ermittelt werden kann.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="open">
         <valItem ident="rubbing">
@@ -17970,13 +17916,10 @@ Normalization</head>
           <desc versionDate="2007-06-27" xml:lang="en">damage results from rubbing of the leaf edges</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">책장 모서리 마모로 인한 훼손</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">損毀起因於書頁邊緣摩擦受損</desc>
-          <desc versionDate="2008-04-06" xml:lang="es">daños resultantes del frotamiento de los bordes
-            de la hoja</desc>
+          <desc versionDate="2008-04-06" xml:lang="es">daños resultantes del frotamiento de los bordes de la hoja</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">葉のこすれによる損傷。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">dégâts provoqués par le frottement des bords de
-            la feuille.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da segni di strofinamento sui
-            bordi del foglio</desc>
+          <desc versionDate="2008-03-30" xml:lang="fr">dégâts provoqués par le frottement des bords de la feuille.</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da segni di strofinamento sui bordi del foglio</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Schaden, verursacht durch Abrieb an den Blatträndern</desc>
         </valItem>
         <valItem ident="mildew">
@@ -17985,13 +17928,10 @@ Normalization</head>
           <desc versionDate="2007-06-27" xml:lang="en">damage results from mildew on the leaf surface</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">곰팡이로 인한 책장 표면의 훼손</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">損毀起因於書頁表面發霉</desc>
-          <desc versionDate="2008-04-06" xml:lang="es">daños resultantes de la acción del moho en la
-            superficie de la hoja</desc>
+          <desc versionDate="2008-04-06" xml:lang="es">daños resultantes de la acción del moho en la superficie de la hoja</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">葉の表面に付いた白カビによる損傷。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">dégâts provoqués par de la moisissure sur la
-            surface de feuille.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da macchie di umido sulla
-            superficie del foglio</desc>
+          <desc versionDate="2008-03-30" xml:lang="fr">dégâts provoqués par de la moisissure sur la surface de feuille.</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da macchie di umido sulla superficie del foglio</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Schaden, verursacht durch Schimmelbefall</desc>
         </valItem>
         <valItem ident="smoke">
@@ -18276,6 +18216,7 @@ Normalization</head>
   <gloss versionDate="2007-05-04" xml:lang="es">cancelación</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">cancellatura</gloss>
   <gloss versionDate="2017-06-04" xml:lang="de">Streichung</gloss>
+  <gloss versionDate="2024-09-05" xml:lang="ja">削除</gloss>
   <desc versionDate="2007-09-25" xml:lang="en">contains a letter, word, or passage deleted, marked as deleted, or otherwise indicated as
     superfluous or spurious in the copy text by an author, scribe, or a previous annotator or corrector.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">삭제된 것으로 표시되었거나, 저자, 전사자, 부호화자 또는 수정작업자에 의해 사본 텍스트에서
@@ -18383,19 +18324,19 @@ Normalization</head>
       scientifiques ou des encodeurs. Dans ce cas, il faut utiliser soit la balise <gi>corr</gi>,
       soit la balise <gi>gap</gi>. </p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
-    <p><gi>gap</gi>を参照のこと。</p>
-    <p> 当該解釈の確信度は要素<gi>certainty</gi>で示される (<ptr target="#CE"/>を参照のこと)。 </p>
-    <p> 当該要素は、短いテキスト部分、例えばひつとの単語や句が削除されてい る時に使用されるべきである。要素<gi>delSpan</gi>は、より大きなテキ
-      スト部分、例えば、下位構造を含むものや追加と削除をともに含むような ものが削除されているときに使用されるべきである。 </p>
-    <p> 当該削除されているテキストは、少なくとも転記するに充分なほどには読 めるものでなければならない。全く読めないのであれば、要素
-        <gi>del</gi>は使うべきではない。この場合には、要素<gi>gap</gi>を使 い、転記できない単一のテキスト部分を示すべきである。この際、属性
-      <att>reason</att>により転記ができない理由が削除であることを示すこ とができる。全てが読めるわけではないという場合には、要素
-      <gi>unclear</gi>を使い、確信が持てないが読めるひとつのテキスト部分 を示すべきである。詳しくは、<ptr target="#PHOM"/>を参照のこと。
-      また、要素<gi>del</gi>と要素<gi>gap</gi>、<gi>damage</gi>、<gi>unclear</gi>、<gi>supplied</gi>との関係については、 <ptr target="#PHCOMB"/>を参照のこと(damageとsuppliedは元資料を転記
-      するための追加モジュールを使用する際に使うことができる)。 </p>
-    <p> 要素<gi>del</gi>は、編集者や符号化する人による削除部分に使用される べきではない。この場合は、要素<gi>corr</gi>または要素<gi>gap</gi>
-      が使われるべきである。 </p>
+  <remarks versionDate="2024-09-05" xml:lang="ja">
+    <p>この要素は、一連の短いテキスト、典型的には単語やフレーズの削除に用いる。
+      より長いテキスト、たとえば細分化された構造を含むものやオーバーラップする追加や削除を含むものには、<gi>delSpan</gi>要素を用いる。</p>
+    <p>削除されたテキストは、少なくとも、翻刻が可能である程度には部分的に判読可能であるものでなければならない（<gi>supplied</gi>タグで復元されている場合を除く）。
+      削除されたテキストの中で判読不能な、または失われた部分は、<gi>gap</gi>タグを用いることで、テキストは存在するが翻刻されなかった、または読めなくなっていることを符号化できる。
+      <gi>gap</gi>要素の属性は、テキストの省略の状況、省略された理由などを示すために用いる。
+      テキストが完全に判読できる状態にない場合、<gi>unclear</gi>要素（一次資料の翻刻のための追加タグセットを用いると利用可能）を用いて、これらの方法では確信を持って読めないテキストの領域を示す。</p>
+    <p>何が読めるのか、または削除の意図性に関する不確実性の度合いは、<gi>certainty</gi>要素の使用によって示す（<ptr target="#CE"/>を参照）。</p>
+    <p>TEIでは、<gi>del</gi>や<gi>surplus</gi>と、<gi>gap</gi>や<gi>unclear</gi>との間の区別については明確な違いがある。
+      <gi>del</gi>は、翻刻される資料に登場する削除を示し、著者や書写者によるテキストの取消や削除についての意図を示す。
+      <gi>surplus</gi>は、翻刻される資料に登場する、削除されるべきだったが実際には削除されていない箇所を示す。（訳注：<gi>surplus</gi>の項目も参照のこと）
+      一方、<gi>gap</gi>や<gi>unclear</gi>は、省略や判読不能という編集者や符号化する人の判断を示す。
+      詳細な翻刻の際に用いる関連の要素と、これらの要素との関係については、<ptr target="#PHOM"/>と<ptr target="#PHCOMB"/>のセクションを参照。</p>
   </remarks>
   <remarks versionDate="2017-06-04" xml:lang="de">
     <p>Dieses Element sollte nur für Löschungen kürzerer Textpassagen wie etwa einzelner Wörter
@@ -24714,8 +24655,11 @@ epistemology, methodology and history of
   </classes>
   <content>
     <sequence>
-      <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-      <sequence minOccurs="0">
+      <alternate minOccurs="0" maxOccurs="unbounded">
+        <classRef key="model.global" minOccurs="1" maxOccurs="1"/>
+        <classRef key="model.stageLike" minOccurs="1" maxOccurs="1"/>
+      </alternate>
+      <sequence>
         <elementRef key="speaker"/>
         <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
       </sequence>
@@ -29521,8 +29465,8 @@ reserved for the element likely to be used more often.</p>
     <gi>front</gi>, ce qui permet de rendre compte de pratiques éditoriales qui ont évolué avec
     l'histoire culturelle.</p>
   </remarks>
-  <remarks versionDate="2023-09-21" xml:lang="ja">
-    <p>どのような内容が後付あるいは前付とされるかは文化的慣習で異なるため、<gi>back</gi>と<gi>front</gi>のコンテントモデルは同一である。</p>
+  <remarks versionDate="2024-09-02" xml:lang="ja">
+    <p>どのような内容が後付あるいは前付とされるかは文化的慣習で異なるため、<gi>back</gi>と<gi>front</gi>の内容モデルは同一である。</p>
   </remarks>
   <remarks versionDate="2017-06-19" xml:lang="de">
     <p>Aufgrund von unterschiedlichen kulturellen Konventionen, die Angaben in Vorspann und Nachspann
@@ -31367,23 +31311,15 @@ and <val>simplified</val>  for simplified characters. The
   </content>
   <attList>
     <attDef ident="type" usage="opt">
-      <desc versionDate="2005-01-14" xml:lang="en">indicates whether the notation conveys the abstract metrical form, its actual prosodic
-        realization, or the rhyme scheme, or some combination thereof.</desc>
-      <desc versionDate="2009-01-05" xml:lang="fr">indique si la notation traduit la forme métrique
-        abstraite, sa réalisation prosodique, le schéma des rimes, ou une combinaison de ces
-        différents éléments.</desc>
+      <desc versionDate="2005-01-14" xml:lang="en">indicates whether the notation conveys the abstract metrical form, its actual prosodic realization, or the rhyme scheme, or some combination thereof.</desc>
+      <desc versionDate="2009-01-05" xml:lang="fr">indique si la notation traduit la forme métrique abstraite, sa réalisation prosodique, le schéma des rimes, ou une combinaison de ces différents éléments.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">표기법이 추상적 운율 형식, 그 실제 운율적 실현, 또는 운 스키마, 아니면 그것에 관련한
         결합을 포함하는지를 표시한다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">指出該標記所傳達的為抽象韻律形式、實際韻律實踐、或者押韻形式，或任幾項之結合。</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該表記法が抽象的韻律形式、実際の韻律形式、押韻スキーム、これら の組み合わせを表すかどうかを示す。</desc>
-      <desc versionDate="2006-10-18" xml:lang="de">zeigt an, ob die Notation die abstrakte metrische
-        Form, die tatsächliche prosodische Realisierung oder das Reimschema oder eine Kombination
-        dessen wiedergibt.</desc>
-      <desc versionDate="2007-05-04" xml:lang="es">indica si la notación indica la forma métrica
-        abstracta, su realización prosódica real, el esquema rítmico o alguna combinación de todo
-        ello.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica se l'annotazione fornisce la forma metrica
-        estratta, la sua realizzazione prosodica,lo schema delle rime o un loro combinazione</desc>
+      <desc versionDate="2006-10-18" xml:lang="de">zeigt an, ob die Notation die abstrakte metrische Form, die tatsächliche prosodische Realisierung oder das Reimschema oder eine Kombination dessen wiedergibt.</desc>
+      <desc versionDate="2007-05-04" xml:lang="es">indica si la notación indica la forma métrica abstracta, su realización prosódica real, el esquema rítmico o alguna combinación de todo ello.</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica se l'annotazione fornisce la forma metrica estratta, la sua realizzazione prosodica,lo schema delle rime o un loro combinazione</desc>
       <datatype minOccurs="1" maxOccurs="3"><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>met real</defaultVal>
       <valList type="closed">
@@ -36697,6 +36633,7 @@ l'original apparaît comme une forme fusionnée.</desc>
   <gloss versionDate="2008-04-06" xml:lang="es">fragmento de diccionario</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">bloc d'informations</gloss>
   <gloss versionDate="2007-11-06" xml:lang="it">frammento di dizionario</gloss>
+  <gloss versionDate="2024-09-05" xml:lang="ja">辞書の小見出し</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">encloses a part of a dictionary entry in which other phrase-level dictionary elements are
         freely combined.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">다른 구-층위 사전 요소들이 자유롭게 결합된 사전 표제 항목의 부분을 포함한다.</desc>
@@ -38521,6 +38458,7 @@ headword  such as noun, verb, or adjective.</desc>
   <gloss versionDate="2007-06-12" xml:lang="fr">définition</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">definición</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">definizione</gloss>
+  <gloss versionDate="2024-08-08" xml:lang="ja">定義</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains definition text in a dictionary entry.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">사전 표제 항목의 정의 텍스트를 포함한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含詞條中的定義文。</desc>
@@ -40577,7 +40515,7 @@ wherever appropriate.</p>
   <desc versionDate="2019-05-08" xml:lang="en" xml:id="depth.desc">contains a measurement from the front to the back of an object, perpendicular to the measurement given by the <gi>width</gi> element.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">책의 등(두께) 치수를 명시한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">橫跨書脊的測量值。</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">冊子の背と平行した深さを示す。</desc>
+  <desc versionDate="2024-09-02" xml:lang="ja">本や冊子本の表紙の背を横向きに測定した測定値、または（その他のテキスト媒体の場合は）<gi>width</gi>要素によって与えられた測定値に垂直な測定値を含む。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">contient une dimension mesurée sur le dos du
       manuscrit.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">refiere la medida tomada del ancho del dorso.***</desc>
@@ -43856,11 +43794,11 @@ on f. 24, but the evidence for this is insubstantial.</p>
   <gloss versionDate="2008-04-06" xml:lang="es">descripción de la decoración</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">description de la décoration</gloss>
   <gloss versionDate="2007-11-06" xml:lang="it">descrizione della decorazione</gloss>
+  <gloss versionDate="2024-08-12" xml:lang="ja">装飾の記述</gloss>
   <desc versionDate="2019-01-17" xml:lang="en" xml:id="decoDesc.desc">contains a description of the decoration of a manuscript or other object, either as in paragraphs, or as one or more <gi>decoNote</gi> elements.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">일련의 문단 또는 주제별로 조직된 일련의 <gi>decoNote</gi> 요소로 원고의 장식 기술을 포함한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含手稿的裝飾描述，可以是連續性的文字段落、或是一連串依主題排列的<gi>裝飾附註</gi>元素。</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">当該手書き資料の装飾を、一連の散文段落、または一連の要素
-  <gi>decoNote</gi>で示す。</desc>
+  <desc versionDate="2024-08-12" xml:lang="ja">当該手書き資料の装飾を、一連の散文段落、または、トピックごとにまとめた、一連の<gi>decoNote</gi>要素で示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">contient la description de la décoration du
       manuscrit, soit en une série de paragraphes <term>p</term>, soit sous la forme d'une série
       d'éléments thématiques <gi>decoNote</gi>.</desc>
@@ -43921,6 +43859,7 @@ with 1-line initials, alternately blue or red.</p>
   <gloss versionDate="2008-04-06" xml:lang="es">observaciones de la decoración</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">note sur un élément de décoration</gloss>
   <gloss versionDate="2007-11-06" xml:lang="it">nota sulla decorazione</gloss>
+  <gloss versionDate="2024-08-08" xml:lang="ja">装飾に関する注記</gloss>
   <desc versionDate="2019-01-17" xml:lang="en" xml:id="deconote.desc">contains a note describing either a
 decorative component of a manuscript or other object, or a fairly homogenous class of
 such components.</desc>
@@ -45047,11 +44986,12 @@ revision status of the parent manuscript or object description itself.</desc>
   <gloss versionDate="2008-04-06" xml:lang="es">historial de la custodia</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">histoire de la conservation</gloss>
   <gloss versionDate="2007-11-06" xml:lang="it">storia della conservazione</gloss>
+  <gloss versionDate="2024-08-08" xml:lang="ja">保管履歴</gloss>
   <desc versionDate="2019-01-17" xml:lang="en" xml:id="custhist.desc">contains a description of a manuscript or other object's custodial history, either
 as running prose or as a series of dated custodial events.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">연속적 산문체 또는 일련의 날짜가 표시된 보관 관련 사건을 통해서 원고의 보관 이력에 대한 기술을 포함한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含手稿保管歷史的描述，可以是篇章、或是一連串註明日期的保管事件。</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">手書き資料の管理履歴を示す。散文形式または一連の日付つき履歴で示す。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">手書き資料の保管履歴を示す。散文形式または一連の日付つき履歴で示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">contient des informations sur l'histoire de la
       conservation, soit en texte libre, soit sous la forme d'une série d'éléments
       <gi>custEvent</gi>.</desc>
@@ -45117,10 +45057,11 @@ Dispatched to Iceland
   <gloss versionDate="2008-04-06" xml:lang="es">acontecimiento de la custodia</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">événement dans la conservation</gloss>
   <gloss versionDate="2007-11-06" xml:lang="it">evento legato alla conservazione</gloss>
+  <gloss versionDate="2024-08-08" xml:lang="ja">保管中のイベント</gloss>
   <desc versionDate="2019-01-17" xml:lang="en" xml:id="custevent.desc">describes a single event during the custodial history of a manuscript or other object.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">원고의 보관 이력 중 단일 사건에 대하여 기술한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">描述手稿保管歷史中的單一事件。</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">手書き資料の管理履歴における、ひとつの事象を示す。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">手書き資料の保管履歴における、ひとつの事象を示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">décrit un événement dans l'histoire de la conservation du manuscrit.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">describe un único evento en la historia de la conservación de un manuscrito.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">descrive un singolo evento nella storia della conservazione di un manoscritto</desc>
@@ -45937,7 +45878,7 @@ element.</desc>
         Als Bezugspunkt gilt dabei die natürliche Ausrichtung des <gi>surface</gi>-Elternelements, die entweder
         im <gi>msDesc</gi>-Element beschrieben ist oder durch die Koordinaten des <gi>surface</gi>-Elements selbst.
         Die Drehung wird in Bogengrad angegeben.</desc>
-      <datatype minOccurs="1" maxOccurs="1"><dataRef key="teidata.count"/></datatype>
+      <datatype minOccurs="1" maxOccurs="1"><dataRef key="teidata.numeric"/></datatype>
       <defaultVal>0</defaultVal>
     </attDef>
   </attList>
@@ -46236,12 +46177,12 @@ en-tête et un texte, constitue un document TEI.</desc>
 </elementSpec>
 <elementSpec module="transcr" xml:id="gi-damage" ident="damage">
   <gloss xml:lang="en" versionDate="2007-06-12">damage</gloss>
-  <gloss xml:lang="ja" versionDate="2022-04-18">当該文献におけるテキストの損傷部分を示す。</gloss>
+  <gloss xml:lang="ja" versionDate="2024-08-08">損傷</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">dommage</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains an area of damage to the text witness.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">비교 대상 텍스트의 손상 영역을 포함한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含文件中一塊損毀區域。</desc>
-  <desc versionDate="2008-04-21" xml:lang="ja">当該文献におけるテキストの損傷部分を示す。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">当該証拠資料におけるテキストの損傷部分を示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">sert à encoder une zone qui a subi des dommages dans le manuscrit témoin du texte.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una área dañada del testimonio.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">contiene l'area visibile del danneggiamento al testimone</desc>
@@ -46287,19 +46228,16 @@ appropriate for which circumstance.</p>
     <p>Les éléments <gi>damage</gi>, <gi>gap</gi>, <gi>del</gi>, <gi>unclear</gi>
       et<gi>supplied</gi> peuvent être utilisés en étroite association. Voir la section <ptr target="#PHCOMB"/> pour savoir en quelle circonstance chacun de ces éléments est approprié.</p>
   </remarks>
-  <remarks versionDate="2022-04-18" xml:lang="ja"><p>
-文献中のテキストが読み取れないほどの損傷である場合、要素<gi>damage</gi>は、
-要素<gi>unclear</gi>をとるのが一般的である。
-当該損傷部分が連続的ではない場合(例えば、文字列に被さるしみなど)、
-属性<att>group</att>により、関連する複数の要素<gi>damage</gi>をま
-とめることができる。また、要素<gi>join</gi>を使い、要素
-<gi>damage</gi>や要素<gi>unclear</gi>をまとめることで、同じような
-損傷 がある部分を示すこともできる。
+  <remarks versionDate="2024-08-08" xml:lang="ja"><p>
+    損傷はしばしば証拠資料のテキストを読み取りにくくさせるので、
+    <gi>damage</gi>要素は、 よく<gi>unclear</gi>要素をとる。
+    当該損傷部分が連続的ではない場合（例えば、一個のしみがいくつかの文字に掛るなど）、
+    <att>group</att>属性により、関連する複数の<gi>damage</gi>要素をまとめることができる。
+    あるいは、<gi>join</gi>要素で、どの<gi>damage</gi>要素や<gi>unclear</gi>要素が、同一の物理的現象に起因するかを示すこともできる。</p>
+    <p><gi>damage</gi>, <gi>gap</gi>, <gi>del</gi>, <gi>unclear</gi>, <gi>supplied</gi>などの要素は、密接に関連して用いられる。
+    これらのどの要素が相応しいかについての詳細は<ptr target="#PHCOMB"/>を参照のこと。
 </p>    
-<p>
-  要素<gi>damage</gi>、<gi>gap</gi>、<gi>del</gi>、<gi>unclear</gi>、<gi>supplied</gi>は、このような使用をされる。これらのどの要素が相
-応しいかについての詳細は<ptr target="#PHCOMB"/>を参照のこと。
-</p>  
+
 </remarks>
   <listRef>
     <ptr target="#PHDA"/>
@@ -46311,6 +46249,7 @@ appropriate for which circumstance.</p>
   <gloss versionDate="2008-04-06" xml:lang="es">fragmento de texto dañado</gloss>
   <gloss versionDate="2008-03-30" xml:lang="fr">partie de texte endommagée</gloss>
   <gloss versionDate="2007-11-06" xml:lang="it">porzione di testo danneggiata</gloss>
+  <gloss versionDate="2024-08-08" xml:lang="ja">テキストの損傷範囲</gloss>
   <desc versionDate="2007-09-03" xml:lang="en">marks the beginning of a longer sequence of text which is damaged in some way but still legible.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">어떤 방식으로 손상되었지만 여전히 읽을 수 있는 긴 텍스트 연쇄 시작부를 표시한다.</desc>
   <desc versionDate="2008-04-06" xml:lang="es">marca el inicio de una secuencia de texto larga dañada de alguna manera pero aún legible.</desc>
@@ -46392,18 +46331,7 @@ the start of the  <anchor xml:id="a34"/> undamaged part of the text. ...</p>
   </remarks>
   <remarks versionDate="2008-04-05" xml:lang="ja">
     <p>
-    当該損傷部分の始点と終点は符号化されなければならない。始点は要素
-    <gi>damageSpan</gi>で示される。終点は属性<att>spanTo</att>で示される。
-    (指示対象として適切な)他の要素がない場合は、要素<gi>anchor</gi>が
-  使用される。
-  </p>
-    <p>
-    当該テキストの損傷部分は、少なくとも一部は読むことができ、符号化す
-  る人は転記ができるものでなければならない。読めない場合には、当該要素
-  <gi>damageSpan</gi>は使用すべきではない。この場合は、要素
-  <gi>gap</gi>または要素<gi>unclear</gi>が、読めない理由を示す属性
-  <att>reason</att>と共に使用されるべきである。この詳細については
-  <ptr target="#PHDA"/>と<ptr target="#PHCOMB"/>を参照のこと。
+      当該損傷部分の始点と終点の両方を符号化しなければならない。始点は<gi>damageSpan</gi>要素で、終点はターゲットを<att>spanTo</att>属性に示す。もし他に適切な要素がなければ、<gi>anchor</gi>要素をこの目的のために使用してもよい。〔<gi>DamageSpan</gi>で囲まれた〕「損傷したテキスト」は少なくとも一部は読み取れ、符号化のために翻刻が可能なものでなければならない。全く読めない場合には、<gi>damageSpan</gi>要素を使用すべきではない。この場合は、<gi>gap</gi>要素または<gi>unclear</gi>要素が、読めない理由を示す<att>reason</att>属性と共に採用されるべきである。詳細については<ptr target="#PHDA"/>と<ptr target="#PHCOMB"/>を参照のこと。
   </p>
   </remarks>
   <listRef>
@@ -46417,10 +46345,11 @@ the start of the  <anchor xml:id="a34"/> undamaged part of the text. ...</p>
   <gloss versionDate="2007-06-12" xml:lang="fr">partie de texte supprimée</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">fragmento de texto omitido</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">porzione di testo cancellata</gloss>
+  <gloss versionDate="2024-08-12" xml:lang="ja">削除されたテキストの区間</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">marks the beginning of a longer sequence of text deleted, marked as deleted, or otherwise signaled as superfluous or spurious by an author, scribe, annotator, or corrector.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">작가, 필기사, 주석자 또는 교정자에 의해 삭제되었다고 표시되었거나, 잉여적으로 추가되거나 위조된 것으로 표시된 긴 연쇄의 텍스트 시작부를 표시한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">標記一較長連續性文字之開端，該文字由作者、抄寫者、註解者、或更正者刪除、標上刪除記號、或者標明為多餘或偽造。</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">著者・筆写者・注釈者・校正者により、削除または削除として符号化または 余分なものまたは間違いとして示されている、長めのテキスト部分の始点を 示す。</desc>
+  <desc versionDate="2024-08-12" xml:lang="ja">著者・筆写者・注釈者・校正者により、削除されたり、削除符号を与えられたり、あるいはその他の余分なものまたは誤りとして示されたりしている、長めのテキスト部分の始点を示す。</desc>
   <desc versionDate="2009-11-16" xml:lang="fr">marque le début d'une longue partie de texte supprimée, signalée comme supprimée ou bien signalée comme superflue ou fausse par un auteur, un copiste, un annotateur ou un correcteur.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">señala el inicio de un fragmento largo de texto omitido, o marcado como cancelado o como supérfluo o espurio, por un autor, un transcriptor, un comentarista o un corrector.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">segnala l'inizio di una porzione di testo più lunga cancellata, indicata come cancellata, o indicata come superflua o spuria da un autore, un trascrittore, un annotatore o un correttore</desc>
@@ -47234,9 +47163,9 @@ element is appropriate for which circumstance.</p>
 <elementSpec module="transcr" xml:id="gi-surplus" ident="surplus">
   <gloss versionDate="2007-06-12" xml:lang="en">surplus</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">Texte superflu</gloss>
-  <desc versionDate="2009-11-06" xml:lang="en">marks text present in the source which the editor believes to
-  be superfluous or redundant.</desc>
+  <desc versionDate="2009-11-06" xml:lang="en">marks text present in the source which the editor believes to be superfluous or redundant.</desc>
   <desc versionDate="2009-11-16" xml:lang="fr">permet d'encoder une partie de texte présente dans la source lorsque l'éditeur la considère superflue ou redondante.</desc>
+  <desc versionDate="2024-09-05" xml:lang="ja">編集者が無駄、もしくは、冗長だと考える原資料にあるテクストをマークする。</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.dimensions"/>
@@ -47249,18 +47178,17 @@ element is appropriate for which circumstance.</p>
   <attList>
     <attDef ident="reason" usage="opt">
       <desc versionDate="2013-12-06" xml:lang="en">one or more words indicating why this text is believed to be superfluous, e.g.
-<mentioned>repeated</mentioned>,
+      <mentioned>repeated</mentioned>,
       <mentioned>interpolated</mentioned> etc.</desc>
       <desc versionDate="2009-11-16" xml:lang="fr">indique les raisons pour lesquelles on considère cette partie de texte comme superflue.</desc>
-      <datatype maxOccurs="unbounded">
-        <dataRef key="teidata.enumerated"/>
-      </datatype>
+      <desc versionDate="2024-09-05" xml:lang="ja">このテキストが余分なものであると考えられる理由を示す1つ以上の単語。例えば<mentioned>repeated</mentioned>〔繰返し〕、<mentioned>interpolated</mentioned>〔衍字〕など。</desc>
+      <datatype maxOccurs="unbounded"><dataRef key="teidata.word"/></datatype>
     </attDef>
   </attList>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-surplus-egXML-wv">I am dr Sr yrs
-<surplus reason="repeated">yrs</surplus>
-Sydney Smith</egXML>
+    <surplus reason="repeated">yrs</surplus>
+    Sydney Smith</egXML>
   </exemplum>
   <listRef>
     <ptr target="#PHDA"/>
@@ -54454,9 +54382,7 @@ one initial.</desc>
       dates and times</title>을 따른다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">定義該系列表示時間的屬性值，例如日期、時間或兩者的組合，需符合國際標準 Data elements and
     interchange formats – Information interchange – Representation of dates and times</desc>
-  <desc versionDate="2008-04-05" xml:lang="ja">日付や時間などの時間表現をとる属性値の範囲を定義する。これは、国際標 準である<title>Data
-      elements and interchange formats - Information interchange - Representation of dates and
-    times</title>に準拠したも のになる。</desc>
+  <desc versionDate="2024-08-08" xml:lang="ja">日付や時間などの時間表現をとる属性値の範囲を定義する。これは、国際標準である<title>Data elements and interchange formats - Information interchange - Representation of dates and times</title>に準拠したものになる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit la gamme des valeurs d'attribut qui sont capables
     d''exprimer une valeur temporelle comme une date, une période, ou une combinaison des deux qui
     se conforment au standard international <title>Data elements and interchange formats –
@@ -61809,6 +61735,7 @@ organisées en liste.</desc>
   <gloss versionDate="2007-06-12" xml:lang="fr">valeur de trait par défaut</gloss>
   <gloss versionDate="2007-05-04" xml:lang="es">valor de rasgo predeterminado.</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">un valore del tratto predefinito</gloss>
+  <gloss versionDate="2024-08-12" xml:lang="ja">規定の素性値</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">represents the value part of a feature-value specification
   which contains a defaulted value.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">기본 값을 포함하는 자질-값 명세에서 값의 부분을 표시한다.</desc>
@@ -66769,7 +66696,9 @@ the associated TEI header.</p>
 </elementSpec>
 <elementSpec module="tagdocs" xml:id="gi-dataSpec" ident="dataSpec">
   <gloss versionDate="2007-07-04" xml:lang="en">datatype specification</gloss>
+  <gloss versionDate="2024-09-02" xml:lang="ja">データ型の指定</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">documents a datatype.</desc>
+  <desc versionDate="2024-09-02" xml:lang="ja">データ型を記述する。</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.identified"/>
@@ -68632,6 +68561,10 @@ déclaration de même nom dans la définition courante.</desc>
   <remarks versionDate="2023-03-30" xml:lang="en">
     <p>It is required that the <gi>content</gi> element has only one child element. If several RELAX NG elements are desired, they must be wrapped in a <gi>rng:div</gi>.</p>
   </remarks>
+  <remarks versionDate="2024-08-08" xml:lang="ja">
+    <p><gi>content</gi>要素の子要素を一つだけ持つことが要求される。もし複数のRELAX NG 要素が求められる場合、<gi>rng:div</gi>に含まれるようにしなければならない。</p>
+  </remarks>
+  
   <listRef>
     <ptr target="#TDTAG"/>
   </listRef>
@@ -69561,11 +69494,9 @@ déclaration de même nom dans la définition courante.</desc>
                 macros TEI prédéfinies, qui font correspondre un nom dans sa forme
                 <code>teidata.xxxx</code> à un type de données définies en RELAX NG or XSD.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
+  <remarks versionDate="2024-09-02" xml:lang="ja">
     <p>
-    TEIスキームでは、殆どのデータ型はTEIマクロに規定されているものを使
-    用している。マクロ名にある<code>teidata.xxxx</code>で示されたデータ型
-    名は、RELAX NGまたはWSDのデータ型に対応づけられている。
+      TEIスキーマでは、殆どのデータ型はあらかじめ定義されたTEIマクロを使用することで表現される。このマクロは<code>teidata.xxxx</code>の形で示された名前を、RELAX NGまたはW3Cスキーマ言語により定義されたデータ型に対応づけている。
     </p>
   </remarks>
   <listRef>
@@ -69576,6 +69507,7 @@ déclaration de même nom dans la définition courante.</desc>
 <elementSpec module="tagdocs" xml:id="gi-dataRef" ident="dataRef">
   <desc versionDate="2010-05-14" xml:lang="en">identifies the datatype of an attribute value, either by referencing an item in an externally defined datatype library, or by
     pointing to a TEI-defined data specification</desc>
+  <desc versionDate="2024-09-02" xml:lang="ja">外部で定義されたデータ型ライブラリ内の項目を参照するか、もしくはTEIにより定義されたデータ仕様を指し示すことで、属性値のデータ型を識別する</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="model.contentPart"/>
@@ -69605,21 +69537,25 @@ déclaration de même nom dans la définition courante.</desc>
     <attList org="choice">
       <attDef ident="key">
         <desc versionDate="2010-05-14" xml:lang="en">the identifier used for this datatype specification</desc>
+        <desc versionDate="2024-09-02" xml:lang="ja">このデータ型仕様に使われる識別子</desc>
         <datatype><dataRef key="teidata.xmlName"/></datatype>
       </attDef>
       <attDef ident="name">
         <desc versionDate="2010-05-14" xml:lang="en">the name of a datatype in the list provided by 
         <ref target="#XSD2">XML Schema Part 2: Datatypes Second Edition</ref></desc>
+        <desc versionDate="2024-09-02" xml:lang="ja"><ref target="#XSD2">XML Schemas: Part 2: Datatypes</ref>で提供されているリスト内のデータ型の名前</desc>
         <datatype><dataRef key="teidata.xmlName"/></datatype>
       </attDef>
       <attDef ident="ref">
         <desc versionDate="2010-05-14" xml:lang="en">a pointer to a datatype defined in some datatype library</desc>
+        <desc versionDate="2024-09-02" xml:lang="ja">あるデータ型ライブラリ内で定義されたデータ型へのポインタ</desc>
         <datatype><dataRef key="teidata.pointer"/></datatype>
       </attDef>
     </attList>
     <attDef ident="restriction">
       <desc versionDate="2012-12-04" xml:lang="en">supplies a string representing a regular expression providing additional constraints 
       on the strings used to represent values of this datatype</desc>
+      <desc versionDate="2024-09-02" xml:lang="ja">このデータ型の値を表すために使用される文字列に追加の制約を加える正規表現を表す文字列を提供する</desc>
      <datatype><dataRef key="teidata.pattern"/></datatype>
    </attDef>
   </attList>
@@ -69653,6 +69589,7 @@ déclaration de même nom dans la définition courante.</desc>
     <p>Only one of the attributes <att>key</att>, <att>name</att>, and <att>ref</att> may be used on any given instance of <gi>dataRef</gi>.</p>
     <p>Neither a <att>restriction</att> attribute nor a <gi>dataFacet</gi> child element may be used unless the <gi>dataRef</gi> refers to a datatype from the specification <ref target="#XSD2">XML Schema Part 2: Datatypes Second Edition</ref> with a <att>name</att> attribute.</p>
   </remarks>
+  <remarks versionDate="2024-09-02" xml:lang="ja"><p> <att>key</att>, <att>name</att>, <att>ref</att>の内どれか一つの属性のみを使用することができる</p></remarks>
   <listRef>
     <ptr target="#TD-datatypes"/>
   </listRef>
@@ -69660,6 +69597,7 @@ déclaration de même nom dans la définition courante.</desc>
 <elementSpec module="tagdocs" xml:id="gi-dataFacet" ident="dataFacet">
   <desc versionDate="2016-11-21" xml:lang="en">Restricts the value of the strings used to represent values of a datatype, 
     according to <ref target="#XSD2">XML Schema Part 2: Datatypes Second Edition</ref>.</desc>
+  <desc versionDate="2024-09-02" xml:lang="ja"><ref target="#XSD2">XML Schemas: Part 2: Datatypes</ref>に従って、データ型の値を表すために使用される文字列の値を制限する。</desc>
   <classes>
     <memberOf key="att.global"/>
     </classes>
@@ -69667,6 +69605,7 @@ déclaration de même nom dans la définition courante.</desc>
   <attList>
       <attDef ident="name" usage="req">
         <desc versionDate="2016-11-21" xml:lang="en">the name of the facet.</desc>
+        <desc versionDate="2024-09-02" xml:lang="ja">ファセットの名前</desc>
         <datatype><dataRef key="teidata.word"/></datatype>
         <valList type="closed">
           <valItem ident="length"/>
@@ -69685,6 +69624,7 @@ déclaration de même nom dans la définition courante.</desc>
       </attDef>
       <attDef ident="value" usage="req">
         <desc versionDate="2016-11-21" xml:lang="en">the facet value.</desc>
+        <desc versionDate="2024-09-02" xml:lang="ja">ファセット値</desc>
         <datatype><dataRef name="string"/></datatype>
       </attDef>
   </attList>
@@ -69716,6 +69656,7 @@ déclaration de même nom dans la définition courante.</desc>
         <att>name</att> to a datatype from the specification <ref target="#XSD2">XML Schema Part 2: Datatypes Second Edition</ref>. 
     </p>
   </remarks>
+  <remarks versionDate="2024-09-02" xml:lang="ja"><p>この要素は、親<gi>dataRef</gi>が<att>name</att>によって、<ref target="#XSD2">XML Schemas: Part 2: Datatypes</ref>の仕様書からデータ型を参照する場合にのみ許される。</p></remarks>
   <listRef>
     <ptr target="#TD-datatypes"/>
   </listRef>
@@ -69727,6 +69668,7 @@ déclaration de même nom dans la définition courante.</desc>
   <gloss versionDate="2008-04-06" xml:lang="es">valor por defecto</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">valeur par défaut</gloss>
   <gloss versionDate="2007-11-06" xml:lang="it">valore predefinito</gloss>
+  <gloss versionDate="2024-08-12" xml:lang="ja">既定値</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">specifies the default declared value for an attribute.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">속성에 대한 기본 선언 값을 명시한다.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">標明屬性的預設宣告值。</desc>
@@ -69764,9 +69706,9 @@ déclaration de même nom dans la définition courante.</desc>
     <p rend="dataDesc">Toute valeur déclarée dans les règles ou tout mot-clé défini en
             TEI.</p>
   </remarks>
-  <remarks versionDate="2008-04-05" xml:lang="ja">
+  <remarks versionDate="2024-08-12" xml:lang="ja">
     <p rend="dataDesc">
-    TEIの予約値。
+      予約された値もしくはTEIで定義されたキーワード。
     </p>
   </remarks>
   <listRef>

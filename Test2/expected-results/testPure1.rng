@@ -207,7 +207,7 @@
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50703-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50692-constraint">
          <rule context="tei:ab">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://www.loc.gov/mods/v3', 'http://www.tei-c.org/ns/1.0'))]">ab descendants must be in the
               namespaces
@@ -319,7 +319,7 @@
             </choice>
          </zeroOrMore>
       </element>
-      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50714-constraint">
+      <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="d9e50703-constraint">
          <rule context="tei:ab">
             <report test="descendant::*[not(namespace-uri(.) =               ('http://www.w3.org/2000/svg', 'http://www.tei-c.org/ns/1.0'))]">ab descendants must be in the
               namespaces
@@ -494,7 +494,7 @@
    <define name="t_att.citing.attribute.unit">
       <optional>
          <attribute name="unit">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies the unit of information conveyed by the element, e.g. columns, pages, volume, entry.
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies the unit of information conveyed by the element.
 Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line; 5] chapter (chapter); 6] part; 7] column; 8] entry</a:documentation>
             <choice>
                <value>volume</value>
@@ -5994,16 +5994,17 @@ Elements]</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(speech) contains an individual speech in a performance text, or a passage presented as such in a prose or verse text. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.2. Speeches and Speakers]</a:documentation>
          <group>
             <zeroOrMore>
-               <ref name="t_model.global"/>
+               <choice>
+                  <ref name="t_model.global"/>
+                  <ref name="t_model.stageLike"/>
+               </choice>
             </zeroOrMore>
-            <rng:optional xmlns:rng="http://relaxng.org/ns/structure/1.0">
-               <rng:group>
-                  <rng:ref name="t_speaker"/>
-                  <rng:zeroOrMore>
-                     <rng:ref name="t_model.global"/>
-                  </rng:zeroOrMore>
-               </rng:group>
-            </rng:optional>
+            <group>
+               <ref name="t_speaker"/>
+               <zeroOrMore>
+                  <ref name="t_model.global"/>
+               </zeroOrMore>
+            </group>
             <oneOrMore>
                <choice>
                   <ref name="t_lg"/>
