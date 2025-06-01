@@ -670,13 +670,13 @@
             <tr>
               <td>width="2.5in"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" width:2.5in;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="width:2.5in;" />
               </td>
             </tr>
             <tr>
               <td>width=".5in"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" width:0.5in;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="width:0.5in;" />
               </td>
             </tr>
             <tr>
@@ -688,7 +688,7 @@
             <tr>
               <td>width="1in"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" width:1in;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="width:1in;" />
               </td>
             </tr>
             <tr>
@@ -700,31 +700,31 @@
             <tr>
               <td>height="1in"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" height:1in;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="height:1in;" />
               </td>
             </tr>
             <tr>
               <td>height="1in" width="2in"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" width:2in; height:1in;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="width:2in; height:1in;" />
               </td>
             </tr>
             <tr>
               <td>height="2in" width="1in"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" width:1in; height:2in;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="width:1in; height:2in;" />
               </td>
             </tr>
             <tr>
               <td>width="10%"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" width:10%;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="width:10%;" />
               </td>
             </tr>
             <tr>
               <td>height="10%" width="10%"</td>
               <td>
-                <img src="portrait.jpg" alt="" class="graphic" style=" width:10%; height:10%;" />
+                <img src="portrait.jpg" alt="" class="graphic" style="width:10%; height:10%;" />
               </td>
             </tr>
           </table>
