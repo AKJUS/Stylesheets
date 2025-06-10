@@ -7,7 +7,7 @@
       </titleStmt>
       <editionStmt>
         <edition>P5 <ref target="#ABTEI4">Version</ref> <ref target="../../readme-4.10.0.html">4.10.0a</ref>. Last updated on
-        <date when="2025-05-19">19th May 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/2aeaaa198">2aeaaa198</ref></edition>
+        <date when="2025-06-10">10th June 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/9ffc46fe5">9ffc46fe5</ref></edition>
       </editionStmt>
       <publicationStmt>
         <distributor>TEI Consortium</distributor>
@@ -28175,8 +28175,7 @@ dedicatory epistle, or other division of a text.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">예를 들어 편지의, 추신.</desc>
   <desc versionDate="2008-04-06" xml:lang="es">contiene una posdata, p.ej. en una carta.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">追伸を示す。例えば、手紙の場合など。</desc>
-  <desc versionDate="2008-03-30" xml:lang="fr">contient un post-scriptum,  par exemple au bas d' une
-lettre.</desc>
+  <desc versionDate="2008-03-30" xml:lang="fr">contient un post-scriptum,  par exemple au bas d' une lettre.</desc>
   <desc versionDate="2007-11-06" xml:lang="it">contiene un post scriptum, come nel caso di una lettera</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält einen Nachtrag (Postskriptum), z. B. zu einem Brief.</desc>
   <classes>
@@ -28188,33 +28187,23 @@ lettre.</desc>
   </classes>
   <content>
     <sequence>
-      
-        <alternate minOccurs="0" maxOccurs="unbounded">
-          <classRef key="model.global"/>
-          <classRef key="model.divTopPart"/>
-        </alternate>
-      
-      
-        <classRef key="model.common"/>
-      
-      
-        <alternate minOccurs="0" maxOccurs="unbounded">
-          <classRef key="model.global"/>
-          <classRef key="model.common"/>
-        </alternate>
-      
+      <alternate minOccurs="0" maxOccurs="unbounded">
+	<classRef key="model.global"/>
+	<classRef key="model.divTopPart"/>
+      </alternate>
+      <classRef key="model.common"/>
+      <alternate minOccurs="0" maxOccurs="unbounded">
+	<classRef key="model.global"/>
+	<classRef key="model.common"/>
+      </alternate>
       <sequence minOccurs="0" maxOccurs="unbounded">
-        
-          <classRef key="model.divBottomPart"/>
-        
-        
-          <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-        
+	<classRef key="model.divBottomPart"/>
+	<classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
       </sequence>
     </sequence>
   </content>
-  <exemplum xml:lang="en">
-    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-postscript-egXML-fq">
+  <exemplum xml:lang="en" versionDate="2025-05-29">
+    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-postscript-egXML-fq" source="#NONE">
       <div type="letter">
         <opener>
           <dateline>
@@ -28233,7 +28222,7 @@ lettre.</desc>
         </closer>
         <postscript>
           <label>P.S.</label>
-          <p>The collision occured on <date when="2001-07-06">06 Jul 01</date>.</p>
+          <p>The collision occurred on <date when="2001-07-06">06 Jul 01</date>.</p>
         </postscript>
       </div>
     </egXML>
@@ -39984,7 +39973,7 @@ headword  such as noun, verb, or adjective.</desc>
         <!-- Note: This rule applies to <msContents>, <physDesc>,
              <history>, and <additional> wherever they occur. Luckily
              they are only allowed in places where they are
-             constrained to 0 or 1 occurence. If that changes someday,
+             constrained to 0 or 1 occurrence. If that changes someday,
              this constraint may will likely need to be updated,
              too. -->
         <!-- Also worth noting that
@@ -39993,7 +39982,7 @@ headword  such as noun, verb, or adjective.</desc>
              concrete rules in the individual <elementSpec>s; and
              b) I did not test for the existence of "../*[name(.) eq
              $gi][2]" because then an error would be generated for
-             each of the multiple occurences of $gi. -->
+             each of the multiple occurrences of $gi. -->
         <sch:let name="gi" value="name(.)"/>
         <sch:report test="preceding-sibling::*[ name(.) eq $gi ]                           and                           not( following-sibling::*[ name(.) eq $gi ] )">
           Only one <sch:name/> is allowed as a child of <sch:value-of select="name(..)"/>.
@@ -40261,7 +40250,7 @@ the inner bounding line, reading from top to bottom.</catchwords>
     <!-- It would be simpler to use just
          "( count(tei:width), count(tei:height), count(tei:depth) ) > 1",
          but then we would not be able to tell the user which element
-         had too many occurences. -->
+         had too many occurrences. -->
     <constraint>
       <sch:rule context="tei:dimensions">
         <sch:report test="count(tei:width) gt 1">
@@ -54162,8 +54151,8 @@ one initial.</desc>
       </exemplum>
       <exemplum xml:lang="en">
         <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="DATABLEISO-egXML-tb" source="#UND">He likes to be punctual. I said <q><time when-iso="12">around noon</time></q>, and he showed up at <time when-iso="12:00:00">12 O'clock</time> on the dot.</egXML>
-        <p>The second occurence of <gi>time</gi> could have been encoded with the <att>when</att> attribute, as <val>12:00:00</val> is a valid
-          time with respect to the W3C <ref target="#XSD2">XML Schema Part 2: Datatypes Second Edition</ref> specification. The first occurence could not.</p>
+        <p>The second occurrence of <gi>time</gi> could have been encoded with the <att>when</att> attribute, as <val>12:00:00</val> is a valid
+          time with respect to the W3C <ref target="#XSD2">XML Schema Part 2: Datatypes Second Edition</ref> specification. The first occurrence could not.</p>
       </exemplum>
     </attDef>
     <!--     <attList>org="group">-->
@@ -62717,7 +62706,7 @@ versa if the graph is directed.</p>
   </exemplum>
   <remarks versionDate="2007-03-02" xml:lang="en">
     <p>Zero, one, or two children <gi>label</gi> elements may be
-    present. The first occurence of <gi>label</gi> provides a label
+    present. The first occurrence of <gi>label</gi> provides a label
     for the arc; the second provides a second label for the arc, and
     should be used if a transducer is being encoded whose actions are
     associated with nodes rather than with arcs.</p>
@@ -62815,7 +62804,7 @@ qu'avec des arcs.</p>
     adjacency attributes can be used, but the resulting encoding would
     be highly redundant.</p>
     <p>Zero, one, or two children <gi>label</gi> elements may be
-    present. The first occurence of <gi>label</gi> provides a label
+    present. The first occurrence of <gi>label</gi> provides a label
     for the arc; the second provides a second label for the arc, and
     should be used if a transducer is being encoded.</p>
   </remarks>
@@ -68594,7 +68583,7 @@ déclaration de même nom dans la définition courante.</desc>
   </constraintSpec>
   <attList>
     <attDef ident="minOccurs">
-      <gloss versionDate="2013-11-21" xml:lang="en">minimum number of occurences</gloss>
+      <gloss versionDate="2013-11-21" xml:lang="en">minimum number of occurrences</gloss>
       <gloss versionDate="2007-12-20" xml:lang="ko">빈도의 최소 수</gloss>
       <gloss versionDate="2007-05-02" xml:lang="zh-TW">出現次數最小值</gloss>
       <gloss versionDate="2007-06-12" xml:lang="fr">nombre minimum d'occurrences</gloss>
@@ -68612,7 +68601,7 @@ déclaration de même nom dans la définition courante.</desc>
       <defaultVal>1</defaultVal>
     </attDef>
     <attDef ident="maxOccurs">
-      <gloss versionDate="2007-12-20" xml:lang="en">maximum number of occurences</gloss>
+      <gloss versionDate="2007-12-20" xml:lang="en">maximum number of occurrences</gloss>
       <gloss versionDate="2007-12-20" xml:lang="ko">빈도의 최대 수</gloss>
       <gloss versionDate="2007-05-02" xml:lang="zh-TW">出現次數最大值</gloss>
       <gloss versionDate="2007-06-12" xml:lang="fr">nombre maximum d'occurrences.</gloss>
