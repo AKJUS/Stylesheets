@@ -234,7 +234,7 @@ of this software, even if advised of the possibility of such damage.
        <xsl:apply-templates select="$pass1" mode="pass2"/>
      </xsl:variable>
 
-     <!-- ADDIOTIONAl PASSES: -->
+     <!-- ADDITIONAL PASSES: -->
      <!-- Massage TEI to make it better -->
      <xsl:variable name="pass3">
        <xsl:apply-templates select="$pass2" mode="pass3"/>
