@@ -1162,6 +1162,21 @@ Elements</ref>
       <att>decls</att>.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos para los elementos contenidos en el encabezado que pueden ser seleccionados autónomamente mediante el atributo <att>decls</att> adecuado.</desc>
   <desc versionDate="2007-01-21" xml:lang="it">individua attributi per gli elementi contenuti nell'intestazione che possono essere selezionati autonomamente grazie all'apposito attributo <att>decls</att></desc>
+  <constraintSpec ident="att-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern id="declarable" abstract="true">
+        
+        <sch:rule context="$tde[ ancestor::tei:teiHeader                                  and                                  following-sibling::$tde                                  and                                  not( preceding-sibling::$tde ) ]">
+          <sch:report test="../child::$tde[ not( @xml:id ) ]">
+            When there is more than one <sch:name/>, each must have an @xml:id
+          </sch:report>
+          <sch:assert test="count( ../child::$tde[ normalize-space( @default ) = ('1','true') ] ) eq 1">
+            When there is more than one <sch:name/>, one and only one must have a @default of 'true'.
+          </sch:assert>
+        </sch:rule>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <attList>
     <attDef ident="default" usage="opt">
       <desc versionDate="2005-10-10" xml:lang="en">indicates whether or not this element is selected by default when
@@ -1212,7 +1227,7 @@ Information with a Text</ref>. Only one element of a particular type may have a
   <remarks versionDate="2007-06-12" xml:lang="fr">
     <p>Les règles régissant l'association d'éléments déclarables avec des parties
                 individuelles d'un texte TEI sont entièrement définies
-		au chap1itre <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CC.html#CCAS">16.3. Associating Contextual
+                au chap1itre <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CC.html#CCAS">16.3. Associating Contextual
 Information with a Text</ref>. Un seul élément
                 d'un type particulier peut avoir un attribut <att>default</att> avec une valeur
                     <val>true</val>.</p>
@@ -15716,20 +15731,25 @@ epistemology, methodology and history of
     <memberOf key="model.biblPart"/>
   </classes>
   <content>
-    
-      <alternate minOccurs="0" maxOccurs="unbounded">
-        <textNode/>
-        <classRef key="model.gLike"/>
-        <classRef key="model.highlighted"/>
-        <classRef key="model.pPart.data"/>
-        <classRef key="model.pPart.edit"/>
-        <classRef key="model.segLike"/>
-        <classRef key="model.ptrLike"/>
-        <classRef key="model.biblPart"/>
-        <classRef key="model.global"/>
-      </alternate>
-    
+    <alternate minOccurs="0" maxOccurs="unbounded">
+      <textNode/>
+      <classRef key="model.gLike"/>
+      <classRef key="model.highlighted"/>
+      <classRef key="model.pPart.data"/>
+      <classRef key="model.pPart.edit"/>
+      <classRef key="model.segLike"/>
+      <classRef key="model.ptrLike"/>
+      <classRef key="model.biblPart"/>
+      <classRef key="model.global"/>
+    </alternate>    
   </content>
+  <constraintSpec ident="bibl-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:bibl"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-bibl-egXML-sb">
       <bibl>Blain, Clements and Grundy: Feminist Companion to Literature in English (Yale,
@@ -15848,6 +15868,13 @@ epistemology, methodology and history of
       </alternate>
     </sequence>
   </content>
+  <constraintSpec ident="biblStruct-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:biblStruct"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-biblStruct-egXML-fg">
       <biblStruct>
@@ -15984,6 +16011,13 @@ epistemology, methodology and history of
       </sequence>
     </sequence>
   </content>
+  <constraintSpec ident="listBibl-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:listBibl"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-listBibl-egXML-eb">
       <listBibl>
@@ -18583,6 +18617,13 @@ distribution of a text.</desc>
       <classRef key="model.pLike"/>
     </alternate>    
   </content>
+  <constraintSpec ident="availability-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:availability"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <attList>
     <attDef ident="status" usage="opt">
       <gloss versionDate="2016-11-25" xml:lang="en">status</gloss>
@@ -18806,28 +18847,27 @@ distribution of a text.</desc>
   </classes>
   <content>
     <alternate>
-      
-        <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-      
+      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
       <sequence>
-        
-          <elementRef key="title" minOccurs="1" maxOccurs="unbounded"/>
-        
-        
-          <alternate minOccurs="0" maxOccurs="unbounded">
-            <elementRef key="editor"/>
-            <elementRef key="respStmt"/>
-          </alternate>
-        
-        
-          <alternate minOccurs="0" maxOccurs="unbounded">
-            <elementRef key="idno"/>
-            <elementRef key="biblScope"/>
-          </alternate>
-        
+        <elementRef key="title" minOccurs="1" maxOccurs="unbounded"/>
+        <alternate minOccurs="0" maxOccurs="unbounded">
+          <elementRef key="editor"/>
+          <elementRef key="respStmt"/>
+        </alternate>
+        <alternate minOccurs="0" maxOccurs="unbounded">
+          <elementRef key="idno"/>
+          <elementRef key="biblScope"/>
+        </alternate>
       </sequence>
     </alternate>
   </content>
+  <constraintSpec ident="seriesStmt-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:seriesStmt"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-seriesStmt-egXML-ju">
       <seriesStmt>
@@ -18982,14 +19022,21 @@ distribution of a text.</desc>
   </classes>
   <content>
     <alternate>
-        <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-        <alternate minOccurs="1" maxOccurs="unbounded">
-          <classRef key="model.biblLike"/>
-          <classRef key="model.sourceDescPart"/>
-          <classRef key="model.listLike"/>
-        </alternate>
+      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
+      <alternate minOccurs="1" maxOccurs="unbounded">
+        <classRef key="model.biblLike"/>
+        <classRef key="model.sourceDescPart"/>
+        <classRef key="model.listLike"/>
+      </alternate>
     </alternate>
   </content>
+  <constraintSpec ident="sourceDesc-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:sourceDesc"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-sourceDesc-egXML-ea">
       <sourceDesc>
@@ -19071,6 +19118,13 @@ distribution of a text.</desc>
       </sequence>
     </alternate>
   </content>
+  <constraintSpec ident="biblFull-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:biblFull"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-biblFull-egXML-ov">
       <biblFull>
@@ -19265,10 +19319,15 @@ source or sources from which it was derived.</desc>
     <memberOf key="model.encodingDescPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="projectDesc-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:projectDesc"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-projectDesc-egXML-gg">
       <projectDesc>
@@ -19338,10 +19397,15 @@ source or sources from which it was derived.</desc>
     <memberOf key="model.encodingDescPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="samplingDecl-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:samplingDecl"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-samplingDecl-egXML-ak">
       <samplingDecl>
@@ -19416,13 +19480,18 @@ during the encoding of a text.</desc>
     <memberOf key="model.encodingDescPart"/>
   </classes>
   <content>
-    
-      <alternate minOccurs="1" maxOccurs="unbounded">
-        <classRef key="model.pLike"/>
-        <classRef key="model.editorialDeclPart"/>
-      </alternate>
-    
+    <alternate minOccurs="1" maxOccurs="unbounded">
+      <classRef key="model.pLike"/>
+      <classRef key="model.editorialDeclPart"/>
+    </alternate>
   </content>
+  <constraintSpec ident="editorialDecl-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:editorialDecl"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-editorialDecl-egXML-be">
       <editorialDecl>
@@ -19496,10 +19565,15 @@ during the encoding of a text.</desc>
     <memberOf key="model.editorialDeclPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>    
   </content>
+  <constraintSpec ident="correction-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:correction"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <attList>
     <attDef ident="status" usage="opt">
       <desc versionDate="2005-01-14" xml:lang="en">indicates the degree of correction applied to the text.</desc>
@@ -19664,6 +19738,13 @@ during the encoding of a text.</desc>
   <content>
     <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="normalization-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:normalization"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <attList>
     
 
@@ -19786,6 +19867,13 @@ during the encoding of a text.</desc>
   <content>
     <classRef key="model.pLike" minOccurs="0" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="quotation-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:quotation"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <constraintSpec ident="quotationContents" scheme="schematron" xml:lang="en">
     <constraint>
       <sch:rule context="tei:quotation">
@@ -19923,10 +20011,15 @@ during the encoding of a text.</desc>
     <memberOf key="model.editorialDeclPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="hyphenation-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:hyphenation"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <attList>
     <attDef ident="eol" usage="opt">
       <gloss versionDate="2007-07-04" xml:lang="en">end-of-line</gloss>
@@ -20055,10 +20148,15 @@ during the encoding of a text.</desc>
     <memberOf key="model.editorialDeclPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="segmentation-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:segmentation"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-segmentation-egXML-ij">
       <segmentation>
@@ -20105,10 +20203,15 @@ during the encoding of a text.</desc>
     <memberOf key="model.editorialDeclPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="stdVals-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:stdVals"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-stdVals-egXML-ri">
       <stdVals>
@@ -20156,10 +20259,15 @@ during the encoding of a text.</desc>
     <memberOf key="model.editorialDeclPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="interpretation-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:interpretation"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-interpretation-egXML-be">
       <interpretation>
@@ -20196,6 +20304,13 @@ during the encoding of a text.</desc>
   <content>    
     <classRef key="model.pLike" minOccurs="0" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="punctuation-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:punctuation"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <attList>
     <attDef ident="marks" usage="opt">
       <desc versionDate="2013-06-20" xml:lang="en">indicates whether or not punctation marks have been retained as content within the text.</desc>
@@ -20631,10 +20746,15 @@ the target element</desc>
     <memberOf key="model.encodingDescPart"/>
   </classes>
   <content>
-    
-      <classRef key="model.pLike" minOccurs="0" maxOccurs="unbounded"/>
-    
+    <classRef key="model.pLike" minOccurs="0" maxOccurs="unbounded"/>
   </content>
+  <constraintSpec ident="styleDefDecl-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:styleDefDecl"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-styleDefDecl-egXML-us">
       <styleDefDecl scheme="css" schemeVersion="2.1"/>
@@ -20678,6 +20798,13 @@ the target element</desc>
       <elementRef key="refState" minOccurs="1" maxOccurs="unbounded"/>
     </alternate>
   </content>
+  <constraintSpec ident="refsDecl-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:refsDecl"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-refsDecl-egXML-mx" source="#UND">
       <refsDecl>
@@ -21656,6 +21783,13 @@ codes used elsewhere in the text.</desc>
   <content>
     <macroRef key="macro.phraseSeq"/>
   </content>
+  <constraintSpec ident="geoDecl-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:geoDecl"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <attList>
     <attDef ident="datum" usage="opt">
       <desc versionDate="2007-06-25" xml:lang="en">supplies a commonly used code name for the datum employed.</desc>
@@ -22346,15 +22480,18 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
     <memberOf key="model.profileDescPart"/>
   </classes>
   <content>
-       <alternate>
-        
-         <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-         
-          
-        <elementRef key="language" minOccurs="1" maxOccurs="unbounded"/>
-        
-      </alternate>
+    <alternate>
+      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
+      <elementRef key="language" minOccurs="1" maxOccurs="unbounded"/>        
+    </alternate>
   </content>
+  <constraintSpec ident="langUsage-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:langUsage"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-langUsage-egXML-ev">
       <langUsage>
@@ -22533,14 +22670,19 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
     <memberOf key="model.profileDescPart"/>
   </classes>
   <content>
-    
-      <alternate minOccurs="0" maxOccurs="unbounded">
-        <elementRef key="classCode"/>
-        <elementRef key="catRef"/>
-        <elementRef key="keywords"/>
-      </alternate>
-    
+    <alternate minOccurs="0" maxOccurs="unbounded">
+      <elementRef key="classCode"/>
+      <elementRef key="catRef"/>
+      <elementRef key="keywords"/>
+    </alternate>
   </content>
+  <constraintSpec ident="textClass-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:textClass"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-textClass-egXML-fb">
       <taxonomy>
@@ -23121,14 +23263,17 @@ should be supplied for the <att>scheme</att> attribute.</p>
   <content>
     
     <alternate>
-      
-        <classRef key="model.correspDescPart" minOccurs="1" maxOccurs="unbounded"/>
-      
-      
-        <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>
-      
+      <classRef key="model.correspDescPart" minOccurs="1" maxOccurs="unbounded"/>
+      <classRef key="model.pLike" minOccurs="1" maxOccurs="unbounded"/>      
     </alternate>
   </content>
+  <constraintSpec ident="correspDesc-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:correspDesc"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-correspDesc-egXML-ve">
       <correspDesc>
@@ -23285,6 +23430,13 @@ should be supplied for the <att>scheme</att> attribute.</p>
       <anyElement minOccurs="1" maxOccurs="unbounded"/>
     </alternate>
   </content>
+  <constraintSpec ident="xenoData-is-declarable" scheme="schematron" xml:lang="en">
+    <constraint>
+      <sch:pattern is-a="declarable">
+        <sch:param name="tde" value="tei:xenoData"/>
+      </sch:pattern>
+    </constraint>
+  </constraintSpec>
   <exemplum xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" versionDate="2017-05-11" xml:lang="en">
     <p>This example presumes that the prefix <code>dc</code> has been bound to the namespace
         <code>http://purl.org/dc/elements/1.1/</code> and the prefix <code>rdf</code> is bound to
@@ -23301,17 +23453,17 @@ should be supplied for the <att>scheme</att> attribute.</p>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-xenoData-egXML-im" valid="feasible">
       <xenoData>
         <rdf:RDF><rdf:Description rdf:about="http://www.worldcat.org/oclc/606621663"><dc:title>The description of a new world, called the blazing-world</dc:title>
-        	<dc:creator>The Duchess of Newcastle</dc:creator>
-        	<dc:date>1667</dc:date>
-        	<dc:identifier>British Library, 8407.h.10</dc:identifier>
-        	<dc:subject>utopian fiction</dc:subject></rdf:Description></rdf:RDF>
+                <dc:creator>The Duchess of Newcastle</dc:creator>
+                <dc:date>1667</dc:date>
+                <dc:identifier>British Library, 8407.h.10</dc:identifier>
+                <dc:subject>utopian fiction</dc:subject></rdf:Description></rdf:RDF>
       </xenoData>
       <xenoData>
-        	<rdf:RDF><rdf:Description rdf:about=""><dc:title>The Description of a New World, Called the Blazing-World, 1668</dc:title>
-        	<dc:creator>Cavendish, Margaret (Lucas), Duchess of Newcastle</dc:creator>
-        	<dc:publisher>Women Writers Project</dc:publisher>
-        	<dc:date>2002-02-12</dc:date>
-        	<dc:subject>utopian fiction</dc:subject></rdf:Description></rdf:RDF>
+                <rdf:RDF><rdf:Description rdf:about=""><dc:title>The Description of a New World, Called the Blazing-World, 1668</dc:title>
+                <dc:creator>Cavendish, Margaret (Lucas), Duchess of Newcastle</dc:creator>
+                <dc:publisher>Women Writers Project</dc:publisher>
+                <dc:date>2002-02-12</dc:date>
+                <dc:subject>utopian fiction</dc:subject></rdf:Description></rdf:RDF>
       </xenoData>
     </egXML>
   </exemplum>
@@ -23327,21 +23479,21 @@ should be supplied for the <att>scheme</att> attribute.</p>
     <code>dc</code> is bound to the namespace <code>http://purl.org/dc/elements/1.1/</code>, and the prefix
     <code>cc</code> is bound to the namespace <code>http://web.resource.org/cc/</code>.</p>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-xenoData-egXML-id" valid="feasible"><xenoData>
-	<rdf:RDF>
-	  <cc:Work rdf:about="">
-	    <dc:title>Applied Software Project Management  - review</dc:title>
-	    <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text"/>
-	    <dc:license rdf:resource="http://creativecommons.org/licenses/by-sa/2.0/uk/"/>
-	  </cc:Work>
-	  <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/2.0/uk/">
-	    <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
-	    <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
-	    <cc:requires rdf:resource="http://web.resource.org/cc/Notice"/>
-	    <cc:requires rdf:resource="http://web.resource.org/cc/Attribution"/>
-	    <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
-	    <cc:requires rdf:resource="http://web.resource.org/cc/ShareAlike"/>
-	  </cc:License>
-	</rdf:RDF>
+        <rdf:RDF>
+          <cc:Work rdf:about="">
+            <dc:title>Applied Software Project Management  - review</dc:title>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text"/>
+            <dc:license rdf:resource="http://creativecommons.org/licenses/by-sa/2.0/uk/"/>
+          </cc:Work>
+          <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/2.0/uk/">
+            <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+            <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+            <cc:requires rdf:resource="http://web.resource.org/cc/Notice"/>
+            <cc:requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+            <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+            <cc:requires rdf:resource="http://web.resource.org/cc/ShareAlike"/>
+          </cc:License>
+        </rdf:RDF>
 </xenoData></egXML>
   </exemplum>
   <exemplum xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" versionDate="2015-07-11" xml:lang="en">
@@ -23351,39 +23503,39 @@ should be supplied for the <att>scheme</att> attribute.</p>
     <code>oai_dc</code> is bound to the namespace <code>http://www.openarchives.org/OAI/2.0/oai_dc/</code>.</p>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-xenoData-egXML-uw" valid="feasible"> <xenoData>
       <oai_dc:dc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<dc:title>The colonial despatches of Vancouver Island and British
-	Columbia 1846-1871: 11566, CO 60/2, p. 291; received 13 November.
-	Trevelyan to Merivale (Permanent Under-Secretary)</dc:title>
-	<dc:date>1858-11-12</dc:date>
-	<dc:creator>Trevelyan</dc:creator>
-	<dc:publisher>University of Victoria Humanities Computing and Media
-	Centre, and UVic Libraries</dc:publisher>
-	<dc:type>InteractiveResource</dc:type>
-	<dc:format>application/xhtml+xml</dc:format>
-	<dc:type>text</dc:type>
-	<dc:identifier>http://bcgenesis.uvic.ca/getDoc.htm?id=B585TE13.scx</dc:identifier>
-	<dc:rights>This document is licensed under a Creative Commons …</dc:rights>
-	<dc:language>(SCHEME=ISO639) en</dc:language>
-	<dc:source>Transcribed from microfilm and/or original documents, and
-	marked up in TEI P5 XML. The interactive XHTML resource is generated
-	from the XHTML using XQuery and XSLT.</dc:source>
-	<dc:source>repository: CO</dc:source>
-	<dc:source>coNumber: 60</dc:source>
-	<dc:source>coVol: 2</dc:source>
-	<dc:source>page: 291</dc:source>
-	<dc:source>coRegistration: 11566</dc:source>
-	<dc:source>received: received 13 November</dc:source>
-	<dc:subject>Trevelyan, Sir Charles Edward</dc:subject>
-	<dc:subject>Merivale, Herman</dc:subject>
-	<dc:subject>Elliot, T. Frederick</dc:subject>
-	<dc:subject>Moody, Colonel Richard Clement</dc:subject>
-	<dc:subject>Lytton, Sir Edward George Earle Bulwer</dc:subject>
-	<dc:subject>Jadis, Vane</dc:subject>
-	<dc:subject>Carnarvon, Earl</dc:subject>
-	<dc:subject>British Columbia</dc:subject>
-	<dc:description>British Columbia correspondence: Public Offices
-	document (normally correspondence between government
-	departments)</dc:description>
+        <dc:title>The colonial despatches of Vancouver Island and British
+        Columbia 1846-1871: 11566, CO 60/2, p. 291; received 13 November.
+        Trevelyan to Merivale (Permanent Under-Secretary)</dc:title>
+        <dc:date>1858-11-12</dc:date>
+        <dc:creator>Trevelyan</dc:creator>
+        <dc:publisher>University of Victoria Humanities Computing and Media
+        Centre, and UVic Libraries</dc:publisher>
+        <dc:type>InteractiveResource</dc:type>
+        <dc:format>application/xhtml+xml</dc:format>
+        <dc:type>text</dc:type>
+        <dc:identifier>http://bcgenesis.uvic.ca/getDoc.htm?id=B585TE13.scx</dc:identifier>
+        <dc:rights>This document is licensed under a Creative Commons …</dc:rights>
+        <dc:language>(SCHEME=ISO639) en</dc:language>
+        <dc:source>Transcribed from microfilm and/or original documents, and
+        marked up in TEI P5 XML. The interactive XHTML resource is generated
+        from the XHTML using XQuery and XSLT.</dc:source>
+        <dc:source>repository: CO</dc:source>
+        <dc:source>coNumber: 60</dc:source>
+        <dc:source>coVol: 2</dc:source>
+        <dc:source>page: 291</dc:source>
+        <dc:source>coRegistration: 11566</dc:source>
+        <dc:source>received: received 13 November</dc:source>
+        <dc:subject>Trevelyan, Sir Charles Edward</dc:subject>
+        <dc:subject>Merivale, Herman</dc:subject>
+        <dc:subject>Elliot, T. Frederick</dc:subject>
+        <dc:subject>Moody, Colonel Richard Clement</dc:subject>
+        <dc:subject>Lytton, Sir Edward George Earle Bulwer</dc:subject>
+        <dc:subject>Jadis, Vane</dc:subject>
+        <dc:subject>Carnarvon, Earl</dc:subject>
+        <dc:subject>British Columbia</dc:subject>
+        <dc:description>British Columbia correspondence: Public Offices
+        document (normally correspondence between government
+        departments)</dc:description>
       </oai_dc:dc>
     </xenoData>
     </egXML>
@@ -23393,49 +23545,49 @@ should be supplied for the <att>scheme</att> attribute.</p>
     namespace <code>http://www.loc.gov/mods/v3</code>.</p>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-xenoData-egXML-gp" valid="feasible">
       <xenoData>
-	<mods:mods>
-	  <mods:titleInfo>
-	    <mods:title>Academic adaptation and cross-cultural
-	    learning experiences of Chinese students at American
-	    universities</mods:title>
-	    <mods:subTitle>a narrative inquiry</mods:subTitle>
-	  </mods:titleInfo>
-	  <mods:name type="personal" authority="local">
-	    <mods:namePart/>
-	    <mods:role>
-	      <mods:roleTerm authority="marcrelator" type="text">Author</mods:roleTerm>
-	    </mods:role>
-	    <mods:affiliation>Northeastern University</mods:affiliation>
-	    <mods:namePart type="given">Hong</mods:namePart>
-	    <mods:namePart type="family">Zhang</mods:namePart>
-	  </mods:name>
-	  <mods:name type="personal" authority="local">
-	    <mods:namePart/>
-	    <mods:role>
-	      <mods:roleTerm authority="local" type="text">Advisor</mods:roleTerm>
-	    </mods:role>
-	    <mods:namePart type="given">Liliana</mods:namePart>
-	    <mods:namePart type="family">Meneses</mods:namePart>
-	  </mods:name>
-	  <!-- ... -->
-	  <mods:typeOfResource>text</mods:typeOfResource>
-	  <mods:genre>doctoral theses</mods:genre>
-	  <mods:originInfo>
-	    <mods:place>
-	      <mods:placeTerm type="text">Boston (Mass.)</mods:placeTerm>
-	    </mods:place>
-	    <mods:publisher>Northeastern University</mods:publisher>
-	    <mods:copyrightDate encoding="w3cdtf" keyDate="yes">2013</mods:copyrightDate>
-	  </mods:originInfo>
-	  <mods:language>
-	    <mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
-	  </mods:language>
-	  <mods:physicalDescription>
-	    <mods:form authority="marcform">electronic</mods:form>
-	    <mods:digitalOrigin>born digital</mods:digitalOrigin>
-	  </mods:physicalDescription>
-	  <!-- ... -->
-	</mods:mods>
+        <mods:mods>
+          <mods:titleInfo>
+            <mods:title>Academic adaptation and cross-cultural
+            learning experiences of Chinese students at American
+            universities</mods:title>
+            <mods:subTitle>a narrative inquiry</mods:subTitle>
+          </mods:titleInfo>
+          <mods:name type="personal" authority="local">
+            <mods:namePart/>
+            <mods:role>
+              <mods:roleTerm authority="marcrelator" type="text">Author</mods:roleTerm>
+            </mods:role>
+            <mods:affiliation>Northeastern University</mods:affiliation>
+            <mods:namePart type="given">Hong</mods:namePart>
+            <mods:namePart type="family">Zhang</mods:namePart>
+          </mods:name>
+          <mods:name type="personal" authority="local">
+            <mods:namePart/>
+            <mods:role>
+              <mods:roleTerm authority="local" type="text">Advisor</mods:roleTerm>
+            </mods:role>
+            <mods:namePart type="given">Liliana</mods:namePart>
+            <mods:namePart type="family">Meneses</mods:namePart>
+          </mods:name>
+          <!-- ... -->
+          <mods:typeOfResource>text</mods:typeOfResource>
+          <mods:genre>doctoral theses</mods:genre>
+          <mods:originInfo>
+            <mods:place>
+              <mods:placeTerm type="text">Boston (Mass.)</mods:placeTerm>
+            </mods:place>
+            <mods:publisher>Northeastern University</mods:publisher>
+            <mods:copyrightDate encoding="w3cdtf" keyDate="yes">2013</mods:copyrightDate>
+          </mods:originInfo>
+          <mods:language>
+            <mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+          </mods:language>
+          <mods:physicalDescription>
+            <mods:form authority="marcform">electronic</mods:form>
+            <mods:digitalOrigin>born digital</mods:digitalOrigin>
+          </mods:physicalDescription>
+          <!-- ... -->
+        </mods:mods>
       </xenoData>
     </egXML>
   </exemplum>
@@ -26472,8 +26624,7 @@ dedicatory epistle, or other division of a text.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">예를 들어 편지의, 추신.</desc>
   <desc versionDate="2008-04-06" xml:lang="es">contiene una posdata, p.ej. en una carta.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">追伸を示す。例えば、手紙の場合など。</desc>
-  <desc versionDate="2008-03-30" xml:lang="fr">contient un post-scriptum,  par exemple au bas d' une
-lettre.</desc>
+  <desc versionDate="2008-03-30" xml:lang="fr">contient un post-scriptum,  par exemple au bas d' une lettre.</desc>
   <desc versionDate="2007-11-06" xml:lang="it">contiene un post scriptum, come nel caso di una lettera</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält einen Nachtrag (Postskriptum), z. B. zu einem Brief.</desc>
   <classes>
@@ -26485,33 +26636,23 @@ lettre.</desc>
   </classes>
   <content>
     <sequence>
-      
-        <alternate minOccurs="0" maxOccurs="unbounded">
-          <classRef key="model.global"/>
-          <classRef key="model.divTopPart"/>
-        </alternate>
-      
-      
-        <classRef key="model.common"/>
-      
-      
-        <alternate minOccurs="0" maxOccurs="unbounded">
-          <classRef key="model.global"/>
-          <classRef key="model.common"/>
-        </alternate>
-      
+      <alternate minOccurs="0" maxOccurs="unbounded">
+	<classRef key="model.global"/>
+	<classRef key="model.divTopPart"/>
+      </alternate>
+      <classRef key="model.common"/>
+      <alternate minOccurs="0" maxOccurs="unbounded">
+	<classRef key="model.global"/>
+	<classRef key="model.common"/>
+      </alternate>
       <sequence minOccurs="0" maxOccurs="unbounded">
-        
-          <classRef key="model.divBottomPart"/>
-        
-        
-          <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-        
+	<classRef key="model.divBottomPart"/>
+	<classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
       </sequence>
     </sequence>
   </content>
-  <exemplum xml:lang="en">
-    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-postscript-egXML-fq">
+  <exemplum xml:lang="en" versionDate="2025-05-29">
+    <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-postscript-egXML-fq" source="#NONE">
       <div type="letter">
         <opener>
           <dateline>
@@ -26530,7 +26671,7 @@ lettre.</desc>
         </closer>
         <postscript>
           <label>P.S.</label>
-          <p>The collision occured on <date when="2001-07-06">06 Jul 01</date>.</p>
+          <p>The collision occurred on <date when="2001-07-06">06 Jul 01</date>.</p>
         </postscript>
       </div>
     </egXML>
