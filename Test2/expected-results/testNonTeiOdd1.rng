@@ -27,8 +27,7 @@
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Division of a document; used as the root for content blocks.) The core container element for a content block. This may also nest, to provide subsections.</a:documentation>
          <ref name="macro.divContent"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                  id="nonTeiOdd-div-headingLevelMustMatchNesting-constraint-rule-1">
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:gcse="http://www.google.com/cse"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -164,8 +163,7 @@
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Image element. May be rendered inline or as a block, depending on where it appears in the document structure.</a:documentation>
          <empty/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                  id="nonTeiOdd-img-imgWithoutCaptionNeedsAltAndTitle-constraint-rule-2">
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:gcse="http://www.google.com/cse"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -472,8 +470,7 @@
       <sch:let name="straightQuotes"
                value="concat('[', $straightDouble, $straightApos, ']')"/>
    </sch:pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noQuotesInText-constraint-rule-3">
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -484,8 +481,7 @@
                 apostrophes, use the smart version (’). </sch:assert>
       </sch:rule>
    </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noDivJustForFigure-constraint-rule-4">
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -495,8 +491,7 @@
                 to wrap a figure element in a div. </sch:assert>
       </sch:rule>
    </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-onlyPermittedImgAttributes-constraint-rule-5">
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -507,8 +502,7 @@
                 'height'. </sch:assert>
       </sch:rule>
    </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-spacesAfterPeriods-constraint-rule-6">
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -518,8 +512,7 @@
                 space after every period. </sch:assert>
       </sch:rule>
    </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noSpacesInHrefs-constraint-rule-7">
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -529,8 +522,7 @@
                 href attributes (links). </sch:assert>
       </sch:rule>
    </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-noLinksInLinks-constraint-rule-8">
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -540,8 +532,7 @@
                 other links. </sch:assert>
       </sch:rule>
    </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="nonTeiOdd-periodsAndCommasOutsideLinks-constraint-rule-9">
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
       <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:gcse="http://www.google.com/cse"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
