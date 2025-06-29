@@ -13017,7 +13017,7 @@ codes used elsewhere in the text.</desc>
       <!-- where: -->
       <!--   'a' = (descLike|equiv|gloss), and -->
       <!--   'b' = (category|taxonomy) -->
-      <!-- but that is non-deterministic or ambigious. Thus we -->
+      <!-- but that is non-deterministic or ambiguous. Thus we -->
       <!-- rewrite it as the mildly more confusing -->
       <!-- ( b+ | ( a+, b* ) ) -->
       <alternate>
@@ -31365,7 +31365,7 @@ and <val>simplified</val>  for simplified characters. The
         </valItem>
         <valItem ident="Doyle">
           <gloss xml:lang="en" versionDate="2023-08-12">Darren Doyle</gloss>
-          <desc xml:lang="en" versionDate="2023-08-12">Glyph set (in some cases associated with multiple characters) developed by Darren Doyle as part of a comprehensive version of the language created in part for an invented language classs at UT Austin in 2006.</desc>
+          <desc xml:lang="en" versionDate="2023-08-12">Glyph set (in some cases associated with multiple characters) developed by Darren Doyle as part of a comprehensive version of the language created in part for an invented language class at UT Austin in 2006.</desc>
         </valItem>
         <valItem ident="Schreyer">
           <gloss xml:lang="en" versionDate="2023-08-12">Christine Schreyer</gloss>
