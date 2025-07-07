@@ -7,7 +7,7 @@
       </titleStmt>
       <editionStmt>
         <edition>P5 <ref target="#ABTEI4">Version</ref> <ref target="../../readme-4.10.0.html">4.10.0a</ref>. Last updated on
-        <date when="2025-06-10">10th June 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/78f0e8312">78f0e8312</ref></edition>
+        <date when="2025-07-06">6th July 2025</date>, revision <ref target="https://github.com/TEIC/TEI/commit/9dbe3a1e6">9dbe3a1e6</ref></edition>
       </editionStmt>
       <publicationStmt>
         <distributor>TEI Consortium</distributor>
@@ -13017,7 +13017,7 @@ codes used elsewhere in the text.</desc>
       <!-- where: -->
       <!--   'a' = (descLike|equiv|gloss), and -->
       <!--   'b' = (category|taxonomy) -->
-      <!-- but that is non-deterministic or ambiguous. Thus we -->
+      <!-- but that is non-deterministic or ambigious. Thus we -->
       <!-- rewrite it as the mildly more confusing -->
       <!-- ( b+ | ( a+, b* ) ) -->
       <alternate>
@@ -31365,7 +31365,7 @@ and <val>simplified</val>  for simplified characters. The
         </valItem>
         <valItem ident="Doyle">
           <gloss xml:lang="en" versionDate="2023-08-12">Darren Doyle</gloss>
-          <desc xml:lang="en" versionDate="2023-08-12">Glyph set (in some cases associated with multiple characters) developed by Darren Doyle as part of a comprehensive version of the language created in part for an invented language class at UT Austin in 2006.</desc>
+          <desc xml:lang="en" versionDate="2023-08-12">Glyph set (in some cases associated with multiple characters) developed by Darren Doyle as part of a comprehensive version of the language created in part for an invented language classs at UT Austin in 2006.</desc>
         </valItem>
         <valItem ident="Schreyer">
           <gloss xml:lang="en" versionDate="2023-08-12">Christine Schreyer</gloss>
@@ -67183,6 +67183,10 @@ portion of an ODD document.</desc>
     </list>
     </p>
   </remarks>
+  <listRef>
+    <ptr target="#TDcrystalsCEdc"/>
+    <ptr target="#IM-unified"/>
+  </listRef>
 </elementSpec>
 <elementSpec module="tagdocs" xml:id="gi-exemplum" ident="exemplum">
   <gloss versionDate="2007-06-12" xml:lang="en">exemplum</gloss>
@@ -68383,12 +68387,11 @@ déclaration de même nom dans la définition courante.</desc>
       (CSS2 or later) be used to express the required formatting information.</p>
    
   </remarks>
-  <!-- 
+   
   <listRef>
-    <ptr target="#WhereWeDiscussIt" type="div2"/>
-    <ptr target="#WhereWeDiscussIt" type="div2"/>
+    <ptr target="#TDPMOR"/>
   </listRef>
-  -->
+  
 </elementSpec>
 <elementSpec ident="paramList" xml:id="gi-paramList" module="tagdocs">  
   <desc versionDate="2015-05-15" xml:lang="en">list of parameter specifications.</desc>
@@ -68418,12 +68421,10 @@ déclaration de même nom dans la définition courante.</desc>
   <remarks versionDate="2015-08-21" xml:lang="en">
     <p>The <gi>paramList</gi> element provides a a mechanism to document parameter specifications using child <gi>paramSpec</gi> elements.</p>
   </remarks>
-<!--
   <listRef>
-      <ptr target="#WhereWeDiscussIt" type="div2"/>
-    <ptr target="#WhereWeDiscussIt" type="div2"/>
+      <ptr target="#TDPMMB"/>
+      <ptr target="#TDPMDEF"/>
   </listRef>
- --> 
 </elementSpec>
 <elementSpec ident="paramSpec" xml:id="gi-paramSpec" module="tagdocs">
   <desc versionDate="2015-05-15" xml:lang="en">supplies specification for one parameter of a model
@@ -68957,7 +68958,7 @@ déclaration de même nom dans la définition courante.</desc>
     <ptr target="#DEFCON" type="div2"/>
   </listRef>
 </elementSpec>
-<elementSpec module="tagdocs" ident="constraintDecl">
+<elementSpec module="tagdocs" xml:id="gi-constraintDecl" ident="constraintDecl">
   <gloss versionDate="2023-03-09" xml:lang="en">constraint declaration</gloss>
   <desc versionDate="2023-03-09" xml:lang="en">contains declarations pertaining to formal constraints expressed elsewhere in <gi>constraintSpec</gi> elements</desc>
   <classes>
