@@ -144,7 +144,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
       <xsl:attribute name="xsi:schemaLocation">
-        <xsl:text>http://www.tei-c.org/ns/1.0 http://lodel.org/ns/tei/tei.openedition.1.6.2/document.xsd</xsl:text>
+        <xsl:text>http://www.tei-c.org/ns/1.0 http://lodel.org/ns/tei/tei.openedition.1.6.4/document.xsd</xsl:text>
       </xsl:attribute>
       <xsl:apply-templates/>
     </xsl:copy>
@@ -162,6 +162,18 @@
     </xsl:copy>
   </xsl:template>
   
+  <!-- copy <author>|<editor> <idno> children -->
+  <xsl:template match="tei:titleStmt/tei:author/tei:idno|tei:titleStmt/tei:editor/tei:idno">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <!-- skip <affiliation> <idno> children -->
+  <xsl:template match="tei:titleStmt/tei:author/tei:affiliation/tei:idno|tei:titleStmt/tei:editor/tei:affilication/tei:idno">
+    <xsl:apply-templates select="node()"/>
+  </xsl:template>
+
   <!-- wrap other <author>|<editor> children in <s> -->
   <xsl:template match="tei:titleStmt/tei:author/*|tei:titleStmt/tei:editor/*" priority="-0.5">
     <xsl:copy-of select="local:wrap(., 's')"/>
