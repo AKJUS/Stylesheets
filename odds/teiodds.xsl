@@ -2492,7 +2492,7 @@ of this software, even if advised of the possibility of such damage.
   </xsl:template>
 
   <xsl:template match="tei:constraintDecl[ @scheme eq 'schematron']">
-    <xsl:apply-templates select="sch:*" mode="justcopy"/>
+    <xsl:apply-templates select="sch:*|xsl:*" mode="justcopy"/>
   </xsl:template>
   
   <xsl:template match="sch:*">
