@@ -9629,6 +9629,7 @@ closer =
   element closer {
     (text
      | model.gLike
+     | byline
      | signed
      | dateline
      | salute

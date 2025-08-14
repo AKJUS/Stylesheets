@@ -2606,8 +2606,8 @@
         "type" : "elementSpec",
         "module" : "textstructure",
         "desc" : 
-        [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-04-06\" xml:lang=\"en\">groups together salutations, datelines, and similar phrases appearing as a final group at\n    the end of a division, especially of a letter.<\/desc>" ],
-        "shortDesc" : "(closer) groups together salutations, datelines, and similar phrases appearing as a final group at\n    the end of a division, especially of a letter.",
+        [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-04-06\" xml:lang=\"en\">groups together salutations, datelines, bylines, and similar phrases appearing as a final group at\n    the end of a division, especially of a letter.<\/desc>" ],
+        "shortDesc" : "(closer) groups together salutations, datelines, bylines, and similar phrases appearing as a final group at\n    the end of a division, especially of a letter.",
         "gloss" : 
         [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-06-12\" xml:lang=\"en\">closer<\/gloss>" ],
         "altIdent" : 
@@ -2634,6 +2634,9 @@
               
               { "type" : "classRef",
                 "key" : "model.gLike" },
+              
+              { "type" : "elementRef",
+                "key" : "byline" },
               
               { "type" : "elementRef",
                 "key" : "signed" },
@@ -14836,8 +14839,8 @@
           "type" : "classSpec",
           "module" : "tei",
           "desc" : 
-          [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-01-11\" xml:lang=\"en\">provides attributes identifying the source edition from which\n  some encoded feature derives.<\/desc>" ],
-          "shortDesc" : "provides attributes identifying the source edition from which\n  some encoded feature derives.",
+          [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-01-11\" xml:lang=\"en\">provides attributes identifying the source edition from which some encoded feature derives.<\/desc>" ],
+          "shortDesc" : "provides attributes identifying the source edition from which some encoded feature derives.",
           "gloss" : 
           [  ],
           "altIdent" : 

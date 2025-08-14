@@ -1627,8 +1627,8 @@ scheme %teidata.pointer;  #REQUIRED >
  %Tatt.editLike.attributes;
  %Tatt.naming.attributes;
  %Tatt.typed.attributes; >
-<!--doc:(closer) groups together salutations, datelines, and similar phrases appearing as a final group at the end of a division, especially of a letter. [4.2.2. Openers and Closers 4.2. Elements Common to All Divisions] -->
-<!ELEMENT closer (#PCDATA|_DUMMY_model.gLike|signed|dateline|salute|%model.phrase;|%model.global;)*>
+<!--doc:(closer) groups together salutations, datelines, bylines, and similar phrases appearing as a final group at the end of a division, especially of a letter. [4.2.2. Openers and Closers 4.2. Elements Common to All Divisions] -->
+<!ELEMENT closer (#PCDATA|_DUMMY_model.gLike|byline|signed|dateline|salute|%model.phrase;|%model.global;)*>
 <!ATTLIST closer xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST closer
  %Tatt.global.attributes;

@@ -397,7 +397,7 @@ Elements</ref>
     precedence when both <att>key</att> and <att>ref</att> are
     provided. For this reason simultaneous use of both is not
     recommended unless documentation explaining the use is provided,
-    probably in an ODD customizaiton, for interchange.</p>
+    probably in an ODD customization, for interchange.</p>
   </remarks>
   <listRef>
     <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html#NDATTSnr">14.1.1. Linking Names and Their Referents</ref>
@@ -1443,8 +1443,7 @@ associated with a dated element, at the time indicated.</desc>
 <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/PH.html#PHCO">12.3.1.1. Core Elements for Transcriptional Work</ref>
   </listRef>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" module="tei" type="atts" xml:id="class-attr-edition" ident="att.edition">
-  <desc versionDate="2013-01-11" xml:lang="en">provides attributes identifying the source edition from which
-  some encoded feature derives.</desc>
+  <desc versionDate="2013-01-11" xml:lang="en">provides attributes identifying the source edition from which some encoded feature derives.</desc>
   <desc versionDate="2009-05-28" xml:lang="fr">fournit des attributs identifiant l'édition source dont provient une quelconque caractéristique encodée.</desc>
   <desc versionDate="2019-05-20" xml:lang="ja">符号化された属性が派生する元のソースのエディションを特定する属性を提供する。</desc>
   <attList>
@@ -1492,9 +1491,17 @@ associated with a dated element, at the time indicated.</desc>
 	  still living their personal lives in zest and endless
 	  novelty of action, … I saw myself still
 	  preserving, though with increasing difficulty, my lucid
-	  con-<pb n="291" edRef="#stapledon1937"/>sciousness;</p>
+	  con<pb n="291" break="no" edRef="#stapledon1937"/>sciousness;</p>
     </egXML>
+    <p>In the above example, the soft hyphen in Stapledon 1937 is omitted. Such decisions may be documented in the edition's declaration of editorial principles, e.g. with the <gi>hyphenation</gi> element in the <gi>teiHeader</gi>.</p>
   </exemplum>
+  <remarks versionDate="2025-07-08" xml:lang="en">
+    <p>These guidelines provide no semantic basis or suggested
+      precedence when both <att>ed</att> and <att>edRef</att> are
+      provided. For this reason simultaneous use of both is not
+      recommended unless documentation explaining the use is provided,
+      probably in an ODD customization, for interchange.</p>
+  </remarks>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" module="tei" type="atts" ident="att.fragmentable">
   <desc versionDate="2021-08-22" xml:lang="en">provides attributes for representing
     fragmentation of a structural element, typically as 
@@ -26391,7 +26398,7 @@ Tubes formed by Lightning — House struck</p>
   <gloss versionDate="2007-06-12" xml:lang="en">closer</gloss>
   <gloss versionDate="2022-06-16" xml:lang="es">cierre</gloss>
   <gloss versionDate="2007-06-12" xml:lang="fr">formule finale</gloss>
-  <desc versionDate="2007-04-06" xml:lang="en">groups together salutations, datelines, and similar phrases appearing as a final group at
+  <desc versionDate="2007-04-06" xml:lang="en">groups together salutations, datelines, bylines, and similar phrases appearing as a final group at
     the end of a division, especially of a letter.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">구역의 마지막, 특히 편지의 종료부에 발문으로 나타나는 인사말, 날짜 표시란, 그리고 유사 구를 합하여
     모아 놓는다.</desc>
@@ -26417,6 +26424,7 @@ aparecen en la última sección al final de una división, especialmente en una 
       <alternate minOccurs="0" maxOccurs="unbounded">
         <textNode/>
         <classRef key="model.gLike"/>
+        <elementRef key="byline"/>
         <elementRef key="signed"/>
         <elementRef key="dateline"/>
         <elementRef key="salute"/>

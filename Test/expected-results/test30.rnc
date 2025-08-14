@@ -8509,10 +8509,11 @@ Topener =
   }
 Tcloser =
   
-  ## (closer) groups together salutations, datelines, and similar phrases appearing as a final group at the end of a division, especially of a letter. [4.2.2. Openers and Closers 4.2. Elements Common to All Divisions]
+  ## (closer) groups together salutations, datelines, bylines, and similar phrases appearing as a final group at the end of a division, especially of a letter. [4.2.2. Openers and Closers 4.2. Elements Common to All Divisions]
   element closer {
     (text
      | Tmodel.gLike
+     | Tbyline
      | Tsigned
      | Tdateline
      | Tsalute
