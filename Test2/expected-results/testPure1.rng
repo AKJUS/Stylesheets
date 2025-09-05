@@ -5802,20 +5802,17 @@ Elements]</a:documentation>
                   </optional>
                </optional>
             </group>
-            <group>
-               <optional>
-                  <ref name="t_publisher"/>
-               </optional>
-               <optional>
-                  <ref name="t_publisher"/>
+            <rng:optional xmlns:rng="http://relaxng.org/ns/structure/1.0">
+               <rng:group>
+                  <rng:ref name="t_publisher"/>
                   <optional>
-                     <ref name="t_publisher"/>
+                     <rng:ref name="t_publisher"/>
                      <optional>
-                        <ref name="t_publisher"/>
+                        <rng:ref name="t_publisher"/>
                      </optional>
                   </optional>
-               </optional>
-            </group>
+               </rng:group>
+            </rng:optional>
             <optional>
                <ref name="t_date"/>
             </optional>
