@@ -1246,7 +1246,7 @@
   <define name="StrokeDashArrayValue.datatype">
     <data type="string" datatypeLibrary=""/>
   </define>
-  <!-- 'stroke-dashoffset' property/attribute value (e.g., 'none', <length>) -->
+  <!-- 'stroke-dashoffset' property/attribute value (e.g., 'none', <legnth>) -->
   <define name="StrokeDashOffsetValue.datatype">
     <data type="string" datatypeLibrary=""/>
   </define>
@@ -2276,7 +2276,7 @@
     </optional>
   </define>
   <!-- end of SVG.g.attlist -->
-  <!-- defs: Definitions Element ......................... -->
+  <!-- defs: Definisions Element ......................... -->
   <define name="SVG.defs.extra.content">
     <notAllowed/>
   </define>
@@ -6114,11 +6114,11 @@
     </optional>
     <ref name="SVG.AnimationValue.extra.attrib"/>
   </define>
-  <!-- SVG.AnimationAddition.attrib ....................... -->
-  <define name="SVG.AnimationAddition.extra.attrib">
+  <!-- SVG.AnimationAddtion.attrib ....................... -->
+  <define name="SVG.AnimationAddtion.extra.attrib">
     <empty/>
   </define>
-  <define name="SVG.AnimationAddition.attrib">
+  <define name="SVG.AnimationAddtion.attrib">
     <optional>
       <attribute name="additive" a:defaultValue="replace">
         <choice>
@@ -6135,7 +6135,7 @@
         </choice>
       </attribute>
     </optional>
-    <ref name="SVG.AnimationAddition.extra.attrib"/>
+    <ref name="SVG.AnimationAddtion.extra.attrib"/>
   </define>
   <!-- animate: Animate Element .......................... -->
   <define name="SVG.animate.extra.content">
@@ -6165,7 +6165,7 @@
     <ref name="SVG.AnimationAttribute.attrib"/>
     <ref name="SVG.AnimationTiming.attrib"/>
     <ref name="SVG.AnimationValue.attrib"/>
-    <ref name="SVG.AnimationAddition.attrib"/>
+    <ref name="SVG.AnimationAddtion.attrib"/>
   </define>
   <!-- end of SVG.animate.attlist -->
   <!-- set: Set Element .................................. -->
@@ -6227,7 +6227,7 @@
     <ref name="SVG.External.attrib"/>
     <ref name="SVG.Animation.attrib"/>
     <ref name="SVG.AnimationTiming.attrib"/>
-    <ref name="SVG.AnimationAddition.attrib"/>
+    <ref name="SVG.AnimationAddtion.attrib"/>
     <optional>
       <attribute name="calcMode" a:defaultValue="paced">
         <choice>
@@ -6298,7 +6298,7 @@
     <ref name="SVG.AnimationAttribute.attrib"/>
     <ref name="SVG.AnimationTiming.attrib"/>
     <ref name="SVG.AnimationValue.attrib"/>
-    <ref name="SVG.AnimationAddition.attrib"/>
+    <ref name="SVG.AnimationAddtion.attrib"/>
   </define>
   <!-- end of SVG.animateColor.attlist -->
   <!-- animateTransform: Animate Transform Element ....... -->
@@ -6329,7 +6329,7 @@
     <ref name="SVG.AnimationAttribute.attrib"/>
     <ref name="SVG.AnimationTiming.attrib"/>
     <ref name="SVG.AnimationValue.attrib"/>
-    <ref name="SVG.AnimationAddition.attrib"/>
+    <ref name="SVG.AnimationAddtion.attrib"/>
     <optional>
       <attribute name="type" a:defaultValue="translate">
         <choice>

@@ -7,7 +7,7 @@
     {
         // Try transform first for forward compatibility
         // In some versions of IE9, it is critical for msTransform to be in
-        // this list before MozTransform.
+        // this list before MozTranform.
         var properties = ['transform', 'WebkitTransform', 'msTransform', 'MozTransform', 'OTransform'];
         var p;
         while (p = properties.shift())
