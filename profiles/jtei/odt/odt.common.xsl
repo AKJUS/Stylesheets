@@ -203,11 +203,9 @@
       
 <!--    Add the keywords.  -->
       <xsl:if test="not(following-sibling::div[@type='abstract'])">
-        <xsl:for-each select="//textClass/keywords">
-          <text:p text:style-name="teiPara">
-            <xsl:value-of select="concat(i18n:key('keywords-label', (@xml:lang, $jtei.lang)[.][1]), ': ')"/>
-            <xsl:value-of select="string-join(term, ', ')"/></text:p>
-        </xsl:for-each>
+        <text:p text:style-name="teiPara">
+          <xsl:value-of select="concat(i18n:key('keywords-label'), ': ')"/>
+          <xsl:value-of select="string-join(//textClass/keywords/term, ', ')"/></text:p>
       </xsl:if>
     </xsl:template>
   
