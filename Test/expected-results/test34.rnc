@@ -3805,7 +3805,7 @@ tei_stage =
          | 
            ## more than one of the above
            "mixed"
-         | xsd:token { pattern = "[^\p{C}\p{Z}]+" })*
+         | xsd:token { pattern = "[^\p{C}\p{Z}]+" })+
       }
     }?,
     empty

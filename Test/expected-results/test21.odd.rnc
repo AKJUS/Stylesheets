@@ -4179,7 +4179,7 @@ stage =
          | 
            ## plusieurs des indications précédentes
            "mixed"
-         | xsd:token { pattern = "[^\p{C}\p{Z}]+" })*
+         | xsd:token { pattern = "[^\p{C}\p{Z}]+" })+
       }
     }?,
     empty

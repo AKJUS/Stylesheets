@@ -10242,7 +10242,7 @@
             "valDesc" : 
             [  ],
             "datatype" : 
-            { "min" : "0",
+            { "min" : "1",
               "max" : "unbounded",
               "dataRef" : 
               { "key" : "teidata.enumerated" } },
