@@ -12,7 +12,7 @@
 # aftwer we are done with everything else?
 DIFFEND=0			# 0 = do diff now; 1 = do diffs at end of processing
 
-DIFFSWITCHES=" "		# switches user can pass in to override
+DIFFSWITCHES=" "		# switches user can pass in to # override — not yet implemented
 S4D1=-C0 -bBw			# switches used for most calls to diff
 S4DR=-C0 -bBw -r		# switches used for recursive diff
 
