@@ -16,7 +16,7 @@ DIFFSWITCHES=" "		# switches user can pass in to # override — not yet implemen
 S4D1=-C0 -bBw			# switches used for most calls to diff
 S4DR=-C0 -bBw -r		# switches used for recursive diff
 
-DIFFOUT=/tmp/DIFFEM.bash	# path to output program to be run (iff DIFFEND=1)
+DIFFOUT=./DIFFALL.bash	# path to output program to be run (iff DIFFEND=1)
 
 # Macro for calling diff cmd
 DIFFFUNC="if [ $(DIFFEND) -eq 0 ]; then diff $(1) $(2) $(3) ; else echo 'echo diff $(1) $(2) $(3); diff $(1) $(2) $(3)' >> $(DIFFOUT) ; fi"
@@ -649,6 +649,7 @@ clean:
 	rm -f teitopdf.result.* *~
 	rm -f dcr.tmp xml.tmp
 	rm -fr $(AR)/ charts/ embeddings/ media/ Pictures/
+	rm -f $(DIFFOUT)
 
 oddtree:
 	@echo "--------- Test/Makefile target=$@"
@@ -657,7 +658,6 @@ oddtree:
 
 dodiff:
 	@echo "--------- Test/Makefile target=$@"
-	chmod a+x $(DIFFOUT)
+	@if [ -f $(DIFFOUT) ]; then chmod a+x $(DIFFOUT); fi
 	@if [ $(DIFFEND) -eq 1 ]; then echo " "; echo " "; echo "========= comparisons ========="; fi
 	@if [ $(DIFFEND) -eq 1 ]; then bash -c $(DIFFOUT); fi
-
