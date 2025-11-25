@@ -12,9 +12,9 @@
 # aftwer we are done with everything else?
 DIFFEND=0			# 0 = do diff now; 1 = do diffs at end of processing
 
-DIFFSWITCHES=" "		# switches user can pass in to # override — not yet implemented
-S4D1=-C0 -bBw			# switches used for most calls to diff
-S4DR=-C0 -bBw -r		# switches used for recursive diff
+DIFFSWITCHES=     		 # switches user can pass in to override
+S4D1=-C0 -bBw $(DIFFSWITCHES)	 # switches used for most calls to diff
+S4DR=-C0 -bBw -r $(DIFFSWITCHES) # switches used for recursive diff
 
 DIFFOUT=./DIFFALL.bash	# path to output program to be run (iff DIFFEND=1)
 
@@ -659,5 +659,11 @@ oddtree:
 dodiff:
 	@echo "--------- Test/Makefile target=$@"
 	@if [ -f $(DIFFOUT) ]; then chmod a+x $(DIFFOUT); fi
-	@if [ $(DIFFEND) -eq 1 ]; then echo " "; echo " "; echo "========= comparisons ========="; fi
-	@if [ $(DIFFEND) -eq 1 ]; then bash -c $(DIFFOUT); fi
+	@if [ $(DIFFEND) -eq 1 ]; then                       \
+		echo " ";                                    \
+		echo " ";                                    \
+		echo "========= comparisons =========";      \
+	        bash -c $(DIFFOUT);                          \
+		echo " ";                                    \
+		echo "If you would like to repeat the comparisons, issue \`$(DIFFOUT)\` at the commandline in this directory."; \
+		fi
