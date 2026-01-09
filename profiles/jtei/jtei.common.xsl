@@ -244,7 +244,7 @@
           </seg>
           <seg type="abstract.egXML.attribute.value">
             <xsl:text>="</xsl:text>
-            <xsl:value-of select="local:escapeEntitiesForEgXMLAttribute(.)"/>
+            <xsl:value-of select="replace(., '&amp;([\S])', '&#8203;&amp;$1') ! local:escapeEntitiesForEgXMLAttribute(.)"/>
             <xsl:text>"</xsl:text>
           </seg>
         </xsl:for-each>
