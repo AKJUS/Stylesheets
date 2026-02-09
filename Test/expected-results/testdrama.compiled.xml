@@ -10656,7 +10656,9 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
   <desc versionDate="2016-11-24" xml:lang="de">enthält eine Postadresse, z. B. eines Verlegers, einer Organisation oder einer Einzelperson.</desc>
   <classes>
     <memberOf key="att.global"/>
+    <memberOf key="att.canonical"/>
     <memberOf key="att.cmc"/>
+    <memberOf key="att.typed"/>
     <memberOf key="model.addressLike"/>
     <memberOf key="model.divBottomPart"/>
     <memberOf key="model.divTopPart"/>
@@ -10671,6 +10673,94 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
       </sequence>
     </sequence>
   </content>
+  <attList>
+    <attDef ident="type" mode="change">
+      <desc versionDate="2026-01-13" xml:lang="en">characterizes the
+      address in some sense, using any convenient classification
+      scheme or typology.</desc>
+      <valList type="semi">
+        
+        <valItem ident="billing">
+          <desc versionDate="2026-01-13" xml:lang="en">the address to
+          which a bill for goods or services should be sent.</desc>
+        </valItem>
+        <valItem ident="delivery">
+          <desc versionDate="2026-01-13" xml:lang="en">the address to
+          which packages should be sent via a private delivery service.</desc>
+        </valItem>
+        <valItem ident="mailing">
+          <desc versionDate="2026-01-13" xml:lang="en">the address to
+          which mail should be sent via a public postal service.</desc>
+        </valItem>
+        <valItem ident="military">
+          <desc versionDate="2026-01-15" xml:lang="en">the address to
+          which mail to deployed military personnel should be sent.</desc>
+        </valItem>
+        <valItem ident="physical">
+          <desc versionDate="2026-01-13" xml:lang="en">the address of
+          a building irrespective of where mail to its occupants
+          should be sent (for example, for the fire
+          department).</desc>
+        </valItem>
+      </valList>
+    </attDef>
+    <attDef ident="role" usage="opt">
+      <desc versionDate="2026-01-02" xml:lang="en">specifies further information about the purpose of the address.</desc>
+      <datatype maxOccurs="unbounded"><dataRef key="teidata.enumerated"/></datatype>
+      <valList type="open">
+        <valItem ident="sender">
+          <desc versionDate="2026-01-13" xml:lang="en">the address of
+          the sender of a piece of correspondence.</desc>
+        </valItem>
+        <valItem ident="return">
+          <desc versionDate="2026-01-13" xml:lang="en">the address to
+          which undeliverable mail should be returned.</desc>
+        </valItem>
+        <valItem ident="recipient ">
+          <desc versionDate="2026-01-13" xml:lang="en">the address of
+          the intended recipient of a piece of correspondence.</desc>
+        </valItem>
+        <valItem ident="work">
+          <desc versionDate="2026-01-15" xml:lang="en">the address to
+          which work-related mail should be sent, typically that of
+          the recipient’s employer.</desc>
+        </valItem>
+        <valItem ident="home">
+          <desc versionDate="2026-01-15" xml:lang="en">the address to
+          which non-work-related mail should be sent, typically the
+          domicile of the recipient.</desc>
+        </valItem>
+        <valItem ident="start">
+          <desc versionDate="2026-01-13" xml:lang="en">the address of
+          the beginning of a route, for example of a race.</desc>
+        </valItem>
+        <valItem ident="finish">
+          <desc versionDate="2026-01-13" xml:lang="en">the address of
+          the end of a route, for example of a race.</desc>
+        </valItem>
+        <valItem ident="pickup">
+          <desc versionDate="2026-01-13" xml:lang="en">the address at
+          which a person or package is picked up, for example by a
+          taxi or delivery service.</desc>
+        </valItem>
+        <valItem ident="dropOff">
+          <desc versionDate="2026-01-13" xml:lang="en">the address at
+          which a person or package is dropped off, for example by a
+          taxi or delivery service.</desc>
+        </valItem>
+      </valList>
+      <remarks xml:lang="en" versionDate="2026-01-13">
+        <p>Whereas <att>type</att> is used to differentiate the kind
+        of address (e.g. <val>postal</val> vs. <val>street</val> or
+        <val>mailing</val> vs. <val>physical</val>), <att>role</att>
+        is used to differentiate the purpose of the address, for
+        example within a correspondence ecosystem
+        (e.g. <val>sender</val> vs. <val>recipient</val>, or
+        <val>permanent</val> vs. <val>school</val> or
+        <val>summer</val>).</p>
+      </remarks>
+    </attDef>
+  </attList>
   <exemplum xml:lang="en">
     <p>Using just the elements defined by the core module, an address could be represented as follows:</p>
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-address-egXML-rj" source="#NONE">
@@ -10746,16 +10836,33 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
     </egXML>
   </exemplum>
   <remarks versionDate="2007-12-16" xml:lang="en">
-    <p rend="dataDesc">This element should be used for postal addresses only. Within it, the generic element <gi>addrLine</gi> may be used as an alternative to any of the more specialized elements available from the <ident type="class">model.addrPart</ident> class, such as <gi>street</gi>, <gi>postCode</gi> etc.</p>
+    <p rend="dataDesc">This element should be used for postal
+    addresses only. Within it, the generic element <gi>addrLine</gi>
+    may be used as an alternative to any of the more specialized
+    elements available from the <ident type="class">model.addrPart</ident> class, such as
+    <gi>street</gi>, <gi>postCode</gi> etc.</p>
   </remarks>
   <remarks versionDate="2007-06-12" xml:lang="fr">
-    <p rend="dataDesc">Cet élément ne doit être utilisé que pour donner une adresse postale. A l'intérieur de cet élément, l'élément générique <gi>addrLine</gi> peut être utilisé comme élément alternatif aux éléments plus spécialisés de la classe <ident type="class">model.addrPart</ident> class, tels que <gi>street</gi>, <gi>postCode</gi> etc.</p>
+    <p rend="dataDesc">Cet élément ne doit être utilisé que pour
+    donner une adresse postale. A l'intérieur de cet élément,
+    l'élément générique <gi>addrLine</gi> peut être utilisé comme
+    élément alternatif aux éléments plus spécialisés de la classe
+    <ident type="class">model.addrPart</ident> class, tels que
+    <gi>street</gi>, <gi>postCode</gi> etc.</p>
   </remarks>
   <remarks versionDate="2008-04-05" xml:lang="ja">
-    <p rend="dataDesc"> 当該要素は、郵便配達情報にのみ使用されるべきである。 子要素として要素<gi>addrLine</gi>は、クラスmodel.addrPartにある要 素の代わりとして、例えば、要素<gi>street</gi>や要素 <gi>postcode</gi>として使用することができる。 </p>
+    <p rend="dataDesc"> 当該要素は、郵便配達情報にのみ使用されるべきで
+    ある。 子要素として要素<gi>addrLine</gi>は、クラスmodel.addrPartに
+    ある要 素の代わりとして、例えば、要素<gi>street</gi>や要素
+    <gi>postcode</gi>として使用することができる。 </p>
   </remarks>
   <remarks versionDate="2016-11-24" xml:lang="de">
-    <p rend="dataDesc">Dieses Element sollte ausschließlich für postalische Addressen verwendet werden. Innerhalb des Elements kann das generische <gi>addrLine</gi>-Element als Alternative zu den spezielleren Elementen aus der <ident type="class">model.addrPart</ident>-Klasse, wie<gi>street</gi> (Straße), <gi>postCode</gi> (Postleitzahl), etc. verwendet werden.</p>
+    <p rend="dataDesc">Dieses Element sollte ausschließlich für
+    postalische Addressen verwendet werden. Innerhalb des Elements
+    kann das generische <gi>addrLine</gi>-Element als Alternative zu
+    den spezielleren Elementen aus der <ident type="class">model.addrPart</ident>-Klasse, wie <gi>street</gi>
+    (Straße), <gi>postCode</gi> (Postleitzahl), etc. verwendet
+    werden.</p>
   </remarks>
   <listRef>
     <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#CONAAD">3.6.2. Addresses</ref>
@@ -16391,19 +16498,14 @@ epistemology, methodology and history of
   <gloss versionDate="2007-05-04" xml:lang="es">discurso</gloss>
   <gloss versionDate="2007-01-21" xml:lang="it">battuta</gloss>
   <gloss versionDate="2017-06-13" xml:lang="de">Figurenrede</gloss>
-  <desc versionDate="2012-12-27" xml:lang="en">contains an individual speech in a performance text, or a passage presented as such in a prose or
-    verse text.</desc>
+  <desc versionDate="2012-12-27" xml:lang="en">contains an individual speech in a performance text, or a passage presented as such in a prose or verse text.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">공연 텍스트에서 개별 대화 또는 산문이나 운문 텍스트에서 공연적 텍스트로 제시된 단락</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">劇本中的個人台詞，或散文、韻文中的個人演說。</desc>
   <desc versionDate="2008-04-06" xml:lang="ja">演技テキストまたは韻文・散文中にある個々の発話を示す。</desc>
-  <desc versionDate="2009-01-06" xml:lang="fr">monologue dans un texte écrit pour la scène ou un passage
-    présenté sous cette forme dans un texte en prose ou en vers.</desc>
-  <desc versionDate="2007-05-04" xml:lang="es">Un discurso individual de un texto dramático, o un pasaje
-    en prosa o en verso presentado como tal.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">Una singola battuta in un testo drammatico, o un brano
-    presentato come tale in un testo in prosa o in versi</desc>
-  <desc versionDate="2017-06-13" xml:lang="de">enthält eine einzelne Figurenrede in einem Dramentext oder eine entsprechende Passage in einem
-    Prosatext oder lyrischen Text.</desc>
+  <desc versionDate="2009-01-06" xml:lang="fr">monologue dans un texte écrit pour la scène ou un passage présenté sous cette forme dans un texte en prose ou en vers.</desc>
+  <desc versionDate="2007-05-04" xml:lang="es">Un discurso individual de un texto dramático, o un pasaje en prosa o en verso presentado como tal.</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">Una singola battuta in un testo drammatico, o un brano presentato come tale in un testo in prosa o in versi</desc>
+  <desc versionDate="2017-06-13" xml:lang="de">enthält eine einzelne Figurenrede in einem Dramentext oder eine entsprechende Passage in einem Prosatext oder lyrischen Text.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.ascribed.directed"/>
@@ -16412,62 +16514,17 @@ epistemology, methodology and history of
     <memberOf key="model.divPart"/>
   </classes>
   <content>
-    
-    
-    
-    <sequence>
-      <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-      <sequence minOccurs="0" maxOccurs="unbounded">
-        <classRef key="model.stageLike" minOccurs="1" maxOccurs="1"/>
-        <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-      </sequence>
-      <alternate minOccurs="1" maxOccurs="1">
-        <sequence minOccurs="1" maxOccurs="1">
-          <sequence minOccurs="1" maxOccurs="1">
-            <elementRef key="speaker" minOccurs="1" maxOccurs="1"/>
-            <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-          </sequence>
-          <sequence minOccurs="1" maxOccurs="1">
-            <alternate minOccurs="1" maxOccurs="1">
-              <elementRef key="lg"/>
-              <classRef key="model.lLike"/>
-              <classRef key="model.pLike"/>
-              <classRef key="model.listLike"/>
-              <classRef key="model.attributable"/>
-              <elementRef key="q"/>
-              <classRef key="model.stageLike"/>
-            </alternate>
-            <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-          </sequence>
-        </sequence>
-        <sequence minOccurs="1" maxOccurs="1">
-          <alternate minOccurs="1" maxOccurs="1">
-            <elementRef key="lg"/>
-            <classRef key="model.lLike"/>
-            <classRef key="model.pLike"/>
-            <classRef key="model.listLike"/>
-            <classRef key="model.attributable"/>
-            <elementRef key="q"/>
-          </alternate>
-          <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-        </sequence>
-      </alternate>
-      <sequence minOccurs="0" maxOccurs="unbounded">
-        <alternate minOccurs="1" maxOccurs="1">
-          <elementRef key="lg"/>
-          <classRef key="model.lLike"/>
-          <classRef key="model.pLike"/>
-          <classRef key="model.listLike"/>
-          <classRef key="model.attributable"/>
-          <elementRef key="q"/>
-          <classRef key="model.stageLike"/>
-        </alternate>
-        <classRef key="model.global" minOccurs="0" maxOccurs="unbounded"/>
-      </sequence>
-    </sequence>
-    
-    
-    
+    <alternate minOccurs="0" maxOccurs="unbounded">
+      <classRef key="model.stageLike"/>
+      <classRef key="model.global"/>
+      <classRef key="model.lLike"/>
+      <classRef key="model.pLike"/>
+      <classRef key="model.listLike"/>
+      <classRef key="model.attributable"/>
+      <elementRef key="speaker"/>
+      <elementRef key="lg"/>
+      <elementRef key="q"/>
+    </alternate>
   </content>
   <exemplum xml:lang="en">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="gi-sp-egXML-vc" source="#CODR-eg-296">

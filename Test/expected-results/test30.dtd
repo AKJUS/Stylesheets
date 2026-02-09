@@ -1294,7 +1294,11 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST address xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST address
  %Tatt.global.attributes;
- %Tatt.cmc.attributes; >
+ %Tatt.canonical.attributes;
+ %Tatt.cmc.attributes;
+ %Tatt.typed.attribute.subtype;
+type %teidata.enumerated;  #IMPLIED
+role NMTOKENS  #IMPLIED >
 <!--doc:(affiliation) contains an informal description of a person's present or past affiliation with some organization, for example an employer or sponsor. [16.2.2. The Participant Description] -->
 <!ELEMENT affiliation %macro.phraseSeq;>
 <!ATTLIST affiliation xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -3261,7 +3265,7 @@ code %teidata.pointer;  #IMPLIED >
  %Tatt.global.attributes;
  %Tatt.declaring.attributes; >
 <!--doc:(speech) contains an individual speech in a performance text, or a passage presented as such in a prose or verse text. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.2. Speeches and Speakers] -->
-<!ELEMENT sp (((%model.global;)*,((%model.stageLike;),(%model.global;)*)*,(((speaker,(%model.global;)*),((lg|%model.lLike;|%model.pLike;|%model.listLike;|%model.attributable;|q|%model.stageLike;),(%model.global;)*))|((lg|%model.lLike;|%model.pLike;|%model.listLike;|%model.attributable;|q),(%model.global;)*)),((lg|%model.lLike;|%model.pLike;|%model.listLike;|%model.attributable;|q|%model.stageLike;),(%model.global;)*)*))>
+<!ELEMENT sp (%model.stageLike;|%model.global;|%model.lLike;|%model.pLike;|%model.listLike;|%model.attributable;|speaker|lg|q)*>
 <!ATTLIST sp xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST sp
  %Tatt.global.attributes;

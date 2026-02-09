@@ -3082,7 +3082,38 @@ Taddress =
   element address {
     (Tmodel.global*, (Tmodel.addrPart, Tmodel.global*)+),
     Tatt.global.attributes,
+    Tatt.canonical.attributes,
     Tatt.cmc.attributes,
+    Tatt.typed.attribute.subtype,
+    
+    ## characterizes the address in some sense, using any convenient classification scheme or typology.
+    ## Suggested values include: 1] billing; 2] delivery; 3] mailing; 4] military; 5] physical
+    attribute type {
+      
+      ## the address to which a bill for goods or services should be sent.
+      "billing"
+      | 
+        ## the address to which packages should be sent via a private delivery service.
+        "delivery"
+      | 
+        ## the address to which mail should be sent via a public postal service.
+        "mailing"
+      | 
+        ## the address to which mail to deployed military personnel should be sent.
+        "military"
+      | 
+        ## the address of a building irrespective of where mail to its occupants should be sent (for example, for the fire department).
+        "physical"
+      | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+    }?,
+    
+    ## specifies further information about the purpose of the address.
+    ## Sample values include: 1] sender; 2] return; 3] recipient ; 4] work; 5] home; 6] start; 7] finish; 8] pickup; 9] dropOff
+    attribute role {
+      list {
+        xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+      }
+    }?,
     empty
   }
 TaddrLine =
@@ -3987,32 +4018,15 @@ Tsp =
   
   ## (speech) contains an individual speech in a performance text, or a passage presented as such in a prose or verse text. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.2. Speeches and Speakers]
   element sp {
-    (Tmodel.global*,
-     (Tmodel.stageLike, Tmodel.global*)*,
-     (((Tspeaker, Tmodel.global*),
-       ((Tlg
-         | Tmodel.lLike
-         | Tmodel.pLike
-         | Tmodel.listLike
-         | Tmodel.attributable
-         | Tq
-         | Tmodel.stageLike),
-        Tmodel.global*))
-      | ((Tlg
-          | Tmodel.lLike
-          | Tmodel.pLike
-          | Tmodel.listLike
-          | Tmodel.attributable
-          | Tq),
-         Tmodel.global*)),
-     ((Tlg
-       | Tmodel.lLike
-       | Tmodel.pLike
-       | Tmodel.listLike
-       | Tmodel.attributable
-       | Tq
-       | Tmodel.stageLike),
-      Tmodel.global*)*),
+    (Tmodel.stageLike
+     | Tmodel.global
+     | Tmodel.lLike
+     | Tmodel.pLike
+     | Tmodel.listLike
+     | Tmodel.attributable
+     | Tspeaker
+     | Tlg
+     | Tq)*,
     Tatt.global.attributes,
     Tatt.ascribed.directed.attributes,
     Tatt.placement.attributes,
