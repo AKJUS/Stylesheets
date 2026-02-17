@@ -671,25 +671,6 @@ tei_att.measurement.attribute.commodity =
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
   }?
-sch:pattern [
-  id = "foo-att.measurement-att-measurement-unitRef-constraint-rule-6"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@unitRef]"
-    "\x{a}" ~
-    "         "
-    sch:report [
-      test = "@unit"
-      role = "info"
-      "The @unit attribute may be unnecessary when @unitRef is present."
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
 tei_att.notated.attributes = tei_att.notated.attribute.notation
 tei_att.notated.attribute.notation =
   
@@ -767,7 +748,7 @@ tei_att.pointing.attribute.targetLang =
        "")
   }?
 sch:pattern [
-  id = "foo-att.pointing-targetLang-targetLang-constraint-rule-7"
+  id = "foo-att.pointing-targetLang-targetLang-constraint-rule-6"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -899,7 +880,7 @@ tei_att.spanning.attribute.spanTo =
   }?
 sch:pattern [
   id =
-    "foo-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-8"
+    "foo-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-7"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -955,7 +936,7 @@ tei_att.styleDef.attribute.schemeVersion =
   }?
 sch:pattern [
   id =
-    "foo-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-9"
+    "foo-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-8"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -989,7 +970,7 @@ tei_att.typed.attribute.subtype =
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
 sch:pattern [
-  id = "foo-att.typed-subtypeTyped-constraint-rule-10"
+  id = "foo-att.typed-subtypeTyped-constraint-rule-9"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -1127,6 +1108,9 @@ tei_att.divLike.attribute.org =
     
     ## no claim is made about the sequence in which the immediate contents of this division are to be processed, or their inter-relationships.
     "composite"
+    | 
+      ## the contents of this element are intended to represent simultaneous or side-by-side delivery.
+      "parallel"
     | 
       ## the immediate contents of this element are regarded as forming a logical unit, to be processed in sequence.
       "uniform"
@@ -2115,7 +2099,7 @@ tei_att.calendarSystem.attribute.calendar =
   }?
 sch:pattern [
   id =
-    "foo-att.calendarSystem-calendar-calendar_attr_on_empty_element-constraint-rule-11"
+    "foo-att.calendarSystem-calendar-calendar_attr_on_empty_element-constraint-rule-10"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -2195,12 +2179,12 @@ tei_att.milestoneUnit.attribute.unit =
   }
 tei_p =
   
-  ## (paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.5. Speech Contents]
+  ## (paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.6. Speech Contents]
   element tei:p {
     tei_macro.paraContent
     >> sch:pattern [
          id =
-           "foo-p-abstractModel-structure-p-in-ab-or-p-constraint-rule-12"
+           "foo-p-abstractModel-structure-p-in-ab-or-p-constraint-rule-11"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2221,7 +2205,7 @@ tei_p =
          "         "
        ]
     >> sch:pattern [
-         id = "foo-p-abstractModel-structure-p-in-l-constraint-rule-13"
+         id = "foo-p-abstractModel-structure-p-in-l-constraint-rule-12"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2430,7 +2414,7 @@ tei_desc =
     tei_macro.limitedContent
     >> sch:pattern [
          id =
-           "foo-desc-deprecationInfo-only-in-deprecated-constraint-rule-14"
+           "foo-desc-deprecationInfo-only-in-deprecated-constraint-rule-13"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2526,7 +2510,7 @@ tei_rt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "foo-rt-target-rt-target-not-span-constraint-rule-15"
+         id = "foo-rt-target-rt-target-not-span-constraint-rule-14"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2549,7 +2533,7 @@ tei_rt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "foo-rt-from-rt-from-constraint-rule-16"
+         id = "foo-rt-from-rt-from-constraint-rule-15"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2574,7 +2558,7 @@ tei_rt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "foo-rt-to-rt-to-constraint-rule-17"
+         id = "foo-rt-to-rt-to-constraint-rule-16"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3002,7 +2986,7 @@ tei_ptr =
   element tei:ptr {
     empty
     >> sch:pattern [
-         id = "foo-ptr-ptrAtts-constraint-rule-18"
+         id = "foo-ptr-ptrAtts-constraint-rule-17"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3036,7 +3020,7 @@ tei_ref =
   element tei:ref {
     tei_macro.paraContent
     >> sch:pattern [
-         id = "foo-ref-refAtts-constraint-rule-19"
+         id = "foo-ref-refAtts-constraint-rule-18"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3075,7 +3059,7 @@ tei_list =
          (tei_label, tei_model.global*, tei_item, tei_model.global*)+)),
      (tei_model.divBottom, tei_model.global*)*)
     >> sch:pattern [
-         id = "foo-list-gloss-list-must-have-labels-constraint-rule-20"
+         id = "foo-list-gloss-list-must-have-labels-constraint-rule-19"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3322,7 +3306,7 @@ tei_pb =
 tei_lb =
   
   ## (line beginning) marks the beginning of a topographic line in some edition or version of a text. [3.11.3. Milestone
-  ## Elements 7.2.5. Speech Contents]
+  ## Elements 7.2.6. Speech Contents]
   element tei:lb {
     empty,
     tei_att.global.attributes,
@@ -3613,7 +3597,7 @@ tei_relatedItem =
   element tei:relatedItem {
     ((tei_model.biblLike | tei_model.ptrLike)?)
     >> sch:pattern [
-         id = "foo-relatedItem-targetorcontent1-constraint-rule-21"
+         id = "foo-relatedItem-targetorcontent1-constraint-rule-20"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3649,7 +3633,7 @@ tei_relatedItem =
   }
 tei_l =
   
-  ## (verse line) contains a single, possibly incomplete, line of verse. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.5. Speech Contents]
+  ## (verse line) contains a single, possibly incomplete, line of verse. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.6. Speech Contents]
   element tei:l {
     ((text
       | tei_model.gLike
@@ -3657,7 +3641,7 @@ tei_l =
       | tei_model.inter
       | tei_model.global)*)
     >> sch:pattern [
-         id = "foo-l-abstractModel-structure-l-in-l-constraint-rule-22"
+         id = "foo-l-abstractModel-structure-l-in-l-constraint-rule-21"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3682,7 +3666,7 @@ tei_l =
   }
 tei_lg =
   
-  ## (line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain, verse paragraph, etc. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.5. Speech Contents]
+  ## (line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain, verse paragraph, etc. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.6. Speech Contents]
   element tei:lg {
     ((tei_model.divTop | tei_model.global)*,
      (tei_model.lLike
@@ -3698,7 +3682,7 @@ tei_lg =
       | tei_lg)*,
      (tei_model.divBottom, tei_model.global*)*)
     >> sch:pattern [
-         id = "foo-lg-atleast1oflggapl-constraint-rule-23"
+         id = "foo-lg-atleast1oflggapl-constraint-rule-22"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3718,7 +3702,7 @@ tei_lg =
        ]
     >> sch:pattern [
          id =
-           "foo-lg-abstractModel-structure-lg-in-l-constraint-rule-24"
+           "foo-lg-abstractModel-structure-lg-in-l-constraint-rule-23"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3774,7 +3758,7 @@ tei_speaker =
   }
 tei_stage =
   
-  ## (stage direction) contains any kind of stage direction within a dramatic text or fragment. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.4. Stage Directions]
+  ## (stage direction) contains any kind of stage direction within a dramatic text or fragment. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.5. Stage Directions]
   element tei:stage {
     tei_macro.specialPara,
     tei_att.global.attributes,
@@ -4243,7 +4227,7 @@ tei_quotation =
   element tei:quotation {
     (tei_model.pLike*)
     >> sch:pattern [
-         id = "foo-quotation-quotationContents-constraint-rule-25"
+         id = "foo-quotation-quotationContents-constraint-rule-24"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4498,7 +4482,7 @@ tei_citeStructure =
     attribute match { text }
     >> sch:pattern [
          id =
-           "foo-citeStructure-match-citestructure-outer-match-constraint-rule-26"
+           "foo-citeStructure-match-citestructure-outer-match-constraint-rule-25"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4519,7 +4503,7 @@ tei_citeStructure =
        ]
     >> sch:pattern [
          id =
-           "foo-citeStructure-match-citestructure-inner-match-constraint-rule-27"
+           "foo-citeStructure-match-citestructure-inner-match-constraint-rule-26"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5112,7 +5096,7 @@ tei_div =
       (tei_model.divBottom, tei_model.global*)*)?)
     >> sch:pattern [
          id =
-           "foo-div-abstractModel-structure-div-in-l-constraint-rule-28"
+           "foo-div-abstractModel-structure-div-in-l-constraint-rule-27"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5133,7 +5117,7 @@ tei_div =
        ]
     >> sch:pattern [
          id =
-           "foo-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-29"
+           "foo-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-28"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5619,7 +5603,7 @@ tei_link =
   element tei:link {
     empty
     >> sch:pattern [
-         id = "foo-link-linkTargets3-constraint-rule-30"
+         id = "foo-link-linkTargets3-constraint-rule-29"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5662,7 +5646,7 @@ tei_ab =
     tei_macro.abContent
     >> sch:pattern [
          id =
-           "foo-ab-abstractModel-structure-ab-in-l-constraint-rule-31"
+           "foo-ab-abstractModel-structure-ab-in-l-constraint-rule-30"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5702,7 +5686,7 @@ tei_anchor =
   }
 tei_seg =
   
-  ## (arbitrary segment) represents any segmentation of text below the chunk level. [17.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]
+  ## (arbitrary segment) represents any segmentation of text below the chunk level. [17.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.6. Speech Contents]
   element tei:seg {
     tei_macro.paraContent,
     tei_att.global.attributes,
@@ -5845,7 +5829,7 @@ tei_join =
   element tei:join {
     ((tei_model.descLike | tei_model.certLike)*)
     >> sch:pattern [
-         id = "foo-join-joinTargets3-constraint-rule-32"
+         id = "foo-join-joinTargets3-constraint-rule-31"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5998,33 +5982,7 @@ tei_standOff =
   
   ## Functions as a container element for linked data, contextual information, and stand-off annotations embedded in a TEI document. [17.10. The standOff Container]
   element tei:standOff {
-    (tei_model.standOffPart+)
-    >> sch:pattern [
-         id =
-           "foo-standOff-nested_standOff_should_be_typed-constraint-rule-33"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:standOff"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "@type or not(ancestor::tei:standOff)"
-             "This\x{a}" ~
-             "        "
-             sch:name [ ]
-             " element must have a @type attribute, since it is\x{a}" ~
-             "        nested inside a "
-             sch:name [ ]
-             "\x{a}" ~
-             "               "
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    tei_model.standOffPart+,
     tei_att.global.attributes,
     tei_att.declaring.attributes,
     tei_att.typed.attributes,

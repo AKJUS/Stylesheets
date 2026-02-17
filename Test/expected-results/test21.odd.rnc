@@ -663,26 +663,6 @@ att.measurement.attribute.commodity =
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
   }?
-sch:pattern [
-  id =
-    "test21-att.measurement-att-measurement-unitRef-constraint-rule-6"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@unitRef]"
-    "\x{a}" ~
-    "         "
-    sch:report [
-      test = "@unit"
-      role = "info"
-      "The @unit attribute may be unnecessary when @unitRef is present."
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
 att.notated.attributes = att.notated.attribute.notation
 att.notated.attribute.notation =
   
@@ -760,7 +740,7 @@ att.pointing.attribute.targetLang =
        "")
   }?
 sch:pattern [
-  id = "test21-att.pointing-targetLang-targetLang-constraint-rule-7"
+  id = "test21-att.pointing-targetLang-targetLang-constraint-rule-6"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -892,7 +872,7 @@ att.spanning.attribute.spanTo =
   }?
 sch:pattern [
   id =
-    "test21-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-8"
+    "test21-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-7"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -947,7 +927,7 @@ att.styleDef.attribute.schemeVersion =
   }?
 sch:pattern [
   id =
-    "test21-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-9"
+    "test21-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-8"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -986,7 +966,7 @@ att.typed.attribute.subtype =
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
 sch:pattern [
-  id = "test21-att.typed-subtypeTyped-constraint-rule-10"
+  id = "test21-att.typed-subtypeTyped-constraint-rule-9"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -1112,6 +1092,9 @@ att.divLike.attribute.org =
     
     ## aucune déclaration n'est faite quant à l'ordre dans lequel les composants de cette division doivent être traités ou bien quant à leurs corrélations
     "composite"
+    | 
+      ## the contents of this element are intended to represent simultaneous or side-by-side delivery.
+      "parallel"
     | 
       ## contenu uniforme : c'est-à-dire que les composants de cet élément sont à considérer comme formant une unité logique et doivent être traités dans l'ordre séquentiel
       "uniform"
@@ -2481,7 +2464,7 @@ att.calendarSystem.attribute.calendar =
   }?
 sch:pattern [
   id =
-    "test21-att.calendarSystem-calendar-calendar_attr_on_empty_element-constraint-rule-11"
+    "test21-att.calendarSystem-calendar-calendar_attr_on_empty_element-constraint-rule-10"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -2561,7 +2544,7 @@ att.milestoneUnit.attribute.unit =
   }
 p =
   
-  ## (paragraphe) marque les paragraphes dans un texte en prose. [3.1. Paragraphs 7.2.5. Speech Contents]
+  ## (paragraphe) marque les paragraphes dans un texte en prose. [3.1. Paragraphs 7.2.6. Speech Contents]
   element p {
     macro.paraContent,
     (element * - (tei:* | teix:egXML) {
@@ -2569,7 +2552,7 @@ p =
      }*)
     >> sch:pattern [
          id =
-           "test21-p-abstractModel-structure-p-in-ab-or-p-constraint-rule-12"
+           "test21-p-abstractModel-structure-p-in-ab-or-p-constraint-rule-11"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2591,7 +2574,7 @@ p =
        ]
     >> sch:pattern [
          id =
-           "test21-p-abstractModel-structure-p-in-l-constraint-rule-13"
+           "test21-p-abstractModel-structure-p-in-l-constraint-rule-12"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2813,7 +2796,7 @@ desc =
     macro.limitedContent
     >> sch:pattern [
          id =
-           "test21-desc-deprecationInfo-only-in-deprecated-constraint-rule-14"
+           "test21-desc-deprecationInfo-only-in-deprecated-constraint-rule-13"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2906,7 +2889,7 @@ rt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "test21-rt-target-rt-target-not-span-constraint-rule-15"
+         id = "test21-rt-target-rt-target-not-span-constraint-rule-14"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2929,7 +2912,7 @@ rt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "test21-rt-from-rt-from-constraint-rule-16"
+         id = "test21-rt-from-rt-from-constraint-rule-15"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2954,7 +2937,7 @@ rt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "test21-rt-to-rt-to-constraint-rule-17"
+         id = "test21-rt-to-rt-to-constraint-rule-16"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3378,7 +3361,7 @@ ptr =
   element ptr {
     empty
     >> sch:pattern [
-         id = "test21-ptr-ptrAtts-constraint-rule-18"
+         id = "test21-ptr-ptrAtts-constraint-rule-17"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3422,7 +3405,7 @@ ref =
   element ref {
     macro.paraContent
     >> sch:pattern [
-         id = "test21-ref-refAtts-constraint-rule-19"
+         id = "test21-ref-refAtts-constraint-rule-18"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3462,7 +3445,7 @@ ref =
      (model.divBottom, model.global*)*)
     >> sch:pattern [
          id =
-           "test21-list-gloss-list-must-have-labels-constraint-rule-20"
+           "test21-list-gloss-list-must-have-labels-constraint-rule-19"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3705,7 +3688,7 @@ pb =
 lb =
   
   ## (début de ligne) marque le début d'une nouvelle ligne (typographique) dans une édition ou dans une version d'un texte. [3.11.3. Milestone
-  ## Elements 7.2.5. Speech Contents]
+  ## Elements 7.2.6. Speech Contents]
   element lb {
     empty,
     att.global.attributes,
@@ -3984,7 +3967,7 @@ relatedItem =
   element relatedItem {
     ((model.biblLike | model.ptrLike)?)
     >> sch:pattern [
-         id = "test21-relatedItem-targetorcontent1-constraint-rule-21"
+         id = "test21-relatedItem-targetorcontent1-constraint-rule-20"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4020,12 +4003,12 @@ relatedItem =
   }
 l =
   
-  ## (vers) contient un seul vers, éventuellement incomplet. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.5. Speech Contents]
+  ## (vers) contient un seul vers, éventuellement incomplet. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.6. Speech Contents]
   element l {
     ((text | model.gLike | model.phrase | model.inter | model.global)*)
     >> sch:pattern [
          id =
-           "test21-l-abstractModel-structure-l-in-l-constraint-rule-22"
+           "test21-l-abstractModel-structure-l-in-l-constraint-rule-21"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4050,7 +4033,7 @@ l =
   }
 lg =
   
-  ## (groupe de vers) contient un groupe de vers fonctionnant comme une unité formelle, par exemple une strophe, un refrain, un paragraphe en vers, etc. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.5. Speech Contents]
+  ## (groupe de vers) contient un groupe de vers fonctionnant comme une unité formelle, par exemple une strophe, un refrain, un paragraphe en vers, etc. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.6. Speech Contents]
   element lg {
     ((model.divTop | model.global)*,
      (model.lLike
@@ -4066,7 +4049,7 @@ lg =
       | lg)*,
      (model.divBottom, model.global*)*)
     >> sch:pattern [
-         id = "test21-lg-atleast1oflggapl-constraint-rule-23"
+         id = "test21-lg-atleast1oflggapl-constraint-rule-22"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4086,7 +4069,7 @@ lg =
        ]
     >> sch:pattern [
          id =
-           "test21-lg-abstractModel-structure-lg-in-l-constraint-rule-24"
+           "test21-lg-abstractModel-structure-lg-in-l-constraint-rule-23"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4153,7 +4136,7 @@ speaker =
   }
 stage =
   
-  ## (indication scénique) contient tout type d'indication scénique à l'intérieur d'un texte ou fragment de texte écrit pour le théâtre. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.4. Stage Directions]
+  ## (indication scénique) contient tout type d'indication scénique à l'intérieur d'un texte ou fragment de texte écrit pour le théâtre. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.5. Stage Directions]
   element stage {
     macro.specialPara,
     att.global.attributes,
@@ -5302,7 +5285,7 @@ relation =
   element relation {
     (desc?)
     >> sch:pattern [
-         id = "test21-relation-ref-or-key-or-name-constraint-rule-25"
+         id = "test21-relation-ref-or-key-or-name-constraint-rule-24"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5320,7 +5303,7 @@ relation =
          "         "
        ]
     >> sch:pattern [
-         id = "test21-relation-active-mutual-constraint-rule-26"
+         id = "test21-relation-active-mutual-constraint-rule-25"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5338,7 +5321,7 @@ relation =
          "         "
        ]
     >> sch:pattern [
-         id = "test21-relation-active-passive-constraint-rule-27"
+         id = "test21-relation-active-passive-constraint-rule-26"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -5970,7 +5953,7 @@ quotation =
   element quotation {
     (model.pLike*)
     >> sch:pattern [
-         id = "test21-quotation-quotationContents-constraint-rule-28"
+         id = "test21-quotation-quotationContents-constraint-rule-27"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6217,7 +6200,7 @@ citeStructure =
     attribute match { text }
     >> sch:pattern [
          id =
-           "test21-citeStructure-match-citestructure-outer-match-constraint-rule-29"
+           "test21-citeStructure-match-citestructure-outer-match-constraint-rule-28"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6238,7 +6221,7 @@ citeStructure =
        ]
     >> sch:pattern [
          id =
-           "test21-citeStructure-match-citestructure-inner-match-constraint-rule-30"
+           "test21-citeStructure-match-citestructure-inner-match-constraint-rule-29"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6797,7 +6780,7 @@ link =
   element link {
     empty
     >> sch:pattern [
-         id = "test21-link-linkTargets3-constraint-rule-31"
+         id = "test21-link-linkTargets3-constraint-rule-30"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6840,7 +6823,7 @@ ab =
     macro.abContent
     >> sch:pattern [
          id =
-           "test21-ab-abstractModel-structure-ab-in-l-constraint-rule-32"
+           "test21-ab-abstractModel-structure-ab-in-l-constraint-rule-31"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6901,7 +6884,7 @@ anchor =
   }
 seg =
   
-  ## (segment quelconque) contient une unité de texte quelconque de niveau segment. [17.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]
+  ## (segment quelconque) contient une unité de texte quelconque de niveau segment. [17.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.6. Speech Contents]
   element seg {
     macro.paraContent,
     att.global.attributes,
@@ -7049,7 +7032,7 @@ join =
   element join {
     ((model.descLike | model.certLike)*)
     >> sch:pattern [
-         id = "test21-join-joinTargets3-constraint-rule-33"
+         id = "test21-join-joinTargets3-constraint-rule-32"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7204,33 +7187,7 @@ standOff =
   
   ## Functions as a container element for linked data, contextual information, and stand-off annotations embedded in a TEI document. [17.10. The standOff Container]
   element standOff {
-    (model.standOffPart+)
-    >> sch:pattern [
-         id =
-           "test21-standOff-nested_standOff_should_be_typed-constraint-rule-34"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:standOff"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "@type or not(ancestor::tei:standOff)"
-             "This\x{a}" ~
-             "        "
-             sch:name [ ]
-             " element must have a @type attribute, since it is\x{a}" ~
-             "        nested inside a "
-             sch:name [ ]
-             "\x{a}" ~
-             "               "
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    model.standOffPart+,
     att.global.attributes,
     att.declaring.attributes,
     att.typed.attributes,
@@ -7384,7 +7341,7 @@ msDesc =
          | msPart
          | msFrag)*))
     >> sch:pattern [
-         id = "test21-msDesc-one_ms_singleton_max-constraint-rule-35"
+         id = "test21-msDesc-one_ms_singleton_max-constraint-rule-33"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7425,7 +7382,7 @@ catchwords =
   element catchwords {
     macro.phraseSeq
     >> sch:pattern [
-         id = "test21-catchwords-catchword_in_msDesc-constraint-rule-36"
+         id = "test21-catchwords-catchword_in_msDesc-constraint-rule-34"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7453,7 +7410,7 @@ dimensions =
   element dimensions {
     ((dim | model.dimLike)*)
     >> sch:pattern [
-         id = "test21-dimensions-duplicateDim-constraint-rule-37"
+         id = "test21-dimensions-duplicateDim-constraint-rule-35"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7638,7 +7595,7 @@ secFol =
   element secFol {
     macro.phraseSeq
     >> sch:pattern [
-         id = "test21-secFol-secFol_in_msDesc-constraint-rule-38"
+         id = "test21-secFol-secFol_in_msDesc-constraint-rule-36"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7667,7 +7624,7 @@ signatures =
     macro.specialPara
     >> sch:pattern [
          id =
-           "test21-signatures-signatures_in_msDesc-constraint-rule-39"
+           "test21-signatures-signatures_in_msDesc-constraint-rule-37"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7720,7 +7677,7 @@ msIdentifier =
       idno*),
      (msName | objectName | altIdentifier)*)
     >> sch:pattern [
-         id = "test21-msIdentifier-msId_minimal-constraint-rule-40"
+         id = "test21-msIdentifier-msId_minimal-constraint-rule-38"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8364,7 +8321,7 @@ facsimile =
      back?)
     >> sch:pattern [
          id =
-           "test21-facsimile-no_facsimile_text_nodes-constraint-rule-41"
+           "test21-facsimile-no_facsimile_text_nodes-constraint-rule-39"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8477,7 +8434,7 @@ path =
   element path {
     empty
     >> sch:pattern [
-         id = "test21-path-pathmustnotbeclosed-constraint-rule-42"
+         id = "test21-path-pathmustnotbeclosed-constraint-rule-40"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8570,7 +8527,7 @@ addSpan =
     empty
     >> sch:pattern [
          id =
-           "test21-addSpan-addSpan-requires-spanTo-constraint-rule-43"
+           "test21-addSpan-addSpan-requires-spanTo-constraint-rule-41"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8591,7 +8548,7 @@ addSpan =
        ]
     >> sch:pattern [
          id =
-           "test21-addSpan-addSpan-requires-spanTo-fr-constraint-rule-44"
+           "test21-addSpan-addSpan-requires-spanTo-fr-constraint-rule-42"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8619,7 +8576,7 @@ addSpan =
     }
     >> sch:pattern [
          id =
-           "test21-addSpan-spanTo-spanTo-points-to-following-constraint-rule-45"
+           "test21-addSpan-spanTo-spanTo-points-to-following-constraint-rule-43"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8661,7 +8618,7 @@ damageSpan =
     empty
     >> sch:pattern [
          id =
-           "test21-damageSpan-damageSpan-requires-spanTo-constraint-rule-46"
+           "test21-damageSpan-damageSpan-requires-spanTo-constraint-rule-44"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8682,7 +8639,7 @@ damageSpan =
        ]
     >> sch:pattern [
          id =
-           "test21-damageSpan-damageSpan-requires-spanTo-fr-constraint-rule-47"
+           "test21-damageSpan-damageSpan-requires-spanTo-fr-constraint-rule-45"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8712,7 +8669,7 @@ delSpan =
     empty
     >> sch:pattern [
          id =
-           "test21-delSpan-delSpan-requires-spanTo-constraint-rule-48"
+           "test21-delSpan-delSpan-requires-spanTo-constraint-rule-46"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8733,7 +8690,7 @@ delSpan =
        ]
     >> sch:pattern [
          id =
-           "test21-delSpan-delSpan-requires-spanTo-fr-constraint-rule-49"
+           "test21-delSpan-delSpan-requires-spanTo-fr-constraint-rule-47"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8879,7 +8836,7 @@ subst =
   element subst {
     ((add | surplus | del | model.milestoneLike)+)
     >> sch:pattern [
-         id = "test21-subst-substContents1-constraint-rule-50"
+         id = "test21-subst-substContents1-constraint-rule-48"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9142,7 +9099,7 @@ group =
       (model.divBottom, model.global*)*)?)
     >> sch:pattern [
          id =
-           "test21-div-abstractModel-structure-div-in-l-constraint-rule-51"
+           "test21-div-abstractModel-structure-div-in-l-constraint-rule-49"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -9163,7 +9120,7 @@ group =
        ]
     >> sch:pattern [
          id =
-           "test21-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-52"
+           "test21-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-50"
          "\x{a}" ~
          "            "
          sch:rule [

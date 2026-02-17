@@ -7,8 +7,8 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2025-10-07T16:49:40Z. . 
-# TEI Edition: P5 Version 4.11.0a. Last updated on 6th October 2025, revision 2d8eae701 
+# Schema generated from ODD source 2026-02-17T14:52:55Z. . 
+# TEI Edition: P5 Version 4.11.0a. Last updated on 17th February 2026, revision d2dc2a3f1 
 # TEI Edition Location: https://www.tei-c.org/Vault/P5/4.11.0a/ 
 #
 
@@ -776,7 +776,7 @@ model.sourceDescPart = notAllowed
 model.resource = \text
 p =
   
-  ## (paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.5. Speech Contents]
+  ## (paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.6. Speech Contents]
   element p {
     macro.paraContent
     >> sch:pattern [

@@ -14641,6 +14641,15 @@
                     "altIdent" : 
                     [  ] },
                   
+                  { "ident" : "parallel",
+                    "desc" : 
+                    [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2026-01-19\" xml:lang=\"en\">the contents of this element are intended to represent simultaneous or side-by-side delivery.<\/desc>" ],
+                    "shortDesc" : "the contents of this element are intended to represent simultaneous or side-by-side delivery.",
+                    "gloss" : 
+                    [  ],
+                    "altIdent" : 
+                    [  ] },
+                  
                   { "ident" : "uniform",
                     "desc" : 
                     [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2013-03-18\" xml:lang=\"en\">the immediate contents of this\n\t\t  element are regarded as forming a logical unit, to be\n\t\t  processed in sequence.<\/desc>" ],
@@ -15502,8 +15511,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-10-05\" xml:lang=\"en\">contains an expression in some formal style definition language\nwhich defines the rendering or presentation\nused for this element in the source text.<\/desc>" ],
-              "shortDesc" : "contains an expression in some formal style definition language\nwhich defines the rendering or presentation\nused for this element in the source text.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2012-10-05\" xml:lang=\"en\">contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text.<\/desc>" ],
+              "shortDesc" : "contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15522,8 +15531,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-22\" xml:lang=\"en\">points to a description of the rendering or presentation used for this element in the\n        source text.<\/desc>" ],
-              "shortDesc" : "points to a description of the rendering or presentation used for this element in the\n        source text.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-22\" xml:lang=\"en\">points to a description of the rendering or presentation used for this element in the source text.<\/desc>" ],
+              "shortDesc" : "points to a description of the rendering or presentation used for this element in the source text.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15655,8 +15664,8 @@
               "ns" : "",
               "usage" : "def",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-09-28\" xml:lang=\"en\">gives a name or other identifier for the scribe\nbelieved to be responsible for this hand.<\/desc>" ],
-              "shortDesc" : "gives a name or other identifier for the scribe\nbelieved to be responsible for this hand.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-09-28\" xml:lang=\"en\">gives a name or other identifier for the scribe believed to be responsible for this hand.<\/desc>" ],
+              "shortDesc" : "gives a name or other identifier for the scribe believed to be responsible for this hand.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15675,8 +15684,8 @@
               "ns" : "",
               "usage" : "def",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-09-28\" xml:lang=\"en\">points to a full description of the scribe concerned, typically supplied by a <gi>person<\/gi> element\n      elsewhere in the description.<\/desc>" ],
-              "shortDesc" : "points to a full description of the scribe concerned, typically supplied by a person element\n      elsewhere in the description.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-09-28\" xml:lang=\"en\">points to a full description of the scribe concerned, typically supplied by a <gi>person<\/gi> element elsewhere in the description.<\/desc>" ],
+              "shortDesc" : "points to a full description of the scribe concerned, typically supplied by a person element elsewhere in the description.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15695,8 +15704,8 @@
               "ns" : "",
               "usage" : "def",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2008-02-01\" xml:lang=\"en\">characterizes the particular script or writing style used by\nthis hand, for example <mentioned>secretary<\/mentioned>, <mentioned>copperplate<\/mentioned>, <mentioned>Chancery<\/mentioned>, <mentioned>Italian<\/mentioned>, etc.<\/desc>" ],
-              "shortDesc" : "characterizes the particular script or writing style used by\nthis hand, for example secretary, copperplate, Chancery, Italian, etc.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2008-02-01\" xml:lang=\"en\">characterizes the particular script or writing style used by this hand, for example <mentioned>secretary<\/mentioned>, <mentioned>copperplate<\/mentioned>, <mentioned>Chancery<\/mentioned>, <mentioned>Italian<\/mentioned>, etc.<\/desc>" ],
+              "shortDesc" : "characterizes the particular script or writing style used by this hand, for example secretary, copperplate, Chancery, Italian, etc.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15715,8 +15724,8 @@
               "ns" : "",
               "usage" : "def",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-09-28\" xml:lang=\"en\">points to a full description of the script or writing style used by\nthis hand, typically supplied by a <gi>scriptNote<\/gi> element\n      elsewhere in the description.<\/desc>" ],
-              "shortDesc" : "points to a full description of the script or writing style used by\nthis hand, typically supplied by a scriptNote element\n      elsewhere in the description.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2010-09-28\" xml:lang=\"en\">points to a full description of the script or writing style used by this hand, typically supplied by a <gi>scriptNote<\/gi> element elsewhere in the description.<\/desc>" ],
+              "shortDesc" : "points to a full description of the script or writing style used by this hand, typically supplied by a scriptNote element elsewhere in the description.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15735,8 +15744,8 @@
               "ns" : "",
               "usage" : "def",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">describes the tint or type of ink, e.g. <mentioned>brown<\/mentioned>, or other\nwriting medium, e.g. <mentioned>pencil<\/mentioned>.<\/desc>" ],
-              "shortDesc" : "describes the tint or type of ink, e.g. brown, or other\nwriting medium, e.g. pencil.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2007-09-27\" xml:lang=\"en\">describes the tint or type of ink, e.g. <mentioned>brown<\/mentioned>, or other writing medium, e.g. <mentioned>pencil<\/mentioned>.<\/desc>" ],
+              "shortDesc" : "describes the tint or type of ink, e.g. brown, or other writing medium, e.g. pencil.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -15834,8 +15843,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-11-18\" xml:lang=\"en\">indicates the units used for the measurement, usually\n      using the standard symbol for the desired units.<\/desc>" ],
-              "shortDesc" : "(unit) indicates the units used for the measurement, usually\n      using the standard symbol for the desired units.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-11-18\" xml:lang=\"en\">indicates the units used for the measurement, usually using the standard symbol for the desired units.<\/desc>" ],
+              "shortDesc" : "(unit) indicates the units used for the measurement, usually using the standard symbol for the desired units.",
               "gloss" : 
               [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2009-05-28\" xml:lang=\"en\">unit<\/gloss>" ],
               "altIdent" : 
@@ -16048,8 +16057,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-11-18\" xml:lang=\"en\">specifies the number of the specified units that\n      comprise the measurement<\/desc>" ],
-              "shortDesc" : "(quantity) specifies the number of the specified units that\n      comprise the measurement",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2005-11-18\" xml:lang=\"en\">specifies the number of the specified units that comprise the measurement<\/desc>" ],
+              "shortDesc" : "(quantity) specifies the number of the specified units that comprise the measurement",
               "gloss" : 
               [ "<gloss xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2009-05-28\" xml:lang=\"en\">quantity<\/gloss>" ],
               "altIdent" : 

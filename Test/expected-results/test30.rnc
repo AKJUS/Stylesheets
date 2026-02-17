@@ -681,26 +681,6 @@ Tatt.measurement.attribute.commodity =
       xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
     }
   }?
-sch:pattern [
-  id =
-    "testbasic-att.measurement-att-measurement-unitRef-constraint-rule-6"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@unitRef]"
-    "\x{a}" ~
-    "         "
-    sch:report [
-      test = "@unit"
-      role = "info"
-      "The @unit attribute may be unnecessary when @unitRef is present."
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
 Tatt.notated.attributes = Tatt.notated.attribute.notation
 Tatt.notated.attribute.notation =
   
@@ -778,7 +758,7 @@ Tatt.pointing.attribute.targetLang =
        "")
   }?
 sch:pattern [
-  id = "testbasic-att.pointing-targetLang-targetLang-constraint-rule-7"
+  id = "testbasic-att.pointing-targetLang-targetLang-constraint-rule-6"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -910,7 +890,7 @@ Tatt.spanning.attribute.spanTo =
   }?
 sch:pattern [
   id =
-    "testbasic-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-8"
+    "testbasic-att.spanning-spanTo-spanTo-points-to-following-constraint-rule-7"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -965,7 +945,7 @@ Tatt.styleDef.attribute.schemeVersion =
   }?
 sch:pattern [
   id =
-    "testbasic-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-9"
+    "testbasic-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-8"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -999,7 +979,7 @@ Tatt.typed.attribute.subtype =
     xsd:token { pattern = "[^\p{C}\p{Z}]+" }
   }?
 sch:pattern [
-  id = "testbasic-att.typed-subtypeTyped-constraint-rule-10"
+  id = "testbasic-att.typed-subtypeTyped-constraint-rule-9"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -1139,6 +1119,9 @@ Tatt.divLike.attribute.org =
     
     ## no claim is made about the sequence in which the immediate contents of this division are to be processed, or their inter-relationships.
     "composite"
+    | 
+      ## the contents of this element are intended to represent simultaneous or side-by-side delivery.
+      "parallel"
     | 
       ## the immediate contents of this element are regarded as forming a logical unit, to be processed in sequence.
       "uniform"
@@ -2403,7 +2386,7 @@ Tatt.calendarSystem.attribute.calendar =
   }?
 sch:pattern [
   id =
-    "testbasic-att.calendarSystem-calendar-calendar_attr_on_empty_element-constraint-rule-11"
+    "testbasic-att.calendarSystem-calendar-calendar_attr_on_empty_element-constraint-rule-10"
   "\x{a}" ~
   "      "
   sch:rule [
@@ -2483,12 +2466,12 @@ Tatt.milestoneUnit.attribute.unit =
   }
 Tp =
   
-  ## (paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.5. Speech Contents]
+  ## (paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.6. Speech Contents]
   element p {
     Tmacro.paraContent
     >> sch:pattern [
          id =
-           "testbasic-p-abstractModel-structure-p-in-ab-or-p-constraint-rule-12"
+           "testbasic-p-abstractModel-structure-p-in-ab-or-p-constraint-rule-11"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2510,7 +2493,7 @@ Tp =
        ]
     >> sch:pattern [
          id =
-           "testbasic-p-abstractModel-structure-p-in-l-constraint-rule-13"
+           "testbasic-p-abstractModel-structure-p-in-l-constraint-rule-12"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2706,7 +2689,7 @@ Tdesc =
     Tmacro.limitedContent
     >> sch:pattern [
          id =
-           "testbasic-desc-deprecationInfo-only-in-deprecated-constraint-rule-14"
+           "testbasic-desc-deprecationInfo-only-in-deprecated-constraint-rule-13"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2803,7 +2786,7 @@ Trt =
      }?)
     >> sch:pattern [
          id =
-           "testbasic-rt-target-rt-target-not-span-constraint-rule-15"
+           "testbasic-rt-target-rt-target-not-span-constraint-rule-14"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2826,7 +2809,7 @@ Trt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "testbasic-rt-from-rt-from-constraint-rule-16"
+         id = "testbasic-rt-from-rt-from-constraint-rule-15"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -2851,7 +2834,7 @@ Trt =
        xsd:anyURI { pattern = "\S+" }
      }?)
     >> sch:pattern [
-         id = "testbasic-rt-to-rt-to-constraint-rule-17"
+         id = "testbasic-rt-to-rt-to-constraint-rule-16"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3272,7 +3255,7 @@ Tptr =
   element ptr {
     empty
     >> sch:pattern [
-         id = "testbasic-ptr-ptrAtts-constraint-rule-18"
+         id = "testbasic-ptr-ptrAtts-constraint-rule-17"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3306,7 +3289,7 @@ Tref =
   element ref {
     Tmacro.paraContent
     >> sch:pattern [
-         id = "testbasic-ref-refAtts-constraint-rule-19"
+         id = "testbasic-ref-refAtts-constraint-rule-18"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3346,7 +3329,7 @@ Tlist =
      (Tmodel.divBottom, Tmodel.global*)*)
     >> sch:pattern [
          id =
-           "testbasic-list-gloss-list-must-have-labels-constraint-rule-20"
+           "testbasic-list-gloss-list-must-have-labels-constraint-rule-19"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3589,7 +3572,7 @@ Tpb =
 Tlb =
   
   ## (line beginning) marks the beginning of a topographic line in some edition or version of a text. [3.11.3. Milestone
-  ## Elements 7.2.5. Speech Contents]
+  ## Elements 7.2.6. Speech Contents]
   element lb {
     empty,
     Tatt.global.attributes,
@@ -3883,7 +3866,7 @@ TrelatedItem =
     ((Tmodel.biblLike | Tmodel.ptrLike)?)
     >> sch:pattern [
          id =
-           "testbasic-relatedItem-targetorcontent1-constraint-rule-21"
+           "testbasic-relatedItem-targetorcontent1-constraint-rule-20"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3919,7 +3902,7 @@ TrelatedItem =
   }
 Tl =
   
-  ## (verse line) contains a single, possibly incomplete, line of verse. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.5. Speech Contents]
+  ## (verse line) contains a single, possibly incomplete, line of verse. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.6. Speech Contents]
   element l {
     ((text
       | Tmodel.gLike
@@ -3928,7 +3911,7 @@ Tl =
       | Tmodel.global)*)
     >> sch:pattern [
          id =
-           "testbasic-l-abstractModel-structure-l-in-l-constraint-rule-22"
+           "testbasic-l-abstractModel-structure-l-in-l-constraint-rule-21"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3953,7 +3936,7 @@ Tl =
   }
 Tlg =
   
-  ## (line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain, verse paragraph, etc. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.5. Speech Contents]
+  ## (line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain, verse paragraph, etc. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.6. Speech Contents]
   element lg {
     ((Tmodel.divTop | Tmodel.global)*,
      (Tmodel.lLike
@@ -3969,7 +3952,7 @@ Tlg =
       | Tlg)*,
      (Tmodel.divBottom, Tmodel.global*)*)
     >> sch:pattern [
-         id = "testbasic-lg-atleast1oflggapl-constraint-rule-23"
+         id = "testbasic-lg-atleast1oflggapl-constraint-rule-22"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -3989,7 +3972,7 @@ Tlg =
        ]
     >> sch:pattern [
          id =
-           "testbasic-lg-abstractModel-structure-lg-in-l-constraint-rule-24"
+           "testbasic-lg-abstractModel-structure-lg-in-l-constraint-rule-23"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4045,7 +4028,7 @@ Tspeaker =
   }
 Tstage =
   
-  ## (stage direction) contains any kind of stage direction within a dramatic text or fragment. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.4. Stage Directions]
+  ## (stage direction) contains any kind of stage direction within a dramatic text or fragment. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.5. Stage Directions]
   element stage {
     Tmacro.specialPara,
     Tatt.global.attributes,
@@ -4522,7 +4505,7 @@ Tquotation =
   element quotation {
     (Tmodel.pLike*)
     >> sch:pattern [
-         id = "testbasic-quotation-quotationContents-constraint-rule-25"
+         id = "testbasic-quotation-quotationContents-constraint-rule-24"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4774,7 +4757,7 @@ TciteStructure =
     attribute match { text }
     >> sch:pattern [
          id =
-           "testbasic-citeStructure-match-citestructure-outer-match-constraint-rule-26"
+           "testbasic-citeStructure-match-citestructure-outer-match-constraint-rule-25"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -4795,7 +4778,7 @@ TciteStructure =
        ]
     >> sch:pattern [
          id =
-           "testbasic-citeStructure-match-citestructure-inner-match-constraint-rule-27"
+           "testbasic-citeStructure-match-citestructure-inner-match-constraint-rule-26"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6317,7 +6300,7 @@ Trelation =
   element relation {
     (Tdesc?)
     >> sch:pattern [
-         id = "testbasic-relation-ref-or-key-or-name-constraint-rule-28"
+         id = "testbasic-relation-ref-or-key-or-name-constraint-rule-27"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6335,7 +6318,7 @@ Trelation =
          "         "
        ]
     >> sch:pattern [
-         id = "testbasic-relation-active-mutual-constraint-rule-29"
+         id = "testbasic-relation-active-mutual-constraint-rule-28"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6353,7 +6336,7 @@ Trelation =
          "         "
        ]
     >> sch:pattern [
-         id = "testbasic-relation-active-passive-constraint-rule-30"
+         id = "testbasic-relation-active-passive-constraint-rule-29"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6711,7 +6694,7 @@ Tfacsimile =
      Tback?)
     >> sch:pattern [
          id =
-           "testbasic-facsimile-no_facsimile_text_nodes-constraint-rule-31"
+           "testbasic-facsimile-no_facsimile_text_nodes-constraint-rule-30"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6825,7 +6808,7 @@ Tpath =
   element path {
     empty
     >> sch:pattern [
-         id = "testbasic-path-pathmustnotbeclosed-constraint-rule-32"
+         id = "testbasic-path-pathmustnotbeclosed-constraint-rule-31"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6918,7 +6901,7 @@ TaddSpan =
     empty
     >> sch:pattern [
          id =
-           "testbasic-addSpan-addSpan-requires-spanTo-constraint-rule-33"
+           "testbasic-addSpan-addSpan-requires-spanTo-constraint-rule-32"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6939,7 +6922,7 @@ TaddSpan =
        ]
     >> sch:pattern [
          id =
-           "testbasic-addSpan-addSpan-requires-spanTo-fr-constraint-rule-34"
+           "testbasic-addSpan-addSpan-requires-spanTo-fr-constraint-rule-33"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -6980,7 +6963,7 @@ TdamageSpan =
     empty
     >> sch:pattern [
          id =
-           "testbasic-damageSpan-damageSpan-requires-spanTo-constraint-rule-35"
+           "testbasic-damageSpan-damageSpan-requires-spanTo-constraint-rule-34"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7001,7 +6984,7 @@ TdamageSpan =
        ]
     >> sch:pattern [
          id =
-           "testbasic-damageSpan-damageSpan-requires-spanTo-fr-constraint-rule-36"
+           "testbasic-damageSpan-damageSpan-requires-spanTo-fr-constraint-rule-35"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7031,7 +7014,7 @@ TdelSpan =
     empty
     >> sch:pattern [
          id =
-           "testbasic-delSpan-delSpan-requires-spanTo-constraint-rule-37"
+           "testbasic-delSpan-delSpan-requires-spanTo-constraint-rule-36"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7052,7 +7035,7 @@ TdelSpan =
        ]
     >> sch:pattern [
          id =
-           "testbasic-delSpan-delSpan-requires-spanTo-fr-constraint-rule-38"
+           "testbasic-delSpan-delSpan-requires-spanTo-fr-constraint-rule-37"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7199,7 +7182,7 @@ Tsubst =
   element subst {
     ((Tadd | Tsurplus | Tdel | Tmodel.milestoneLike)+)
     >> sch:pattern [
-         id = "testbasic-subst-substContents1-constraint-rule-39"
+         id = "testbasic-subst-substContents1-constraint-rule-38"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7499,7 +7482,7 @@ Tlink =
   element link {
     empty
     >> sch:pattern [
-         id = "testbasic-link-linkTargets3-constraint-rule-40"
+         id = "testbasic-link-linkTargets3-constraint-rule-39"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7542,7 +7525,7 @@ Tab =
     Tmacro.abContent
     >> sch:pattern [
          id =
-           "testbasic-ab-abstractModel-structure-ab-in-l-constraint-rule-41"
+           "testbasic-ab-abstractModel-structure-ab-in-l-constraint-rule-40"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7582,7 +7565,7 @@ Tanchor =
   }
 Tseg =
   
-  ## (arbitrary segment) represents any segmentation of text below the chunk level. [17.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]
+  ## (arbitrary segment) represents any segmentation of text below the chunk level. [17.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.6. Speech Contents]
   element seg {
     Tmacro.paraContent,
     Tatt.global.attributes,
@@ -7725,7 +7708,7 @@ Tjoin =
   element join {
     ((Tmodel.descLike | Tmodel.certLike)*)
     >> sch:pattern [
-         id = "testbasic-join-joinTargets3-constraint-rule-42"
+         id = "testbasic-join-joinTargets3-constraint-rule-41"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -7878,33 +7861,7 @@ TstandOff =
   
   ## Functions as a container element for linked data, contextual information, and stand-off annotations embedded in a TEI document. [17.10. The standOff Container]
   element standOff {
-    (Tmodel.standOffPart+)
-    >> sch:pattern [
-         id =
-           "testbasic-standOff-nested_standOff_should_be_typed-constraint-rule-43"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:standOff"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test = "@type or not(ancestor::tei:standOff)"
-             "This\x{a}" ~
-             "        "
-             sch:name [ ]
-             " element must have a @type attribute, since it is\x{a}" ~
-             "        nested inside a "
-             sch:name [ ]
-             "\x{a}" ~
-             "               "
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+    Tmodel.standOffPart+,
     Tatt.global.attributes,
     Tatt.declaring.attributes,
     Tatt.typed.attributes,
@@ -8116,7 +8073,7 @@ Tdiv =
       (Tmodel.divBottom, Tmodel.global*)*)?)
     >> sch:pattern [
          id =
-           "testbasic-div-abstractModel-structure-div-in-l-constraint-rule-44"
+           "testbasic-div-abstractModel-structure-div-in-l-constraint-rule-42"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8137,7 +8094,7 @@ Tdiv =
        ]
     >> sch:pattern [
          id =
-           "testbasic-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-45"
+           "testbasic-div-abstractModel-structure-div-in-ab-or-p-constraint-rule-43"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8554,7 +8511,7 @@ Tplatypus =
      ##
      attribute bill { "duck" }?)
     >> sch:pattern [
-         id = "testbasic-platypus-bill-silly-test-constraint-report-20"
+         id = "testbasic-platypus-bill-silly-test-constraint-report-19"
          "\x{a}" ~
          "            "
          sch:rule [
@@ -8596,7 +8553,7 @@ sch:ns [
 sch:ns [ prefix = "sch" uri = "http://purl.oclc.org/dsdl/schematron" ]
 sch:ns [ prefix = "sch1x" uri = "http://www.ascc.net/xml/schematron" ]
 sch:pattern [
-  id = "testbasic-outerconstraint-constraint-rule-46"
+  id = "testbasic-outerconstraint-constraint-rule-44"
   "\x{a}" ~
   "      "
   sch:rule [
