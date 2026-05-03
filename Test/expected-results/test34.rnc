@@ -2342,6 +2342,7 @@ tei_q =
     tei_att.global.attributes,
     tei_att.ascribed.directed.attributes,
     tei_att.cmc.attributes,
+    tei_att.typed.attribute.subtype,
     
     ## (type) may be used to indicate whether the offset passage is spoken or thought, or to characterize it more finely.
     ## Suggested values include: 1] spoken (spoken); 2] thought (thought); 3] written (written); 4] soCalled (so called); 5] foreign (foreign); 6] distinct (distinct); 7] term; 8] emph (emph); 9] mentioned (mentioned)

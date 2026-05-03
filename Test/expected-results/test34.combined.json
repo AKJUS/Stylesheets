@@ -8792,14 +8792,15 @@
           "atts" : 
           [ "att.global",
             "att.ascribed.directed",
-            "att.cmc" ],
+            "att.cmc",
+            "att.typed" ],
           "unknown" : 
           [  ] },
         "attributes" : 
         [ 
           { "onElement" : true,
             "ident" : "type",
-            "mode" : "add",
+            "mode" : "replace",
             "ns" : "",
             "usage" : "opt",
             "desc" : 

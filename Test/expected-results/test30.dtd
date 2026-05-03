@@ -2932,6 +2932,7 @@ placement (internal|external) #IMPLIED >
  %Tatt.global.attributes;
  %Tatt.ascribed.directed.attributes;
  %Tatt.cmc.attributes;
+ %Tatt.typed.attribute.subtype;
 type %teidata.enumerated;  #IMPLIED >
 <!--doc:(quotation) specifies editorial practice adopted with respect to quotation marks in the original. [2.3.3. The Editorial Practices Declaration 16.3.2. Declarable Elements] -->
 <!ELEMENT quotation (%model.pLike;)*>

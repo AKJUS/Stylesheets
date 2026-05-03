@@ -2725,6 +2725,7 @@ q =
     att.global.attributes,
     att.ascribed.directed.attributes,
     att.cmc.attributes,
+    att.typed.attribute.subtype,
     
     ## (type) peut être utilisé pour indiquer si le passage cité correspond à une parole ou à une pensée ou encore pour le caractériser plus finement.
     ## Suggested values include: 1] spoken (spoken); 2] thought (thought); 3] written (written); 4] soCalled (so called); 5] foreign (foreign); 6] distinct (distinct); 7] term; 8] emph (emph); 9] mentioned (mentioned)
