@@ -433,7 +433,7 @@ Elements</ref>
 	  <desc versionDate="2008-04-06" xml:lang="es">el elemento contiene el número de la edición, o los números del volumen y de la edición.</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">号番号かまたは巻と号の番号を含む。</desc>
 	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient un numéro de livraison ou bien un numéro de volume et de livraison.</desc>
-	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento contiene l'indicazione del numero della pubblicazione</desc>
+	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento contiene l'indicazione del numero della pubblicazione.</desc>
 	</valItem>
 	<valItem ident="page">
 	  <gloss versionDate="2007-05-04" xml:lang="en">page</gloss>
@@ -446,7 +446,7 @@ Elements</ref>
 	  <desc versionDate="2021-01-18" xml:lang="es">el elemento contiene un número de página o un intervalo de páginas.</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">ページ番号またはページ範囲を含む。</desc>
 	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient un nombre de pages ou l'étendue de sélection des pages.</desc>
-	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento contiene l'indicazione di pagina o pagine</desc>
+	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento contiene l'indicazione di pagina o pagine.</desc>
 	</valItem>
 	<valItem ident="line">
 	  <desc versionDate="2013-06-17" xml:lang="en">the element contains a line number or line range.</desc>
@@ -463,7 +463,7 @@ Elements</ref>
 	  <desc versionDate="2008-04-06" xml:lang="es">el elemento contiene la indicación del capítulo (número y/o el título)</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">章の識別子(番号やタイトル)を含む。</desc>
 	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément contient une indication de chapitre (le numéro et/ou le titre)</desc>
-	  <desc versionDate="2007-11-06" xml:lang="it">l'elemento contiene un'indicazione di capitolo (numero e/o titolo</desc>
+	  <desc versionDate="2007-11-06" xml:lang="it">l'elemento contiene un'indicazione di capitolo (numero e/o titolo).</desc>
 	</valItem>
 	<valItem ident="part">
 	  <desc versionDate="2012-12-17" xml:lang="en">the element identifies a part of a book or collection.</desc>
@@ -472,7 +472,7 @@ Elements</ref>
 	  <desc versionDate="2008-04-06" xml:lang="es">el elemento identifica una parte de un libro o de una colección.</desc>
 	  <desc versionDate="2019-01-04" xml:lang="ja">書籍や叢書の部分を特定する。</desc>
 	  <desc versionDate="2008-03-30" xml:lang="fr">l'élément identifie une partie d'un livre ou une anthologie.</desc>
-	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento identifica una parte di un libro o di una raccolta</desc>
+	  <desc versionDate="2007-01-21" xml:lang="it">l'elemento identifica una parte di un libro o di una raccolta.</desc>
 	</valItem>
 	<valItem ident="column">
 		<desc versionDate="2013-06-17" xml:lang="en">the element identifies a column.</desc>
@@ -619,7 +619,7 @@ Elements</ref>
   <desc versionDate="2007-06-12" xml:lang="fr">fournit des attributs
   pour la normalisation d'éléments qui contiennent des mentions
   d'événements datés ou susceptibles de l'être.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi per la normalizzazione di elementi che contengono eventi databili utilizzando i tipi di dati del W3C</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi per la normalizzazione di elementi che contengono eventi databili utilizzando i tipi di dati del W3C.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos para la normalización de elementos que contienen eventos datables.</desc>
   <constraintSpec ident="att-datable-w3c-when" scheme="schematron" xml:lang="en">
     <constraint>
@@ -650,7 +650,7 @@ Elements</ref>
       <desc versionDate="2019-03-28" xml:lang="ja">標準形式での日付や時刻を提供する。たとえば、yyyy-mm-dd</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">spécifie une date exacte pour un événement sous
         une forme normalisée, par ex. aaaa-mm-jj.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">indica il valore di una data o di un orario in un formato standard</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">indica il valore di una data o di un orario in un formato standard.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">proporciona el valor de una fecha o una hora en un formato estandard.</desc>
       <datatype><dataRef key="teidata.temporal.w3c"/></datatype>
       <exemplum xml:lang="en">
@@ -719,7 +719,7 @@ Elements</ref>
       <desc versionDate="2008-04-05" xml:lang="ja">当該事象の一番古い日付を、標準形式で示す。例えば、yyyy-mm-dd。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">spécifie la date la plus ancienne pour
         l'événement sous une forme normalisée, par ex. aaaa-mm-jj.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">specifica la prima data possibile per un evento nel formato standard aaaa-mm-gg</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">specifica la prima data possibile per un evento nel formato standard aaaa-mm-gg.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica la fecha más temprana posible para un evento en un formato estándard, p.ej. aaaa-mm-dd.</desc>
       <datatype><dataRef key="teidata.temporal.w3c"/></datatype>
     </attDef>
@@ -731,7 +731,7 @@ Elements</ref>
       <desc versionDate="2008-04-05" xml:lang="ja">当該事象の一番新しい日付を、標準形式で示す。例えば、yyyy-mm-dd。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">spécifie la date la plus récente possible pour
         l'événement sous une forme normalisée, par ex. aaaa-mm-jj.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">specifica l'ultima data possibile per un evento nel formato standard aaaa-mm-gg</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">specifica l'ultima data possibile per un evento nel formato standard aaaa-mm-gg.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica la fecha más tardana posible para un evento en un formato estándard, p.ej. aaaa-mm-dd.</desc>
       <datatype><dataRef key="teidata.temporal.w3c"/></datatype>
     </attDef>
@@ -742,7 +742,7 @@ Elements</ref>
       <desc versionDate="2008-04-05" xml:lang="ja">標準形で当該時間幅の始点を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique le point de départ d'une période sous une
         forme normalisée, par ex. aaaa-mm-jj.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">indica l'inizio del periodo nel formato standard</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">indica l'inizio del periodo nel formato standard.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el punto de inicio del período en el formato estándard.</desc>
       <datatype><dataRef key="teidata.temporal.w3c"/></datatype>
     </attDef>
@@ -754,7 +754,7 @@ Elements</ref>
       <desc versionDate="2008-04-05" xml:lang="ja">標準形で当該時間幅の終点を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique le terme de la période sous une forme
         normalisée, par ex. aaaa-mm-jj.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">indica la fine del periodo nel formato standard</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">indica la fine del periodo nel formato standard.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el punto final de un periodo en formato estándard.</desc>
       <datatype><dataRef key="teidata.temporal.w3c"/></datatype>
     </attDef>
@@ -1195,7 +1195,7 @@ its parent is selected.</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique si oui ou non cet élément est affecté par
           défaut quand son élément parent a été sélectionné.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica si el elemento es seleccionado automáticamente o no  cuando es seleccionado el padre</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica se l'elemento è selezionato automaticamente quando è selezionato il genitore</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica se l'elemento è selezionato automaticamente quando è selezionato il genitore.</desc>
       <datatype><dataRef key="teidata.truthValue"/></datatype>
       <defaultVal>false</defaultVal>
       <valList type="closed">
@@ -1207,7 +1207,7 @@ its parent is selected.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">親要素が選択された場合、当該要素が選択される。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">cet élément est choisi si son parent
 est choisi</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">l'elemento è selezionato se è selezionato il genitore</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">l'elemento è selezionato se è selezionato il genitore.</desc>
         </valItem>
         <valItem ident="false">
           <desc versionDate="2007-06-27" xml:lang="en">This element can only be selected explicitly, unless it is the
@@ -1220,7 +1220,7 @@ only one of its kind, in which case it is selected if its parent is selected.</d
           <desc versionDate="2008-03-30" xml:lang="fr">cet élément ne peut être sélectionné
 qu'explicitement, à moins qu'il ne soit le seul de ce type, auquel cas
 il est sélectionné si son parent a été choisi</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">l'elemento deve essere esplicitamente selezionato, a meno che non sia l'unico del suo genere, nel qual caso è selezionato se è selezionato il genitore</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">l'elemento deve essere esplicitamente selezionato, a meno che non sia l'unico del suo genere, nel qual caso è selezionato se è selezionato il genitore.</desc>
         </valItem>
       </valList>
     </attDef>
@@ -1265,7 +1265,7 @@ Information with a Text</ref>
     être associés  indépendamment à un élément particulier déclarable dans l'en-tête TEI, ignorant
       ainsi la valeur dont cet élément devrait hériter par défaut.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos a los elementos que pueden ser asociados autonomamente a un elemento determinado declarado en el encabezado, no teniendo en cuenta el default heredato por aquel elemento.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">assegna attributi agli elementi che possono essere autonomamente associati a un determinato elemento dichiarato nell'intestazione, non tenendo conto del default ereditato per quell'elemento</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">assegna attributi agli elementi che possono essere autonomamente associati a un determinato elemento dichiarato nell'intestazione, non tenendo conto del default ereditato per quell'elemento.</desc>
   <attList>
     <attDef ident="decls" usage="opt">
       <gloss versionDate="2022-05-05" xml:lang="en">declarations</gloss>
@@ -1936,7 +1936,7 @@ associated with a dated element, at the time indicated.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">標準的な用語による計算機資源の種類を表す属性を示す。</desc>
   <desc versionDate="2009-05-27" xml:lang="fr">fournit des attributs pour spécifier le type de
 ressource informatique selon une taxinomie normalisée.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi che specificano il tipo di risorsa informatica utilizzando una tassonomia standard</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi che specificano il tipo di risorsa informatica utilizzando una tassonomia standard.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">atributos para registrar un periodo temporal normalizado</desc>
   <attList>
     <attDef ident="mimeType" usage="opt">
@@ -1949,7 +1949,7 @@ ressource informatique selon une taxinomie normalisée.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">적용 가능한 다중매체 인터넷 메일 확장자(MIME) 매체 유형을 명시한다.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該データのMIMEタイプ。</desc>
       <desc versionDate="2008-03-30" xml:lang="fr">spécifie le type MIME (multipurpose internet mail extension) applicable.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">specifica il tipo MIME appropriato</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">specifica il tipo MIME appropriato.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">El tipo de MIME</desc>
       <desc versionDate="2006-06-05" xml:lang="zh-TW">MIME協定種類</desc>
       <datatype minOccurs="1" maxOccurs="unbounded"><dataRef key="teidata.word"/></datatype>
@@ -1997,7 +1997,7 @@ ressource informatique selon une taxinomie normalisée.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">正規化単位を表す属性を示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">donne des attributs pour représenter une mesure régularisée ou normalisée.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos que representen una medición regularizada o normalizada.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi che rappresentano una misurazione regolarizzata o normalizzata</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi che rappresentano una misurazione regolarizzata o normalizzata.</desc>
   <desc versionDate="2026-04-15" xml:lang="de">stellt Attribute zur Beschreibung einer normalisierten oder regularisierten Messung bereit.</desc>
   <attList>
     <attDef ident="unit" usage="opt">
@@ -2010,7 +2010,7 @@ ressource informatique selon une taxinomie normalisée.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">一般には標準記号により、計測単位を示す。</desc>
       <desc versionDate="2009-05-28" xml:lang="fr">indique les unités de mesure utilisées ; il s'agit en général du symbole normalisé pour les unités dont on a besoin.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica las unidades usadas para la medición, normalmente utilizando el símbolo estándard para la unidad de medición en cuestión.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica le unità impiegate per la misurazione, generalmente utilizzando il simbolo standard per l'unità di misura in questione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica le unità impiegate per la misurazione, generalmente utilizzando il simbolo standard per l'unità di misura in questione.</desc>
       <desc versionDate="2026-04-15" xml:lang="de">gibt die verwendeten Einheiten an, in der Regel das jeweilige Standardsymbol der gewünschten Messeinheiten.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="semi">
@@ -2239,7 +2239,7 @@ ressource informatique selon une taxinomie normalisée.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">デシベル。エネルギーの強さを示す。</desc>
           <desc versionDate="2007-06-12" xml:lang="fr">voir remarques, ci-dessous.</desc>
           <desc versionDate="2007-05-04" xml:lang="es">ver las notas a continuación</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">vedi note di seguito</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">vedi note di seguito.</desc>
           <desc versionDate="2026-04-15" xml:lang="de">siehe Anmerkungen unten</desc>
         </valItem>
         
@@ -2389,7 +2389,7 @@ ressource informatique selon une taxinomie normalisée.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">計測単位の数を示す。</desc>
       <desc versionDate="2009-05-28" xml:lang="fr">spécifie le nombre des unités indiquées que comprend la mesure.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica el número de las unidades que costituyen la medición</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il numero delle unità che costituiscono la misurazione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il numero delle unità che costituiscono la misurazione.</desc>
       <datatype><dataRef key="teidata.numeric"/></datatype>
     </attDef>
     <attDef ident="commodity" usage="opt">
@@ -2402,7 +2402,7 @@ ressource informatique selon une taxinomie normalisée.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">計測される対象を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique ce qui est mesuré.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica la substancia que está siendo medida.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">identifica la sostanza misurata</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">identifica la sostanza misurata.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.word"/></datatype>
       <remarks versionDate="2005-11-20" xml:lang="en">
         <p>In general, when the commodity is made of discrete
@@ -2533,14 +2533,14 @@ baby?</l></egXML>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">頁首空白處</desc>
           <desc versionDate="2023-08-30" xml:lang="ja">当該頁の上の余白。</desc>
           <desc versionDate="2008-04-06" xml:lang="es">en el margen superior</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">nel margine superiore</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">nel margine superiore.</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">dans la marge supérieure</desc>
         </valItem>
         <valItem ident="bottom">
           <desc versionDate="2009-01-22" xml:lang="en">at the foot of the page</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">아래 여백</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">dans la marge inférieure</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">margine inferiore</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">margine inferiore.</desc>
           <desc versionDate="2007-05-04" xml:lang="es">en el margen inferior</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">頁尾空白處</desc>
           <desc versionDate="2023-08-30" xml:lang="ja">当該頁の下の余白。</desc>
@@ -2557,7 +2557,7 @@ baby?</l></egXML>
           <desc versionDate="2023-08-30" xml:lang="ja">反対側，つまり，向かいのページ。</desc>
           <desc versionDate="2008-04-06" xml:lang="es">en el opuesto,es decir en el anverso, reverso, etc.</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">sur la page opposée</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">nella pagina accanto</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">nella pagina accanto.</desc>
         </valItem>
         <valItem ident="overleaf">
           <desc versionDate="2009-01-22" xml:lang="en">on the other side of the leaf</desc>
@@ -2577,7 +2577,7 @@ baby?</l></egXML>
           <desc versionDate="2023-08-30" xml:lang="ja">当該行の上。</desc>
           <desc versionDate="2008-04-06" xml:lang="es">sobre la línea</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">au-dessus de la ligne</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">al di sopra della linea</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">al di sopra della linea.</desc>
         </valItem>
 	<valItem ident="right">
 	  <desc versionDate="2021-02-07" xml:lang="en">to the right,
@@ -2591,7 +2591,7 @@ baby?</l></egXML>
           <desc versionDate="2023-08-30" xml:lang="ja">当該行の下。</desc>
           <desc versionDate="2008-04-06" xml:lang="es">debajo de la línea</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">au-dessous de la ligne</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">al di sotto della linea</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">al di sotto della linea.</desc>
         </valItem>
 	<valItem ident="left">
 	  <desc versionDate="2021-02-07" xml:lang="en">to the left,
@@ -2605,7 +2605,7 @@ baby?</l></egXML>
           <desc versionDate="2023-08-30" xml:lang="ja">末尾（たとえば章や巻の）。</desc>
           <desc versionDate="2008-04-06" xml:lang="es">al final del capítulo o del volumen.</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">à la fin, par exemple d'un chapitre ou d'un volume</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">alla fine del capitolo o del volume</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">alla fine del capitolo o del volume.</desc>
         </valItem>
         <valItem ident="inline">
           <desc versionDate="2009-01-22" xml:lang="en">within the body of the text.</desc>
@@ -2644,7 +2644,7 @@ baby?</l></egXML>
   <desc versionDate="2024-08-08" xml:lang="ja">すべての、一つ以上のURIを参照することで別の要素を指示する要素で使用できる属性のセットを示す。</desc>
   <desc versionDate="2016-02-15" xml:lang="fr">fournit un ensemble d'attributs utilisés par tous les éléments qui pointent vers d'autres éléments au moyen d'une ou de plusieurs références URI.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define un conjunto de atributos usados por todos los elementos que señalan a otros elementos a través de uno o más URI.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi usati da tutti gli elementi che puntano ad altri elementi tramite uno o più URI</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi usati da tutti gli elementi che puntano ad altri elementi tramite uno o più URI.</desc>
   <attList>
     <attDef ident="targetLang" usage="opt">
       <desc versionDate="2012-06-16" xml:lang="en">specifies the language of the content to be found at the destination referenced by <att>target</att>, using a <soCalled>language tag</soCalled> generated
@@ -2720,7 +2720,7 @@ baby?</l></egXML>
       <desc versionDate="2008-04-05" xml:lang="ja">当該ポインタの参照先がポインタである場合、その意図を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">détermine le sens attendu, si la cible d'un pointeur est elle-même un pointeur.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el significado previsto cuando la meta de un indicador es también un indicador.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il significato previsto quando la destinazione di un puntatore è essa stessa un puntatore</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il significato previsto quando la destinazione di un puntatore è essa stessa un puntatore.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="closed">
         <valItem ident="all">
@@ -2733,7 +2733,7 @@ baby?</l></egXML>
           <desc versionDate="2008-04-05" xml:lang="ja">参照先の要素がポインターである場合、そのポインターの参照先へ
 	  と展開する。これを、参照先がポインターでなくなるまで続ける。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">si l'élément pointé est lui-même un pointeur, alors on prendra la cible de ce pointeur, et ainsi de suite jusqu'à trouver un élément qui n'est pas un pointeur.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">se l'elemento puntato è esso stesso un puntatore, allora sarà presa la destinazione di quel puntatore e così via fino a trovare un elemento che non è un puntatore</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">se l'elemento puntato è esso stesso un puntatore, allora sarà presa la destinazione di quel puntatore e così via fino a trovare un elemento che non è un puntatore.</desc>
         </valItem>
         <valItem ident="one">
           <desc versionDate="2007-06-27" xml:lang="en">if the element pointed to is itself a pointer, then
@@ -2745,7 +2745,7 @@ baby?</l></egXML>
           <desc versionDate="2008-04-05" xml:lang="ja">参照先の要素がポインターである場合、(そのポインターの参照先
 	  がどうであれ)そのポインターが参照先になる。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">si l'élément pointé est lui-même un pointeur, alors sa cible (qui est ou non un pointeur) devient la cible retenue.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">se l'elemento puntato è esso stesso un puntatore, allora la sua destinazione (che sia un puntatore o meno) è presa come destinazione del puntatore</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">se l'elemento puntato è esso stesso un puntatore, allora la sua destinazione (che sia un puntatore o meno) è presa come destinazione del puntatore.</desc>
         </valItem>
         <valItem ident="none">
           <desc versionDate="2007-06-27" xml:lang="en">no further evaluation of targets is carried out
@@ -2756,7 +2756,7 @@ baby?</l></egXML>
           <desc versionDate="2008-04-06" xml:lang="es">no se realiza ninguna otra evaluación de los targets más allá de la necesaria para encontrar el elemento especificado en el target del puntero.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該ポインターの参照先から先にあるリンクへの展開は行わない。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">aucune évaluation ultérieure des cibles n'est menée au-delà de la recherche de l'élément désigné dans la cible du pointeur.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">non viene condotta altra valutazione delle destinazioni se non quella necessaria a rintracciare l'elemento specificato nella destinazione del puntatore</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">non viene condotta altra valutazione delle destinazioni se non quella necessaria a rintracciare l'elemento specificato nella destinazione del puntatore.</desc>
         </valItem>
       </valList>
       <remarks versionDate="2005-10-10" xml:lang="en">
@@ -2953,7 +2953,7 @@ baby?</l></egXML>
   <desc versionDate="2008-04-05" xml:lang="ja">テキスト幅の範囲を内容としてではなく参照機能を使って示す要素に付与される属性を示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">fournit des attributs pour les éléments qui délimitent un passage de texte par des mécanismes de pointage plutôt qu'en entourant le passage.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos para elementos que delimitan un fragmento de texto utilizando los señalizadores en lugar de cerrando el texto.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi agli elementi che delimitano una porzione di testo utilizzando dei puntatori invece di racchiudere il testo stesso</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi agli elementi che delimitano una porzione di testo utilizzando dei puntatori invece di racchiudere il testo stesso.</desc>
   <attList>
     <attDef ident="spanTo" usage="opt">
       <desc versionDate="2005-10-10" xml:lang="en">indicates the end of a span initiated by the element bearing this attribute.</desc>
@@ -2962,14 +2962,14 @@ baby?</l></egXML>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素が示す範囲の終点を示す。</desc>
       <desc versionDate="2009-05-28" xml:lang="fr">indique la fin d'un passage introduit par l'élément portant cet attribut.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el final de un fragmento de texto iniciado con el elemento al cual es asignaado el atributo.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica la fine della porzione di testo che ha inizio con l'elemento a cui è assegnato l'attributo</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica la fine della porzione di testo che ha inizio con l'elemento a cui è assegnato l'attributo.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <constraintSpec ident="spanTo-points-to-following" scheme="schematron" xml:lang="en">
         <desc versionDate="2025-01-19" xml:lang="en">The @spanTo attribute must point to an element following the current element; however, this can only be tested if both this element and the one pointed to are in the same document.</desc>
         <constraint>
           <sch:rule context="tei:*[ starts-with( @spanTo, '#') ]">
             <sch:assert test="id( substring( @spanTo, 2 ) ) &gt;&gt; .">
-	      The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow the current <sch:name/> element 
+              The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow the current <sch:name/> element 
             </sch:assert>
           </sch:rule>
         </constraint>
@@ -3004,7 +3004,6 @@ baby?</l></egXML>
   </remarks>
   <listRef>
     <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/PH.html#PHAD">12.3.1.4. Additions and Deletions</ref>
-    <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html#STECAT">1.3.1. Attribute Classes</ref>
   </listRef>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" module="tei" type="atts" ident="att.styleDef">
   <desc versionDate="2015-02-15" xml:lang="en">provides attributes to specify the name of a formal definition
@@ -3027,7 +3026,7 @@ baby?</l></egXML>
           <desc versionDate="2008-04-06" xml:lang="es">Lenguaje de CSS</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">CSS</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">langage CSS (Cascading Stylesheet )</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">linguaggio CSS</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">linguaggio CSS.</desc>
         </valItem>
         <valItem ident="xslfo">
           <desc versionDate="2012-10-06" xml:lang="en">Extensible Stylesheet Language Formatting Objects</desc>
@@ -3037,7 +3036,7 @@ baby?</l></egXML>
           <desc versionDate="2008-04-05" xml:lang="ja">XSL-FO</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">langage XSL (Extensible Stylesheet )Formatting
             Objects</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">linguaggio XSL-FO</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">linguaggio XSL-FO.</desc>
         </valItem>
         <valItem ident="free">
           <desc versionDate="2012-10-06" xml:lang="en">Informal free text description</desc>
@@ -3045,7 +3044,7 @@ baby?</l></egXML>
           <desc versionDate="2008-04-06" xml:lang="es">Descripción informal y libre del texto</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">自由記述。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">description en texte libre non structuré.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">descrizione informale testo libero</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">descrizione informale testo libero.</desc>
         </valItem>
         <valItem ident="other">
           <desc versionDate="2012-10-06" xml:lang="en">A user-defined rendition description language</desc>
@@ -3090,7 +3089,7 @@ If no value for the @scheme attribute is provided, then the default assumption s
   <desc versionDate="2009-05-29" xml:lang="fr">fournit des attributs qui peuvent être
       utilisés pour classer ou interclasser des éléments de n'importe quelle façon.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos genéricos utilizables para cualquier clasificación o subclasificación de elementos.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi generici utilizzabili per qualsiasi classificazione e sottoclassificazione di elementi</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi generici utilizzabili per qualsiasi classificazione e sottoclassificazione di elementi.</desc>
   <constraintSpec scheme="schematron" ident="subtypeTyped" xml:lang="en">
     <constraint>
       <sch:rule context="tei:*[@subtype]">
@@ -3108,7 +3107,7 @@ If no value for the @scheme attribute is provided, then the default assumption s
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素の分類を示す。</desc>
       <desc versionDate="2009-05-29" xml:lang="fr">caractérise l'élément en utilisant n'importe quel système ou typologie de classification approprié.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">caracteriza el elemento utilizando una clasificación o tipología funcional.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">caratterizza l'elemento utilizzando una classificazione o tipologia funzionale</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">caratterizza l'elemento utilizzando una classificazione o tipologia funzionale.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <exemplum xml:lang="en">
         <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:id="TYPED-egXML-vd" source="#NZETC01" xml:lang="en">
@@ -3141,7 +3140,7 @@ If no value for the @scheme attribute is provided, then the default assumption s
       <desc versionDate="2007-06-12" xml:lang="fr">fournit une sous-catégorisation de l'élément, si
           c'est nécessaire.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">proporciona, si es necesario, una subcategorización del elemento.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">stabilisce, se necessario, una sottocategorizzazione dell'elemento</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">stabilisce, se necessario, una sottocategorizzazione dell'elemento.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <remarks versionDate="2013-01-13" xml:lang="en">
         <p>The <att>subtype</att> attribute may be used to provide any
@@ -3206,7 +3205,7 @@ sub-classification for the element additional to that provided by its
       <desc versionDate="2007-12-20" xml:lang="ko">간섭을 만든 당사자의 필적을 나타낸다.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該調整を行った主体の筆致を特定する。</desc>
       <desc versionDate="2008-03-30" xml:lang="fr">signale la main de celui qui est intervenue.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il responsabile dell'aggiunta o della cancellazione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il responsabile dell'aggiunta o della cancellazione.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el responsable de la adición o de la omisión.</desc>
       <datatype>
         <dataRef key="teidata.pointer"/>
@@ -3354,10 +3353,8 @@ sub-classification for the element additional to that provided by its
   <desc versionDate="2007-05-02" xml:lang="zh-TW">提供符合某種度量值的屬性值。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">物理的対象の大きさを表す属性を示す。</desc>
   <desc versionDate="2009-05-25" xml:lang="fr">fournit des attributs pour décrire la taille des objets physiques.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">assegna degli attributi che descrivono la grandezza di
-    oggetti fisici</desc>
-  <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos que califican una determinata
-    medición.</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">assegna degli attributi che descrivono la grandezza di oggetti fisici</desc>
+  <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos que califican una determinata medición.</desc>
   <desc versionDate="2026-04-15" xml:lang="de">stellt Attribute zur Beschreibung der Größe von physischen Objekten bereit.</desc>
   <classes>
     <memberOf key="att.ranging"/>
@@ -3370,7 +3367,7 @@ sub-classification for the element additional to that provided by its
       <desc versionDate="2008-04-05" xml:lang="ja">当該大きさの単位を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">noms des unités utilisées pour la mesure.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica las unidades usadas para la medición.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica le unità usate per la misurazione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">specifica le unità usate per la misurazione.</desc>
       <desc versionDate="2026-04-15" xml:lang="de">benennt die verwendeten Einheiten für die Messung</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="semi">
@@ -3430,15 +3427,12 @@ sub-classification for the element additional to that provided by its
       <desc versionDate="2008-04-06" xml:lang="es">especifica la longitud en las unidades especificadas</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該単位の大きさを示す。</desc>
       <desc versionDate="2008-03-30" xml:lang="fr">spécifie la longueur dans les unités indiquées</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">specifica la lunghezza nelle unità indicate</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">specifica la lunghezza nelle unità indicate.</desc>
       <datatype><dataRef key="teidata.numeric"/></datatype>
     </attDef>
     <attDef ident="extent" usage="opt">
-      <desc versionDate="2008-09-10" xml:lang="en">indicates the size of the object concerned using a project-specific vocabulary combining
-        quantity and units in a single string of words.</desc>
-      <desc versionDate="2009-05-25" xml:lang="fr">indique la dimension de l'objet en utilisant
-        un vocabulaire spécifique à un projet qui combine la quantité et
-	l'unité dans une chaîne seule de mots.</desc>
+      <desc versionDate="2008-09-10" xml:lang="en">indicates the size of the object concerned using a project-specific vocabulary combining quantity and units in a single string of words.</desc>
+      <desc versionDate="2009-05-25" xml:lang="fr">indique la dimension de l'objet en utilisant un vocabulaire spécifique à un projet qui combine la quantité et l'unité dans une chaîne seule de mots.</desc>
       <desc versionDate="2019-04-08" xml:lang="ja">単一の文字列の数量と単位を組み合わせたプロジェクト固有の語彙を使用して、関連するオブジェクトのサイズを示す。</desc>
       <datatype><dataRef key="teidata.text"/></datatype>
       <exemplum xml:lang="en">
@@ -3459,17 +3453,13 @@ sub-classification for the element additional to that provided by its
       <datatype><dataRef key="teidata.certainty"/></datatype>
     </attDef>
     <attDef ident="scope" usage="opt">
-      <desc versionDate="2008-09-10" xml:lang="en">where the measurement summarizes more than one observation, specifies the applicability
-        of this measurement.</desc>
+      <desc versionDate="2008-09-10" xml:lang="en">where the measurement summarizes more than one observation, specifies the applicability of this measurement.</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">측정의 적용가능성을 명시하며, 하나 이상의 대상이 측정된다.</desc>
       <desc versionDate="2007-05-02" xml:lang="zh-TW">測量多個物件時，標明此度量的可應用範圍。</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">対象物が複数あった場合に、当該数値の適応範囲を示す。</desc>
-      <desc versionDate="2007-06-12" xml:lang="fr">spécifie l'applicabilité de cette mesure, là où plus
-        d'un objet est mesuré.</desc>
-      <desc versionDate="2007-05-04" xml:lang="es">especifica la aplicabilidad de esta medición, en los
-        casos en que se mida más de un objeto.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica l'applicabilità della misurazione, laddove
-        venga misurato più di un oggetto</desc>
+      <desc versionDate="2007-06-12" xml:lang="fr">spécifie l'applicabilité de cette mesure, là où plus d'un objet est mesuré.</desc>
+      <desc versionDate="2007-05-04" xml:lang="es">especifica la aplicabilidad de esta medición, en los casos en que se mida más de un objeto.</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica l'applicabilità della misurazione, laddove venga misurato più di un oggetto</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="open">
         <valItem ident="all">
@@ -3479,32 +3469,25 @@ sub-classification for the element additional to that provided by its
           <desc versionDate="2008-04-06" xml:lang="es">la medida se aplica a todos los casos.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">全インスタンスに当てはまる単位。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">la mesure s'applique à tous les cas.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la misurazione fa riferimento a tutti i
-          casi</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la misurazione fa riferimento a tutti i casi</desc>
         </valItem>
         <valItem ident="most">
           <desc versionDate="2007-08-02" xml:lang="en">measurement applies to most of the instances inspected.</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">측정은 대부분의 사례에 적용된다.</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">度量可應用於大部分實例。</desc>
-          <desc versionDate="2008-04-06" xml:lang="es">la medida se aplica a la mayoría de los casos
-            examinados.</desc>
+          <desc versionDate="2008-04-06" xml:lang="es">la medida se aplica a la mayoría de los casos examinados.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">計測インスタンスの殆どに当てはまる単位。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">la mesure s'applique à la plupart des cas
-            examinés</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la misurazione fa riferimento alla maggior parte
-            dei casi esaminati</desc>
+          <desc versionDate="2008-03-30" xml:lang="fr">la mesure s'applique à la plupart des cas examinés</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la misurazione fa riferimento alla maggior parte dei casi esaminati</desc>
         </valItem>
         <valItem ident="range">
           <desc versionDate="2007-08-02" xml:lang="en">measurement applies to only the specified range of instances.</desc>
           <desc versionDate="2007-12-20" xml:lang="ko">측정이 사례의 명시적 범위에 한정하여 적용된다.</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">度量僅應用於特定範圍的實例。</desc>
-          <desc versionDate="2008-04-06" xml:lang="es">la medida se aplica solamente a los casos
-            especificados</desc>
+          <desc versionDate="2008-04-06" xml:lang="es">la medida se aplica solamente a los casos especificados</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">特定インスタンスにのみ当てはまる単位。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">la mesure s'applique seulement à l'ensemble des
-            exemples indiqués.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la misurazione fa riferimento solo ai casi
-            specificati</desc>
+          <desc versionDate="2008-03-30" xml:lang="fr">la mesure s'applique seulement à l'ensemble des exemples indiqués.</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la misurazione fa riferimento solo ai casi specificati</desc>
         </valItem>
       </valList>
     </attDef>
@@ -3518,7 +3501,7 @@ sub-classification for the element additional to that provided by its
   <desc versionDate="2007-06-12" xml:lang="fr">fournit un jeu d'attributs communs à tous les
     éléments qui offrent les mêmes caractéristiques que des divisions.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona un conjunto de atributos comunes a todos los elementos que se comportan como particiones textuales.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">identifica un insieme di attributi comuni a tutti gli elementi che si comportano come partizioni testuali</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">identifica un insieme di attributi comuni a tutti gli elementi che si comportano come partizioni testuali.</desc>
   <classes>
     <memberOf key="att.fragmentable"/>
     
@@ -3538,7 +3521,7 @@ sub-classification for the element additional to that provided by its
       <desc versionDate="2008-04-05" xml:lang="ja">当該区分の内容がどのように構成されているかを示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">précise l'organisation du contenu de la division</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica cómo está organizado el contenido de una división textual.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica come è organizzato il contenuto della partizione testuale</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">specifica come è organizzato il contenuto della partizione testuale.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>uniform</defaultVal>
       <valList type="closed">
@@ -3553,7 +3536,7 @@ sub-classification for the element additional to that provided by its
           <desc versionDate="2008-03-30" xml:lang="fr">aucune déclaration n'est faite quant à l'ordre dans lequel les
 composants de cette division doivent être traités ou bien quant à leurs
 corrélations</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">non viene specificato quale sia l'ordine in cui debbano essere elaborati i contenuti della partizione, né viene indicato il rapporto in cui questi si trovano tra loro</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">non viene specificato quale sia l'ordine in cui debbano essere elaborati i contenuti della partizione, né viene indicato il rapporto in cui questi si trovano tra loro.</desc>
         </valItem>
         <valItem ident="parallel">
           <desc versionDate="2026-01-19" xml:lang="en">the contents of this element are intended to represent simultaneous or side-by-side delivery.</desc>
@@ -3569,7 +3552,7 @@ corrélations</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">contenu uniforme : c'est-à-dire que
 les composants de cet élément sont à considérer comme formant une unité
 logique et doivent être traités dans l'ordre séquentiel</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">contenuto uniforme: i contenuti dell'elemento costituiscono un'unità logica che va elaborata in sequenza</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">contenuto uniforme: i contenuti dell'elemento costituiscono un'unità logica che va elaborata in sequenza.</desc>
         </valItem>
       </valList>
     </attDef>
@@ -3583,7 +3566,7 @@ logique et doivent être traités dans l'ordre séquentiel</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique si cette division est un échantillon de
           la source originale et dans ce cas, de quelle partie.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica si la división es una muestra de la fuente original y, en ese caso, de que parte de este se trata</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica se la partizione è un campione del testo originario e, in tal caso, da quale parte di questo è tratta</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica se la partizione è un campione del testo originario e, in tal caso, da quale parte di questo è tratta.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>complete</defaultVal>
       <valList type="closed">
@@ -3594,7 +3577,7 @@ logique et doivent être traités dans l'ordre séquentiel</desc>
           <desc versionDate="2008-04-06" xml:lang="es">la división falta el material presente en el extremo en la fuente.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該区分は、元資料の終わりの部分が欠けている。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">par rapport à la source, lacune à la fin de la division</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">alla partizione testuale manca del materiale nella parte finale presente nell'originale</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">alla partizione testuale manca del materiale nella parte finale presente nell'originale.</desc>
         </valItem>
         <valItem ident="medial">
           <desc versionDate="2007-06-27" xml:lang="en">division lacks material at start and end.</desc>
@@ -3604,7 +3587,7 @@ logique et doivent être traités dans l'ordre séquentiel</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該区分は、元資料の始めと終わりの部分が欠けている。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">par rapport à la source, lacune au
 début et à la fin de la division</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">alla partizione testuale manca del materiale nella parte iniziale e in quella finale</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">alla partizione testuale manca del materiale nella parte iniziale e in quella finale.</desc>
         </valItem>
         <valItem ident="final">
           <desc versionDate="2007-06-27" xml:lang="en">division lacks material at start.</desc>
@@ -3614,7 +3597,7 @@ début et à la fin de la division</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該区分は、元資料の始めの部分が欠けている。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">par rapport à la source, lacune au
 début de la division</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">alla partizione manca del materiale nella parte iniziale</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">alla partizione manca del materiale nella parte iniziale.</desc>
         </valItem>
         <valItem ident="unknown">
           <desc versionDate="2007-06-27" xml:lang="en">position of sampled material within original unknown.</desc>
@@ -3624,7 +3607,7 @@ début de la division</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">元資料のどの部分かは不明。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">par rapport à la source, position de
 l'échantillon inconnue</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la posizione del materiale prelevato dall'originale all'interno di quest'ultimo è sconosciuta</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la posizione del materiale prelevato dall'originale all'interno di quest'ultimo è sconosciuta.</desc>
         </valItem>
         <valItem ident="complete">
           <desc versionDate="2007-06-27" xml:lang="en">division is not a sample.</desc>
@@ -3633,7 +3616,7 @@ l'échantillon inconnue</desc>
           <desc versionDate="2008-04-06" xml:lang="es">el fragmento no es una muestra.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該領域は、元資料の一部ではない。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">la division n'est pas un échantillon</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la partizione testuale non è stata prelevata da alcun originale</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la partizione testuale non è stata prelevata da alcun originale.</desc>
         </valItem>
       </valList>
     </attDef>
@@ -3891,7 +3874,7 @@ l'échantillon inconnue</desc>
   <desc versionDate="2008-04-06" xml:lang="es">proporciona atributos que describen los aspectos de la mano que ha escrito un manuscrito.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">手書き資料の筆致に関する情報を表す情報を示す。</desc>
   <desc versionDate="2008-03-30" xml:lang="fr">fournit des attributs décrivant les caractéristiques de la main par laquelle un manuscrit est écrit.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi che descrivono aspetti delle mano utilizzata per la scrittura del manoscritto</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">indica degli attributi che descrivono aspetti delle mano utilizzata per la scrittura del manoscritto.</desc>
   <classes>
     <memberOf key="att.scope"/>
   </classes>
@@ -3901,7 +3884,7 @@ l'échantillon inconnue</desc>
       <desc versionDate="2007-12-20" xml:lang="ko">이 필적에 대한 책임이 있다고 간주되는 필기사에 대한 표준명 또는 다른 확인소를 제시한다.</desc>
       <desc versionDate="2019-09-16" xml:lang="ja">当該筆致に対応すると考えられる筆写者の名前またはその他の識別子を示す。</desc>
       <desc versionDate="2009-05-27" xml:lang="fr">donne un nom normalisé ou un autre identifiant pour le scribe reconnu comme responsable de cette main.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">assegna un nome o altro identificatore standard al trascrittore che si ritiene corrisponda alla mano in questione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">assegna un nome o altro identificatore standard al trascrittore che si ritiene corrisponda alla mano in questione.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">asigna un nombre u otro identificador estándard para el transcriptor que se identifica con la mano en cuestión.</desc>
       <datatype><dataRef key="teidata.name"/></datatype>
       
@@ -3983,7 +3966,7 @@ l'échantillon inconnue</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">名前、人物、場所、組織を示す要素に付与される属性を示す。</desc>
   <desc versionDate="2009-05-28" xml:lang="fr">fournit des attributs communs aux éléments qui font référence à des personnes, lieux, organismes, etc., nommés.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">identifica los atributos comunes a los elementos que se refieren a personas, lugares, organizaciones, etc. indicados por nombre</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">identifica degli attributi comuni a elementi che si riferiscono a persone, luoghi, organizzazioni, ecc. indicati per nome</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">identifica degli attributi comuni a elementi che si riferiscono a persone, luoghi, organizzazioni, ecc. indicati per nome.</desc>
   <classes>
     
     <memberOf key="att.canonical"/>
@@ -4011,7 +3994,7 @@ this name in the form of a set of whitespace-separated values, for example the o
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素で名前が付与されている対象に関連する基準形(<term>nym</term>)と紐付ける。</desc>
       <desc versionDate="2009-05-28" xml:lang="fr">indique comment localiser la forme canonique
             (<term>nym</term>) des noms qui sont associés à l'objet nommé par l'élément qui le contient.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">indica un modo di localizzare la forma canonica (nym) dei nomi associati all'oggetto definito dall'elemento che lo contiene</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">indica un modo di localizzare la forma canonica (nym) dei nomi associati all'oggetto definito dall'elemento che lo contiene.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2008-02-02" xml:lang="en">
         <p>The value must point directly to one or more XML elements
@@ -4048,7 +4031,7 @@ this name in the form of a set of whitespace-separated values, for example the o
   <desc versionDate="2024-08-08" xml:lang="ja">ポインター要素をグループ化する、すべての要素に共通の属性セットを提供する。</desc>
   <desc versionDate="2016-02-15" xml:lang="fr">fournit un ensemble d'attributs communs à tous les éléments qui contiennent des groupes d'éléments pointeurs.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define un conjunto de atributos comunes a todos los elementos que incluyen grupos de indicadores.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi comuni a tutti gli elementi che includono gruppi di puntatori</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi comuni a tutti gli elementi che includono gruppi di puntatori.</desc>
   <classes>
     
     <memberOf key="att.pointing"/>
@@ -4064,7 +4047,7 @@ this name in the form of a set of whitespace-separated values, for example the o
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素の中にある全要素を対象とした識別子を選択的に指定する。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">spécifie, facultativement, les identifiants des éléments englobant tous les éléments indiqués par le contenu de cet élément.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">establece facultativamente los identificadores de elementos al interno de los cuales se encuentran todos los elementos indicados de los contenidos del elemento en cuestión.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">stabilisce facoltativamente gli identificatori di elementi all'interno dei quali si trovano tutti gli elementi indicati dai contenuti dell'elemento in questione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">stabilisce facoltativamente gli identificatori di elementi all'interno dei quali si trovano tutti gli elementi indicati dai contenuti dell'elemento in questione.</desc>
       <datatype minOccurs="2" maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2005-10-10" xml:lang="en">
         <p>If this attribute is supplied every element specified as a
@@ -4144,7 +4127,7 @@ this name in the form of a set of whitespace-separated values, for example the o
   <desc versionDate="2008-04-05" xml:lang="ja">任意の部分に使用される要素向けの属性を示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">fournit des attributs pour des éléments utilisés pour une segmentation arbitraire.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona atributos a los elementos usados para una segmentación arbitraria.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi agli elementi usati per una segmentazione arbitraria</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">assegna degli attributi agli elementi usati per una segmentazione arbitraria.</desc>
   <classes>
     <memberOf key="att.datcat"/>
     <memberOf key="att.fragmentable"/>
@@ -4161,7 +4144,7 @@ this name in the form of a set of whitespace-separated values, for example the o
       <desc versionDate="2008-04-05" xml:lang="ja">当該部分の役割を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">caractérise la fonction du segment.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">caracteriza la función de un segmento.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">caratterizza la funzione del segmento</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">caratterizza la funzione del segmento.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <remarks versionDate="2013-12-09" xml:lang="en"><p>Attribute values will often vary depending on the type of element to which they are attached. For example,  a <gi>cl</gi>, may take values such as
 coordinate, subject, adverbial etc. For a <gi>phr</gi>, such values as
@@ -4189,7 +4172,7 @@ subject, predicate etc. may be more appropriate. Such constraints will typically
   <desc versionDate="2008-03-30" xml:lang="fr">fournit des attributs spécifiques au codage d'éléments
 relatifs à l'intervention de l'auteur ou du copiste dans un texte lors de la
 transcription de sources manuscrites ou assimilées.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">assegna degli attributi propri degli elementi che descrivono il carattere di un intervento dell'autore o del trascrittore di un testo nella redazione di un manoscritto o di altra fonte simile</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">assegna degli attributi propri degli elementi che descrivono il carattere di un intervento dell'autore o del trascrittore di un testo nella redazione di un manoscritto o di altra fonte simile.</desc>
   <classes>
     <memberOf key="att.editLike"/>
     <memberOf key="att.placement"/>
@@ -4211,7 +4194,7 @@ transcription de sources manuscrites ou assimilées.</desc>
 exemple dans le cas d'un effacement, une biffure, qui inclut trop ou pas assez de
 texte, ou dans le cas d'un ajout, une insertion, qui reproduit une portion du
 texte déjà présent.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">indica l'effetto dell'intervento, per esempio in caso di cancellazione, quando questa comprenda troppo testo o troppo poco, o in caso di aggiunta, quando questa riproduce parte del testo già presente</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">indica l'effetto dell'intervento, per esempio in caso di cancellazione, quando questa comprenda troppo testo o troppo poco, o in caso di aggiunta, quando questa riproduce parte del testo già presente.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>unremarkable</defaultVal>
       
@@ -4225,7 +4208,7 @@ texte déjà présent.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該テキストは全て、元資料にあるテキストのコピーを追加するも
       のである。その程度は、語単位であったりそれより小さいこともある。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">tout le texte indiqué comme étant une addition reprend le texte de l'original, que la duplication soit identique mot pour mot ou moins exacte.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">l'intero testo identificato come aggiunta riproduce parte del testo già presente nell'originale, indipendentemente dal fatto che la riproduzione sia esatta (parola per parola) o meno</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">l'intero testo identificato come aggiunta riproduce parte del testo già presente nell'originale, indipendentemente dal fatto che la riproduzione sia esatta (parola per parola) o meno.</desc>
         </valItem>
         <valItem ident="duplicate-partial">
           <desc versionDate="2007-09-03" xml:lang="en">part of the text indicated as an addition duplicates
@@ -4236,7 +4219,7 @@ texte déjà présent.</desc>
       ものである。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">la partie du texte indiquée comme
 étant un ajout est redondante avec un texte présent dans l'original.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo identificato come aggiunta riproduce parte del testo già presente nell'originale</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo identificato come aggiunta riproduce parte del testo già presente nell'originale.</desc>
         </valItem>
         <valItem ident="excessStart">
           <desc versionDate="2007-09-03" xml:lang="en">some text at the beginning of the deletion is marked
@@ -4247,7 +4230,7 @@ texte déjà présent.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該削除部分の始点は、例えそれが明白な削除ではなくとも、マー
       クされている。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">un passage du texte situé au début de la supression est indiqué comme supprimé bien qu'à l'évidence il ne devrait pas l'être.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo all'inizio della cancellazione è identificata come cancellata anche se chiaramente non dovrebbe esserlo</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo all'inizio della cancellazione è identificata come cancellata anche se chiaramente non dovrebbe esserlo.</desc>
         </valItem>
         <valItem ident="excessEnd">
           <desc versionDate="2007-09-03" xml:lang="en">some text at the end of the deletion is marked as
@@ -4258,7 +4241,7 @@ texte déjà présent.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該削除部分の終点は、例えそれが明白な削除ではなくとも、マー
       クされている。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">un passage du texte situé à la fin de la supression est indiqué comme supprimé bien qu'à l'évidence il ne devrait pas l'être.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo alla fine della cancellazione è identificata come cancellata anche se chiaramente non dovrebbe esserlo</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo alla fine della cancellazione è identificata come cancellata anche se chiaramente non dovrebbe esserlo.</desc>
         </valItem>
         <valItem ident="shortStart">
           <desc versionDate="2007-09-03" xml:lang="en">some text at the beginning of the deletion is not
@@ -4268,7 +4251,7 @@ texte déjà présent.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該削除部分の始点は、例えそれが明白な削除ではなくとも、マー
       クされていない。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">un passage du texte situé au début de la supression n'est pas indiqué comme supprimé bien qu'à l'évidence il devrait l'être.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo all'inizio della cancellazione non è identificata come cancellata anche se chiaramente dovrebbe esserlo</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo all'inizio della cancellazione non è identificata come cancellata anche se chiaramente dovrebbe esserlo.</desc>
         </valItem>
         <valItem ident="shortEnd">
           <desc versionDate="2007-09-03" xml:lang="en">some text at the end of the deletion is not marked as
@@ -4278,7 +4261,7 @@ texte déjà présent.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該削除部分の終点は、例えそれが明白な削除ではなくとも、マー
       クされていない。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">un passage du texte situé à la fin de la supression n'est pas indiqué comme supprimé bien qu'à l'évidence il devrait l'être.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo alla fine della cancellazione non è identificata come cancellata anche se chiaramente dovrebbe esserlo</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo alla fine della cancellazione non è identificata come cancellata anche se chiaramente dovrebbe esserlo.</desc>
         </valItem>
         <valItem ident="partial">
           <desc versionDate="2007-09-03" xml:lang="en">some text in the deletion is not marked as deleted
@@ -4288,7 +4271,7 @@ texte déjà présent.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該削除部分は、例えそれが明白な削除ではなくとも、マークされ
       ていない。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">un passage du texte dans la supression n'est pas indiqué comme disparu bien qu'à l'évidence il devrait l'être.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo all'interno della cancellazione non è identificata come cancellata anche se chiaramente dovrebbe esserlo</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">una parte del testo all'interno della cancellazione non è identificata come cancellata anche se chiaramente dovrebbe esserlo.</desc>
         </valItem>
         <valItem ident="unremarkable">
           <desc versionDate="2007-09-03" xml:lang="en">the deletion is not faulty.</desc>
@@ -4297,7 +4280,7 @@ texte déjà présent.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該削除部分は、間違いではない。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">l'indication de suppression n'est pas
 erronée.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">la cancellazione non è erronea</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">la cancellazione non è erronea.</desc>
         </valItem>
       </valList>
       <remarks versionDate="2007-09-03" xml:lang="en">
@@ -4354,7 +4337,7 @@ erronée.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該属性が示す素性が出現すると想定されている順番の、番号を示す。</desc>
       <desc versionDate="2008-03-30" xml:lang="fr">assigne un numéro séquentiel relatif à l'ordre
 dans lequel les traits encodés portant cet attribut sont supposés être apparus.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">stabilisce un numero sequenziale relativo all'ordine in cui si ritiene che ricorrano i tratti codificati ai quali è assegnato tale attributo</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">stabilisce un numero sequenziale relativo all'ordine in cui si ritiene che ricorrano i tratti codificati ai quali è assegnato tale attributo.</desc>
       <datatype maxOccurs="1"><dataRef key="teidata.count"/></datatype>
     </attDef>
   </attList>
@@ -4374,7 +4357,7 @@ dans lequel les traits encodés portant cet attribut sont supposés être apparu
   <desc versionDate="2009-05-28" xml:lang="fr">fournit des attributs communs aux éléments qui
       expriment une durée dans le temps, soit de manière absolue, soit en se référant à une carte d'alignement.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona un conjunto de atributos comunes a los elementos que tienen una duración en el tiempo expresada en términs absolutos o por referencia a un esquema de alineamiento</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">assegna un insieme di attributi comuni agli elementi che hanno una durata nel tempo espressa in termini assoluti o rispetto a uno schema di allineamento</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">assegna un insieme di attributi comuni agli elementi che hanno una durata nel tempo espressa in termini assoluti o rispetto a uno schema di allineamento.</desc>
   <classes>
     
     
@@ -4388,7 +4371,7 @@ dans lequel les traits encodés portant cet attribut sont supposés être apparu
       <desc versionDate="2008-04-05" xml:lang="ja">時間関連図上で、当該要素が始まることを示す時間点を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique dans un alignement temporel (un ordre chronologique) l'endroit où commence cet élément.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el punto en el ámbito de un alineamiento temporal en el cual comienza el elemento</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il punto nell'ambito di un allineamento temporale in cui comincia l'elemento</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il punto nell'ambito di un allineamento temporale in cui comincia l'elemento.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2005-10-10" xml:lang="en">
         <p>If no value is supplied, the element is assumed to follow
@@ -4416,7 +4399,7 @@ dans lequel les traits encodés portant cet attribut sont supposés être apparu
       <desc versionDate="2008-04-05" xml:lang="ja">時間関連図上で、当該要素が終わることを示す時間点を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique l'endroit où se termine cet élément dans un alignement temporel.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el punto en el ámbito de un alineamiento temporal en el cual comienza el elemento</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il punto nell'ambito di un allineamento temporale in cui termina l'elemento</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il punto nell'ambito di un allineamento temporale in cui termina l'elemento.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2005-10-10" xml:lang="en">
         <p>If no value is supplied, the element is assumed to precede
@@ -4449,7 +4432,7 @@ or corporate bodies.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments qui contiennent des noms
       d'individus ou de personnes morales.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos que contienen nombres de individuos o de agrupaciones o sociedades.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che contengono nomi di individui o enti societari</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che contengono nomi di individui o enti societari.</desc>
   <classes>
     
     <memberOf key="model.nameLike"/>
@@ -4541,7 +4524,7 @@ or corporate bodies.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">印刷上他とは異なり、特定の機能が付与されている、句レベルの要素をまと
   める。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments qui sont distingués visuellement, et auxquels on peut attribuer une signification  sémantique.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi a livello di sintagma tipograficamente distinti e ai quali è attribuibile una funzione specifica</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi a livello di sintagma tipograficamente distinti e ai quali è attribuibile una funzione specifica.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos sintagmáticos semánticos.</desc>
   <classes>
       
@@ -4616,7 +4599,7 @@ Measures</ref>
   <desc versionDate="2008-04-05" xml:lang="ja">例または挿絵を示す要素をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments contenant des exemples ou des
     illustrations.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi che contengono esempi o illustrazioni</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi che contengono esempi o illustrazioni.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos que contienen ejemplos.</desc>
   <classes>
       
@@ -4635,7 +4618,7 @@ Measures</ref>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments contenant des images, des
       formules et d'autres objets semblables.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos que contienen imágenes, fórmulas u objetos similares.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che contengono immagini, formule, esempi, e oggetti simili</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che contengono immagini, formule, esempi, e oggetti simili.</desc>
   <classes>
       
       <memberOf key="model.phrase"/>
@@ -4687,7 +4670,7 @@ in transcribing and in authoring.</desc>
   素をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments de niveau expression, utilisés pour de
       simples interventions éditoriales utiles dans la transcription comme dans la rédaction.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi a livello di sintagma per semplici interventi editoriali, utili sia per il trascrittore che per l'autore</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi a livello di sintagma per semplici interventi editoriali, utili sia per il trascrittore che per l'autore.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos a nivel sintagmático utilizados para simples intervenciones editoriales que pueden ser útiles tanto en la transcripción como para autoría.</desc>
   <classes>
     <memberOf key="model.limitedPhrase"/>
@@ -4830,7 +4813,7 @@ elements used to represent reference systems.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments de type borne utilisés pour
       représenter des systèmes de référence.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos del tipo frontera (milestone) utilizados para representar sistemas de referencia.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi del tipo milestone utilizzati per rappresentare sistemi di riferimento</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi del tipo milestone utilizzati per rappresentare sistemi di riferimento.</desc>
   <classes>
     
     <memberOf key="model.global"/>
@@ -4848,7 +4831,7 @@ Elements</ref>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments utilisés pour représenter
     différents caractères non-Unicode ou différents glyphes.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos que son</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi di cui è inframmezzato il testo che rapresentano oggetti non Unicode</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi di cui è inframmezzato il testo che rapresentano oggetti non Unicode.</desc>
   <classes>
     
     <memberOf key="model.paraPart"/>
@@ -4894,7 +4877,7 @@ Elements</ref>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">匯集的元素參照到細節元素</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">特定の要素を参照する要素をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe les éléments pour se référer aux éléments de spécification.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi indicanti i componenti di una data specifica</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi indicanti i componenti di una data specifica.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos para referir elementos de especificación</desc>
   <classes>
     
@@ -4911,7 +4894,7 @@ Elements</ref>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments contenant une description
       bibliographique.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos que contienen una descripción bibliográfica.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che contengono una descrizione bibliografica</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che contengono una descrizione bibliografica.</desc>
   <classes>
     
     
@@ -4930,7 +4913,7 @@ Elements</ref>
   <desc versionDate="2008-04-06" xml:lang="es">agrupa los elementos usados para proporcionar un título o un encabezadoa al principio de una división textual.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">テキスト部分の始まりにあるタイトルや見出しを示す要素をまとめる。</desc>
   <desc versionDate="2008-03-30" xml:lang="fr">regroupe des éléments employés pour donner un titre ou un intitulé au début d'une division de texte.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi utilizzati per fornire un titolo all'inizio di una partizione testuale</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi utilizzati per fornire un titolo all'inizio di una partizione testuale.</desc>
   <classes>
       
       <memberOf key="model.divTopPart"/>
@@ -4942,7 +4925,7 @@ Elements</ref>
   <desc versionDate="2008-04-05" xml:lang="ja">文書中の他の部分をまとめたり説明するために使われる要素をまとめる。</desc>
   <desc versionDate="2008-03-30" xml:lang="fr">regroupe des éléments employés pour gloser ou
 expliquer d'autres parties d'un document.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi utilizzati per spiegare o illustrare altre parti di un documento</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi utilizzati per spiegare o illustrare altre parti di un documento.</desc>
   <classes>
     
     <memberOf key="model.inter"/>
@@ -4954,7 +4937,7 @@ expliquer d'autres parties d'un document.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">リスト相当の要素をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe les éléments de type liste.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa todos los elementos del tipo de lista.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa tutti gli elementi del tipo lista</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa tutti gli elementi del tipo lista.</desc>
   <classes>
     <memberOf key="model.inter"/>
     
@@ -4970,7 +4953,7 @@ expliquer d'autres parties d'un document.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">どこでも出現可能な、注釈相当の要素をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe tous les éléments globaux de type note.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa todos los elementos del tipo de nota.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa tutti gli elementi del tipo nota</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa tutti gli elementi del tipo nota.</desc>
   <classes>
     <memberOf key="model.global"/>
   </classes>
@@ -4985,7 +4968,7 @@ expliquer d'autres parties d'un document.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments représentant des composants
    de la métrique comme des vers.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos que representan componentes métricos como los versos.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che rappresentano componenti metriche come i versi</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa elementi che rappresentano componenti metriche come i versi.</desc>
   <classes>
     
     <memberOf key="model.divPart"/>
@@ -5242,7 +5225,7 @@ niveau dans une entrée de dictionnaire.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des éléments qui peuvent être placés au
       début ou à la fin de n'importe quelle division de texte.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa elementos que pueden aparecer al principio o al final de cualquier elemento de clase de división.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa gli elementi che appaiono all'inizio di una partizione testuale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa gli elementi che appaiono all'inizio di una partizione testuale.</desc>
   <classes>
       <memberOf key="model.divBottom"/>
       
@@ -5278,7 +5261,7 @@ niveau dans une entrée de dictionnaire.</desc>
 </desc>
   <desc versionDate="2008-03-30" xml:lang="fr">regroupe des éléments apparaissant au début d'une
 division de texte.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi che si presentano all'inizio di una partizione testuale</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi che si presentano all'inizio di una partizione testuale.</desc>
   <listRef>
       <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DS.html#DSDTB">4.2. Elements Common to All Divisions</ref>
   </listRef>
@@ -5325,7 +5308,7 @@ division de texte.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">テキスト部分の終わりにのみ出現できる要素をまとめる。</desc>
   <desc versionDate="2008-03-30" xml:lang="fr">regroupe des éléments qu'on ne peut trouver qu'à la
 fin d'une division de texte.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi che possono presentarsi solo alla fine di una partizione testuale</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi che possono presentarsi solo alla fine di una partizione testuale.</desc>
   <classes>
     
     <memberOf key="model.divBottom"/>
@@ -5707,7 +5690,7 @@ fin d'une division de texte.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">最上位レベルの構造部分をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des divisions structurelles du niveau le plus
     haut.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di primo livello</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di primo livello.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa divisiones estructurales de nivel superior.</desc>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" ident="model.div2Like" module="tei" type="model">
   <desc versionDate="2007-02-11" xml:lang="en">groups second-level structural divisions.</desc>
@@ -5715,7 +5698,7 @@ fin d'une division de texte.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">匯集第二層次的結構性區段。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">第2位レベルの構造部分をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des divisions structurelles de deuxième niveau.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di secondo livello</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di secondo livello.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa divisiones estructurales de segundo nivel.</desc>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" ident="model.div3Like" module="tei" type="model">
   <desc versionDate="2007-02-11" xml:lang="en">groups third-level structural divisions.</desc>
@@ -5723,7 +5706,7 @@ fin d'une division de texte.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">匯集第三層次的結構性區段。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">第3位レベルの構造部分をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des divisions structurelles de troisième niveau.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di terzo livello</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di terzo livello.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa divisiones estructurales de tercer nivel</desc>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" ident="model.div4Like" module="tei" type="model">
   <desc versionDate="2007-02-11" xml:lang="en">groups fourth-level structural divisions.</desc>
@@ -5731,7 +5714,7 @@ fin d'une division de texte.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">匯集第四層次的結構性區段。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">第4位レベルの構造部分をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des divisions structurelles de quatrième niveau.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di quarto livello</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di quarto livello.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa divisiones estructurales de cuarto nivel</desc>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" ident="model.div5Like" module="tei" type="model">
   <desc versionDate="2007-02-11" xml:lang="en">groups fifth-level structural divisions.</desc>
@@ -5739,7 +5722,7 @@ fin d'une division de texte.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">匯集第五層次的結構性區段。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">第5位レベルの構造部分をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des divisions structurelles de cinquième niveau.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di quinto livello</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di quinto livello.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa divisiones estructurales de quinto nivel</desc>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" ident="model.div6Like" module="tei" type="model">
   <desc versionDate="2007-02-11" xml:lang="en">groups sixth-level structural divisions.</desc>
@@ -5747,7 +5730,7 @@ fin d'une division de texte.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">匯集第六層次的結構性區段。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">第6位レベルの構造部分をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des divisions structurelles de sixième niveau.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di sesto livello</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di sesto livello.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa divisiones estructurales de sexto nivel</desc>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" ident="model.div7Like" module="tei" type="model">
   <desc versionDate="2007-02-11" xml:lang="en">groups seventh-level structural divisions.</desc>
@@ -5755,7 +5738,7 @@ fin d'une division de texte.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">匯集第七層次的結構性區段。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">第7位レベルの構造部分をまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe des divisions structurelles de septième niveau.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di settimo livello</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa partizioni testuali di settimo livello.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa divisiones estructurales de séptimo nivel</desc>
 </classSpec><classSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" module="tei" type="model" ident="model.annotationLike">
   <desc versionDate="2020-03-11" xml:lang="en">groups elements used to represent annotations.</desc>
@@ -5874,7 +5857,7 @@ and appear multiple times.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit le contenu de paragraphes et d' éléments
       semblables.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define el contenido de párrafos y elementos similares.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">definisce il contenuto di paragrafi ed elementi simili</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">definisce il contenuto di paragrafi ed elementi simili.</desc>
   <content>    
     <alternate minOccurs="0" maxOccurs="unbounded">
       <textNode/>
@@ -6014,7 +5997,7 @@ used for transcribing extant documents.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2008-04-05" xml:lang="ja">確信度を示す属性値の程度を示す。</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-06-12" xml:lang="fr">définit la gamme des valeurs d'attribut exprimant un degré de certitude.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-05-04" xml:lang="es">define la gama de valores de atributos que exprimen un grado de certeza.</desc>
-  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi che esprimono un grado di certezza</desc>
+  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi che esprimono un grado di certezza.</desc>
   <content xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude">
     <valList type="closed">
       <valItem ident="high"/>
@@ -6148,7 +6131,7 @@ integer value used as a count.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-06-12" xml:lang="fr">définit la gamme des
   valeurs des attributs exprimant une valeur entière et non négative  utilisé pour des calculs.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-05-04" xml:lang="es">define la gama de valores de atributos para números enteros no negativos usados como un cálculo.</desc>
-  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi usati per un numero intero non negativo impiegato come computo</desc>
+  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi usati per un numero intero non negativo impiegato come computo.</desc>
   <content xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude">
       <dataRef name="nonNegativeInteger"/>
    </content>
@@ -6304,7 +6287,7 @@ value.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-06-12" xml:lang="fr">définit la gamme des
   valeurs d'attributs exprimant la vérité d'une proposition.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-05-04" xml:lang="es">define la gama de valores de atributos usados para expresar un valor cierto.</desc>
-  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi usati per esprimere un valore di verità</desc>
+  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi usati per esprimere un valore di verità.</desc>
   <content xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude">
       <dataRef name="boolean"/>
    </content>
@@ -6766,7 +6749,7 @@ resource, either within the current document or elsewhere.</desc>
       pour fournir un pointeur URI unique sur une autre ressource, soit dans le document courant, soit
       dans un autre document.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-05-04" xml:lang="es">define una gama de valores de atributos usados para proporcionar un indicador de cualquier recurso, bien en el documento corriente o en otro.</desc>
-  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi usati per indicare un unico puntatore rispetto a qualsiasi altra risorsa all'interno del documento corrente o altrove</desc>
+  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi usati per indicare un unico puntatore rispetto a qualsiasi altra risorsa all'interno del documento corrente o altrove.</desc>
   <content xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude">
       <dataRef restriction="\S+" name="anyURI"/>
    </content>
@@ -6890,7 +6873,7 @@ resource, either within the current document or elsewhere.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-06-12" xml:lang="fr">définit la gamme des
   valeurs d'attributs exprimant un seul mot ou signe.</desc>
   <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-05-04" xml:lang="es">define una gama de valores de atributos expresados como una única palabra o señal.</desc>
-  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi espressi come singola parola o singolo token</desc>
+  <desc xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude" versionDate="2007-01-21" xml:lang="it">definisce la gamma di valori di attributi espressi come singola parola o singolo token.</desc>
   <content xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xi="http://www.w3.org/2001/XInclude">
       <dataRef name="token" restriction="[^\p{C}\p{Z}]+"/>
    </content>
@@ -7160,7 +7143,7 @@ resource, either within the current document or elsewhere.</desc>
   とめる。</desc>
   <desc versionDate="2009-10-06" xml:lang="fr">regroupe des éléments non-textuels qui, avec un
 en-tête et un texte, constitue un document TEI.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi non testuali che possono costituire un documento TEI insieme a un'intestazione e a un testo</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">raggruppa elementi non testuali che possono costituire un documento TEI insieme a un'intestazione e a un testo.</desc>
   <listRef>
     <ref target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html#STEC">1.3. The TEI Class System</ref>
   </listRef>
@@ -7202,7 +7185,7 @@ abbreviation or simply as an initial.</desc>
     のか示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique si la composante du nom est donnée en intégralité, sous forme d'abréviation ou simplement d'initiale.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica si el componente del nombre aparece por completo, como una abreviatura o como una inicial.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica se la componente del nome compare per esteso, come abbreviazione o come iniziale</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica se la componente del nome compare per esteso, come abbreviazione o come iniziale.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>yes</defaultVal>
       <valList type="closed">
@@ -7215,7 +7198,7 @@ abbreviation or simply as an initial.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">el componente nombre se deletrea por completo.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該名前要素は、省略無く示されている。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">la composante du nom est orthographiée en intégralité.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la componente del nome compare per esteso</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la componente del nome compare per esteso.</desc>
         </valItem>
         <valItem ident="abb">
           <gloss versionDate="2007-07-04" xml:lang="en">abbreviated</gloss>
@@ -7230,7 +7213,7 @@ abbreviation or simply as an initial.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">el componente conocido se da en una forma abreviada.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該名前要素には、省略がある。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">la composante du nom est donnée sous forme abrégée.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la componente del nome compare in forma abbreviata</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la componente del nome compare in forma abbreviata.</desc>
         </valItem>
         <valItem ident="init">
           <gloss versionDate="2007-07-04" xml:lang="en">initial letter</gloss>
@@ -7246,7 +7229,7 @@ one initial.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">el componente conocido es indicado solamente por una inicial.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該名前要素は、イニシャルだけで示されている。</desc>
           <desc versionDate="2009-05-28" xml:lang="fr">la composante du nom n'est indiquée que par sa lettre initiale.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la componente del nome è indicata da una sola iniziale</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la componente del nome è indicata da una sola iniziale.</desc>
         </valItem>
       </valList>
     </attDef>
@@ -7260,7 +7243,7 @@ one initial.</desc>
       <desc versionDate="2023-08-24" xml:lang="ja">名前の並び替えにおいて、その名前要素が他の構成要素との関係で何番目に優先されるかを指定する。</desc>
       <desc versionDate="2009-05-28" xml:lang="fr">précise dans quel ordre est placé la composante par rapport aux autres dans le nom d'une personne.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica la posición del componente al interno del nombre propio de persona en relación con los otros componentes.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica la posizione della componente all'interno del nome proprio di persona in relazione alle altre componenti</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">specifica la posizione della componente all'interno del nome proprio di persona in relazione alle altre componenti.</desc>
       <datatype><dataRef key="teidata.count"/></datatype>
     </attDef>
   </attList>
@@ -7454,7 +7437,7 @@ one initial.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">cambio de columna.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">段替え。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">sauts de colonnes</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">interruzione di colonna</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">interruzione di colonna.</desc>
         </valItem>
         <valItem ident="line">
           <desc versionDate="2012-07-16" xml:lang="en">line beginnings (synonymous with the <gi>lb</gi> element).</desc>
@@ -7463,7 +7446,7 @@ one initial.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">salto de línea (sinónimo del elemento <gi>libra</gi>).</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">改行(要素<gi>lb</gi>と同義)。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">sauts de ligne (synonymes de l'élément<gi>lb</gi>)</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">interruzione di colonna (sinonimo dell'elemento <gi>lb</gi>)</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">interruzione di colonna (sinonimo dell'elemento <gi>lb</gi>).</desc>
         </valItem>
         <valItem ident="book">
           <desc versionDate="2012-07-16" xml:lang="en">any units termed book, liber, etc.</desc>
@@ -7515,7 +7498,7 @@ one initial.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">actos dentro de un drama.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">芝居中の幕。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">actes dans une pièce</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">atti di un'opera teatrale</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">atti di un'opera teatrale.</desc>
         </valItem>
         <valItem ident="scene">
           <desc versionDate="2012-07-16" xml:lang="en">scenes within a play or act.</desc>
@@ -7617,7 +7600,7 @@ Elements</ref>
   <desc versionDate="2008-04-05" xml:lang="ja">散文の段落を示す。</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">marque les paragraphes dans un texte en prose.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">marca párrafos en prosa.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">indica i paragrafi in prosa</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">indica i paragrafi in prosa.</desc>
   <desc versionDate="2016-11-24" xml:lang="de">markiert einen Absatz in einem Prosatext.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -8193,7 +8176,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
   <desc versionDate="2008-04-05" xml:lang="ja">語り手や著者が、当該テキスト外にあるものに向けた、一節を示す。</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">contient une expression ou un passage que le narrateur ou l'auteur attribue à une origine extérieure au texte.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una frase o pasaje atribuido por el narrador o autor a un agente externo al texto.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una frase o un brano attribuito dall'autore o dal narratore a soggetti esterni al testo</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una frase o un brano attribuito dall'autore o dal narratore a soggetti esterni al testo.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -8362,7 +8345,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
           <desc versionDate="2008-04-06" xml:lang="es">distancia autorial</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">著者による区別。</desc>
           <desc versionDate="2008-12-09" xml:lang="fr">distance prise par rapport à l'auteur</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">distanza dell'autore</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">distanza dell'autore.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Distanzierung des Autors</desc>
         </valItem>
         <valItem ident="foreign">
@@ -8371,7 +8354,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
           <desc versionDate="2023-01-13" xml:lang="en">foreign words</desc>
           <desc versionDate="2008-04-06" xml:lang="es">palabras extranjeras</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">mots étrangers</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">parole straniere</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">parole straniere.</desc>
         </valItem>
         <valItem ident="distinct">
           <gloss versionDate="2016-11-25" xml:lang="en">distinct</gloss>
@@ -8379,14 +8362,14 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
           <desc versionDate="2013-03-18" xml:lang="en">linguistically distinct</desc>
           <desc versionDate="2008-04-06" xml:lang="es">lingüisticamente distinto</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">linguistiquement distinct</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">linguisticamente distinto</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">linguisticamente distinto.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">linguistisch hervorgehoben</desc>
         </valItem>
         <valItem ident="term">
           <desc versionDate="2013-03-18" xml:lang="en">technical term</desc>
           <desc versionDate="2008-04-06" xml:lang="es">término técnico</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">terme technique</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">termine tecnico</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">termine tecnico.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Fachbegriff</desc>
         </valItem>
         <valItem ident="emph">
@@ -8395,7 +8378,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
           <desc versionDate="2013-03-18" xml:lang="en">rhetorically emphasized</desc>
           <desc versionDate="2008-04-06" xml:lang="es">énfasis retórico</desc>
           <desc versionDate="2008-12-09" xml:lang="fr">mis en valeur par un procédé rhétorique.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">retoricamente marcato</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">retoricamente marcato.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">rhetorische Emphase</desc>
         </valItem>
         <valItem ident="mentioned">
@@ -8661,8 +8644,12 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
   </listRef>
 </elementSpec><elementSpec xmlns:sch="http://purl.oclc.org/dsdl/schematron" module="core" xml:id="gi-soCalled" ident="soCalled">
   <gloss versionDate="2020-12-20" xml:lang="en">so called</gloss>
+  <gloss versionDate="2026-03-26" xml:lang="de">sogenannt</gloss>
+  <gloss versionDate="2026-03-26" xml:lang="it">cosiddetto</gloss>
   <desc versionDate="2005-01-14" xml:lang="en">contains a word or phrase for which the author or narrator indicates a disclaiming of
     responsibility, for example by the use of scare quotes or italics.</desc>
+  <desc versionDate="2026-03-26" xml:lang="de">enthält ein Wort oder eine Phrase, für die der Autor oder Erzähler einen Haftungsausschluss anzeigt,
+    zum Beispiel durch den Einsatz von Anführungszeichen oder Kursivschrift.</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">contient une expression ou un mot pour lesquels l'auteur
     ou le narrateur renonce à toute responsabilité, par exemple en utilisant de l'italique ou des
     guillemets.</desc>
@@ -8865,6 +8852,7 @@ Ce ne seroyt que bon que nous rendissiez noz cloches...</egXML>
     <memberOf key="att.cReferencing"/>
     <memberOf key="att.cmc"/>
     <memberOf key="att.declaring"/>
+    <memberOf key="att.placement"/>
     <memberOf key="att.pointing"/>
     
     <memberOf key="att.typed"/>
@@ -9765,7 +9753,7 @@ Normalization</ref>
           <val>無関係</val>、<val>取り消し</val>、<val>取り消しがありかつ判読できない</val>、など。</desc>
       <desc versionDate="2017-02-06" xml:lang="fr">donne la raison de l'omission.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">declara la causa de la omisión</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il motivo dell'omisione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il motivo dell'omisione.</desc>
       <desc versionDate="2017-02-07" xml:lang="de">gibt den Grund für die Auslassung an.</desc>
       <datatype maxOccurs="unbounded">
         <dataRef key="teidata.enumerated"/>
@@ -9839,7 +9827,7 @@ Normalization</ref>
           <desc versionDate="2008-04-06" xml:lang="es">daños resultantes del frotamiento de los bordes de la hoja</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">葉のこすれによる損傷。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">dégâts provoqués par le frottement des bords de la feuille.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da segni di strofinamento sui bordi del foglio</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da segni di strofinamento sui bordi del foglio.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Schaden, verursacht durch Abrieb an den Blatträndern</desc>
         </valItem>
         <valItem ident="mildew">
@@ -9851,7 +9839,7 @@ Normalization</ref>
           <desc versionDate="2008-04-06" xml:lang="es">daños resultantes de la acción del moho en la superficie de la hoja</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">葉の表面に付いた白カビによる損傷。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">dégâts provoqués par de la moisissure sur la surface de feuille.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da macchie di umido sulla superficie del foglio</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato da macchie di umido sulla superficie del foglio.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Schaden, verursacht durch Schimmelbefall</desc>
         </valItem>
         <valItem ident="smoke">
@@ -9863,7 +9851,7 @@ Normalization</ref>
           <desc versionDate="2008-04-06" xml:lang="es">daños provocados porl humo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">煙による損傷。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">dégâts provoqués par de la fumée.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato dal fumo</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato dal fumo.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Schaden, verursacht durch Ruß/Rauch</desc>
         </valItem>
       </valList>
@@ -10438,7 +10426,7 @@ usually each word will refer to a single cause.</p>
           <desc versionDate="2022-02-20" xml:lang="es">Daños provocados por el humo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">煙による損傷。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">des dégâts résultent de la fumée</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato dal fumo</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">il danno è causato dal fumo.</desc>
           <desc versionDate="2016-11-24" xml:lang="de">Schaden, verursacht durch Rauch/Ruß</desc>
         </valItem>
       </valList>
@@ -10586,7 +10574,7 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
   <desc versionDate="2007-05-04" xml:lang="es">contiene un nombre de intención general o una serie
         referencial.</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含一般名稱或參照字串。</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene un nome generico o una stringa di riferimento</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene un nome generico o una stringa di riferimento.</desc>
   <desc versionDate="2006-10-28" xml:lang="ja">一般的な意味での名前や参照文字列。</desc>
   <desc versionDate="2016-11-24" xml:lang="de">enthält eine allgemeine Benennung oder eine verweisende Zeichenkette.</desc>
   <classes>
@@ -10636,7 +10624,7 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
   <desc versionDate="2008-04-05" xml:lang="ja">eメールを届けるeメールアドレスを示す。</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">contient l'adresse de courriel identifiant un
         emplacement où un courriel peut être envoyé.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">localizza un indirizzo di posta elettronica al quale possono essere inviati dei messaggi di posta elettronica</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">localizza un indirizzo di posta elettronica al quale possono essere inviati dei messaggi di posta elettronica.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una dirección de correo electrónico indentificando el lugar dónde los mensajes electrónicos pueden ser enviados.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -11247,7 +11235,7 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
       <desc versionDate="2008-04-05" xml:lang="ja">数値の種類を示す。</desc>
       <desc versionDate="2009-01-06" xml:lang="fr">indique le type de valeur numérique.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el tipo de valor numérico.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il tipo di valore numerico</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il tipo di valore numerico.</desc>
       <desc versionDate="2016-11-25" xml:lang="de">bestimmt die Art des numerischen Wertes.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="semi">
@@ -11258,7 +11246,7 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
           <desc versionDate="2008-04-06" xml:lang="es">número absoluto, p.ej. 21, 21,5</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">基数。例えば、21、21.5など。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">nombre entier ou décimal, par exemple 21, 21.5</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">numero assoluto, ad esempio 21 o 21,5</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">numero assoluto, ad esempio 21 o 21,5.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Kardinalzahl, z. B. 21, 21,5</desc>
         </valItem>
         <valItem ident="ordinal">
@@ -11278,7 +11266,7 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
           <desc versionDate="2008-04-06" xml:lang="es">fracción,p.ej. una mitad o tres cuartos</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">割合。例えば、1/2、3/4など。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">fraction, par exemple une moitié ou trois-quarts</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">frazione, ad esempio un terzo o tre quarti</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">frazione, ad esempio un terzo o tre quarti.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Bruchzahl, z. B. 1/2 oder drei Viertel</desc>
         </valItem>
         <valItem ident="percentage">
@@ -11288,7 +11276,7 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
           <desc versionDate="2008-04-06" xml:lang="es">un porcentaje</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">パーセント。百分率。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">un pourcentage</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">percentuale</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">percentuale.</desc>
           <desc versionDate="2016-11-25" xml:lang="de">Prozentangabe</desc>
         </valItem>
       </valList>
@@ -11315,7 +11303,7 @@ concerned, as further discussed in section <ref target="https://www.tei-c.org/re
       <desc versionDate="2009-01-06" xml:lang="fr">fournit la valeur d'un nombre sous une forme normalisée.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">proporciona el valor del número de forma
                 estándard.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il valore del numero in formato standard</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il valore del numero in formato standard.</desc>
       <desc versionDate="2016-11-25" xml:lang="de">beinhaltet den Zahlenwert in standardisierter Form.</desc>
       <datatype><dataRef key="teidata.numeric"/></datatype>
       <valDesc>a numeric value.</valDesc>
@@ -11662,7 +11650,7 @@ Measures</ref>
   <desc versionDate="2008-04-05" xml:lang="ja">日付を示す。</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">contient une date exprimée dans n'importe quel format.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una fecha en cualquier formato.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una data in qualsiasi foemato</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una data in qualsiasi foemato.</desc>
   <desc versionDate="2016-11-25" xml:lang="de">enthält ein Datum in beliebigem Format.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -11951,11 +11939,9 @@ Measures</ref>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">用於地理名稱的縮寫。</desc>
           <desc versionDate="2022-04-28" xml:lang="es">la abreviatura se usa para un nombre geográfico.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">地名の省略形。</desc>
-          <desc versionDate="2008-03-30" xml:lang="fr">l'abréviation recouvre un nom
-                        géographique.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">l'abbreviazione si riferisce ad un
-                        toponimo</desc>
-            <desc versionDate="2016-11-25" xml:lang="de">die Abkürzung steht für einen geografischen Namen.</desc>
+          <desc versionDate="2008-03-30" xml:lang="fr">l'abréviation recouvre un nom géographique.</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">l'abbreviazione si riferisce ad un toponimo.</desc>
+          <desc versionDate="2016-11-25" xml:lang="de">die Abkürzung steht für einen geografischen Namen.</desc>
         </valItem>
       </valList>
       <remarks versionDate="2007-10-27" xml:lang="en">
@@ -12224,7 +12210,7 @@ Measures</ref>
   <desc versionDate="2008-04-05" xml:lang="ja">他の場所への参照を定義する。多くは、追加テキストまたはコメントを含む。</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">définit une référence vers un autre emplacement, la référence étant éventuellement modifiée ou complétée par un texte ou un commentaire.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define una referencia a otra localización, posiblemente modificada por un texto o comentario adicional.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">definisce un riferimento ad un'altra posizione, può essere modificata da un commento o testo ulteriore</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">definisce un riferimento ad un'altra posizione, può essere modificata da un commento o testo ulteriore.</desc>
   <desc versionDate="2016-11-25" xml:lang="de">definiert einen externen oder internen Verweis, der auch durch einen zusätzlichen Text oder Kommentar ergänzt werden kann.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -12715,7 +12701,7 @@ Measures</ref>
   <desc versionDate="2008-04-05" xml:lang="ja">リストのいち項目を示す。</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">contient un composant d'une liste.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene un componente de una lista.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene un componente di una lista</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene un componente di una lista.</desc>
   <desc versionDate="2017-06-04" xml:lang="de">enthält einen Listenpunkt.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -13440,7 +13426,7 @@ entre les Romains.</label>
   <desc versionDate="2009-01-06" xml:lang="fr">contient une note ou une annotation.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una nota o aclaración</desc>
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含附註或註釋。</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una nota o un'annotazione</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una nota o un'annotazione.</desc>
   <desc versionDate="2006-10-28" xml:lang="ja">注釈・コメント。</desc>
   <desc versionDate="2017-06-25" xml:lang="de">enthält eine Anmerkung oder Annotation.</desc>
   <classes>
@@ -15132,7 +15118,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">título analítico (de artículo, de poema, o de otro elemento publicado como parte de un elemento más grande)</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">分析的タイトル(例えば、論文や詩など、大きめの刊行物の部分と なるもの)。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">titre analytique (article, poème ou autre, publié comme partie d'un ensemble plus grand)</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo analitico (articolo, poesia o altra unità bibliografica pubblicata come parte di un'unità più grande)</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo analitico (articolo, poesia o altra unità bibliografica pubblicata come parte di un'unità più grande).</desc>
           <desc versionDate="2017-06-04" xml:lang="de">der Titel gehört zu einer unselbständigen Publikation, wie einem Artikel, Gedicht oder einem anderen Werk, das als Teil einer umfangreicheren Einheit publiziert wurde.</desc>
         </valItem>
         <valItem ident="m">
@@ -15148,7 +15134,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">título monográfico (libro, colección, u otro elemento publicado como elemento distinto, incluído los volúmenes individuales de trabajos multivolúmenes)</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">単行物のタイトル(例えば、書籍や叢書など、複数の巻に別れる作 品のうちのひとつや、独立してある出版物)。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">titre de monographie (livre, ensemble ou autre, publié comme un document distinct, y compris les volumes isolés d'ouvrages en plusieurs volumes)</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo della monografia (libro, raccolta o altra unità bibliografica pubblicata indipendentemente, inculso il singolo volume di opere a più volumi)</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo della monografia (libro, raccolta o altra unità bibliografica pubblicata indipendentemente, inculso il singolo volume di opere a più volumi).</desc>
           <desc versionDate="2017-06-04" xml:lang="de">der Titel bezieht sich auf Monografien wie z.B. ein Bücher oder andere selbständige Publikationen, also auch auf einzelne Bände in einem mehrbändigen Werk.</desc>
         </valItem>
         <valItem ident="j">
@@ -15163,7 +15149,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">título de diario, periódico o revista</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">雑誌のタイトル。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">titre de revue</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo di rivista</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo di rivista.</desc>
           <desc versionDate="2017-06-04" xml:lang="de">der Titel bezieht sich auf jede Art fortlaufender oder periodischer Veröffentlichungen wie z. B. Zeitschriften, Magazine oder Zeitungen.</desc>
         </valItem>
         <valItem ident="s">
@@ -15179,7 +15165,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">título de serie</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">叢書のタイトル。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">titre de publication en série</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo di collana</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo di collana.</desc>
           <desc versionDate="2017-06-04" xml:lang="de">der Titel bezeichnet eine Reihe von ansonsten selbständig publizierten Veröffentlichungen, wie z. B. eine Buchreihe.</desc>
         </valItem>
         <valItem ident="u">
@@ -15192,7 +15178,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">título de un material inédito (incluidas tesis y disertaciones que no sean publicadas por una editorial comercial)</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">非刊行物のタイトル(未刊の学位論文など)。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">titre de matéria non publié (thèses et dissertations comprises, à l'exception de leurs éditions commerciales)</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo di materiale non pubblicato (incluse tesi non pubblicate da case editrici)</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo di materiale non pubblicato (incluse tesi non pubblicate da case editrici).</desc>
           <desc versionDate="2017-06-04" xml:lang="de">der Titel bezieht sich auf unveröffentliches Material (incl. universitäre Qualifikationsarbeiten, soweit sie nicht von einem Verlag veröffentlicht worden sind).</desc>
         </valItem>
       </valList>
@@ -15259,7 +15245,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">título principal</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">主タイトル。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">titre principal</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo.</desc>
           <desc versionDate="2017-06-04" xml:lang="de">Haupttitel</desc>
         </valItem>
         <valItem ident="sub">
@@ -15275,7 +15261,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">subtítulo, título de una parte</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">副タイトル、部分タイトル。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">sous-titre, titre de partie.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">sottotitolo, titolo di una parte</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">sottotitolo, titolo di una parte.</desc>
           <desc versionDate="2017-06-04" xml:lang="de">Untertitel oder Titel eines Teilbereichs</desc>
         </valItem>
         <valItem ident="alt">
@@ -15291,7 +15277,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">título alternativo, a menudo en otro idioma, por el cual el trabajo también es conocido</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">別タイトル。多くは他言語によるタイトル。当該作品は、このタイ トルで知られている。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">autre titre, souvent exprimé dans une autre langue, par lequel l'ouvrage est aussi connu</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo alternativo, spesso in altra lingua, con il quale è anche conosciuta l'opera</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo alternativo, spesso in altra lingua, con il quale è anche conosciuta l'opera.</desc>
           <desc versionDate="2017-06-04" xml:lang="de">alternativer Titel, oft in einer anderen Sprache, unter dem das Werk auch bekannt ist.</desc>
         </valItem>
         <valItem ident="short">
@@ -15301,7 +15287,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">forma abreviada del título</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">タイトルの省略形。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">forme abrégée du titre</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">abbreviazione del titolo</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">abbreviazione del titolo.</desc>
           <desc versionDate="2017-06-04" xml:lang="de">Kurztitel</desc>
         </valItem>
         <valItem ident="desc">
@@ -15317,7 +15303,7 @@ Elements</ref>
           <desc versionDate="2008-04-06" xml:lang="es">paráfrasis descriptiva del trabajo que funciona como título</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">タイトルのように当該作品を解説する言い換え。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">paraphrase descriptive de l'oeuvre fonctionnant comme un titre</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">parafrasi descrittiva dell'opera che funge da titolo</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">parafrasi descrittiva dell'opera che funge da titolo.</desc>
           <desc versionDate="2017-06-04" xml:lang="de">Umschreibung des Werks, die als Titel fungiert.</desc>
         </valItem>
       </valList>
@@ -15614,7 +15600,7 @@ epistemology, methodology and history of
         publication ou de la distribution d'un élément de la bibliographie.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona el nombre de la organización responsable de
         la publicación o la distribución de un elemento bibliográfico.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">fornisce il nome</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">fornisce il nome.</desc>
   <desc versionDate="2017-06-13" xml:lang="de">gibt den Namen der Organisation an, die für die Veröffentlichung und Verbreitung eines
     bibliografischen Objekts verantwortlich ist.</desc>
   <classes>
@@ -16242,7 +16228,7 @@ epistemology, methodology and history of
   <desc versionDate="2007-05-02" xml:lang="zh-TW">包含或參照到其他書目項目，該些項目與目前的書目項目在某種程度上相關，例如作為其組成或者替代項目。</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">当該内容と関連する書誌情報項目を示す、または参照する。例えば、構成要 素または他の版など。</desc>
   <desc versionDate="2009-01-06" xml:lang="fr">contient ou référe à un autre élément bibliographique ayant une relation quelconque avec l'objet décrit, par exemple comme faisant partie d'une version alternative de celui-ci, ou bien en étant une version alternative.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">contiene o si riferisce ad altra entità bibliografica legata alla presente tramite una relazione specificata quale, per esempio, versione costitutiva o alternativa</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">contiene o si riferisce ad altra entità bibliografica legata alla presente tramite una relazione specificata quale, per esempio, versione costitutiva o alternativa.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene o refiere algún otro elemento bibliográfico que se relaciona con el actual de alguna manera, por ejemplo como un versión complementaria o alternativa de este.</desc>
   <desc versionDate="2017-06-13" xml:lang="de">enthält oder verweist auf ein anderes bibliografisches Objekt, welches zu dem aktuellen in einer bestimmten Beziehung steht, z. B. als Bestandteil oder Alternativfassung.</desc>
   <classes>
@@ -16768,7 +16754,7 @@ epistemology, methodology and history of
       <desc versionDate="2008-04-05" xml:lang="ja">ト書きの種類を示す。</desc>
       <desc versionDate="2009-01-06" xml:lang="fr">indique le type d'indication scénique.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el tipo de acotación.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il tipo di direttiva di scena</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il tipo di direttiva di scena.</desc>
       <desc versionDate="2017-06-13" xml:lang="de">beschreibt die Art der Regieanweisung.</desc>
       <datatype maxOccurs="unbounded" minOccurs="1"><dataRef key="teidata.enumerated"/></datatype>
       <valList type="semi">
@@ -16858,7 +16844,7 @@ epistemology, methodology and history of
           <desc versionDate="2008-04-06" xml:lang="es">describe una localización.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">場所を示す。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">décrit un lieu</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">descrive l'ambientazione</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">descrive l'ambientazione.</desc>
           <desc versionDate="2017-06-13" xml:lang="de">beschreibt einen Handlungsort.</desc>
         </valItem>
         <valItem ident="mixed">
@@ -16994,7 +16980,7 @@ by the stage direction.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該TEIスキームの版。</desc>
       <desc versionDate="2009-01-06" xml:lang="fr">la version du modèle TEI.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">La versión del esquema TEI</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">La versione dello schema TEI</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">la versione dello schema TEI.</desc>
       <desc versionDate="2017-06-13" xml:lang="de">gibt die Versionsnummer der TEI-Richtlinien an, gegen die dieses Dokument validiert wird.</desc>
       <datatype><dataRef key="teidata.version"/></datatype>
       <remarks versionDate="2018-01-24" xml:lang="en">
@@ -17138,7 +17124,7 @@ by the stage direction.</p>
         division du texte générée automatiquement par une application de traitement de
         texte.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">indica la localización en la cual aparece una división textual generada automáticamente por la aplicación  de un procesamiento de texto.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">indica la posizione in cui deve apparire una partizione testuale generata automaticamente da un'applicazione che elabora testi</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">indica la posizione in cui deve apparire una partizione testuale generata automaticamente da un'applicazione che elabora testi.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.typed"/>
@@ -17159,7 +17145,7 @@ by the stage direction.</p>
                 texte qui apparaîtra par génération automatique (par exemple :  index,
                 table des matières, etc.)</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica que tipo de divisón de texto generada aparece (p.ej. índice, tabla de contenidos, etc.)</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica quale tipo di partizione testuale generata (ad esempio indice, sommario, ecc.) apparirà</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">specifica quale tipo di partizione testuale generata (ad esempio indice, sommario, ecc.) apparirà.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="open">
         <valItem ident="index">
@@ -17179,7 +17165,7 @@ by the stage direction.</p>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">目錄</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">目次。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">une table des matières</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">sommario</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">sommario.</desc>
         </valItem>
         <valItem ident="figlist">
           <desc versionDate="2007-06-27" xml:lang="en">a list of figures</desc>
@@ -17188,7 +17174,7 @@ by the stage direction.</p>
           <desc versionDate="2008-04-06" xml:lang="es">una lista de figuras</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">図目次。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">une liste des figures</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">una lista di immagini</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">una lista di immagini.</desc>
         </valItem>
         <valItem ident="tablist">
           <desc versionDate="2007-06-27" xml:lang="en">a list of tables</desc>
@@ -17197,7 +17183,7 @@ by the stage direction.</p>
           <desc versionDate="2008-04-06" xml:lang="es">una lista de tablas</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">表目次。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">une liste des tableaux</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">una lista di tabelle</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">una lista di tabelle.</desc>
         </valItem>
       </valList>
       <remarks versionDate="2005-01-14" xml:lang="en">
@@ -18789,7 +18775,7 @@ distribution of a text.</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">文件狀態不明。</desc>
           <desc versionDate="2008-04-06" xml:lang="es">el estatus del texto es desconocido.</desc>
           <desc versionDate="2008-04-06" xml:lang="ja">当該テキストの利用可能性は不明。</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">la disponibilità del testo non è nota</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">la disponibilità del testo non è nota.</desc>
           <desc versionDate="2016-11-17" xml:lang="de">der Status des Textes ist unbekannt.</desc>
         </valItem>
         <valItem ident="restricted">
@@ -19725,7 +19711,7 @@ during the encoding of a text.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">el texto se ha revisado y se ha corregido
             minuciosamente.</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">当該テキストは、十分に検査・校正されている。</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">il testo è stato controllato accuratamente</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">il testo è stato controllato accuratamente.</desc>
         </valItem>
         <valItem ident="medium">
           <desc versionDate="2007-06-27" xml:lang="en">the text has been checked at least once.</desc>
@@ -19988,7 +19974,7 @@ during the encoding of a text.</desc>
   <desc versionDate="2008-04-06" xml:lang="ja">元資料にあった引用をどのように編集したのかを示す。</desc>
   <desc versionDate="2006-10-18" xml:lang="de">beschreibt die editorische Praxis bezüglich der Anführungszeichen im Originaltext.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">indica las prácticas editoriales adoptadas respecto al entrecomillado en el original.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">specifica le pratiche editoriali rispetto all'uso delle virgolette nell'originale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">specifica le pratiche editoriali rispetto all'uso delle virgolette nell'originale.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.declarable"/>
@@ -20041,7 +20027,7 @@ during the encoding of a text.</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">不保留任何引文符號</desc>
           <desc versionDate="2008-04-06" xml:lang="es">no se ha conservado ningún uso de las comillas</desc>
           <desc versionDate="2008-04-06" xml:lang="ja">引用符は残っていない。</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">le virgolette non sono state mantenute</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">le virgolette non sono state mantenute.</desc>
         </valItem>
         <valItem ident="some">
           <desc versionDate="2007-06-27" xml:lang="en">some quotation marks have been retained</desc>
@@ -20050,7 +20036,7 @@ during the encoding of a text.</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">保留部分引文符號</desc>
           <desc versionDate="2008-04-06" xml:lang="es">se han conservado algunas comillas</desc>
           <desc versionDate="2008-04-06" xml:lang="ja">いくつかの引用符は残っている。</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">alcune virgolette sono state mantenute</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">alcune virgolette sono state mantenute.</desc>
         </valItem>
         <valItem ident="all">
           <desc versionDate="2007-06-27" xml:lang="en">all quotation marks have been retained</desc>
@@ -20059,7 +20045,7 @@ during the encoding of a text.</desc>
           <desc versionDate="2007-05-02" xml:lang="zh-TW">保留所有引文符號</desc>
           <desc versionDate="2008-04-06" xml:lang="es">se han conservado todas las comillas</desc>
           <desc versionDate="2008-04-06" xml:lang="ja">全ての引用符が残っている。</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">tutte le virgolette sono state mantenute</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">tutte le virgolette sono state mantenute.</desc>
         </valItem>
       </valList>
     </attDef>
@@ -21205,7 +21191,12 @@ the target element</desc>
       </prefixDef>
     </egXML>
   </exemplum>
-  <remarks versionDate="2013-02-05" xml:lang="en">
+  <remarks versionDate="2026-04-16" xml:lang="en">
+    <p>Note that we used the term <q>prefix</q> in a general sense; in the context 
+      of a <ident type="datatype">teidata.pointer</ident> attribute, the prefix 
+      functions as a private URI scheme name as defined in 
+      <ref target="https://datatracker.ietf.org/doc/html/rfc7595">RFC 7595</ref>.
+    </p>
     <p>The abbreviated pointer may be dereferenced to produce either
     an absolute or a relative URI reference. In the latter case it is
     combined with the value of <att>xml:base</att> in force at the
@@ -22143,7 +22134,7 @@ codes used elsewhere in the text.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">TEIファイルを編集したソフトウェアに関する情報を示す。</desc>
   <desc versionDate="2008-12-09" xml:lang="fr">enregistre des informations sur l'application qui a
 été utilisée pour traiter le fichier TEI.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">registra informazioni relative a un'applicazione che ha modificato il contenuto del file TEI</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">registra informazioni relative a un'applicazione che ha modificato il contenuto del file TEI.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="model.encodingDescPart"/>
@@ -22172,7 +22163,7 @@ codes used elsewhere in the text.</desc>
   <desc versionDate="2008-04-06" xml:lang="es">proporciona información sobre la aplicación que ha actuado sobre el documento.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">当該文書に作用するソフトウェアに関する情報を示す。</desc>
   <desc versionDate="2008-12-09" xml:lang="fr">fournit des informations sur une application qui a été utilisée pour le traitement du document.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">registra informazioni relative a un'applicazione che ha agito sul documento</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">registra informazioni relative a un'applicazione che ha agito sul documento.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.datable"/>
@@ -22195,7 +22186,7 @@ codes used elsewhere in the text.</desc>
       <desc versionDate="2008-04-06" xml:lang="es">proporciona un identificador para la aplicación, independientemente de su número de versión o el nombre de la visualización.</desc>
       <desc versionDate="2018-12-28" xml:lang="ja">当該ソフトウェアの識別子を示す。これは、版番号や表示名とは異なる。</desc>
       <desc versionDate="2008-03-30" xml:lang="fr">fournit un identifiant pour l'application, indépendamment de son numéro de version ou du nom affiché.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">indica un identificatore per l'applicazione, indipendentemente dal numero di versione o dal nome visualizzato</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">indica un identificatore per l'applicazione, indipendentemente dal numero di versione o dal nome visualizzato.</desc>
       <datatype><dataRef key="teidata.name"/></datatype>
     </attDef>
     <attDef ident="version" usage="req">
@@ -22204,7 +22195,7 @@ codes used elsewhere in the text.</desc>
       <desc versionDate="2008-04-06" xml:lang="es">Suministra un número de versión para la aplicación, independientemente de su identificador o el nombre de la visualización.</desc>
       <desc versionDate="2018-12-28" xml:lang="ja">当該ソフトウェアの版番号を示す。識別子や表示名とは異なる。</desc>
       <desc versionDate="2008-03-30" xml:lang="fr">fournit un numéro de version pour l'application, indépendamment de son identifiant ou du nom affiché.</desc>
-      <desc versionDate="2007-11-06" xml:lang="it">indica un numero di versione per l'applicazione, indipendentemente dall'identificatore o dal nome visualizzato</desc>
+      <desc versionDate="2007-11-06" xml:lang="it">indica un numero di versione per l'applicazione, indipendentemente dall'identificatore o dal nome visualizzato.</desc>
       <datatype><dataRef key="teidata.versionNumber"/></datatype>
     </attDef>
   </attList>
@@ -22388,7 +22379,7 @@ elements of  <gi>profileDesc</gi> unless these are documenting multiple texts.</
   <desc versionDate="2008-04-05" xml:lang="ja">手書き資料中にある特定のスタイルまたは筆致を示す。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">décrit un style d'écriture ou une main qui sont reconnus dans un manuscrit.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">describe un determinado estilo o una determinada mano al interno de un manuscrito.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">descrive un determinato stile o una determinata mano all'interno di un manoscritto</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">descrive un determinato stile o una determinata mano all'interno di un manoscritto.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.handFeatures"/>
@@ -23825,7 +23816,7 @@ should be supplied for the <att>scheme</att> attribute.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">ファイルの改訂履歴を示す。</desc>
   <desc versionDate="2016-11-25" xml:lang="de">dokumentiert die Änderungen, die an der Datei vorgenommen wurden.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">resume el historial de la revisión de un archivo.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">sintetizza la storia delle revisioni di un file</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">sintetizza la storia delle revisioni di un file.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.docStatus"/>
@@ -24148,7 +24139,7 @@ during the evolution of the encoded representation of that text.</p>
       <desc versionDate="2007-06-12" xml:lang="fr">la version majeure du schéma TEI.</desc>
       <desc versionDate="2018-07-18" xml:lang="de">gibt die Versionsnummer der TEI-Richtlinien an, gegen die dieses Dokument validiert wird.</desc>
       <desc versionDate="2022-05-02" xml:lang="es">especifica el número de versión de las Directrices TEI frente a las cuales este documento es válido.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">versione dello schema TEI</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">la versione dello schema TEI.</desc>
       <datatype><dataRef key="teidata.version"/></datatype>
       <remarks versionDate="2018-01-24" xml:lang="en">
         <p>Major editions of the Guidelines have long been informally referred to by a name made up
@@ -24887,7 +24878,7 @@ during the evolution of the encoded representation of that text.</p>
   <desc versionDate="2007-06-12" xml:lang="fr">contient une subdivision dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire.</desc>
   <desc versionDate="2017-06-13" xml:lang="de">enthält einen Unterabschnitt in Vorspann (front), Textkörper oder Nachspann (back) eines Textes.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una subdivisión del paratexto inicial, del cuerpo del texto o del paratexto final.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una suddivisione del peritesto iniziale, del corpo del testo, o del peritesto finale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una suddivisione del peritesto iniziale, del corpo del testo, o del peritesto finale.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.declaring"/>
@@ -25179,7 +25170,7 @@ during the evolution of the encoded representation of that text.</p>
   le texte prélimaire, dans le corps d’un texte ou dans le texte postliminaire.</desc>
   <desc versionDate="2006-10-18" xml:lang="de"> enthält die zweite Gliederungsebene von Vorspann (front), Kerntext oder Nachspann (back) eines Textes.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una subdivisión del segundo nivel en el paratexto inicial, en el cuerpo del texto o en el paratexto final.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di secondo livello del peritesto iniziale, del corpo del testo, o del peritesto finale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di secondo livello del peritesto iniziale, del corpo del testo, o del peritesto finale.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.declaring"/>
@@ -25487,7 +25478,7 @@ during the evolution of the encoded representation of that text.</p>
   <desc versionDate="2007-06-12" xml:lang="fr">contient une subdivision de quatrième niveau dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire.</desc>
   <desc versionDate="2006-10-18" xml:lang="de">enthält die vierte Gliederungsebene von Vorspann (front), Kerntext oder Nachspann (back) eines Textes.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una subdivisión del cuarto nivel en el paratexto inicial, en el cuerpo del texto o en el paratexto final.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di quarto livello del peritesto iniziale, del corpo del testo, o del peritesto finale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di quarto livello del peritesto iniziale, del corpo del testo, o del peritesto finale.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.declaring"/>
@@ -25612,7 +25603,7 @@ during the evolution of the encoded representation of that text.</p>
   <desc versionDate="2007-06-12" xml:lang="fr">contient une subdivision de cinquième niveau dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire.</desc>
   <desc versionDate="2006-10-18" xml:lang="de">enthält die fünfte Gliederungsebene von Vorspann (front), Kerntext oder Nachspann (back) eines Textes.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una subdivisión del quinto nivel en el paratexto inicial, en el cuerpo del texto o en el paratexto final.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di quinto livello del peritesto iniziale, del corpo del testo, o del peritesto finale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di quinto livello del peritesto iniziale, del corpo del testo, o del peritesto finale.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.declaring"/>
@@ -25760,7 +25751,7 @@ during the evolution of the encoded representation of that text.</p>
   <desc versionDate="2007-06-12" xml:lang="fr">contient une subdivision de sixième niveau dans le texte préliminaire, dans le corps d’un texte ou dans le texte postliminaire.</desc>
   <desc versionDate="2006-10-18" xml:lang="de"> enthält die sechste Gliederungsebene von Vorspann (front), Kerntext oder Nachspann (back) eines Textes.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una subdivisión del sexto nivel en el paratexto inicial, en el cuerpo del texto o en el paratexto final.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di sesto livello del peritesto iniziale, del corpo del testo, o del peritesto finale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione di sesto livello del peritesto iniziale, del corpo del testo, o del peritesto finale.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.declaring"/>
@@ -26062,7 +26053,7 @@ on its title page or at the head or end of the work.</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">indique la responsabilité principale pour une œuvre donnée sur la page de titre ou au début ou à la fin de l’œuvre.</desc>
   <desc versionDate="2017-06-13" xml:lang="de">enthält Angaben zur Hauptverantwortlichkeit eines Werks, entweder auf der Titelseite oder am Anfang oder Ende des Werks.</desc>
   <desc versionDate="2021-02-18" xml:lang="es">contiene la declaración principal de responsabilidad de una obra tal y como aparece en su título correspondiente, o al inicio o fin de la obra.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene la principale dichiarazione di responsabilità per un'opera così come appare sul corrispondente frontespizio oppure all'inizio o alla fine dell'opera stessa</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene la principale dichiarazione di responsabilità per un'opera così come appare sul corrispondente frontespizio oppure all'inizio o alla fine dell'opera stessa.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -26303,7 +26294,7 @@ it may optionally be tagged using the <gi>docAuthor</gi> element.</p>
   <desc versionDate="2007-06-12" xml:lang="fr">liste formelle ou description en texte libre des sujets traités dans une subdivision d’un texte.</desc>
   <desc versionDate="2017-06-13" xml:lang="de">beinhaltet eine systematische Aufzählung oder eine Prosabeschreibung der Themen, die in einem Unterabschnitt des Textes behandelt werden.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">lista formal o descripción de los argumentos contenidos en una sección de texto.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">lista formale o descrizione degli argomenti contenuti in una sezione di testo</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">lista formale o descrizione degli argomenti contenuti in una sezione di testo.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -26755,8 +26746,8 @@ dedicatory epistle, or other division of a text.</desc>
   <desc versionDate="2007-12-20" xml:lang="ko">예를 들어 편지의, 추신.</desc>
   <desc versionDate="2008-04-06" xml:lang="es">contiene una posdata, p.ej. en una carta.</desc>
   <desc versionDate="2008-04-05" xml:lang="ja">追伸を示す。例えば、手紙の場合など。</desc>
-  <desc versionDate="2008-03-30" xml:lang="fr">contient un post-scriptum,  par exemple au bas d' une lettre.</desc>
-  <desc versionDate="2007-11-06" xml:lang="it">contiene un post scriptum, come nel caso di una lettera</desc>
+  <desc versionDate="2008-03-30" xml:lang="fr">contient un post-scriptum, par exemple au bas d' une lettre.</desc>
+  <desc versionDate="2007-11-06" xml:lang="it">contiene un post scriptum, come nel caso di una lettera.</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält einen Nachtrag (Postskriptum), z. B. zu einem Brief.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -27008,7 +26999,7 @@ constituents, as given on a title page.</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält den Titel eines Dokuments, einschließlich aller Bestandteile, wie sie auf dem Titelblatt
     angegeben sind.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene el título del documento incluyendo todos sus elementos constitutivos, como especificado en el frontispicio.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene il titolo del documento in tutti i suoi elementi costitutivi, come specificato nel frontespizio</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene il titolo del documento in tutti i suoi elementi costitutivi, come specificato nel frontespizio.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.canonical"/>
@@ -27067,7 +27058,7 @@ indicated on a title page.</desc>
             ouvrage telle qu’elle est indiquée sur la page de titre.</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält einen Bestandteil eines Werktitels, wie er auf der Titelseite angegeben ist.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una subsección o división del título de una obra, como se indica en el frontispicio.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione o partizione del titolo di un'opera, come specificato nel frontespizio</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una sezione o partizione del titolo di un'opera, come specificato nel frontespizio.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.typed"/>
@@ -27089,7 +27080,7 @@ indicated on a title page.</desc>
                     titre.</desc>
       <desc versionDate="2017-06-19" xml:lang="de">beschreibt die Funktion dieses Titelbestandteils näher.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica la función de tal subdivisión del título.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica il ruolo di tale sezione o partizione all'interno del titolo</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">specifica il ruolo di tale sezione o partizione all'interno del titolo.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>main</defaultVal>
       <valList type="semi">
@@ -27102,7 +27093,7 @@ indicated on a title page.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">título principal del trabajo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">主タイトル。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">titre principal de l'oeuvre.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo principale dell'opera</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo principale dell'opera.</desc>
           <desc versionDate="2017-06-19" xml:lang="de">Haupttitel des Werks</desc>
         </valItem>
         <valItem ident="sub">
@@ -27118,7 +27109,7 @@ indicated on a title page.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">subtítulo del trabajo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">副タイトル。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">sous-titre de l'oeuvre.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">sottotitolo dell'opera</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">sottotitolo dell'opera.</desc>
           <desc versionDate="2017-06-19" xml:lang="de">Untertitel des Werks</desc>
         </valItem>
         <valItem ident="alt">
@@ -27135,7 +27126,7 @@ indicated on a title page.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">título alternativo del trabajo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">別タイトル。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">autre titre de l'oeuvre.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">titolo alternativo dell'opera</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">titolo alternativo dell'opera.</desc>
           <desc versionDate="2017-06-19" xml:lang="de">Alternativer Titel des Werks</desc>
         </valItem>
         <valItem ident="short">
@@ -27147,7 +27138,7 @@ indicated on a title page.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">forma abreviada del título</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">タイトルの省略形。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">forme abrégée du titre.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">forma abbreviata del titolo</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">forma abbreviata del titolo.</desc>
           <desc versionDate="2017-06-19" xml:lang="de">Kurzform des Titels</desc>
         </valItem>
         <valItem ident="desc">
@@ -27164,7 +27155,7 @@ indicated on a title page.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">paráfrasis descriptiva del trabajo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">説明的な言い換え。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">texte qui paraphrase l'oeuvre.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">parafrasi descrittiva dell'opera</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">parafrasi descrittiva dell'opera.</desc>
           <desc versionDate="2017-06-19" xml:lang="de">beschreibende Paraphrase eines Werks</desc>
         </valItem>
       </valList>
@@ -27223,7 +27214,7 @@ title page (often but not always contained in a byline).</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">contient le nom de l’auteur du document tel qu’il est donné sur la page de titre (ce nom est le plus souvent contenu dans une mention de responsabilité).</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält den Namen des Verfassers des Dokuments, wie auf dem Titelblatt angegeben (häufig, jedoch nicht immer in der Verfasserzeile).</desc>
   <desc versionDate="2021-02-18" xml:lang="es">contiene el nombre del autor del documento, tal y como aparece indicado en el frontispicio (a menudo, pero no siempre, contenido dentro del elemento <gi>byline</gi>).</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene il nome dell'autore del documento, come indicato nel frontespizio (spesso ma non sempre contenuto all'interno dell'elemento byline)</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene il nome dell'autore del documento, come indicato nel frontespizio (spesso ma non sempre contenuto all'interno dell'elemento byline).</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.canonical"/>
@@ -27350,7 +27341,7 @@ document.</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält Angaben zur Ausgabe, entsprechend den Informationen auf dem Titelblatt eines
     Dokuments.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene una declaración editorial como la contiene el frontispicio de un documento.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una dichiarazione editoriale così come riportata nel frontespizio di un documento</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una dichiarazione editoriale così come riportata nel frontespizio di un documento.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="model.pLike.front"/>
@@ -27416,7 +27407,7 @@ publisher name), as given
             généralement donnée au bas de la page de titre.</desc>
   <desc versionDate="2017-06-25" xml:lang="de">enthält das Impressum (Erscheinungsort und -datum, Verlag), das (üblicherweise) am unteren Rand der Titelseite steht.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene la declaración de la publicación (lugar y fecha de publicación, casa editorial) tal y como consta al pie del frontispicio.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene la dichiarazione di pubblicazione (luogo e data di pubblicazione, casa editrice) così come riportata di norma in fondo al frontespizio</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene la dichiarazione di pubblicazione (luogo e data di pubblicazione, casa editrice) così come riportata di norma in fondo al frontespizio.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="model.pLike.front"/>
@@ -27537,7 +27528,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2007-06-12" xml:lang="fr">contient la date d’un document telle qu’elle est (généralement ) donnée sur une page de titre.</desc>
   <desc versionDate="2017-06-19" xml:lang="de">enthält die Datierung des Dokuments, wie auf der Titelseite oder in einer Datumszeile angegeben.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene la fecha del documento, tal y como, normalmente, aparece en el frontispicio.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene la data del documento così come riportata di norma nel frontespizio</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene la data del documento così come riportata di norma nel frontespizio.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.calendarSystem"/>
@@ -28031,7 +28022,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2019-07-21" xml:lang="ja">ハイパーテキストリンクの属性セットを提供する。</desc>
   <desc versionDate="2016-02-16" xml:lang="fr">fournit un ensemble d'attributs pour décrire les liens hypertextuels.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define un conjunto de atributos para hipertexto u otro vínculo habilitado para todos los elementos cuando se selecciona la etiqueta adicional para los enlaces.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi per ipertesto o altro legame abilitati per tutti gli elementi quando è selezionato il sottoinsieme di marcatori per i collegamenti</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">definisce un insieme di attributi per ipertesto o altro legame abilitati per tutti gli elementi quando è selezionato il sottoinsieme di marcatori per i collegamenti.</desc>
   <desc versionDate="2025-02-06" xml:lang="de">stellt Attribute für hypertextuelle Verlinkungen bereit.</desc>
   <attList>
     <attDef ident="corresp" usage="opt">
@@ -28048,7 +28039,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素と対応する要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers des éléments qui ont une correspondance avec l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala los elementos que presentan una correspondencia con el elemento corriente.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">punta a elementi che hanno una qualche corrispondenza con l'elemento corrente</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">punta a elementi che hanno una qualche corrispondenza con l'elemento corrente.</desc>
       <desc versionDate="2025-02-06" xml:lang="de">zeigt auf Elemente, die dem aktuellen Element in gewisser Weise entsprechen.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
       <exemplum versionDate="2017-05-11" xml:lang="en">
@@ -28123,7 +28114,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素と連動する要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers des éléments qui sont synchrones avec l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala los elementos que son sincrónicos con el elemento corriente.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">punta a elementi sincroni rispetto all'elemento corrente</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">punta a elementi sincroni rispetto all'elemento corrente.</desc>
       <desc versionDate="2025-02-06" xml:lang="de">zeigt auf Elemente, die synchron mit dem aktuellen Element sind.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
     </attDef>
@@ -28134,7 +28125,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素と同一の要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers un élément identique à l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala el elementos que se corresponde exactamente con el elemento corriente.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">punta a un elemento che corrisponde esattamente all'elemento corrente</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">punta a un elemento che corrisponde esattamente all'elemento corrente.</desc>
       <desc versionDate="2025-02-06" xml:lang="de">zeigt auf ein Element, das mit dem aktuellen Element identisch ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
     </attDef>
@@ -28145,7 +28136,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素のコピー要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers un élément dont l'élément en question est une copie.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala un elemento del que el elemento corriente es una copia.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">punta a un elemento di cui l'elemento corrente è una copia</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">punta a un elemento di cui l'elemento corrente è una copia.</desc>
       <desc versionDate="2025-02-06" xml:lang="de">zeigt auf ein Element, von dem das aktuelle Element eine Kopie ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2005-10-10" xml:lang="en">
@@ -28173,7 +28164,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-06" xml:lang="es">indica el elemento siguiente de un agregado virtual del cual elemento actual es una parte.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素も所属する仮想集合における次の要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers l'élément suivant d'un ensemble virtuel dont l'élément en question est une partie.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">punta all'elemento seguente all'interno di un aggregazione virtuale di cui l'elemento corrente fa parte</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">punta all'elemento seguente all'interno di un aggregazione virtuale di cui l'elemento corrente fa parte.</desc>
       <desc versionDate="2025-02-06" xml:lang="de">zeigt auf das nächste Element innerhalb einer gedachten Gruppe, von der das betreffende Element ein Teil ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2017-05-02" xml:lang="en"><p>It is recommended that the element indicated be of the same type as the element bearing this attribute.</p></remarks>
@@ -28195,7 +28186,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素も所属する仮想集合における前の要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers l'élément précédent d'un ensemble virtuel auquel appartient l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala al elemento precedente de una adición virtual, de la cual el elemento corriente forma parte.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">punta all'elemento precedente all'interno di un aggregazione virtuale di cui l'elemento corrente fa parte</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">punta all'elemento precedente all'interno di un aggregazione virtuale di cui l'elemento corrente fa parte.</desc>
       <desc versionDate="2025-02-06" xml:lang="de">zeigt auf das vorherige Element innerhalb einer gedachten Gruppe, von der das betreffende Element ein Teil ist.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2017-05-02" xml:lang="en"><p>It is recommended that the element indicated be of the same type as the element bearing this attribute.</p></remarks>
@@ -28210,7 +28201,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素の代替要素を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">pointe vers des éléments qui sont une alternative exclusive à l'élément en question.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">señala los elementos que estan en relación de alternancia exclusiva con el elemento corriente.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">punta a elementi in relazione di alternanza esclusiva con l'elemento corrente</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">punta a elementi in relazione di alternanza esclusiva con l'elemento corrente.</desc>
       <desc versionDate="2025-02-06" xml:lang="de">zeigt auf Elemente, die eine exklusive Alternative zu dem aktuellen Element darstellen.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
     </attDef>
@@ -28225,7 +28216,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">ひとつ以上の選択肢を選ぶ。ひとつの選択肢が選ばれる場合、その曖昧 度や不確実度が示される。複数の選択肢が選ばれる場合、選ばれなかっ た選択肢の数から還元される、曖昧度や不確実度が示される。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">sélectionne une ou plusieurs valeurs alternatives ; si une seule valeur est sélectionnée, l'ambiguïté ou l'incertitude est marquée comme résolue. Si plus d'une valeur alternative est sélectionnée, le degré d'ambiguïté ou d'incertitude est marqué comme réduit par le nombre de valeurs alternatives non sélectionnées.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">selecciona una o más alternativas; si se selecciona una de las alternativas, la ambigüidad o la incerteza se indica como resuelta; si se selecciona más de una alternativa, el grado de ambigüidad o incerteza se indica como reducido del número de las alternativas no seleccionadas.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">seleziona una o più alternative; se viene selezionata una delle alternative, l'ambiguità o incertezza è indicata come risolta; se viene selezionata più di un'alternativa, il grado di ambiguità o incertezza è indicato come ridotto dal numero delle alternative non selezionate</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">seleziona una o più alternative; se viene selezionata una delle alternative, l'ambiguità o incertezza è indicata come risolta; se viene selezionata più di un'alternativa, il grado di ambiguità o incertezza è indicato come ridotto dal numero delle alternative non selezionate.</desc>
       <datatype maxOccurs="unbounded"><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2005-10-10" xml:lang="en">
         <p>This attribute should be placed on an element which is
@@ -28256,7 +28247,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">他の要素では上手く示せない、要素や一節間にある関連性やハイパーテキス トリンクを定義する。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit une association ou un lien hypertextuel entre des éléments ou des passages, lien dont le type ne peut être spécifié précisément par d'autres éléments.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define una asociación o vínculo hipertextual entre elementos o fragmentos de texto que no es especificable por otros elementos.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">definisce tra elementi o porzioni di testo un'associazione o legame ipertestuale non meglio specificabile da altri elementi</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">definisce tra elementi o porzioni di testo un'associazione o legame ipertestuale non meglio specificabile da altri elementi.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -28313,7 +28304,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">関連性やハイパーテキストリンクの集合を定義する。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">définit un ensemble d'associations ou de liens hypertextuels.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">define un conjunto de asociaciones o de vínculos hipertextuales.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">definisce una raccolta di associazioni o legami ipertestuali</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">definisce una raccolta di associazioni o legami ipertestuali.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -28427,7 +28418,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">任意の部分的テキスト単位を示す。特定の意味はなくとも、段落に相当する、 句レベル・挿入レベルの単位として無名単位になる。</desc>
   <desc versionDate="2009-10-05" xml:lang="fr">contient une unité de texte quelconque, de niveau <q>composant</q>, faisant office de contenant anonyme pour une expression ou des éléments de niveau intermédiaire, analogue à un paragraphe mais sans sa portée sémantique.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene cualquier unidad textual a nivel de componente que actua como un contenedor anónimo de sintagmas o de elementos de internivel similares al párrafo pero sin la carga semántica de este último.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una qualsiasi unità testuale a livello di componente che funge da contenitore anonimo di sintagmi o elementi interlivello simili al paragrafo ma senza il bagaglio semantico di quest'ultimo</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una qualsiasi unità testuale a livello di componente che funge da contenitore anonimo di sintagmi o elementi interlivello simili al paragrafo ma senza il bagaglio semantico di quest'ultimo.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -28491,7 +28482,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2022-05-09" xml:lang="ja">テキスト中のある地点に対して識別子を付与する。テキスト要素と対応するかは問われない。</desc>
   <desc versionDate="2009-10-06" xml:lang="fr">attache un identifiant à un point du texte, que ce point corresponde ou non à un élément textuel.</desc>
   <desc versionDate="2022-06-30" xml:lang="es">enlanza un indentificador con una posición al interno del texto, independientemente del hecho que esta corresponda o no a un elemento textual.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">aggancia un indentificatore a una posizione all'interno del testo indipendentemente dal fatto che questa corrisponda o meno a un elemento testuale</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">aggancia un indentificatore a una posizione all'interno del testo indipendentemente dal fatto che questa corrisponda o meno a un elemento testuale.</desc>
   <desc versionDate="2017-06-19" xml:lang="de">fügt an einer Stelle im Text eine Kennung ein, unabhängig von der Textstruktur.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -28555,7 +28546,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">任意の句レベルのテキスト単位を示す(要素segを含む)。</desc>
   <desc versionDate="2009-10-06" xml:lang="fr">contient une unité de texte quelconque de niveau <soCalled>segment</soCalled>.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">contiene cualquier unidad textual a nivel sintagmático (inclusive otros elementos de tipo seg.)</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">contiene una qualsiasi unità testuale a livello sintagmatico (ivi compresi altri elementi del tipo seg)</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">contiene una qualsiasi unità testuale a livello sintagmatico (ivi compresi altri elementi del tipo seg).</desc>
   <desc versionDate="2017-06-19" xml:lang="de">beschreibt Segmente eines Texts unterhalb des <soCalled>Chunk-Level</soCalled>.</desc>
   <classes>
     <memberOf key="att.global"/>
@@ -28661,7 +28652,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">同じ要素<gi>timeline</gi>中にある他の要素に対応する時点、または絶対 的な時点を示す。</desc>
   <desc versionDate="2009-10-06" xml:lang="fr">indique un point dans le temps, soit relatif à d'autres éléments de l'élément <gi>timeline</gi> dans lequel il est contenu, soit dans l'absolu.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">proporciona una indicación temporal en términos relativos respecto a otros elementos determinados sobre la misma escala temporal, o en términos absolutos.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">fornisce un'indicazione temporale in termini relativi, rispetto ad altri elementi determinati sulla stessa scala temporale, o in termini assoluti</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">fornisce un'indicazione temporale in termini relativi, rispetto ad altri elementi determinati sulla stessa scala temporale, o in termini assoluti.</desc>
   <classes>
     <memberOf key="att.global"/>
     </classes>
@@ -28674,7 +28665,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該時点の、絶対時間を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">contient une valeur temporelle absolue.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">proporciona un valor temporal absoluto</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica un valore temporale assoluto</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica un valore temporale assoluto.</desc>
       <datatype><dataRef key="teidata.temporal.w3c"/></datatype>
       <remarks versionDate="2009-07-13" xml:lang="en">
         <p>This attribute should always be specified on a <gi>when</gi> element which serves as the target for the <att>origin</att> attribute of a <gi>timeline</gi>. </p>
@@ -28736,7 +28727,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">時間幅を数値で示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">spécifie la partie numérique d'un intervalle de temps.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica los componentes numéricos de un intervalo temporal.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica la componente numerica di un intervallo temporale</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica la componente numerica di un intervallo temporale.</desc>
       <datatype><dataRef key="teidata.interval"/></datatype>
     </attDef>
     <attDef ident="since" usage="opt">
@@ -28746,7 +28737,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素<gi>when</gi>の時間となる参照時点を示す。参照時点に時間 幅を足すことで得られる。</desc>
       <desc versionDate="2009-10-06" xml:lang="fr">identifie le point de référence pour déterminer la date ou l'heure de l'élément courant <gi>when</gi> : cette date ou cette heure s'obtiennent en ajoutant la valeur de l'intervalle à la date du point de référence.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">identifica el punto de referencia para la determinación del valor temporal del elemento <gi>when</gi> (cuando) en cuestión, obtenido añadiendo el intervalo al punto de referencia temporal.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">identifica il punto di riferimento per la determinazione del valore temporale dell'elemento <gi>when</gi> corrente, ottenuto aggiungendo l'intervallo al punto di riferimento temporale</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">identifica il punto di riferimento per la determinazione del valore temporale dell'elemento <gi>when</gi> corrente, ottenuto aggiungendo l'intervallo al punto di riferimento temporale.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2013-11-19" xml:lang="en">
         <p>This attribute should point to another <gi>when</gi>
@@ -28801,7 +28792,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">時間的なまとまりを示すために、発話テキストの要素をリンクすることがで きる、時間軸上の順序付き時点の集合を示す。</desc>
   <desc versionDate="2009-04-17" xml:lang="fr">fournit un ensemble de points ordonnés dans le temps qui peuvent être liés à des éléments de la parole transcrite pour créer un alignement temporel de ce texte.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">indica una serie de puntos ordenados temporalmente los cuales pueden ser enlazados a los elementos de un texto hablado a fin de obtener un alineamiento temporal del texto mismo.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">indica una serie di punti ordinati temporalmente i quali possono essere collegati agli elementi di un testo parlato al fine di ottenere un allineamento temporale del testo stesso</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">indica una serie di punti ordinati temporalmente i quali possono essere collegati agli elementi di un testo parlato al fine di ottenere un allineamento temporale del testo stesso.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -28820,7 +28811,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">時間軸の起点示す。すなわち、始点の時間。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">désigne le début de la frise chronologique, c'est-à-dire le moment où elle commence.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el origen de la escala temporal, es decir, el momento en que inicia.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica l'origine della scala temporale, cioè il momento in cui ha inizio</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica l'origine della scala temporale, cioè il momento in cui ha inizio.</desc>
       <datatype><dataRef key="teidata.pointer"/></datatype>
       <remarks versionDate="2013-11-21" xml:lang="en">
         <p>If this attribute is not supplied, the implication is that
@@ -28839,7 +28830,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">時間軸を構成する属性<att>interval</att>の値に対応する、時間単位 を特定する。</desc>
       <desc versionDate="2009-04-17" xml:lang="fr">spécifie l'unité de temps correspondant à la valeur de l'attribut <att>interval</att> de la frise chronologique ou des points temporels qui la constituent.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica la unidad temporal correspondiente al valor del atributo <att>interval</att> (intervalo) de la escala temporal o de sus puntos constitutivos.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica l'unità temporale corrispondente al valore dell'attributo <att>interval</att> della scala temporale o dei suoi punti costitutivi</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">specifica l'unità temporale corrispondente al valore dell'attributo <att>interval</att> della scala temporale o dei suoi punti costitutivi.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <valList type="semi">
         <valItem ident="d">
@@ -28882,7 +28873,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">間隔を表す数値を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">spécifie la partie numérique d'un intervalle de temps.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica los componentes numéricos de un intervalo de tiempo.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica la componente numerica di un intervallo temporale</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica la componente numerica di un intervallo temporale.</desc>
       <datatype><dataRef key="teidata.interval"/></datatype>
       <remarks versionDate="2005-10-12" xml:lang="en">
         <p>The value <val>irregular</val> indicates uncertainty about all the intervals in the timeline; the value <val>regular</val> indicates that all the intervals are evenly spaced, but the size of the intervals is not known; numeric values indicate evenly spaced values of the size specified. If individual points in time in the timeline are given different values for the <att>interval</att> attribute, those values locally override the value given in the timeline.</p>
@@ -28933,7 +28924,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">バラバラにあるテキスト部分を参照し、ひとつのテキスト部分を指定する。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">identifie un segment de texte, qui peut être fragmenté, en pointant vers les éléments éventuellement dispersés qui le composent.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">identifica un segmento o fragmento de texto señalando eventuales elementos no contiguos que lo componen.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">identifica un segmento o frammento di testo puntando ad eventuali elementi non contigui che lo compongono</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">identifica un segmento o frammento di testo puntando ad eventuali elementi non contigui che lo compongono.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -28964,7 +28955,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素によりまとめられる要素名を示す。</desc>
       <desc versionDate="2009-10-06" xml:lang="fr">spécifie le nom de l'élément que cette agrégation est censée former.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">indica el nombre del elemento representado por el conjunto de identificadores en cuestión.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica il nome dell'elemento rappresentato dall'insieme di identificatori in questione</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica il nome dell'elemento rappresentato dall'insieme di identificatori in questione.</desc>
       <datatype><dataRef key="teidata.name"/></datatype>
     </attDef>
     <attDef ident="scope" usage="rec">
@@ -28974,7 +28965,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">まとめられる対象が、要素全体(すなわち当該要素をルートとする部分 木全体)、またはその子要素(すなわち部分木の枝)であるかどうかを示 す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">indique si les cibles à réunir incluent l'intégralité de l'élément indiqué (le sous-arbre entier y compris sa racine) ou seulement les enfants de la cible (les branches du sous-arbre).</desc>
       <desc versionDate="2007-05-04" xml:lang="es">especifica si las metas a enlazar incluyen el elemento entero indicado (el árbol entero con la raíz inclusive) o sólo los elementos que tienen como padre la misma meta (las ramas del árbol).</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">specifica se le destinazioni da collegare includono l'intero elemento indicato (l'intero albero compresa la radice) oppure solo gli elementi che hanno come genitore la stessa destinazione (i rami dell'albero)</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">specifica se le destinazioni da collegare includono l'intero elemento indicato (l'intero albero compresa la radice) oppure solo gli elementi che hanno come genitore la stessa destinazione (i rami dell'albero).</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>root</defaultVal>
       <valList type="closed">
@@ -28985,7 +28976,7 @@ reserved for the element likely to be used more often.</p>
           <desc versionDate="2008-04-06" xml:lang="es">las subárboles arraigados indicados por los atributos target</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">属性で示された根付き部分木がまとめられ、各部分木は、当該要素 で作られた仮想要素の子となる。</desc>
           <desc versionDate="2009-10-06" xml:lang="fr">les sous-arbres dotés de leur racine qui sont désignés par l'attribut <att>target</att> sont joints ; chaque sous-arbre devient un fils de l'élément virtuel créé par la jointure.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">gli alberi dotati di radice e indicati dall'attributo delle destinazioni sono collegati e ogni albero diventa un discendente dell'elemento virtuale ottenuto dal collegamento</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">gli alberi dotati di radice e indicati dall'attributo delle destinazioni sono collegati e ogni albero diventa un discendente dell'elemento virtuale ottenuto dal collegamento.</desc>
         </valItem>
         <valItem ident="branches">
           <desc versionDate="2007-06-27" xml:lang="en">the children of the subtrees indicated by the <att>target</att> attribute become the children of the virtual element (i.e. the roots of the subtrees are discarded)</desc>
@@ -28994,7 +28985,7 @@ reserved for the element likely to be used more often.</p>
           <desc versionDate="2008-04-06" xml:lang="es">los hijos de los sub-árboles indicados por el atributo de los target se inician con los hijos del elemento virtual (es decir, las raíces de los sub-árboles se desechan)</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">属性で示された部分木の子は、仮想要素の子となる(すなわち、当 該部分木の根は捨てられる。</desc>
           <desc versionDate="2009-10-06" xml:lang="fr">les fils des sous-arbres désignés par l'attribut <att>target</att> deviennent les fils de l'élément virtuel (c'est-à-dire que les racines des sous-arbres disparaissent).</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">i discendenti degli alberi indicati dall'attributo delle destinazioni diventano i discendenti dell'elemento virtuale (cioè vengono rimosse le radici dei vari alberi)</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">i discendenti degli alberi indicati dall'attributo delle destinazioni diventano i discendenti dell'elemento virtuale (cioè vengono rimosse le radici dei vari alberi).</desc>
         </valItem>
       </valList>
     </attDef>
@@ -29136,7 +29127,7 @@ reserved for the element likely to be used more often.</p>
   <desc versionDate="2008-04-05" xml:lang="ja">要素joinやポインタをまとめる。</desc>
   <desc versionDate="2007-06-12" xml:lang="fr">regroupe une collection d'éléments <gi>join</gi> ainsi que, éventuellement, des pointeurs.</desc>
   <desc versionDate="2007-05-04" xml:lang="es">agrupa un conjunto de elementos de enlace a eventuales señalizadores.</desc>
-  <desc versionDate="2007-01-21" xml:lang="it">raggruppa un insieme di elementi di collegamento ed eventuali puntatori</desc>
+  <desc versionDate="2007-01-21" xml:lang="it">raggruppa un insieme di elementi di collegamento ed eventuali puntatori.</desc>
   <classes>
     <memberOf key="att.global"/>
     <memberOf key="att.cmc"/>
@@ -29164,7 +29155,7 @@ reserved for the element likely to be used more often.</p>
       <desc versionDate="2008-04-05" xml:lang="ja">当該要素でまとめられた要素joinを示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">décrit le résultat produit par le rassemblement dans cette collection des éléments <gi>join</gi>.</desc>
       <desc versionDate="2007-05-04" xml:lang="es">describe el resultado de los enlaces agrupados en tal conjunto.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">descrive il risultato dei collegamenti raggruppati in tale insieme</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">descrive il risultato dei collegamenti raggruppati in tale insieme.</desc>
       <datatype><dataRef key="teidata.name"/></datatype>
     </attDef>
   </attList>
@@ -30920,7 +30911,7 @@ either a single role or a list of non-speaking roles.</desc>
       <desc versionDate="2008-04-06" xml:lang="es">caracteriza el elemento del reparto.</desc>
       <desc versionDate="2008-04-05" xml:lang="ja">当該項目の種類を示す。</desc>
       <desc versionDate="2007-06-12" xml:lang="fr">caractérise le personnage.</desc>
-      <desc versionDate="2007-01-21" xml:lang="it">indica la voce della lista dei personaggi</desc>
+      <desc versionDate="2007-01-21" xml:lang="it">indica la voce della lista dei personaggi.</desc>
       <datatype><dataRef key="teidata.enumerated"/></datatype>
       <defaultVal>role</defaultVal>
       <valList type="closed">
@@ -31367,7 +31358,7 @@ young man would present to his lady love. It makes me blush!
           <desc versionDate="2008-04-06" xml:lang="es">el personaje se mueve en la escena</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">登場人物が舞台上で移動する。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">le personnage se déplace sur scène.</desc>
-          <desc versionDate="2007-11-06" xml:lang="it">il personaggio si muove sulla scena</desc>
+          <desc versionDate="2007-11-06" xml:lang="it">il personaggio si muove sulla scena.</desc>
         </valItem>
       </valList>
     </attDef>
@@ -31394,7 +31385,7 @@ young man would present to his lady love. It makes me blush!
           <desc versionDate="2008-04-06" xml:lang="es">izquierda del escenario</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">上手。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">côté cour (à gauche).</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">lato sinistro della scena</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">lato sinistro della scena.</desc>
         </valItem>
         <valItem ident="R">
           <gloss versionDate="2007-07-04" xml:lang="en">right</gloss>
@@ -31408,7 +31399,7 @@ young man would present to his lady love. It makes me blush!
           <desc versionDate="2008-04-06" xml:lang="es">la derecha del escenario</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">下手。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">côté jardin (à droite).</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">lato destro della scena</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">lato destro della scena.</desc>
         </valItem>
         <valItem ident="C">
           <gloss versionDate="2007-07-04" xml:lang="en">center</gloss>
@@ -31422,7 +31413,7 @@ young man would present to his lady love. It makes me blush!
           <desc versionDate="2008-04-06" xml:lang="es">centro del escenario</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">舞台中央。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">milieu de scène</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">centro della scena</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">centro della scena.</desc>
         </valItem>
       </valList>
       <remarks versionDate="2020-02-12" xml:lang="en">
@@ -31926,7 +31917,7 @@ meant for the actors.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">una señal de iluminación</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">照明への指示。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">signal lumineux.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">un segnale luminoso</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">un segnale luminoso.</desc>
         </valItem>
         <valItem ident="sound">
           <desc versionDate="2007-06-27" xml:lang="en">a sound cue</desc>
@@ -31935,7 +31926,7 @@ meant for the actors.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">una señal de sonido</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">音響効果への指示。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">signal sonore</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">un segnale sonoro</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">un segnale sonoro.</desc>
         </valItem>
         <valItem ident="prop">
           <desc versionDate="2007-06-27" xml:lang="en">a prop cue</desc>
@@ -31944,7 +31935,7 @@ meant for the actors.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">una señal de apoyo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">小道具への指示。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">indication d'accessoires</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">un battuta d'entrata</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">un battuta d'entrata.</desc>
         </valItem>
         <valItem ident="block">
           <desc versionDate="2007-06-27" xml:lang="en">a blocking instruction</desc>
@@ -31953,7 +31944,7 @@ meant for the actors.</desc>
           <desc versionDate="2008-04-06" xml:lang="es">una instrucción de bloqueo</desc>
           <desc versionDate="2008-04-05" xml:lang="ja">振り付けの指示。</desc>
           <desc versionDate="2008-03-30" xml:lang="fr">indication des marques.</desc>
-          <desc versionDate="2007-01-21" xml:lang="it">un indicazione di arresto</desc>
+          <desc versionDate="2007-01-21" xml:lang="it">un indicazione di arresto.</desc>
         </valItem>
       </valList>
     </attDef>

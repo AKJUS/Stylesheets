@@ -1425,7 +1425,7 @@ Suggested values include: 1] sole; 2] major; 3] minor</a:documentation>
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 context="tei:*[ starts-with( @spanTo, '#') ]">
          <sch:assert test="id( substring( @spanTo, 2 ) ) &gt;&gt; .">
-	      The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow the current <sch:name/> element 
+              The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow the current <sch:name/> element 
             </sch:assert>
       </sch:rule>
    </pattern>
@@ -4586,6 +4586,7 @@ Suggested values include: 1] deprecationInfo (deprecation information)</a:docume
          <ref name="t_att.cReferencing.attributes"/>
          <ref name="t_att.cmc.attributes"/>
          <ref name="t_att.declaring.attributes"/>
+         <ref name="t_att.placement.attributes"/>
          <ref name="t_att.pointing.attributes"/>
          <ref name="t_att.typed.attributes"/>
          <empty/>

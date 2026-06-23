@@ -5696,6 +5696,7 @@
             "att.cReferencing",
             "att.cmc",
             "att.declaring",
+            "att.placement",
             "att.pointing",
             "att.typed" ],
           "unknown" : 
@@ -14506,8 +14507,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2008-09-10\" xml:lang=\"en\">indicates the size of the object concerned using a project-specific vocabulary combining\n        quantity and units in a single string of words.<\/desc>" ],
-              "shortDesc" : "indicates the size of the object concerned using a project-specific vocabulary combining\n        quantity and units in a single string of words.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2008-09-10\" xml:lang=\"en\">indicates the size of the object concerned using a project-specific vocabulary combining quantity and units in a single string of words.<\/desc>" ],
+              "shortDesc" : "indicates the size of the object concerned using a project-specific vocabulary combining quantity and units in a single string of words.",
               "gloss" : 
               [  ],
               "altIdent" : 
@@ -14546,8 +14547,8 @@
               "ns" : "",
               "usage" : "opt",
               "desc" : 
-              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2008-09-10\" xml:lang=\"en\">where the measurement summarizes more than one observation, specifies the applicability\n        of this measurement.<\/desc>" ],
-              "shortDesc" : "where the measurement summarizes more than one observation, specifies the applicability\n        of this measurement.",
+              [ "<desc xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" versionDate=\"2008-09-10\" xml:lang=\"en\">where the measurement summarizes more than one observation, specifies the applicability of this measurement.<\/desc>" ],
+              "shortDesc" : "where the measurement summarizes more than one observation, specifies the applicability of this measurement.",
               "gloss" : 
               [  ],
               "altIdent" : 

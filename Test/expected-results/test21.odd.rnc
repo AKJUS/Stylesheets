@@ -882,7 +882,7 @@ sch:pattern [
     sch:assert [
       test = "id( substring( @spanTo, 2 ) ) >> ."
       "\x{a}" ~
-      "	      The element indicated by @spanTo ("
+      "              The element indicated by @spanTo ("
       sch:value-of [ select = "@spanTo" ]
       ") must follow the current "
       sch:name [ ]
@@ -2841,6 +2841,7 @@ gloss =
     att.cReferencing.attributes,
     att.cmc.attributes,
     att.declaring.attributes,
+    att.placement.attributes,
     att.pointing.attributes,
     att.typed.attributes,
     empty
@@ -5077,6 +5078,7 @@ org =
       | link)*,
      model.personLike*),
     att.global.attributes,
+    att.datable.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
     att.typed.attributes,
@@ -5095,6 +5097,7 @@ person =
   element person {
     (model.pLike+ | (model.personPart | model.global | model.ptrLike)*),
     att.global.attributes,
+    att.datable.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
     
@@ -5176,7 +5179,9 @@ personGrp =
     
     ## précise le rôle joué par ce groupe de personnes dans l'interaction.
     attribute role {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      list {
+        xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+      }
     }?,
     
     ## précise le sexe du groupe participant.
@@ -5258,6 +5263,7 @@ place =
       | link)*,
      (model.placeLike | listPlace)*),
     att.global.attributes,
+    att.datable.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
     att.typed.attributes,
@@ -8300,16 +8306,20 @@ att.coordinated.attribute.points =
   attribute points {
     list {
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       },
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       },
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       },
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       }*
     }
   }?
@@ -8504,13 +8514,16 @@ path =
     attribute points {
       list {
         xsd:token {
-          pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+          pattern =
+            "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
         },
         xsd:token {
-          pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+          pattern =
+            "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
         },
         xsd:token {
-          pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+          pattern =
+            "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
         }*
       }
     }?,
@@ -8587,7 +8600,7 @@ addSpan =
            sch:assert [
              test = "id( substring( @spanTo, 2 ) ) >> ."
              "\x{a}" ~
-             "	      The element indicated by @spanTo ("
+             "              The element indicated by @spanTo ("
              sch:value-of [ select = "@spanTo" ]
              ") must follow the current "
              sch:name [ ]

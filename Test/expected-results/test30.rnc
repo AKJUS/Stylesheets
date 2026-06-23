@@ -900,7 +900,7 @@ sch:pattern [
     sch:assert [
       test = "id( substring( @spanTo, 2 ) ) >> ."
       "\x{a}" ~
-      "	      The element indicated by @spanTo ("
+      "              The element indicated by @spanTo ("
       sch:value-of [ select = "@spanTo" ]
       ") must follow the current "
       sch:name [ ]
@@ -2734,6 +2734,7 @@ Tgloss =
     Tatt.cReferencing.attributes,
     Tatt.cmc.attributes,
     Tatt.declaring.attributes,
+    Tatt.placement.attributes,
     Tatt.pointing.attributes,
     Tatt.typed.attributes,
     empty
@@ -6096,6 +6097,7 @@ Torg =
       | Tlink)*,
      Tmodel.personLike*),
     Tatt.global.attributes,
+    Tatt.datable.attributes,
     Tatt.editLike.attributes,
     Tatt.sortable.attributes,
     Tatt.typed.attributes,
@@ -6115,6 +6117,7 @@ Tperson =
     (Tmodel.pLike+
      | (Tmodel.personPart | Tmodel.global | Tmodel.ptrLike)*),
     Tatt.global.attributes,
+    Tatt.datable.attributes,
     Tatt.editLike.attributes,
     Tatt.sortable.attributes,
     
@@ -6191,7 +6194,9 @@ TpersonGrp =
     
     ## specifies the role of this group of participants in the interaction.
     attribute role {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      list {
+        xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+      }
     }?,
     
     ## specifies the sex of the participant group.
@@ -6273,6 +6278,7 @@ Tplace =
       | Tlink)*,
      (Tmodel.placeLike | TlistPlace)*),
     Tatt.global.attributes,
+    Tatt.datable.attributes,
     Tatt.editLike.attributes,
     Tatt.sortable.attributes,
     Tatt.typed.attributes,
@@ -6673,16 +6679,20 @@ Tatt.coordinated.attribute.points =
   attribute points {
     list {
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       },
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       },
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       },
       xsd:token {
-        pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+        pattern =
+          "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
       }*
     }
   }?
@@ -6878,13 +6888,16 @@ Tpath =
     attribute points {
       list {
         xsd:token {
-          pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+          pattern =
+            "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
         },
         xsd:token {
-          pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+          pattern =
+            "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
         },
         xsd:token {
-          pattern = "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?)"
+          pattern =
+            "(-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?(,-?[0-9]+(\.[0-9]+)?)?)"
         }*
       }
     }?,

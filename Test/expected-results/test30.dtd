@@ -2125,6 +2125,7 @@ datum %teidata.enumerated;  "WGS84"  >
  %Tatt.cReferencing.attributes;
  %Tatt.cmc.attributes;
  %Tatt.declaring.attributes;
+ %Tatt.placement.attributes;
  %Tatt.pointing.attributes;
  %Tatt.typed.attributes; >
 <!--doc:(graphic) indicates the location of a graphic or illustration, either forming part of a text, or providing an image of it. [3.10. Graphics and Other Non-textual Components 12.1. Digital Facsimiles] -->
@@ -2709,6 +2710,7 @@ code %teidata.pointer;  #IMPLIED >
 <!ATTLIST org xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST org
  %Tatt.global.attributes;
+ %Tatt.datable.attributes;
  %Tatt.editLike.attributes;
  %Tatt.sortable.attributes;
  %Tatt.typed.attributes;
@@ -2784,6 +2786,7 @@ value NMTOKENS  #IMPLIED >
 <!ATTLIST person xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST person
  %Tatt.global.attributes;
+ %Tatt.datable.attributes;
  %Tatt.editLike.attributes;
  %Tatt.sortable.attributes;
 role NMTOKENS  #IMPLIED
@@ -2796,7 +2799,7 @@ age %teidata.enumerated;  #IMPLIED >
 <!ATTLIST personGrp
  %Tatt.global.attributes;
  %Tatt.sortable.attributes;
-role %teidata.enumerated;  #IMPLIED
+role NMTOKENS  #IMPLIED
 sex CDATA  #IMPLIED
 gender CDATA  #IMPLIED
 age %teidata.enumerated;  #IMPLIED
@@ -2817,6 +2820,7 @@ age %teidata.enumerated;  #IMPLIED >
 <!ATTLIST place xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST place
  %Tatt.global.attributes;
+ %Tatt.datable.attributes;
  %Tatt.editLike.attributes;
  %Tatt.sortable.attributes;
  %Tatt.typed.attributes; >

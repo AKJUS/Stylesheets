@@ -890,7 +890,7 @@ sch:pattern [
     sch:assert [
       test = "id( substring( @spanTo, 2 ) ) >> ."
       "\x{a}" ~
-      "	      The element indicated by @spanTo ("
+      "              The element indicated by @spanTo ("
       sch:value-of [ select = "@spanTo" ]
       ") must follow the current "
       sch:name [ ]
@@ -2464,6 +2464,7 @@ tei_gloss =
     tei_att.cReferencing.attributes,
     tei_att.cmc.attributes,
     tei_att.declaring.attributes,
+    tei_att.placement.attributes,
     tei_att.pointing.attributes,
     tei_att.typed.attributes,
     empty

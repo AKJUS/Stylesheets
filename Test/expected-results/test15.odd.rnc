@@ -881,7 +881,7 @@ sch:pattern [
     sch:assert [
       test = "id( substring( @spanTo, 2 ) ) >> ."
       "\x{a}" ~
-      "	      The element indicated by @spanTo ("
+      "              The element indicated by @spanTo ("
       sch:value-of [ select = "@spanTo" ]
       ") must follow the current "
       sch:name [ ]
@@ -2475,6 +2475,7 @@ gloss =
     att.cReferencing.attributes,
     att.cmc.attributes,
     att.declaring.attributes,
+    att.placement.attributes,
     att.pointing.attributes,
     att.typed.attributes,
     empty
@@ -6958,6 +6959,7 @@ org =
       | link)*,
      model.personLike*),
     att.global.attributes,
+    att.datable.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
     att.typed.attributes,
@@ -6976,6 +6978,7 @@ person =
   element person {
     (model.pLike+ | (model.personPart | model.global | model.ptrLike)*),
     att.global.attributes,
+    att.datable.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
     
@@ -7052,7 +7055,9 @@ personGrp =
     
     ## specifies the role of this group of participants in the interaction.
     attribute role {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+      list {
+        xsd:token { pattern = "[^\p{C}\p{Z}]+" }+
+      }
     }?,
     
     ## specifies the sex of the participant group.
@@ -7134,6 +7139,7 @@ place =
       | link)*,
      (model.placeLike | listPlace)*),
     att.global.attributes,
+    att.datable.attributes,
     att.editLike.attributes,
     att.sortable.attributes,
     att.typed.attributes,
